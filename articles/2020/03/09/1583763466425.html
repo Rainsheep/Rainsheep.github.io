@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Linux 学习笔记 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Linux 学习笔记 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2020/03/09/1583763466425.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="Linux 学习笔记 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2020/03/09/1583763466425.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="Spring 学习笔记" href="https://Rainsheep.github.io/articles/2020/03/08/1583653357274.html">
+            <link rel="next" title="SpringMVC 学习笔记" href="https://Rainsheep.github.io/articles/2020/03/10/1583771477763.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2020年">
+                        03月
+                        <span class="item__day">09</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2020/03/09/1583763466425.html">
+                            Linux 学习笔记
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2020-03-09
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/Linux">
+                                Linux</a>,
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">
+                                学习笔记</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2020/03/09/1583763466425.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1583763466425">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2020/03/09/1583763466425.html">0</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <h1 id="vim的三种模式">vim的三种模式</h1>
+<h2 id="正常模式">正常模式</h2>
+<p>以vim打开一个档案就直接进入一般模式了（这是默认的模式）在这个模式中，你可以使用<br>
+『上下左右』按键来移动光标，你可以使用『删除字符』或『删除整行』来处理档案内容，<br>
+也可以使用『复制、粘贴』来处理你的文件数据。</p>
+<h2 id="插入模式">插入模式</h2>
+<p>按下i,l,o,O,a,A,r,R等任何一个字母之后才会进入编辑模式，一般来说按i即可，插入模式无法使用快捷键</p>
+<h2 id="命令行模式">命令行模式</h2>
+<p>在这个模式当中，可以提供你相关指令，完成读取、存盘、替换、离开vim、显示行号等的动作则是在此模式中达成的！</p>
+<h2 id="命令行-正常模式">命令行→正常模式</h2>
+<p>vim xxx进入正常模式，例如vim Hello.java</p>
+<h2 id="正常模式-命令行模式">正常模式→命令行模式</h2>
+<p>输入:或者/跟命令就行，例如:wq</p>
+<h2 id="命令行模式-正常模式">命令行模式→正常模式</h2>
+<p>按ESC</p>
+<h2 id="正常模式-插入模式">正常模式→插入模式</h2>
+<p>按i或者a即可</p>
+<h2 id="插入模式-正常模式">插入模式→正常模式</h2>
+<p>按ESC</p>
+<h2 id="-q--wq--q-三者的区别">:q :wq :q!三者的区别</h2>
+<p>:q退出(未修改)  :wq(保存修改并退出) :q!(修改了但不想保存)</p>
+<h1 id="vi和vim常用快捷键">vi和vim常用快捷键</h1>
+<p>复制当前行	yy<br>
+拷贝当前行向下的5行	5yy<br>
+粘贴	p<br>
+删除当前行	dd<br>
+删除当前行向下的5行	5dd<br>
+撤销上一步操作	u<br>
+恢复被撤销的操作	ctrl+r<br>
+查找	/关键字，按n下一个<br>
+显示行号	:set nu<br>
+隐藏行号	:set nonu<br>
+最末行	G<br>
+最首行	gg<br>
+跳到某行	先输入数字n，然后按shift+g即可</p>
+<h2 id="设置vim默认显示行号">设置vim默认显示行号</h2>
+<pre><code class="highlight-chroma">vim /etc/vimrc
+最后一行加上set nu
+:wq写入退出即可
+</code></pre>
+<h2 id="误按ctrl-z的解决方案">误按ctrl+z的解决方案</h2>
+<p>ctrl+z是强制将进程加入后台运行，终端输入fg即可调出后台进程</p>
+<h2 id="xhsell中右边小键盘数字键无法使用">xhsell中右边小键盘数字键无法使用</h2>
+<p>选择连接，点击属性，将终端中的终端类型选择为linux</p>
+<h1 id="关机-重启">关机&amp;重启</h1>
+<h2 id="shutdown">shutdown</h2>
+<p>shutdown -h now	立即关机<br>
+shutdown -h 1	1分钟后关机<br>
+shutdown -r now	立即重启</p>
+<h2 id="halt">halt</h2>
+<p>直接使用，等价于关机</p>
+<p>shutdown	安全关机，root用户使用，关机且关闭电源<br>
+halt	关机不关闭电源，普通用户使用<br>
+init 0	关机或重启的本质都是修改运行级别，root用户使用</p>
+<h2 id="poweroff">poweroff</h2>
+<p>关机，多用户方式runlevel3下不建议使用</p>
+<h2 id="reboot">reboot</h2>
+<p>重启</p>
+<h2 id="sync">sync</h2>
+<p>把内存数据写入磁盘,关机或者重启时都应该先执行该指令，防止数据丢失</p>
+<h1 id="用户管理">用户管理</h1>
+<p>useradd name	添加用户<br>
+useradd -d 指定目录 新的用户名	给新创建的用户指定家目录<br>
+userad -g 用户组 用户名<br>
+passwd name	给用户指定密码<br>
+userdel name	删除用户<br>
+userdel -r name	删除用户并且删除对应的home目录<br>
+id name	查询用户信息<br>
+su - name	切换用户<br>
+exit	返回用户<br>
+groupadd name	增加组<br>
+groupdel name	删除组<br>
+usermod -g 用户组 用户名	修改用户组</p>
+<h1 id="运行级别">运行级别</h1>
+<p>0：关机<br>
+1：单用户【找回丢失密码】<br>
+2：多用户状态没有网络模式<br>
+3：多用户状态有网络模式<br>
+4：系统未使用保留给用户<br>
+5：图形界面<br>
+6：系统重启<br>
+常用运行级别是3和5，要修改默认的运行级别可修改文件/etc/inittab的id:5:initdefault:这一行的数字<br>
+修改运行级别用init n</p>
+<h2 id="找回root用户">找回root用户</h2>
+<p>思路：进入单用户模式(run level 1)，修改root密码，因为进入单用户模式，root不需要尼玛就可以登录。<br>
+开机→引导时输入回车→看到一个界面输入e→看到一个新的界面，选中第二行(kernel)，输入e→在这行最后输入 1，再输入回车→进入单用户模式→输入passwd root修改密码。</p>
+<h1 id="帮助指令">帮助指令</h1>
+<p>man [命令指令或配置文件]	获取帮助信息<br>
+help 命令	获得shell内置命令的帮助信息</p>
+<h1 id="文件目录类指令">文件目录类指令</h1>
+<p>pwd	显示当前工作目录的绝对路径</p>
+<p>ls [选项] [目录模式文件]<br>
+-a	显示当前目录的所有文件和目录，包括隐藏文件<br>
+-l	以列表的方式显示信息</p>
+<p>mkdir [选项] 要创建的目录<br>
+-p	创建多级目录</p>
+<p>rmdir [选项] 要删除的空目录<br>
+rm -rf 目录	删除非空目录</p>
+<p>rm [选项] 要删除的文件或目录<br>
+-r	递归删除整个文件夹<br>
+-f	强制删除不提示</p>
+<p>touch 文件名称	创建空文件 ，可以一次创建多文件</p>
+<p>cp [选项] source dest	拷贝文件到指定目录<br>
+-r	递归复制整个文件夹<br>
+\cp	表示覆盖复制</p>
+<p>mv 当前文件或目录 目的文件或目录	移动文件与目录或重命名</p>
+<p>cat [选项] 要查看的文件	查看文件内容,只能读，不能改<br>
+-n	显示行号<br>
+cat [选项] 要查看的文件 | more	分页显示，空格下一页</p>
+<p>more 要查看的文件	它以全屏幕的方式按页显示文本文件的内容<br>
+内置快捷键<br>
+space	向下翻一页<br>
+enter	向下一行<br>
+q	退出more<br>
+ctrl+b	返回上一屏<br>
+ctrl+f	向下滚动一屏<br>
+=	输出当前行号<br>
+:f	输出文件名和当前行的行号</p>
+<p>less 要查看的文件	用来分屏查看文件内容，它的功能与more指令类似，但是比more指令更加强大。并不是一次将整个文件加载之后才显示，而是根据显示需要加载内容，对于显示大型文件具有较高的效率。<br>
+内置快捷键<br>
+space	向下翻动一页<br>
+[pagedown]	向下翻动一页<br>
+[pageup]	向上翻动一页<br>
+/子串	向下搜索子串功能，n向下查找，N向上查找<br>
+?子串	向上搜索子串功能，n向上查找，N向下查找<br>
+q	离开这个less</p>
+<p>&gt;指令和&gt;&gt;指令	&gt;输出重定向，&gt;&gt;追加<br>
+ls -l &gt; 文件	列表的内容写入文件中（覆盖写）<br>
+ls -al &gt;&gt; 文件	列表的内容追加到文件的末尾<br>
+cat 文件1 &gt; 文件2	将文件1的内容覆盖到文件2<br>
+echo "内容" &gt;&gt; 文件	将内容追加到文件</p>
+<p>echo [选项] [输出内容]	输出内容到控制台</p>
+<p>head 文件	查看文件头10行内容<br>
+head -n 5 文件	查看文件头5行内容，5可以是任意行数</p>
+<p>tail 文件	查看文件后10行内容<br>
+tail -n 5 文件	查看文件后5行内容，5可以是任意行数<br>
+tail -f 文件	实时追踪该文档的所有更新</p>
+<p>ln -s 原文件或目录 软链接名	功能描述给原文件创建一个软链接,-s表示软连接，不带s为硬链接，都保持同步更新</p>
+<p>history	查看已经执行过的历史命令<br>
+history 10	显示最近使用过的10个命令，10可以是任意数字<br>
+!10	重新执行历史编号为10的指令</p>
+<h1 id="时间日期类相关指令">时间日期类相关指令</h1>
+<p>date	显示当前时间<br>
+date "+%Y-%m-%d %H:%M:%S"	显示年月日时分秒，中间连接符自定义，前面需要带上+号<br>
+date -s "2018-10-10 11:22:22"	设置系统时间</p>
+<p>cal [选项]	不加选项，显示本月日历<br>
+cal 2020	显示2020年的日历</p>
+<h1 id="搜索查找类指令">搜索查找类指令</h1>
+<p>find [搜索范围] [选项]	find指令将从指定目录向下递归地遍历其各个子目录，将满足条件的文件或者目录显示在终端。<br>
+选项说明<br>
+-name	按照指定的文件名查找模式查找文件	<br>
+find / -name test.txt<br>
+-user	查找属于指定用户名所有文件		<br>
+find / -user root<br>
+-size	按照指定的文件大小查找文件（+n大于 -n小于 n等于）<br>
+find / -size +20M</p>
+<p>locate指令<br>
+locate 搜索文件</p>
+<p>​	locate指令可以快速定位文件路径,由于 locate指令基于数据库进行查询，所以第一次运行前，必须使用 updatedb指令创建 locate数据库。</p>
+<p>grep指令和管道符号|<br>
+grep过滤查找，管道符|，表示将前一个命令的处理结果输出传递给后面的命令处理。<br>
+grep [选项] 查找内容 源文件<br>
+-n	显示匹配行及行号<br>
+-i	忽略字母大小写<br>
+例如 cat test.txt | grep -n yes   查找yes</p>
+<h1 id="压缩和解压缩">压缩和解压缩</h1>
+<p>gzip 文件名	用于压缩文件，压缩完以后自动删除源文件,用于.gz格式<br>
+gunzip 文件.gz	用于解压文件</p>
+<p>zip [选项] name.zip 要压缩的内容<br>
+-r	递归压缩，压缩目录<br>
+unzip [选项] name.zip<br>
+-d&lt;目录&gt;	指定解压后文件的存放目录</p>
+<p>tar指令<br>
+是打包指令，最后打包后的文件是tar.gz的文件。<br>
+tar [选项] name.tar.gz 打包的内容<br>
+-c	产生.tar打包文件<br>
+-v	显示详细信息<br>
+-f	指定压缩后的文件名<br>
+-z	打包同时压缩<br>
+-x	解包.tar文件	<br>
+tar -zcvf name.tar.gz a1.txt a2.txt	压缩文件<br>
+tar -zcvf name.tar.gz /home	压缩目录<br>
+tar -zxvf name.tar.gz	解压到当前目录<br>
+tar -zxvf name.tar.gz -C /目录	解压到指定目录</p>
+<h1 id="组管理和权限管理">组管理和权限管理</h1>
+<p>chown 用户名 文件名	修改文件所有者</p>
+<p>groupadd 组名	创建组</p>
+<p>chgrp 组名 文件名	修改文件所在组</p>
+<p>usermod -g 组名 用户名	修改用户所在组</p>
+<p>usermod -d 目录名 用户名	改变用户登录的初始目录</p>
+<h1 id="权限详解">权限详解</h1>
+<h2 id="权限介绍">权限介绍</h2>
+<p>-rwxrw-r-- 1 root root 1213 Feb 2 09:39 abc.txt</p>
+<p>0-9 位说明<br>
+1)第 0 位确定文件类型(d目录, -文件 , l 软连接, c字符设备，键盘鼠标 , b块文件，硬盘)<br>
+2)第 1-3 位确定所有者（该文件的所有者）拥有该文件的权限。---User<br>
+3)第 4-6 位确定所属组（同用户组的）拥有该文件的权限，---Group<br>
+4)第 7-9 位确定其他用户拥有该文件的权限 ---Other<br>
+5)如果是文件，表示硬链接数目，如果是目录，代表子目录个数（默认包含当前目录.和上级目录..）<br>
+6)后面两个代表文件所有者和文件所在组<br>
+7)代表文件大小，单位字节，目录为4096字节<br>
+8)最后修改时间<br>
+9)文件名字</p>
+<h2 id="rwx权限详解">rwx权限详解</h2>
+<p>r：文件中可以读取查看，目录中可以ls查看目录内容<br>
+w:文件中可以修改，但是不代表可以删除该文件,删除一个文件的前提条件是对该<br>
+文件所在的目录有写权限，才能删除该文件。目录中可以修改,目录内创建+删除+重命名目录。<br>
+x:文件中可以被执行，目录中可以进入该目录。<br>
+可用数字表示为: r=4,w=2,x=1 因此 rwx=4+2+1=7</p>
+<h2 id="修改权限">修改权限</h2>
+<p>指令：chmod<br>
+u:所有者 g:所有组 o:其他人 a:所有人</p>
+<ol>
+<li>chmod u=rwx,g=rx,o=x 文件目录名</li>
+<li>chmod o+w 文件目录名	其他人加上w权限</li>
+<li>chmod a-x 文件目录名	所有人加上x权限</li>
+</ol>
+<p>通过数字修改<br>
+chmod u=rwx,g=rx,o=x 文件目录名<br>
+相当于<br>
+chmod 751 文件目录名</p>
+<h2 id="修改目录所有者和所在组">修改目录所有者和所在组</h2>
+<p>chown newowner file 改变文件的所有者<br>
+chgrp newgroup file 改变文件的所有组<br>
+chown newowner:newgroup file 改变用户的所有者和所有组<br>
+-R 如果是目录 则使其下所有子文件或目录递归生效</p>
+<h1 id="crond任务调度">crond任务调度</h1>
+<p>基本语法	crontab [选项]<br>
+-e	编辑定时任务<br>
+-l	查询任务<br>
+-r	删除当前用户的所有任务</p>
+<p>第一个*	分钟<br>
+第二个*	小时<br>
+第三个*	日<br>
+第四个*	月<br>
+第五个*	星期几</p>
+<p>*代表任何时间，，代表不连续时间，-代表范围，*/n代表每隔多久执行一次</p>
+<p>*/ 1 * * * * ls -l /etc &gt;&gt; /tmp/to.txt</p>
+<p>每隔一分钟追加一次</p>
+<p>service crond restart 	重启任务调度</p>
+<h1 id="磁盘分区和挂载">磁盘分区和挂载</h1>
+<h2 id="挂载U盘">挂载U盘</h2>
+<p>fdisk -l	查看是否有U盘<br>
+mount	查看U盘是否挂载<br>
+mount /dev/sdb1 挂载目录	挂载U盘<br>
+umount /dev/sdb1或者挂载点	卸载</p>
+<h2 id="查询磁盘使用情况">查询磁盘使用情况</h2>
+<p>df -h</p>
+<h3 id="查询目录的磁盘占用情况">查询目录的磁盘占用情况</h3>
+<p>du -h /目录<br>
+-s	 指定目录占用大小汇总<br>
+-h	 带计量单位<br>
+-a	 含文件<br>
+--max-depth=1	 子目录深度<br>
+-c 	列出明细的同时，增加汇总值</p>
+<h1 id="进程管理">进程管理</h1>
+<h2 id="查看进程">查看进程</h2>
+<p>ps -aux	显示所有进程<br>
+-a 显示当前终端的所有进程信息<br>
+-u 以用户的格式显示进程信息<br>
+-x 显示后台进程运行的参数</p>
+<p>ps -ef	 是以全格式显示当前所有的进程<br>
+-e 显示所有进程<br>
+-f 全格式</p>
+<p>pstree 进程树<br>
+-p	显示进程PID<br>
+-u	显示进程的所属用户</p>
+<h2 id="显示详解">显示详解</h2>
+<p>ps -aux<br>
+USER：用户名称<br>
+PID：进程号<br>
+%CPU：进程占用 CPU 的百分比<br>
+%MEM：进程占用物理内存的百分比<br>
+VSZ：进程占用的虚拟内存大小（单位：KB）<br>
+RSS：进程占用的物理内存大小（单位：KB）<br>
+TT：终端名称,缩写 .<br>
+STAT：进程状态，其中 S-睡眠，s-表示该进程是会话的先导进程，N-表示进程拥有比普通优先级更低的优先级，R-正在运行，D-短期等待，Z-僵死进程，T-被跟踪或者被停止等等<br>
+STARTED：进程的启动时间<br>
+TIME：CPU 时间，即进程使用 CPU 的总时间<br>
+COMMAND：启动进程所用的命令和参数，如果过长会被截断显示</p>
+<p>ps -ef<br>
+UID：用户 ID<br>
+PID：进程 ID<br>
+PPID：父进程 ID<br>
+C：CPU 用于计算执行优先级的因子。数值越大，表明进程是 CPU 密集型运算，执行优先级会降低；数值越小，表明进程是 I/O 密集型运算，执行优先级会提高<br>
+STIME：进程启动的时间<br>
+TTY：完整的终端名称<br>
+TIME：CPU 时间<br>
+CMD：启动进程所用的命令和参数</p>
+<h2 id="终止进程">终止进程</h2>
+<p>kill [选项] 进程PID	通过进程号杀死进程<br>
+-9	强制杀掉</p>
+<p>killall 进程名字	通过进程名称杀死进程<br>
+例如 killall gedit</p>
+<h2 id="动态监控进程">动态监控进程</h2>
+<p>top [选项]</p>
+<p>​	-p	通过指定监控进程PID来仅仅监控某个进程的状态</p>
+<p>交互操作：</p>
+<p>​	以CPU使用率排序，默认就是此项<br>
+​	以内存的使用率排序<br>
+​	以PID排序<br>
+​	退出top</p>
+<h1 id="服务管理">服务管理</h1>
+<p>service 服务名 [start | stop | restart | reload | status]<br>
+在 CentOS7.0 后 不再使用 service ,而是 systemctl</p>
+<p>列出服务名：ll /etc/init.d/</p>
+<p>chkconfig --list	可以查看服务在各个运行级别下的自启</p>
+<p>service sshd status	查看 sshd 服务的运行状态</p>
+<p>chkconfig --level 5 sshd off	将 sshd 服务在运行级别 5 下设置为不自动启动</p>
+<p>chkconfig iptables off	在所有运行级别下，关闭防火墙</p>
+<p>chkconfig iptables on	在所有运行级别下，开启防火墙</p>
+<p>chkconfig 重新设置服务后自启动或关闭，需要重启机器 reboot 才能生效</p>
+<h1 id="yum教程">yum教程</h1>
+<p>yum check-update	检验更新<br>
+yum update	升级所有包同时也升级软件和系统内核<br>
+yum upgrade	只升级所有包，不升级软件和系统内核<br>
+yum install name	安装<br>
+yum remove name	移除<br>
+yum list	列出资源库中所有可以安装或更新的rpm包<br>
+yum info xxx                查看xxx软件的信息（已安装）<br>
+yum search xxx           搜索软件包（以名字为关键字）<br>
+yum list installed         列出已经安装的包</p>
+<h1 id="Shell编程">Shell编程</h1>
+<p>开头：#!/bin/bash</p>
+<h2 id="sh脚本的两种运行方式">sh脚本的两种运行方式</h2>
+<p>./name.sh	脚本需要有x权限<br>
+sh  ./name.sh	不需要权限，不推荐</p>
+<h2 id="定义变量规则">定义变量规则</h2>
+<p>定义变量：变量=值<br>
+撤销变量：unset 变量<br>
+声明静态变量：readonly 变量，注意：不能 unset</p>
+<h2 id="将命令的返回值赋给变量">将命令的返回值赋给变量</h2>
+<p>A=`ls -la` 反引号，运行里面的命令，并把结果返回给变量 A</p>
+<p>A=$(ls -la) 等价于反引号</p>
+<h2 id="设置环境变量">设置环境变量</h2>
+<p>export 变量名=变量值	将 shell 变量输出为环境变量<br>
+source 配置文件	让修改后的配置信息立即生效</p>
+<h2 id="位置参数">位置参数</h2>
+<p>运行的时候传参 ./myshell.sh 100 200<br>
+代码中获取参数：</p>
+<ul>
+<li>
+<p>$n （功能描述：n 为数字，$0 代表命令本身，$1-$9 代表第一到第九个参数，十以上的参数，十<br>
+以上的参数需要用大括号包含，如${10}）</p>
+</li>
+<li>
+<p>$* （功能描述：这个变量代表命令行中所有的参数，$*把所有的参数看成一个整体）</p>
+</li>
+<li>
+<p>$@（功能描述：这个变量也代表命令行中所有的参数，不过$@把每个参数区分对待）</p>
+</li>
+<li>
+<p>$#（功能描述：这个变量代表命令行中所有参数的个数）</p>
+</li>
+</ul>
+<h2 id="运算符">运算符</h2>
+<ol>
+<li>$[运算式]	推荐</li>
+<li>$((运算式))</li>
+<li>expr m + n<br>
+注意 expr 运算符间要有空格</li>
+<li>expr m - n</li>
+<li>expr *, /, % 乘，除，取余</li>
+</ol>
+<h2 id="条件判断">条件判断</h2>
+<p>[ condition ]（注意 condition 前后要有空格）<br>
+#非空返回 true，可使用$?验证（0 为 true，&gt;1 为 false）</p>
+<p>判断条件：<br>
+= 字符串比较<br>
+-lt 小于<br>
+-le 小于等于<br>
+-eq 等于<br>
+-gt 大于<br>
+-ge 大于等于<br>
+-ne 不等于<br>
+-r 有读的权限 [ -r 文件 ]<br>
+-w 有写的权限<br>
+-x 有执行的权限<br>
+-f 文件存在并且是一个常规的文件<br>
+-e 文件存在<br>
+-d 文件存在并是一个目录</p>
+<p>语法：<br>
+if [ 条件判断式 ]<br>
+then<br>
+程序<br>
+elif [条件判断式]<br>
+then<br>
+程序<br>
+fi</p>
+<h2 id="case语句">case语句</h2>
+<p>case $变量名 in<br>
+"值 1"）<br>
+如果变量的值等于值 1，则执行程序 1<br>
+;;<br>
+"值 2"）<br>
+如果变量的值等于值 2，则执行程序 2<br>
+;;<br>
+*）<br>
+如果变量的值都不是以上的值，则执行此程序<br>
+;;<br>
+esac</p>
+<h2 id="for循环">for循环</h2>
+<p>for 变量 in  值1  值2  值 3 …<br>
+do<br>
+程序<br>
+done</p>
+<hr>
+<p>for ((  初始值; 循环控制条件;变量变化 ))<br>
+do<br>
+程序<br>
+done</p>
+<h2 id="while循环">while循环</h2>
+<p>while [ 条件判断式 ]<br>
+do<br>
+程序<br>
+done</p>
+<h2 id="read读入">read读入</h2>
+<p>read [选项] [参数]<br>
+-p：指定读取值时的提示符；<br>
+-t：指定读取值时等待的时间（秒），如果没有在指定的时间内输入，就不再等待了</p>
+<h2 id="函数">函数</h2>
+<h3 id="系统函数">系统函数</h3>
+<p>basename 基本语法<br>
+功能：返回完整路径最后 / 的部分，常用于获取文件名<br>
+basename  [pathname]  [suffix]</p>
+<p>例如 basename /home/aaa/test.txt	结果为test.txt<br>
+basename /home/aaa/test.txt  .txt	结果为test</p>
+<p>dirname	返回完整路径最后 / 的前面的部分，常用于返回路径部分<br>
+例如 dirname /home/aaa/test.txt	结果为 /home/aaa</p>
+<h3 id="自定义函数">自定义函数</h3>
+<p>[ function ] funname[()]<br>
+{<br>
+Action;<br>
+[return int;]<br>
+}</p>
+<h1 id="命令总结">命令总结</h1>
+<p>ls	显示指定目录下的内容,-s显示文件大小(带单位)<br>
+ll	显示指定目录下的内容的详细信息<br>
+pws	打印当前目录全路径<br>
+clear	清屏<br>
+cal	日历<br>
+wc -l	统计行数<br>
+grep "^-"	以-开头<br>
+netstat -anp	查看所有的网络服务(监听状态)<br>
+ssh 用户名@IP	 从 linux 系统客户机远程登陆 linux 系统服务机<br>
+set	显示当前 shell 中所有变量<br>
+&amp;&amp;	表示前一条命令执行成功时，才执行后一条命令<br>
+||	 表示上一条命令执行失败后，才执行下一条命令</p>
+                            <div>
+                                <hr>
+
+标题：Linux 学习笔记<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2020/03/09/1583763466425.html" target="_blank">https://Rainsheep.github.io/articles/2020/03/09/1583763466425.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2020/03/08/1583653357274.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: Spring 学习笔记
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2020/03/10/1583771477763.html" rel="next"
+                               class="fn__right breadcrumb">
+                                SpringMVC 学习笔记: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/03/08/1583653357274.html" rel="prev" class="breadcrumb">
+                            旧一篇: Spring 学习笔记
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/03/10/1583771477763.html" rel="next"
+                           class="breadcrumb">
+                            新一篇: SpringMVC 学习笔记
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1583763466425"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h1">
+            <a href="#vim的三种模式">vim的三种模式</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#正常模式">正常模式</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#插入模式">插入模式</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#命令行模式">命令行模式</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#命令行-正常模式">命令行→正常模式</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#正常模式-命令行模式">正常模式→命令行模式</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#命令行模式-正常模式">命令行模式→正常模式</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#正常模式-插入模式">正常模式→插入模式</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#插入模式-正常模式">插入模式→正常模式</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#-q--wq--q-三者的区别">:q :wq :q!三者的区别</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#vi和vim常用快捷键">vi和vim常用快捷键</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#设置vim默认显示行号">设置vim默认显示行号</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#误按ctrl-z的解决方案">误按ctrl+z的解决方案</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#xhsell中右边小键盘数字键无法使用">xhsell中右边小键盘数字键无法使用</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#关机-重启">关机&重启</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#shutdown">shutdown</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#halt">halt</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#poweroff">poweroff</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#reboot">reboot</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#sync">sync</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#用户管理">用户管理</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#运行级别">运行级别</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#找回root用户">找回root用户</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#帮助指令">帮助指令</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#文件目录类指令">文件目录类指令</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#时间日期类相关指令">时间日期类相关指令</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#搜索查找类指令">搜索查找类指令</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#压缩和解压缩">压缩和解压缩</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#组管理和权限管理">组管理和权限管理</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#权限详解">权限详解</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#权限介绍">权限介绍</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#rwx权限详解">rwx权限详解</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#修改权限">修改权限</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#修改目录所有者和所在组">修改目录所有者和所在组</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#crond任务调度">crond任务调度</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#磁盘分区和挂载">磁盘分区和挂载</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#挂载U盘">挂载U盘</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#查询磁盘使用情况">查询磁盘使用情况</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#查询目录的磁盘占用情况">查询目录的磁盘占用情况</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#进程管理">进程管理</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#查看进程">查看进程</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#显示详解">显示详解</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#终止进程">终止进程</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#动态监控进程">动态监控进程</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#服务管理">服务管理</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#yum教程">yum教程</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#Shell编程">Shell编程</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#sh脚本的两种运行方式">sh脚本的两种运行方式</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#定义变量规则">定义变量规则</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#将命令的返回值赋给变量">将命令的返回值赋给变量</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#设置环境变量">设置环境变量</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#位置参数">位置参数</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#运算符">运算符</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#条件判断">条件判断</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#case语句">case语句</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#for循环">for循环</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#while循环">while循环</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#read读入">read读入</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#函数">函数</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#系统函数">系统函数</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#自定义函数">自定义函数</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#命令总结">命令总结</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1583763466425",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 368ms, 2020/03/18 19:04:10 -->

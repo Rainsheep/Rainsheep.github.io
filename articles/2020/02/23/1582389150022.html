@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>JavaScript 学习笔记 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="JavaScript 学习笔记 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2020/02/23/1582389150022.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="JavaScript 学习笔记 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2020/02/23/1582389150022.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="CSS 学习笔记" href="https://Rainsheep.github.io/articles/2020/02/22/1582386564521.html">
+            <link rel="next" title="CSS 浮动" href="https://Rainsheep.github.io/articles/2020/02/23/1582433127833.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2020年">
+                        03月
+                        <span class="item__day">03</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2020/02/23/1582389150022.html">
+                            JavaScript 学习笔记
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2020-03-03
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF">
+                                前端</a>,
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">
+                                学习笔记</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2020/02/23/1582389150022.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1582389150022">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2020/02/23/1582389150022.html">0</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <h3 id="JS-基础知识">JS 基础知识</h3>
+<ul>
+<li>JavaScript = ECMAScript (标准) + JavaScript 自己特有的东西(BOM+DOM)</li>
+<li>JavaScript 是阻塞式的。</li>
+<li>注释：<code>//</code> 和 <code>/* */</code></li>
+<li>数据类型：
+<ul>
+<li>原始数据类型：
+<ol>
+<li>number：数字。整数/小数/NaN (一个不是数字的数字类型)</li>
+<li>string：字符串，js 中只有字符串，没有字符</li>
+<li>boolean</li>
+<li>null：一个对象为空的占位符</li>
+<li>undefined：未定义。一个变量没有给初始化的值，则会被默认赋值为 undefined</li>
+</ol>
+</li>
+<li>引用数据类型：对象</li>
+</ul>
+</li>
+<li>变量：一小块存储数据的内存空间。JS 是弱类型语言，Java 是强类型语言
+<ul>
+<li>强类型：在开辟变量存储空间时，定义了空间将来存储数据的数据类型。只能存储固定类型的数据。</li>
+<li>弱类型：在开辟变量存储空间时，不定义空间将来的存储数据类型，可以存放任意类型的数据。</li>
+<li>语法：<code>var 变量名 = 初始值;</code></li>
+<li><code>document.write(" " +"&lt;br&gt;")</code>：输出变量到页面并换行</li>
+<li><code>typeof(变量)</code>：返回变量的类型</li>
+</ul>
+</li>
+<li>运算符：
+<ul>
+<li>一元运算符：++、--、+(正号)、-(负号)
+<ul>
+<li>JS 中，如果运算数不是运算符所要求的类型，那么 js 引擎会自动的将运算数进行类型转换。</li>
+<li>string 转 number ：按照字面值转换。如果字面值不是数字，则转为 NaN（不是数字的数字），<code>+"123"</code> 会被转换为 123(number)</li>
+<li>boolean 转 number ：true 转为 1，false 转为 0</li>
+<li>number 与 string 进行 <code>+</code> 运算，结果为 string 类型</li>
+</ul>
+</li>
+<li>算数运算符：+、-、*、/、%</li>
+<li>赋值运算符：=、+=、-=</li>
+<li>比较运算符：&gt;、&lt;、&gt;=、&lt;=、==、===(全等于)
+<ul>
+<li>字符串按照字典顺序比较。按位逐一比较，直到得出大小为止。</li>
+<li>类型不同的时候会先进行类型转换，再比较，字符串和数字比较会把字符串转换为数字，<code>"123"==123</code>，结果为 true</li>
+<li>== 会进行 类型转换再比较，=== 则比较严格，类型不等返回 false</li>
+</ul>
+</li>
+<li>逻辑运算符：&amp;&amp;、||、!，具有短路效果
+<ul>
+<li>其他类型转 boolean
+<ul>
+<li>number：0 或 NaN 为假，其他为真</li>
+<li>string：除了空字符串("")，其他都为真</li>
+<li>null 和 undefined：都是假</li>
+<li>对象：都为 true</li>
+</ul>
+</li>
+<li>undefined &amp;&amp; false 结果为 undefined，能转换为 boolean，但不能进行运算。</li>
+</ul>
+</li>
+<li>三元运算符：和 Java 一样，<code>表达式? 值1:值2;</code>，判断表达式的值，如果是 true 则取值 1，如果是 false 则取值 2。</li>
+</ul>
+</li>
+<li>特殊语法：
+<ul>
+<li>语句以 <code>;</code> 结尾，如果一行只有一条语句则 <code> ;</code> 可以省略 (不建议)</li>
+<li>使用 var 关键字定义的变量是局部变量，不使用的为全局变量(不建议)</li>
+</ul>
+</li>
+<li>JS 中的 switch 可以接收任意类型。</li>
+</ul>
+<h3 id="JavaScript-对象">JavaScript 对象</h3>
+<ul>
+<li>Function：函数对象
+<ul>
+<li>在 JS 中，一个函数就是一个对象。</li>
+<li>创建：
+<ul>
+<li><code>var fun = new Function(形式参数列表，方法体)</code> （了解即可，从不使用）</li>
+<li>
+<pre><code class="highlight-chroma">function 方法名称(a,b) {
+    方法体;
+}
+</code></pre>
+</li>
+<li>
+<pre><code class="highlight-chroma">var 方法名 = function(形式参数列表) {
+    方法体;
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li>方法：</li>
+<li>属性：
+<ul>
+<li>length：代表形参的个数</li>
+</ul>
+</li>
+<li>特点：
+<ul>
+<li>方法定义时，形参的类型不需要写</li>
+<li>方法是一个对象，如果定义名称相同的方法，方法会被覆盖</li>
+<li>在 JS 中，方法的调用之和方法名称有关，和参数的个数无关，会按所传参数的顺序就行接收，没有接收到值的参数为 undefined，传的值多的话，被内置对象 argument 接收。</li>
+<li>在方法声明中有一个隐藏的内置对象 arguments (数组) 封装所有的实际参数
+<pre><code class="language-js highlight-chroma"><span class="highlight-kd">function</span> <span class="highlight-nx">add</span><span class="highlight-p">()</span> <span class="highlight-p">{</span>
+    <span class="highlight-kd">var</span> <span class="highlight-nx">sum</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span>
+    <span class="highlight-k">for</span> <span class="highlight-p">(</span><span class="highlight-kd">var</span> <span class="highlight-nx">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-nx">i</span> <span class="highlight-o">&lt;</span> <span class="highlight-nx">arguments</span><span class="highlight-p">.</span><span class="highlight-nx">length</span><span class="highlight-p">;</span> <span class="highlight-nx">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span> <span class="highlight-p">{</span>
+        <span class="highlight-nx">sum</span> <span class="highlight-o">+=</span> <span class="highlight-nx">arguments</span><span class="highlight-p">[</span><span class="highlight-nx">i</span><span class="highlight-p">];</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-k">return</span> <span class="highlight-nx">sum</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+
+<span class="highlight-kd">var</span> <span class="highlight-nx">ans</span> <span class="highlight-o">=</span> <span class="highlight-nx">add</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">,</span> <span class="highlight-mi">2</span><span class="highlight-p">,</span> <span class="highlight-mi">3</span><span class="highlight-p">);</span>
+<span class="highlight-nb">document</span><span class="highlight-p">.</span><span class="highlight-nx">write</span><span class="highlight-p">(</span><span class="highlight-nx">ans</span><span class="highlight-p">);</span>
+</code></pre>
+</li>
+<li>方法可以有返回值，返回值类型为 var ，因此不声明</li>
+</ul>
+</li>
+<li>调用：
+<ul>
+<li>方法名称(实际参数列表);</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Array：数组对象
+<ul>
+<li>创建
+<ul>
+<li><code>var arr = new Array(元素列表)</code></li>
+<li><code>var arr = new Array(默认长度)</code>，参数为 1 个的时候，代表的是长度，而不是列表，参数为空的话，代表空数组。</li>
+<li><code>var arr = [元素列表]</code></li>
+</ul>
+</li>
+<li>方法
+<ul>
+<li>join(参数)：将数组中的元素按照指定的分隔符拼接为字符串</li>
+<li>push(参数)：向数组的末尾添加一个或更多元素，并返回新的长度。</li>
+</ul>
+</li>
+<li>属性
+<ul>
+<li>length：数组的长度</li>
+</ul>
+</li>
+<li>特点
+<ul>
+<li>JS 中，数组元素的 类型是可变的</li>
+<li>数组的长度是可变的，访问超出数组范围时，数组会扩容至访问的长度，没有元素的位置为 undefined。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Boolean 对象
+<ul>
+<li>创建
+<ul>
+<li><code>new Boolean(value);</code>：构造参数</li>
+<li><code>Boolean(value);</code> ：转换函数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Date ：日期对象
+<ul>
+<li>创建：<code>var date = nwe Date();</code>
+<ul>
+<li><code>toLocaleString()</code>：返回当前 date 对象对应的时间本地字符串格式</li>
+<li><code>getTime()</code>：获取毫秒值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Math ：数学对象
+<ul>
+<li>创建：无需创建，直接使用，<code>Math.方法名();</code></li>
+<li>方法
+<ul>
+<li><code>random()</code>：返回 0 ~ 1 之间的随机数。 含 0 不含 1</li>
+<li><code>ceil(x)</code>：对数进行上舍入</li>
+<li><code>floor(x)</code>：对数进行下舍入。</li>
+<li><code>round(x)</code>：把数四舍五入为最接近的整数。</li>
+</ul>
+</li>
+<li>属性
+<ul>
+<li>PI</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Number 对象</li>
+<li>String 对象</li>
+<li>RegExp：正则表达式对象
+<ul>
+<li>创建：
+<ul>
+<li><code>var reg = new RegExp("正则表达式");</code>
+<ul>
+<li><code>^n</code>：匹配任何开头为 n 的字符串。</li>
+<li><code>n$</code>：匹配任何结尾为 n 的字符串。</li>
+</ul>
+</li>
+<li><code>var reg = /正则表达式/;</code>
+<ul>
+<li>这是方式正则中 <code>\</code> 不代表转义的意思，因为不是字符串，所以写一个 <code>\</code> 即可，例如 <code>/^\w{6,12}$/</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>方法
+<ul>
+<li>test(参数)：验证指定的字符串是否符合正则定义的规范</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Global：全局对象
+<ul>
+<li>特点：全局对象，这个 Global 中封装的方法不需要对象就可以直接调用。</li>
+<li>方法：
+<ul>
+<li><code>encodeURI()</code>：url 编码</li>
+<li><code>decodeURI()</code>：url 解码</li>
+<li><code>encodeURIComponent()</code>：url 编码，编码的字符更多，比如 <code>:</code> 和 <code>/</code> 都会被编码</li>
+<li><code>decodeURIComponent()</code>：url 解码</li>
+<li><code>parseInt()</code>：逐一判断每一个字符是否是数字，直到不是数字为止，将前边数字部分转为 number，一位也没有的话就会转为 NaN。</li>
+<li><code>isNaN()</code>：判断一个值是否是 NaN，NaN 通过 == 来判断永远为 false</li>
+<li><code>eval()</code>:将 JavaScript 字符串，解析为代码并执行。</li>
+</ul>
+</li>
+<li>URL 编码
+<ul>
+<li>传智播客 =  %E4%BC%A0%E6%99%BA%E6%92%AD%E5%AE%A2，字节间以 <code>%</code> 作为分隔，一个 <code>%</code> 代表一个字节</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Browser-对象-BOM-">Browser 对象（BOM）</h3>
+<ul>
+<li>Browser Object Model 浏览器对象模型，将浏览器的各个组成部分封装成对象。</li>
+<li>组成
+<ul>
+<li>Window：窗口对象</li>
+<li>Navigator：浏览器对象</li>
+<li>Screen：显示器屏幕对象</li>
+<li>History：历史记录对象</li>
+<li>Location：地址栏对象</li>
+</ul>
+</li>
+<li>Window：窗口对象
+<ul>
+<li>创建</li>
+<li>方法
+<ol>
+<li>
+<p>与弹出框有关的方法：</p>
+<ul>
+<li><code>alert("")</code>：警告框。</li>
+<li><code>confirm("message")</code>：显示带有一段消息以及确认按钮和取消按钮的对话框。
+<ul>
+<li>如果用户点击确定按钮，则方法返回 true</li>
+<li>点击取消，则方法返回 false</li>
+</ul>
+</li>
+<li><code>prompt()</code>：显示可以提示用户输入的输入对话框。
+<ul>
+<li>返回值：获取用户输入的值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>与打开关闭有关的方法：</p>
+<ul>
+<li><code>close()</code>：关闭浏览器窗口。谁调用此函数 ，关闭谁</li>
+<li><code>open()</code>：打开一个新的浏览器窗口，返回新的 Window 对象</li>
+</ul>
+</li>
+<li>
+<p>与定时器有关的方法</p>
+<ul>
+<li><code>setTimeout()</code>：在指定的毫秒数后调用函数或执行 js 代码。
+<ul>
+<li>参数：第一个参数为 js 代码(<code>"fun();"</code>)或者方法对象(<code>fun</code>)，第二个参数为毫秒值。</li>
+<li>返回值：唯一标识，用于取消定时器</li>
+</ul>
+</li>
+<li><code>clearTimeout()</code>：取消由 <code>setTimeout()</code> 方法设置的定时器。</li>
+<li><code>setInterval()</code>：按照指定的周期来调用函数或执行 js 代码，循环执行。</li>
+<li><code>clearInterval()</code>：取消由 setInterval() 设置的定时器，参数为定时器的 ID。</li>
+</ul>
+</li>
+<li>
+<p>其他方法</p>
+<ul>
+<li>滚动到页面指定坐标，<code>scrollTo(0, 0);</code> 滚动到页面顶部。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>属性
+<ul>
+<li>获取其他 BOM 对象：history、location、Navigator、Screen</li>
+<li>获取 DOM 对象：document，<code>window.document</code></li>
+</ul>
+</li>
+<li>特点
+<ul>
+<li>Window 对象不需要创建可以直接使用 window 使用。 window.方法名();</li>
+<li>window 引用可以省略。  方法名();</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Location：地址栏对象
+<ul>
+<li>创建(获取)
+<ul>
+<li>window.location</li>
+<li>location</li>
+</ul>
+</li>
+<li>方法
+<ul>
+<li><code>reload()</code>，重新加载当前文档，刷新</li>
+</ul>
+</li>
+<li>属性
+<ul>
+<li>href：设置或返回完整的 URL。</li>
+<li>search：返回从 ?号开始的部分，包括 ?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>History：历史记录对象
+<ul>
+<li>创建(获取)：
+<ul>
+<li>window.history</li>
+<li>history</li>
+</ul>
+</li>
+<li>方法：
+<ul>
+<li><code>back()</code>：加载 history 列表中的前一个 URL。</li>
+<li><code>forward()</code>：加载 history 列表中的下一个 URL。</li>
+<li><code>go(参数)</code>：加载 history 列表中的某个具体页面，参数为正，前进几个历史记录，参数为负，后退几个历史记录</li>
+</ul>
+</li>
+<li>属性：
+<ul>
+<li>length：返回当前窗口历史列表中的 URL 数量。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="DOM-简介">DOM 简介</h3>
+<ul>
+<li>Document Object Model 文档对象模型</li>
+<li>将标记语言文档的各个组成部分，封装为对象。可以使用这些对象，对标记语言文档进行 CRUD 的动态操作。</li>
+<li>DOM 是 W3C 定义的标准，被分为 3 个部分
+<ul>
+<li>核心 DOM：针对任何结构化文档的标准模型
+<ul>
+<li>Node：节点对象，其他 5 个的父对象，每个成分都是一个结点</li>
+<li>Document：文档对象</li>
+<li>Element：元素对象</li>
+<li>Attribute：属性对象</li>
+<li>Text：文本对象</li>
+<li>Comment:注释对象</li>
+</ul>
+</li>
+<li>XML DOM：针对 XML 文档的标准模型</li>
+<li>HTML DOM：针对 HTML 文档的标准模型</li>
+</ul>
+</li>
+<li>DOM 是这样规定的：
+<ul>
+<li>整个文档是一个文档节点</li>
+<li>每个 HTML 标签是一个元素节点</li>
+<li>包含在 HTML 元素中的文本是文本节点</li>
+<li>每一个 HTML 属性是一个属性节点</li>
+<li>注释属于注释节点</li>
+</ul>
+</li>
+<li>HTML 文档中的所有节点组成了一个文档树（或节点树）<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-02-22+13:05:45+DOM%E6%A0%91.bmp" alt=""></li>
+</ul>
+<h3 id="核心-DOM-模型">核心 DOM 模型</h3>
+<ul>
+<li>Document：文档对象
+<ul>
+<li>创建，在 HTML dom 模型中可以使用 window 对象来获取，<code> window.document</code> 或者直接写 <code>document</code>。</li>
+<li>方法
+<ul>
+<li>获取 Element 对象：
+<ol>
+<li><code>getElementById()</code>：根据 id 属性值获取元素对象。id 属性值一般唯一</li>
+<li><code>getElementsByTagName()</code>：根据元素标签名称获取元素对象们。返回值是一个数组</li>
+<li><code>getElementsByClassName()</code>：根据 Class 属性值获取元素对象们。返回值是一个数组</li>
+<li><code>getElementsByName()</code>：根据 name 属性值获取元素对象们。返回值是一个数组</li>
+<li>若想获取对象输入框的值，可以通过其 value 属性获取</li>
+</ol>
+</li>
+<li>创建其它 DOM 对象：
+<ol>
+<li><code>createAttribute(name)</code></li>
+<li><code>createComment()</code></li>
+<li><code>createElement()</code>：重点掌握</li>
+<li><code>createTextNode()</code></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Element：元素对象
+<ul>
+<li>创建：通过 document 对象获取 Element 元素对象的方法来获取</li>
+<li>方法：
+<ul>
+<li><code>removeAttribute()</code>：删除属性</li>
+<li><code>setAttribute()</code>：设置属性</li>
+<li>
+<pre><code class="language-html highlight-chroma"><span class="highlight-p">&lt;</span><span class="highlight-nt">body</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">a</span><span class="highlight-p">&gt;</span>我可以点的<span class="highlight-p">&lt;/</span><span class="highlight-nt">a</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-kd">var</span> <span class="highlight-nx">element_a</span> <span class="highlight-o">=</span> <span class="highlight-nb">document</span><span class="highlight-p">.</span><span class="highlight-nx">getElementsByTagName</span><span class="highlight-p">(</span><span class="highlight-s2">"a"</span><span class="highlight-p">)[</span><span class="highlight-mi">0</span><span class="highlight-p">];</span>
+    <span class="highlight-nx">element_a</span><span class="highlight-p">.</span><span class="highlight-nx">setAttribute</span><span class="highlight-p">(</span><span class="highlight-s2">"href"</span><span class="highlight-p">,</span> <span class="highlight-s2">"https://www.baidu.com"</span><span class="highlight-p">);</span>
+    <span class="highlight-c1">// element_a.removeAttribute("href");
+</span><span class="highlight-c1"></span><span class="highlight-p">&lt;/</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">body</span><span class="highlight-p">&gt;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Node：节点对象，其他 5 个的父对象
+<ul>
+<li>特点：
+<ul>
+<li>所有 DOM 对象都可以被认为是一个节点</li>
+<li>JS 中 this 代表本节点对象。</li>
+</ul>
+</li>
+<li>方法：CRUD dom 树
+<ul>
+<li><code>appendChild(参数)</code>：向节点的子节点列表的结尾添加新的子节点。
+<pre><code class="language-html highlight-chroma"><span class="highlight-cp">&lt;!DOCTYPE html&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">html</span> <span class="highlight-na">lang</span><span class="highlight-o">=</span><span class="highlight-s">"ch"</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">head</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-p">&lt;</span><span class="highlight-nt">meta</span> <span class="highlight-na">charset</span><span class="highlight-o">=</span><span class="highlight-s">"UTF-8"</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-p">&lt;</span><span class="highlight-nt">title</span><span class="highlight-p">&gt;</span>Title<span class="highlight-p">&lt;/</span><span class="highlight-nt">title</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-p">&lt;</span><span class="highlight-nt">style</span><span class="highlight-p">&gt;</span>
+        <span class="highlight-p">#</span><span class="highlight-nn">div3</span><span class="highlight-p">{</span>
+            <span class="highlight-k">border</span><span class="highlight-p">:</span> <span class="highlight-mi">1</span><span class="highlight-kt">px</span> <span class="highlight-kc">solid</span> <span class="highlight-kc">red</span><span class="highlight-p">;</span>
+            <span class="highlight-k">width</span><span class="highlight-p">:</span> <span class="highlight-mi">100</span><span class="highlight-kt">px</span><span class="highlight-p">;</span>
+        <span class="highlight-p">}</span>
+    <span class="highlight-p">&lt;/</span><span class="highlight-nt">style</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">head</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">body</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">div</span> <span class="highlight-na">id</span><span class="highlight-o">=</span><span class="highlight-s">"div1"</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-p">&lt;</span><span class="highlight-nt">div</span> <span class="highlight-na">id</span><span class="highlight-o">=</span><span class="highlight-s">"div2"</span><span class="highlight-p">&gt;</span>div2<span class="highlight-p">&lt;/</span><span class="highlight-nt">div</span><span class="highlight-p">&gt;</span>
+    div1
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">div</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-kd">var</span> <span class="highlight-nx">div3</span> <span class="highlight-o">=</span> <span class="highlight-nb">document</span><span class="highlight-p">.</span><span class="highlight-nx">createElement</span><span class="highlight-p">(</span><span class="highlight-s2">"div"</span><span class="highlight-p">);</span>
+    <span class="highlight-nx">div3</span><span class="highlight-p">.</span><span class="highlight-nx">setAttribute</span><span class="highlight-p">(</span><span class="highlight-s2">"id"</span><span class="highlight-p">,</span> <span class="highlight-s2">"div3"</span><span class="highlight-p">);</span>
+    <span class="highlight-nx">div3</span><span class="highlight-p">.</span><span class="highlight-nx">innerHTML</span> <span class="highlight-o">=</span> <span class="highlight-s2">"div3"</span><span class="highlight-p">;</span>
+    <span class="highlight-kd">var</span> <span class="highlight-nx">div1</span> <span class="highlight-o">=</span> <span class="highlight-nb">document</span><span class="highlight-p">.</span><span class="highlight-nx">getElementById</span><span class="highlight-p">(</span><span class="highlight-s2">"div1"</span><span class="highlight-p">);</span>
+    <span class="highlight-nx">div1</span><span class="highlight-p">.</span><span class="highlight-nx">appendChild</span><span class="highlight-p">(</span><span class="highlight-nx">div3</span><span class="highlight-p">);</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">body</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">html</span><span class="highlight-p">&gt;</span>
+</code></pre>
+</li>
+<li><code>removeChild(参数)</code>：删除（并返回）当前节点的指定子节点。
+<pre><code class="language-html highlight-chroma"><span class="highlight-p">&lt;</span><span class="highlight-nt">body</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">div</span> <span class="highlight-na">id</span><span class="highlight-o">=</span><span class="highlight-s">"div1"</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-p">&lt;</span><span class="highlight-nt">div</span> <span class="highlight-na">id</span><span class="highlight-o">=</span><span class="highlight-s">"div2"</span><span class="highlight-p">&gt;</span>div2<span class="highlight-p">&lt;/</span><span class="highlight-nt">div</span><span class="highlight-p">&gt;</span>
+    div1
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">div</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">a</span> <span class="highlight-na">href</span><span class="highlight-o">=</span><span class="highlight-s">"javascript:void(0);"</span><span class="highlight-p">&gt;</span>点击删除元素<span class="highlight-p">&lt;/</span><span class="highlight-nt">a</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-kd">var</span> <span class="highlight-nx">a</span> <span class="highlight-o">=</span> <span class="highlight-nb">document</span><span class="highlight-p">.</span><span class="highlight-nx">getElementsByTagName</span><span class="highlight-p">(</span><span class="highlight-s2">"a"</span><span class="highlight-p">)[</span><span class="highlight-mi">0</span><span class="highlight-p">];</span>
+    <span class="highlight-nx">a</span><span class="highlight-p">.</span><span class="highlight-nx">onclick</span> <span class="highlight-o">=</span> <span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+        <span class="highlight-kd">var</span> <span class="highlight-nx">div1</span> <span class="highlight-o">=</span> <span class="highlight-nb">document</span><span class="highlight-p">.</span><span class="highlight-nx">getElementById</span><span class="highlight-p">(</span><span class="highlight-s2">"div1"</span><span class="highlight-p">);</span>
+        <span class="highlight-kd">var</span> <span class="highlight-nx">div2</span> <span class="highlight-o">=</span> <span class="highlight-nb">document</span><span class="highlight-p">.</span><span class="highlight-nx">getElementById</span><span class="highlight-p">(</span><span class="highlight-s2">"div2"</span><span class="highlight-p">);</span>
+        <span class="highlight-nx">div1</span><span class="highlight-p">.</span><span class="highlight-nx">removeChild</span><span class="highlight-p">(</span><span class="highlight-nx">div2</span><span class="highlight-p">);</span>
+    <span class="highlight-p">}</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">body</span><span class="highlight-p">&gt;</span>
+</code></pre>
+</li>
+<li><code>replaceChild(参数,参数)</code>：用新节点替换一个子节点。
+<pre><code class="language-html highlight-chroma"><span class="highlight-p">&lt;</span><span class="highlight-nt">body</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">div</span> <span class="highlight-na">id</span><span class="highlight-o">=</span><span class="highlight-s">"div1"</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-p">&lt;</span><span class="highlight-nt">div</span> <span class="highlight-na">id</span><span class="highlight-o">=</span><span class="highlight-s">"div2"</span><span class="highlight-p">&gt;</span>div2<span class="highlight-p">&lt;/</span><span class="highlight-nt">div</span><span class="highlight-p">&gt;</span>
+    div1
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">div</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-kd">var</span> <span class="highlight-nx">div3</span> <span class="highlight-o">=</span> <span class="highlight-nb">document</span><span class="highlight-p">.</span><span class="highlight-nx">createElement</span><span class="highlight-p">(</span><span class="highlight-s2">"div"</span><span class="highlight-p">);</span>
+    <span class="highlight-nx">div3</span><span class="highlight-p">.</span><span class="highlight-nx">innerHTML</span> <span class="highlight-o">=</span> <span class="highlight-s2">"div3"</span><span class="highlight-p">;</span>
+    <span class="highlight-kd">var</span> <span class="highlight-nx">div1</span> <span class="highlight-o">=</span> <span class="highlight-nb">document</span><span class="highlight-p">.</span><span class="highlight-nx">getElementById</span><span class="highlight-p">(</span><span class="highlight-s2">"div1"</span><span class="highlight-p">);</span>
+    <span class="highlight-kd">var</span> <span class="highlight-nx">div2</span> <span class="highlight-o">=</span> <span class="highlight-nb">document</span><span class="highlight-p">.</span><span class="highlight-nx">getElementById</span><span class="highlight-p">(</span><span class="highlight-s2">"div2"</span><span class="highlight-p">);</span>
+    <span class="highlight-nx">div1</span><span class="highlight-p">.</span><span class="highlight-nx">replaceChild</span><span class="highlight-p">(</span><span class="highlight-nx">div3</span><span class="highlight-p">,</span><span class="highlight-nx">div2</span><span class="highlight-p">);</span><span class="highlight-c1">//第一个参数为新节点，第二个为旧结点
+</span><span class="highlight-c1"></span><span class="highlight-p">&lt;/</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">body</span><span class="highlight-p">&gt;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>属性：<code>parentNode</code>：返回节点的父节点。</li>
+</ul>
+</li>
+</ul>
+<h3 id="HTML-DOM">HTML DOM</h3>
+<ul>
+<li>功能：控制 HTML 文档的内容</li>
+<li>获取页面标签(元素)对象：Element
+<ul>
+<li><code>document.getElementById("id值")</code>：通过元素的 id 获取元素对象</li>
+</ul>
+</li>
+<li>操作 Element 对象：
+<ul>
+<li>使用 HTML 元素对象的属性来获取和修改属性值：<code>对象.属性 = "属性值"</code></li>
+<li>通过属性 innerHTML 来获取和修改标签体内容：<code>对象.innerHTML = "修改后的内容"</code></li>
+</ul>
+</li>
+<li>控制元素的样式：
+<ul>
+<li>使用元素的 style 属性(所有标签都有此属性)来控制
+<pre><code class="language-html highlight-chroma">div1.style.border = "1px solid red";
+div1.style.width = "200px";
+//注意font-size--&gt; fontSize
+div1.style.fontSize = "20px";
+</code></pre>
+</li>
+<li>提前使用 CSS 定义好样式，通过元素的 className 属性来设置其 class 属性值。例如：<code>tr.className="out"</code>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="DOM-Event-事件监听机制">DOM Event 事件监听机制</h3>
+<ul>
+<li>
+<p>功能：某些组件被执行了某些操作后，触发某些代码的执行。</p>
+</li>
+<li>
+<p>事件：某些操作。如： 单击，双击，键盘按下了，鼠标移动了</p>
+</li>
+<li>
+<p>事件源：组件。如： 按钮 文本输入框...</p>
+</li>
+<li>
+<p>监听器：代码。</p>
+</li>
+<li>
+<p>注册监听：将事件，事件源，监听器结合在一起。 当事件源上发生了某个事件，则触发执行某个监听器代码。</p>
+</li>
+<li>
+<p>绑定事件</p>
+<ol>
+<li>直接在 HTML 标签上，指定事件的属性(操作)，属性值就是 <strong>js 代码</strong>，例如：<code>&lt;div id = "div1" onclick="fun();"&gt;&lt;/div&gt;</code></li>
+<li>通过 js 获取元素对象，指定事件属性，设置 onclick 函数。
+<pre><code class="language-html highlight-chroma"><span class="highlight-p">&lt;</span><span class="highlight-nt">div</span> <span class="highlight-na">id </span><span class="highlight-o">=</span> <span class="highlight-s">"div1"</span><span class="highlight-p">&gt;&lt;/</span><span class="highlight-nt">div</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-kd">function</span> <span class="highlight-nx">fun</span><span class="highlight-p">(){}</span>
+    <span class="highlight-kd">var</span> <span class="highlight-nx">e</span> <span class="highlight-o">=</span> <span class="highlight-nb">document</span><span class="highlight-p">.</span><span class="highlight-nx">getElementById</span><span class="highlight-p">(</span><span class="highlight-s2">"div1"</span><span class="highlight-p">);</span>
+    <span class="highlight-nx">e</span><span class="highlight-p">.</span><span class="highlight-nx">onclick</span> <span class="highlight-o">=</span> <span class="highlight-nx">fun</span><span class="highlight-p">;</span>
+    <span class="highlight-c1">//或者直接写
+</span><span class="highlight-c1"></span>    <span class="highlight-nx">e</span><span class="highlight-p">.</span> <span class="highlight-nx">e</span><span class="highlight-p">.</span><span class="highlight-nx">onclick</span> <span class="highlight-o">=</span> <span class="highlight-nx">fun</span><span class="highlight-p">(){}</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+</code></pre>
+</li>
+<li>为什么第一种方式需要加括号，第二种不需要括号？<br>
+答：第一种方式点击的时候，是吧 onclick 属性中的字符串(引号括起来的)当做 js 代码去执行，而第二种则是将 fun 函数的指针赋值给 onclick，两种方式内部执行方法不一样，第一种是在 onclick 函数中执行 fun 函数，第二种是直接把 onclick 指向 fun 函数，第一种若不加括号则不是调用函数，第二种若加上括号就是<strong>直接调用函数</strong>，不用点击，加载后就会直接运行函数，所以第一种需要加上括号，第二种不需要括号。</li>
+</ol>
+</li>
+<li>
+<p>常见的事件：</p>
+<ul>
+<li>点击事件：
+<ul>
+<li><code>onclick</code>：单击事件</li>
+<li><code>ondblclick</code>：双击事件</li>
+</ul>
+</li>
+<li>焦点事件
+<ul>
+<li><code>onblur</code>：失去焦点，一般用于表单验证</li>
+<li><code>onfocus</code>：元素获得焦点。</li>
+</ul>
+</li>
+<li>加载事件：
+<ul>
+<li><code>onload</code>：一张页面或一幅图像完成加载。
+<ul>
+<li><code> window.onload = function(){}</code>，可以等界面加载完以后执行 JS 代码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>鼠标事件：
+<ul>
+<li><code>onmousedown</code>：鼠标按钮被按下。
+<ul>
+<li>可以通过 event 的 button 属性获取哪个键被点击了。</li>
+</ul>
+</li>
+<li><code>nmouseup</code>：鼠标按键被松开。</li>
+<li><code>onmousemove</code>：鼠标被移动。</li>
+<li><code>onmouseover</code>：鼠标移到某元素之上。</li>
+<li><code>onmouseout</code>：鼠标从某元素移开。</li>
+</ul>
+</li>
+<li>键盘事件：
+<ul>
+<li><code>onkeydown</code>：某个键盘按键被按下。
+<ul>
+<li>可以通过 event 的 keyCode 属性获取哪个键被按下了。回车的 ASCII 码为 13</li>
+</ul>
+</li>
+<li><code>onkeyup</code>：某个键盘按键被松开。</li>
+<li><code>onkeypress</code>：某个键盘按键被按下并松开。</li>
+</ul>
+</li>
+<li>选择和改变
+<ul>
+<li><code>onchange</code>：域的内容被改变。</li>
+<li><code>onselect</code>：文本被选中。</li>
+</ul>
+</li>
+<li>表单事件：
+<ul>
+<li><code>onsubmit</code>：确认按钮被点击。
+<ul>
+<li>可以阻止表单的提交，方法返回 false 则表单被阻止提交。</li>
+<li>如果在 HTML 标签中，用 <code>onsubmit=""</code> 来阻止表单提交，则应该写成 <code>onsubmit = "return fun();"</code> ，因为会把引号中的内容封装到系统方法中运行，封装为 <code>function systemFun() {return fun();}</code> 来运行，在 script 标签中则会将 onsubmit 指向自定义的函数。</li>
+</ul>
+</li>
+<li><code>onreset</code>：重置按钮被点击。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>关于 <code>&lt;a&gt;</code> 标签添加点击事件：<br>
+超链接有两个功能：</p>
+<ul>
+<li>可以被点击（因为有 href）</li>
+<li>跳转到 href 指定 的 url</li>
+</ul>
+<p>当超链接中 <code>href=""</code> 的时候，虽然会执行点击事件，但是会立马刷新此界面，当 <code>href="#"</code> 的时候，会触发点击事件，并且返回到页面顶部，但不会刷新界面。<br>
+可以通过 <code>href="javascript:void(0);"</code> 的方法来让 a 标签仅仅保留点击事件而不进行跳转。</p>
+<blockquote>
+<p>注意：form 中的 action="#" 会刷新界面，会把数据提交到本页。</p>
+</blockquote>
+</li>
+<li>
+<p>可以通过 <code>href="javascript:方法名();"</code> ，来使点击 a 标签执行 JS 方法。</p>
+</li>
+<li>
+<p>当事件被触发时，系统会向事件触发的函数中传入事件 event。<code>form.submit = function (ev) {};</code></p>
+</li>
+<li>
+<p>关于添加点击事件的时候，函数是放在 window.onload 内部还是外部的问题。</p>
+<ul>
+<li>
+<pre><code class="language-html highlight-chroma"><span class="highlight-p">&lt;</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-nb">window</span><span class="highlight-p">.</span><span class="highlight-nx">onload</span><span class="highlight-o">=</span><span class="highlight-kd">function</span> <span class="highlight-p">(</span><span class="highlight-nx">ev</span><span class="highlight-p">)</span> <span class="highlight-p">{</span>
+        <span class="highlight-kd">function</span> <span class="highlight-nx">fun</span><span class="highlight-p">()</span> <span class="highlight-p">{</span>
+            <span class="highlight-nx">alert</span><span class="highlight-p">(</span><span class="highlight-s2">"123"</span><span class="highlight-p">);</span>
+        <span class="highlight-p">}</span>
+    <span class="highlight-p">}</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">a</span> <span class="highlight-na">href</span><span class="highlight-o">=</span><span class="highlight-s">"javascript:fun();"</span><span class="highlight-p">&gt;</span>click<span class="highlight-p">&lt;/</span><span class="highlight-nt">a</span><span class="highlight-p">&gt;</span>
+</code></pre>
+看上述代码：<br>
+当页面加载完以后执行 onload 函数，onload 是一个函数，函数 fun 是定义在 onload 中的，其作用域也就是 onload 函数中，外部无法访问到这个函数，所以点击事件无效。</li>
+<li>
+<pre><code class="language-html highlight-chroma"><span class="highlight-p">&lt;</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-nb">window</span><span class="highlight-p">.</span><span class="highlight-nx">onload</span><span class="highlight-o">=</span><span class="highlight-kd">function</span> <span class="highlight-p">(</span><span class="highlight-nx">ev</span><span class="highlight-p">)</span> <span class="highlight-p">{</span>
+        <span class="highlight-kd">var</span> <span class="highlight-nx">a</span> <span class="highlight-o">=</span> <span class="highlight-nb">document</span><span class="highlight-p">.</span><span class="highlight-nx">getElementById</span><span class="highlight-p">(</span><span class="highlight-s2">"a"</span><span class="highlight-p">);</span>
+        <span class="highlight-nx">a</span><span class="highlight-p">.</span><span class="highlight-nx">onclick</span><span class="highlight-o">=</span><span class="highlight-kd">function</span> <span class="highlight-p">(</span><span class="highlight-nx">ev1</span><span class="highlight-p">)</span> <span class="highlight-p">{</span>
+            <span class="highlight-nx">alert</span><span class="highlight-p">(</span><span class="highlight-s2">"123"</span><span class="highlight-p">);</span>
+        <span class="highlight-p">}</span>
+    <span class="highlight-p">}</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">a</span> <span class="highlight-na">href</span><span class="highlight-o">=</span><span class="highlight-s">"javascript:void(0);"</span> <span class="highlight-na">id</span><span class="highlight-o">=</span><span class="highlight-s">"a"</span><span class="highlight-p">&gt;</span>click<span class="highlight-p">&lt;/</span><span class="highlight-nt">a</span><span class="highlight-p">&gt;</span>
+</code></pre>
+这样写的话，就相当于把函数 fun 绑定在了 a 上面，就可以使用了。</li>
+</ul>
+</li>
+</ul>
+                            <div>
+                                <hr>
+
+标题：JavaScript 学习笔记<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2020/02/23/1582389150022.html" target="_blank">https://Rainsheep.github.io/articles/2020/02/23/1582389150022.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2020/02/22/1582386564521.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: CSS 学习笔记
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2020/02/23/1582433127833.html" rel="next"
+                               class="fn__right breadcrumb">
+                                CSS 浮动: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/02/22/1582386564521.html" rel="prev" class="breadcrumb">
+                            旧一篇: CSS 学习笔记
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/02/23/1582433127833.html" rel="next"
+                           class="breadcrumb">
+                            新一篇: CSS 浮动
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1582389150022"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h3">
+            <a href="#JS-基础知识">JS 基础知识</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#JavaScript-对象">JavaScript 对象</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#Browser-对象-BOM-">Browser 对象（BOM）</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#DOM-简介">DOM 简介</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#核心-DOM-模型">核心 DOM 模型</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#HTML-DOM">HTML DOM</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#DOM-Event-事件监听机制">DOM Event 事件监听机制</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1582389150022",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 95ms, 2020/03/18 19:04:12 -->

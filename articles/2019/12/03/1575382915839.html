@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>【C++】STL常用容器总结之四：链表list - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="【C++】STL常用容器总结之四：链表list - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2019/12/03/1575382915839.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="【C++】STL常用容器总结之四：链表list - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2019/12/03/1575382915839.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="【C++】STL常用容器总结之三：向量vector" href="https://Rainsheep.github.io/articles/2019/12/03/1575382839840.html">
+            <link rel="next" title="【C++】STL常用容器总结之五：双端队列deque" href="https://Rainsheep.github.io/articles/2019/12/03/1575382986055.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2019年">
+                        12月
+                        <span class="item__day">03</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2019/12/03/1575382915839.html">
+                            【C++】STL常用容器总结之四：链表list
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2019-12-03
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/STL">
+                                STL</a>,
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93">
+                                知识点总结</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2019/12/03/1575382915839.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1575382915839">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2019/12/03/1575382915839.html">5</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <h1 id="5-链表-list">5、链表 list</h1>
+<p>List 是每个节点包含前驱指针、后继指针和数据域三个部分的双向链表。List 不提供随机存取，访问元素需要按顺序走到需存取的元素，时间复杂度为 O(n)，在 list 的任何位置上执行插入或删除操作都非常迅速，只需在 list 内部调整一下指针。list 不仅是一个双向链表，而且还是一个环状双向链表。所以它只需要一个指针，便可以完整实现整个链表。（这里需要特别强调一下：list 到底是不是双向链表？有的书上说是，有的书上没说，所以大家注意一下，这里暂把 list 当作双向链表，等博主找到资料再做解释）<br>
+与向量 vector 相比，list 允许快速的插入和删除，且每次插入或删除一个元素，就配置或释放一个元素空间，对于任何位置的元素插入或元素移除，list 永远是常数时间。<br>
+List 不再能够像 vector 那样以普通指针作为迭代器，因为其节点不保证在储存空间中连续存在。list 迭代器必须有能力指向 list 的节点，并有能力进行正确的递增、递减、取值、成员存取等操作。所谓 list 迭代器正确的递增、递减、取值、成员取用操作是指，递增时指向下一个节点，递减时指向上一个节点，取值时取的是节点的数据值，成员取用时取用的是节点的成员。<br>
+List 有一个重要性质：插入操作（insert）和合并操作（splice）都不会造成原有的 list 迭代器失效。这在 vector 是不成立的，因为 vector 的插入操作可能造成记忆体重新配置，导致原有的迭代器全部失效。甚至 list 的元素删除操作（erase）也只有“指向被删除元素”的那个迭代器失效，其他迭代器不受任何影响。<br>
+在使用 list 类模版时，也必须包含相应的头文件：<code>#include&lt;list&gt;</code>，list 对象的声明与 vector 类似，这里仅仅介绍一下 list 的成员函数。</p>
+<h2 id="1-声明-list-容器">1、声明 list 容器</h2>
+<ol>
+<li>list list1; // 声明一个空的 list1</li>
+<li>list list2 (4, 100); // 声明以个含 4 个 100 的 list2</li>
+<li>list list3 (list2.begin(), list2.end()); // 用 list2 的迭代器内容声明 list3</li>
+<li>list list4 (list3); // 声明 list4 为 list3 的一个副本</li>
+<li>list list5(size); // 声明一个含 size 个默认值为 0 的 list5</li>
+<li>list1.~list(); // 注销 list</li>
+</ol>
+<h2 id="2-list-与-vector-不相同的一些操作">2、list 与 vector 不相同的一些操作</h2>
+<p>List 与 vector 相同的一些操作，这里仅列出函数名，不再进行具体说明：Begin/end/rbegin/rend/empty/size/Max_size/resize/insert/erase/swap/clear。<br>
+以下这些函数是 list 与 vector 不同的函数：</p>
+<pre><code class="highlight-chroma">list&lt;int&gt; list1;
+</code></pre>
+<h3 id="1-访问-list-元素">1、访问 list 元素</h3>
+<ol>
+<li>list1.front()：返回第一个元素的值。</li>
+<li>list1.back()：返回最后一个元素的值。</li>
+</ol>
+<h3 id="2-list-元素的插入与删除">2、list 元素的插入与删除</h3>
+<ol>
+<li>list1.push_front(x)：把元素 x 插入到链表头部。</li>
+<li>list1.pop_front()：删除第一个元素。</li>
+<li>list1.push_back(x)：把元素 x 插入到链表尾部。</li>
+<li>list1.pop_back()：删除最后一个元素。</li>
+<li>list1.remove(val)：删除链表中所有值为 val 的元素。</li>
+<li>list1.remove_if(pred)：删除链表中谓词 pred 为真的元素（谓词即为元素存储和检索的描述，如 std::less&lt;&gt;，std::greater&lt;&gt; 那么就按降序/升序排列，你也可以定义自己的谓词）。</li>
+<li>list1.unique()：删除链表中所有重复的元素（这个函数博主在 VS 上测试的时候，并没有删除所有重复的元素，大家使用的时候最好也亲测一下。。。）。</li>
+<li>list1.unique(pred)：根据谓词 pred 删除所有重复的元素，使链表中没有重复元素。</li>
+</ol>
+<h3 id="3-list-拼接操作">3、list 拼接操作</h3>
+<ol>
+<li>splice()：链表拼接，参数 position 是迭代器而不是下标。</li>
+<li>list1.splice ( position, list2 )：将 list2 中的所有元素插入到 list1 中 position 处，list2 会被清空，position 仍然指向 list1 中的那个元素。</li>
+<li>list1.splice ( position, list2, iter )：将 list2 中 iter 处的元素插入到 list1 中 position 处，list2 会将 iter 指向的元素删除，iter 失效。</li>
+<li>list1.splice ( position, list2, first, last )：将 list2 中[first,last)位置处的元素插入到 list1 的 position 处。</li>
+</ol>
+<h3 id="4-list-合并操作">4、list 合并操作</h3>
+<ol>
+<li>merge(listref)：链表合并：把 listref 所引用的链表中的所有元素插入到链表中，可指定合并规则。</li>
+<li>OutputIterator merge (InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, InputIterator2 last2, OutputIterator result);</li>
+<li>OutputIterator merge (InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, InputIterator2 last2, OutputIterator result, Compare comp); // 由于参数复杂，这里列出了 C++ 官网给出的原函数，具体的例子可以参考<a href="http://www.cplusplus.com/" target="_blank">C++官网</a>.</li>
+</ol>
+<h3 id="5-list-排序操作">5、list 排序操作</h3>
+<ol>
+<li>sort()：根据默认的谓词对链表排序，默认升序。</li>
+<li>sort(pred)：根据给定的谓词对链表排序。</li>
+</ol>
+<h2 id="3-vector-与-list-之间的区别">3、vector 与 list 之间的区别</h2>
+<p>C++ 标准库中，容器 vector 和 list 都可以用来存放一组类型相同的数据。而且二者不同于数组的一点是，支持动态增长。但它们还是有几点不同：</p>
+<ol>
+<li>Vector 是顺序表，表示的是一块连续的内存，元素被顺序存储；list 是双向链表，在内存中不一定连续。</li>
+<li>当数值内存不够时，vector 会重新申请一块足够大的连续内存，把原来的数据拷贝到新的内存里面，再释放旧空间；list 因为不用考虑内存的连续，因此新增开销比 vector 小。</li>
+<li>List 只能通过指针访问元素，随机访问元素的效率特别低，在需要频繁随机存取元素时，使用 vector 更加合适。</li>
+<li>当向 vector 插入或者删除一个元素时，需要复制移动待插入元素右边的所有元素；因此在有频繁插入删除操作时，使用 list 更加合适。</li>
+<li>Vector 和 deque 支持随机访问，而 list 不支持随机访问，因此 list 不支持[ ]访问。</li>
+</ol>
+                            <div>
+                                <hr>
+
+标题：【C++】STL常用容器总结之四：链表list<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2019/12/03/1575382915839.html" target="_blank">https://Rainsheep.github.io/articles/2019/12/03/1575382915839.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575382839840.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: 【C++】STL常用容器总结之三：向量vector
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575382986055.html" rel="next"
+                               class="fn__right breadcrumb">
+                                【C++】STL常用容器总结之五：双端队列deque: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575382839840.html" rel="prev" class="breadcrumb">
+                            旧一篇: 【C++】STL常用容器总结之三：向量vector
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575382986055.html" rel="next"
+                           class="breadcrumb">
+                            新一篇: 【C++】STL常用容器总结之五：双端队列deque
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1575382915839"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h1">
+            <a href="#5-链表-list">5、链表 list</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#1-声明-list-容器">1、声明 list 容器</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#2-list-与-vector-不相同的一些操作">2、list 与 vector 不相同的一些操作</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#1-访问-list-元素">1、访问 list 元素</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#2-list-元素的插入与删除">2、list 元素的插入与删除</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#3-list-拼接操作">3、list 拼接操作</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#4-list-合并操作">4、list 合并操作</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#5-list-排序操作">5、list 排序操作</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#3-vector-与-list-之间的区别">3、vector 与 list 之间的区别</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1575382915839",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 111ms, 2020/03/18 19:04:17 -->

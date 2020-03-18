@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>秋水ss四合一脚本 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="秋水ss四合一脚本 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2019/12/03/1575384979104.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="秋水ss四合一脚本 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2019/12/03/1575384979104.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="牛客多校第五次-J题-plan" href="https://Rainsheep.github.io/articles/2019/12/03/1575384722059.html">
+            <link rel="next" title="ss的simple-obfs混淆客户端设置" href="https://Rainsheep.github.io/articles/2019/12/04/1575431723992.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2019年">
+                        12月
+                        <span class="item__day">03</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2019/12/03/1575384979104.html">
+                            秋水ss四合一脚本
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2019-12-03
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/ss">
+                                ss</a>,
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/Shadowsocks">
+                                Shadowsocks</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2019/12/03/1575384979104.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1575384979104">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2019/12/03/1575384979104.html">20</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <h2 id="本脚本适用环境">本脚本适用环境</h2>
+<p>系统支持：CentOS 6+，Debian 7+，Ubuntu 12+<br>
+内存要求：≥128M<br>
+日期　　：2018 年 11 月 05 日</p>
+<h3 id="关于本脚本">关于本脚本</h3>
+<p>1、一键安装 Shadowsocks-Python， ShadowsocksR， Shadowsocks-Go， Shadowsocks-libev 版（四选一）服务端；<br>
+2、各版本的启动脚本及配置文件名不再重合；<br>
+3、每次运行可安装一种版本；<br>
+4、支持以多次运行来安装多个版本，且各个版本可以共存（注意端口号需设成不同）；<br>
+5、若已安装多个版本，则卸载时也需多次运行（每次卸载一种）；</p>
+<p>**友情提示：**如果你有问题，请先阅读这篇《<a href="https://teddysun.com/399.html" target="_blank">Shadowsocks Troubleshooting</a>》之后再询问。</p>
+<h3 id="默认配置">默认配置</h3>
+<p>服务器端口：自己设定（如不设定，默认从 9000-19999 之间随机生成）<br>
+密码：自己设定（如不设定，默认为 teddysun.com）<br>
+加密方式：自己设定（如不设定，Python 和 libev 版默认为 aes-256-gcm，R 和 Go 版默认为 aes-256-cfb）<br>
+协议（protocol）：自己设定（如不设定，默认为 origin）（仅限 ShadowsocksR 版）<br>
+混淆（obfs）：自己设定（如不设定，默认为 plain）（仅限 ShadowsocksR 版）<br>
+<strong>备注：</strong> 脚本默认创建单用户配置文件，如需配置多用户，请手动修改相应的配置文件后重启即可。</p>
+<h3 id="客户端下载">客户端下载</h3>
+<p>常规版 Windows 客户端<br>
+<a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank">https://github.com/shadowsocks/shadowsocks-windows/releases</a></p>
+<p>ShadowsocksR 版 Windows 客户端<br>
+<a href="https://github.com/shadowsocksrr/shadowsocksr-csharp/releases" target="_blank">https://github.com/shadowsocksrr/shadowsocksr-csharp/releases</a></p>
+<h3 id="使用方法">使用方法</h3>
+<p>使用 root 用户登录，运行以下命令：</p>
+<pre><code class="highlight-chroma">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
+chmod +x shadowsocks-all.sh
+./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log
+</code></pre>
+<h3 id="安装完成后-脚本提示如下">安装完成后，脚本提示如下</h3>
+<pre><code class="highlight-chroma">Congratulations, your_shadowsocks_version install completed!
+Your Server IP        :your_server_ip
+Your Server Port      :your_server_port
+Your Password         :your_password
+Your Encryption Method:your_encryption_method
+
+Your QR Code: (For Shadowsocks Windows, OSX, Android and iOS clients)
+ ss://your_encryption_method:your_password@your_server_ip:your_server_port
+Your QR Code has been saved as a PNG file path:
+ your_path.png
+
+Welcome to visit:https://teddysun.com/486.html
+Enjoy it!
+</code></pre>
+<h3 id="卸载方法">卸载方法</h3>
+<p>若已安装多个版本，则卸载时也需多次运行（每次卸载一种）<br>
+使用 root 用户登录，运行以下命令：<br>
+<code>./shadowsocks-all.sh uninstall</code></p>
+<h3 id="启动脚本">启动脚本</h3>
+<p>启动脚本后面的参数含义，从左至右依次为：启动，停止，重启，查看状态。</p>
+<p>Shadowsocks-Python 版：<br>
+<code>/etc/init.d/shadowsocks-python start | stop | restart | status</code></p>
+<p>ShadowsocksR 版：<br>
+<code>/etc/init.d/shadowsocks-r start | stop | restart | status</code></p>
+<p>Shadowsocks-Go 版：<br>
+<code>/etc/init.d/shadowsocks-go start | stop | restart | status</code></p>
+<p>Shadowsocks-libev 版：<br>
+<code>/etc/init.d/shadowsocks-libev start | stop | restart | status</code></p>
+<h3 id="各版本默认配置文件">各版本默认配置文件</h3>
+<p>Shadowsocks-Python 版：<br>
+<code>/etc/shadowsocks-python/config.json</code></p>
+<p>ShadowsocksR 版：<br>
+<code>/etc/shadowsocks-r/config.json</code></p>
+<p>Shadowsocks-Go 版：<br>
+<code>/etc/shadowsocks-go/config.json</code></p>
+<p>Shadowsocks-libev 版：<br>
+<code>/etc/shadowsocks-libev/config.json</code></p>
+<h3 id="更新日志">更新日志</h3>
+<p>2018 年 11 月 05 日：<br>
+1、升级：使用 GitHub 上最新代码编译出 Go 版二进制可执行文件，版本号 1.2.2。</p>
+<p>2018 年 06 月 01 日：<br>
+1、修正：在启用了插件 simple-obfs 的情况下，libev 版启动失败的问题；<br>
+2、修正：在使用 /etc/init.d/shadowsocks-libev restart 命令重启 libev 版服务端时，偶尔出现的 “bind: Address already in use” 问题；<br>
+3、修正：移除 libev 版配置文件中的 local_address 字段；<br>
+4、修改：不再默认使用 root 用户启动，改为使用 nobody 用户启动 libev 版服务端 ss-server；<br>
+5、升级：mbedtls 到版本 2.9.0；<br>
+6、修改：libev 版启动脚本中的 -u 参数（即同时启用 TCP 和 UDP 模式），改到配置文件里配置为 “mode”: “tcp_and_udp”；<br>
+7、修改：libev 版配置文件的内置 NameServers 为 8.8.8.8，默认是从 /etc/resolv.conf 中取得。</p>
+<p>2018 年 02 月 07 日：<br>
+1、修改：将默认端口从 8989 改为从 9000-19999 之间随机生成。</p>
+<p>2018 年 02 月 06 日：<br>
+1、修改：ShadowsocksR 版为 <a href="https://github.com/shadowsocksrr/shadowsocksr" target="_blank">ShadowsocksRR</a> 最新版；<br>
+2、新增：ShadowsocksR 版的协议（protocol）增加了 4 个，分别为：</p>
+<p>auth_chain_c<br>
+auth_chain_d<br>
+auth_chain_e<br>
+auth_chain_f</p>
+<p>2017 年 12 月 29 日：<br>
+1、升级：libsodium 到 1.0.16。</p>
+<p>2017 年 11 月 25 日：<br>
+1、如果 Linux 内核版本大于 3.7.0，则配置文件默认支持 TCP fast open；<br>
+2、新增：libev 版启动时支持 verbose mode，也就是默认写 log 到 /var/log/messages 方便查看。</p>
+<p>2017 年 11 月 12 日：<br>
+1、新增生成 ss:// 或 ssr:// 链接，以及其二维码图片。<br>
+※ 脚本会根据当前安装的版本以及输入的各项配置，自动生成 ss:// 或 ssr:// 的链接并在安装成功后显示，直接复制即可被客户端识别。同时生成其二维码图片，并保存在当前目录下，下载后用看图软件打开，也能被客户端识别。</p>
+<p>复制二维码链接后 Shadowsocks 客户端识别示例：<br>
+<img src="https://teddysun.com/wp-content/uploads/2017/ss_client.png" alt=""></p>
+<p>复制二维码链接后 ShadowsocksR 客户端识别示例：<br>
+<img src="https://teddysun.com/wp-content/uploads/2017/ssr_client.png" alt=""></p>
+<p>二维码（QR Code）参考链接：<br>
+<a href="https://github.com/shadowsocks/shadowsocks/wiki/Generate-QR-Code-for-Android-or-iOS-Clients" target="_blank">https://github.com/shadowsocks/shadowsocks/wiki/Generate-QR-Code-for-Android-or-iOS-Clients</a><br>
+<a href="https://github.com/shadowsocksr-backup/shadowsocks-rss/wiki/SSR-QRcode-scheme" target="_blank">https://github.com/shadowsocksr-backup/shadowsocks-rss/wiki/SSR-QRcode-scheme</a></p>
+<p>2017 年 10 月 22 日：<br>
+1、升级：libsodium 到 1.0.15。</p>
+<p>2017 年 10 月 14 日：<br>
+1、新增：在安装 Shadowsocks-libev 版时<strong>可选安装</strong> simple-obfs 服务端。<br>
+※ 脚本通过判断 autoconf 版本是否大于或等于 2.67 来一键安装 simple-obfs 服务端。并且，支持在安装过程中选择 obfs 为 http 或 tls。<br>
+※ 使用方法参考：<a href="https://teddysun.com/511.html" target="_blank">https://teddysun.com/511.html</a></p>
+<p>2017 年 09 月 16 日：<br>
+1、修正：Shadowsocks-libev 版 v3.1.0 使用 libc-ares 替换 libudns 依赖包，解决了依赖问题；<br>
+2、升级：mbedtls 到版本 2.6.0。</p>
+<p>2017 年 07 月 27 日：<br>
+1、新增：ShadowsocksR 版可选协议（protocol）auth_chain_b 。使用该协议需更新到最新（4.7.0） <a href="http://dl.teddysun.com/files/ShadowsocksR-4.7.0-win.7z" target="_blank">ShadowsocksR 版客户端</a>；<br>
+2、修改：更新 ShadowsocksR 源码下载地址。</p>
+<p>2017 年 07 月 23 日：<br>
+1、修正：卸载时可自行选择某个版本卸载，若该版本不存在则报错退出。</p>
+<p>2017 年 07 月 22 日：<br>
+1、修正：默认加密方式从 aes-256-cfb 改为 aes-256-gcm（Python 和 libev 版）；<br>
+2、新增：安装时可选 16 种加密方式的其中之一（Python 和 libev 版）。如下所示：</p>
+<p>aes-256-gcm<br>
+aes-192-gcm<br>
+aes-128-gcm<br>
+aes-256-ctr<br>
+aes-192-ctr<br>
+aes-128-ctr<br>
+aes-256-cfb<br>
+aes-192-cfb<br>
+aes-128-cfb<br>
+camellia-128-cfb<br>
+camellia-192-cfb<br>
+camellia-256-cfb<br>
+chacha20-ietf-poly1305<br>
+chacha20-ietf<br>
+chacha20<br>
+rc4-md5</p>
+<p>3、新增：安装时可选 9 种加密方式的其中之一（Go 版）。如下所示：</p>
+<p>aes-256-cfb<br>
+aes-192-cfb<br>
+aes-128-cfb<br>
+aes-256-ctr<br>
+aes-192-ctr<br>
+aes-128-ctr<br>
+chacha20-ietf<br>
+chacha20<br>
+rc4-md5</p>
+<p>4、新增：安装时可选 15 种加密方式的其中之一（none 是不加密，ShadowsocksR 版）。如下所示：</p>
+<p>none<br>
+aes-256-cfb<br>
+aes-192-cfb<br>
+aes-128-cfb<br>
+aes-256-cfb8<br>
+aes-192-cfb8<br>
+aes-128-cfb8<br>
+aes-256-ctr<br>
+aes-192-ctr<br>
+aes-128-ctr<br>
+chacha20-ietf<br>
+chacha20<br>
+salsa20<br>
+xchacha20<br>
+xsalsa20<br>
+rc4-md5</p>
+<p>5、新增：安装时可选 7 种协议（protocol）的其中之一（仅限 ShadowsocksR 版）。如下所示：</p>
+<p>origin<br>
+verify_deflate<br>
+auth_sha1_v4<br>
+auth_sha1_v4_compatible<br>
+auth_aes128_md5<br>
+auth_aes128_sha1<br>
+auth_chain_a<br>
+auth_chain_b</p>
+<p>6、新增：安装时可选 9 种混淆（obfs）的其中之一（仅限 ShadowsocksR 版）。如下所示：</p>
+<p>plain<br>
+http_simple<br>
+http_simple_compatible<br>
+http_post<br>
+http_post_compatible<br>
+tls1.2_ticket_auth<br>
+tls1.2_ticket_auth_compatible<br>
+tls1.2_ticket_fastauth<br>
+tls1.2_ticket_fastauth_compatible</p>
+<p>2017 年 02 月 24 日：<br>
+1、恢复： 通过 GitHub API 自动获取 Shadowsocks-libev 的最新 release 版本的功能（v3.0.3）。</p>
+<p>2017 年 02 月 13 日：<br>
+1、升级： Shadowsocks-libev 版到版本 3.0.2；<br>
+2、升级： Shadowsocks-go 版到版本 1.2.1（基于 <a href="https://github.com/shadowsocks/shadowsocks-go" target="_blank">Github 最新代码</a>，用 go 1.8 编译完成的 x86 和 x86_64 二进制文件）；<br>
+3、修复：在 Debian 7 下默认没有 libudns-dev 依赖包的问题。</p>
+<p>2017 年 02 月 12 日：<br>
+1、升级： Shadowsocks-libev 版到版本 3.0.1。</p>
+<p>2017 年 01 月 27 日：<br>
+1、升级： Shadowsocks-go 版到版本 1.2.1 （仅适用于 x86_64 系统）</p>
+<h3 id="更多单版本-Shadowsocks-服务端一键安装脚本">更多单版本 Shadowsocks 服务端一键安装脚本</h3>
+<p><a href="https://teddysun.com/342.html" target="_blank">Shadowsocks Python 版一键安装脚本（CentOS，Debian，Ubuntu）</a><br>
+<a href="https://shadowsocks.be/9.html" target="_blank">ShadowsocksR 版一键安装脚本（CentOS，Debian，Ubuntu）</a><br>
+<a href="https://teddysun.com/357.html" target="_blank">CentOS 下 Shadowsocks-libev 一键安装脚本</a><br>
+<a href="https://teddysun.com/358.html" target="_blank">Debian 下 Shadowsocks-libev 一键安装脚本</a><br>
+<a href="https://teddysun.com/392.html" target="_blank">Shadowsocks-go 一键安装脚本（CentOS，Debian，Ubuntu）</a></p>
+<p><strong>注意：</strong> 以上单版本不可与该四合一版本混用。</p>
+                            <div>
+                                <hr>
+
+标题：秋水ss四合一脚本<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2019/12/03/1575384979104.html" target="_blank">https://Rainsheep.github.io/articles/2019/12/03/1575384979104.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575384722059.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: 牛客多校第五次-J题-plan
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2019/12/04/1575431723992.html" rel="next"
+                               class="fn__right breadcrumb">
+                                ss的simple-obfs混淆客户端设置: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575384722059.html" rel="prev" class="breadcrumb">
+                            旧一篇: 牛客多校第五次-J题-plan
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/04/1575431723992.html" rel="next"
+                           class="breadcrumb">
+                            新一篇: ss的simple-obfs混淆客户端设置
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1575384979104"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h2">
+            <a href="#本脚本适用环境">本脚本适用环境</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#关于本脚本">关于本脚本</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#默认配置">默认配置</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#客户端下载">客户端下载</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#使用方法">使用方法</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#安装完成后-脚本提示如下">安装完成后，脚本提示如下</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#卸载方法">卸载方法</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#启动脚本">启动脚本</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#各版本默认配置文件">各版本默认配置文件</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#更新日志">更新日志</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#更多单版本-Shadowsocks-服务端一键安装脚本">更多单版本 Shadowsocks 服务端一键安装脚本</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1575384979104",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 76ms, 2020/03/18 19:04:16 -->

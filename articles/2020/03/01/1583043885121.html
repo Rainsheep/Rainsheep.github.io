@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Maven 学习笔记 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Maven 学习笔记 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2020/03/01/1583043885121.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="Maven 学习笔记 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2020/03/01/1583043885121.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="redis 学习笔记" href="https://Rainsheep.github.io/articles/2020/03/01/1582997924952.html">
+            <link rel="next" title="Centos 搭建 redis" href="https://Rainsheep.github.io/articles/2020/03/02/1583150597818.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2020年">
+                        03月
+                        <span class="item__day">02</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2020/03/01/1583043885121.html">
+                            Maven 学习笔记
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2020-03-02
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/Java">
+                                Java</a>,
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">
+                                学习笔记</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2020/03/01/1583043885121.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1583043885121">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2020/03/01/1583043885121.html">0</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <h3 id="1--Maven-基础">1. Maven 基础</h3>
+<ul>
+<li>
+<p>Maven 是一个项目管理工具，它包含了一个 项目对象模型 (POM：Project Object Model)，一组标准集合，一个项目生命周期 (Project Lifecycle)，一个依赖管理系统(Dependency Management System)，和用来运行定义在生命周期阶段(phase)中插件(plugin)目标(goal)的逻辑。</p>
+</li>
+<li>
+<p>Maven 可以解决的问题：</p>
+<ul>
+<li>jar 包管理</li>
+<li>Java 文件编译</li>
+<li>单元测试</li>
+<li>项目打包</li>
+</ul>
+</li>
+<li>
+<p>Maven 的依赖管理：maven 工程中不直接将 jar 包导入到工程中，而是通过在 pom.xml 文件中添加所需 jar<br>
+包的坐标，这样就很好的避免了 jar 直接引入进来，在需要用到 jar 包的时候，只要查找 pom.xml 文件，再通过 pom.xml 文件中的坐标，到一个专门用于”存放 jar 包的仓库”(maven 仓库)中根据坐标从而找到这些 jar 包，再把这些 jar 包拿去运行。</p>
+</li>
+<li>
+<p>项目的一键构建：</p>
+<ul>
+<li>项目从编译、测试、运行、打包、安装 ，部署整个过程都交给 maven 进行管理，这个过程称为构建。</li>
+<li>一键构建：指的是整个构建过程，使用一个 maven 命令就可以轻松完成整个工作。</li>
+</ul>
+</li>
+<li>
+<p>Maven 仓库<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-01+02:25:43+maven%E4%BB%93%E5%BA%93%E7%9A%84%E7%A7%8D%E7%B1%BB%E5%92%8C%E5%85%B3%E7%B3%BB.png" alt=""></p>
+<ul>
+<li>本地仓库：用来存储从远程仓库或中央仓库下载的插件和 jar 包，项目使用的一些插件或 jar 包，<br>
+优先从本地仓库查找，默认本地仓库位置在 <span class="vditor-math">{user.dir}/.m2/repository，</span>{user.dir}表示 windows 用户目录。</li>
+<li>远程仓库：如果本地需要插件或者 jar 包，本地仓库没有，默认去远程仓库下载。远程仓库可以在互联网内也可以在局域网内。</li>
+<li>中央仓库 ：在 maven 软件中内置一个远程仓库地址 <code>http://repo1.maven.org/maven2</code> ，它是中央仓库，服务于整个互联网，它是由 Maven 团队自己维护，里面存储了非常全的 jar 包，它包含了世界上大部分流行的开源项目构件。</li>
+</ul>
+</li>
+<li>
+<p>全局 setting 与用户 setting</p>
+<p>maven 仓库地址、私服等配置信息需要在 setting.xml 文件中配置，分为全局配置和用户配置。<br>
+在 maven 安装目录下的有 conf/setting.xml 文件，此 setting.xml 文件用于 maven 的所有 project<br>
+项目，它作为 maven 的全局配置。<br>
+如需要个性配置则需要在用户配置中设置，用户配置的 setting.xml 文件默认的位置在：<span class="vditor-math">{user.dir}
+/.m2/settings.xml 目录中,</span>{user.dir} 指 windows 中的用户目录。<br>
+maven 会先找用户配置，如果找到则以用户配置文件为准，否则使用全局配置文件。</p>
+</li>
+<li>
+<p>Maven 工程的目录结构</p>
+<ul>
+<li><img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-01+02:40:07+p_20200301024004.png" alt=""></li>
+<li><img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-01+02:42:17+p_20200301024150.png" alt=""></li>
+<li>如果是普通的 Java 项目，那么就没有 webapp 目录。</li>
+</ul>
+</li>
+<li>
+<p>mvn 命令</p>
+<ul>
+<li><code> tomcat:run</code> ：进入 maven 工程目录（当前目录有 pom.xml 文件），运行 tomcat:run 命令。会部署项目并给出访问地址。</li>
+<li><code>compile</code>：compile 是 maven 工程的编译命令，作用是将 src/main/java 下的文件编译为 class 文件输出到 target 目录下。</li>
+<li><code>test</code>：test 是 maven 工程的测试命令 <code>mvn test</code>，会执行 src/test/java 下的单元测试类。此命令执行时会自动执行 compile 命令。</li>
+<li><code>clean</code>：clean 是 maven 工程的清理命令，执行 clean 会删除 target 目录及内容，清理编译信息。</li>
+<li><code>package</code>：package 是 maven 工程的打包命令，对于 Java 工程执行 package 打成 jar 包，对于 Web 工程打成 war 包。此命令会自动执行 compile 和 test 命令。</li>
+<li><code>install</code>：install 是 maven 工程的安装命令，执行 install 将 maven 打成 jar 包或 war 包发布到本地仓库。此命令会执行 compile，test，package 命令。</li>
+<li><code>deploy</code>：部署，运行此命令前需要先配置，会先执行 compile、test、package、install。</li>
+</ul>
+</li>
+<li>
+<p>maven 生命周期</p>
+<ul>
+<li>maven 有三个生命周期，清理生命周期，默认生命周期，站点生命周期。<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-01+03:16:18+maven%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" alt=""></li>
+</ul>
+</li>
+<li>
+<p>maven 概念模型图<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-01+03:21:23+maven%E6%A6%82%E5%BF%B5%E6%A8%A1%E5%9E%8B%E5%9B%BE.png" alt=""></p>
+</li>
+<li>
+<p>IDEA → Settings → Maven → Runner → VM Options:-DarchetypeCatalog=internal，此参数确保不联网的情况下 IDEA 也能创建 Maven 工程。</p>
+</li>
+<li>
+<p>使用 IDEA 提供的骨架创建 Maven 的 Java 工程，<code>maven-archetype-quickstart</code></p>
+<ul>
+<li>如需要，在 main 目录下手动创建 resources 目录，并标记为资源文件夹。</li>
+</ul>
+</li>
+<li>
+<p>不使用骨架的时候会创建一个跟 maven 的 Java 工程标准目录的工程，包括 resources，推荐不使用骨架创建 maven 的 Java 工程。</p>
+</li>
+<li>
+<p>使用 IDEA 提供的骨架创建 Maven 的 Web 工程，<code>maven-archetype-webapp</code></p>
+<ul>
+<li>需要在 main 下创建 Java 目录，并标记为 Sources Root</li>
+<li>Project Structs → model → Source Root 的对勾勾上</li>
+</ul>
+</li>
+<li>
+<p>如在 pom.xml 中需要查找 jar 包的版本信息，去 maven 中央仓库，官方有每个版本的配置信息，贴过来会自动开始下载。</p>
+</li>
+<li>
+<p>可以点击这个图标输入命令，比如 <code>tomcat:run</code> <img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-01+18:37:17+p_20200301063714.png" alt=""></p>
+</li>
+<li>
+<p>tomcat:run 运行项目的时候，Tomcat 插件所用的 jar 包与 pom.xml 中配置的 jar 冲突(servlet 需要用此包，所以配置)，此时，可以用 scope 标签配置 pom 中 jar 包的作用域为 provided，表示只在写代码的时候起作用。</p>
+</li>
+<li>
+<p>Junit 作用域改为 test</p>
+</li>
+<li>
+<p>maven 内置 Tomcat 插件为 6.0 版本，不支持 jdk8，需要改为 tomcat7，运行命令是 <code>tomcat7:run</code></p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;plugin&gt;</span>
+  <span class="highlight-nt">&lt;groupId&gt;</span>org.apache.tomcat.maven<span class="highlight-nt">&lt;/groupId&gt;</span>
+  <span class="highlight-nt">&lt;artifactId&gt;</span>tomcat7-maven-plugin<span class="highlight-nt">&lt;/artifactId&gt;</span>
+  <span class="highlight-nt">&lt;version&gt;</span>2.2<span class="highlight-nt">&lt;/version&gt;</span>
+<span class="highlight-nt">&lt;/plugin&gt;</span>
+</code></pre>
+</li>
+<li>
+<p>自定义模板：settings → Live Templates，定义完以后需要添加要在什么文件使用，可以自定义上述模板。</p>
+</li>
+<li>
+<p>maven 调试：运行配置 → 添加 Maven →填写运行命令<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-01+13:54:13+p_20200301015410.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-01+13:55:20+p_20200301015517.png" alt=""></p>
+<p>然后就可以运行和调试了。</p>
+</li>
+<li>
+<p>pom 基本配置：</p>
+<ul>
+<li>&lt;project &gt; ：文件的根节点 .</li>
+<li>&lt;modelversion &gt; ： pom.xml 使用的对象模型版本</li>
+<li>&lt;groupId &gt; ：组织名称 + 项目名称</li>
+<li>&lt;artifactId &gt; ：模块名称，子项目名或模块名称</li>
+<li>&lt;version &gt; ：产品的版本号 ，snapshot 为快照版本即非正式版本，release 为正式发布版本。</li>
+<li>&lt;packaging &gt; ：打包类型，一般有 jar、war、pom 等</li>
+<li>&lt;name &gt; ：项目的显示名，常用于 Maven 生成的文档。</li>
+<li>&lt;description &gt; ：项目描述，常用于 Maven 生成的文档。</li>
+<li>&lt;dependencies&gt; ：项目依赖构件配置，配置项目依赖构件的坐标</li>
+<li>&lt;build&gt; ：项目构建配置，配置编译、运行插件等。</li>
+</ul>
+</li>
+<li>
+<p>依赖范围：</p>
+<ul>
+<li>compile：编译范围，指 A 在编译时依赖 B，此范围为默认依赖范围。编译范围的依赖会用在<br>
+编译、测试、运行，由于运行时需要所以编译范围的依赖会被打包。</li>
+<li>provided：provided 依赖只有在当 JDK 或者一个容器已提供该依赖之后才使用， provided 依<br>
+赖在编译和测试时需要，在运行时不需要，比如：servlet API 被 Tomcat 容器提供。</li>
+<li>runtime：runtime 依赖在运行和测试系统的时候需要，但在编译的时候不需要。比如：JDBC<br>
+的驱动包。由于运行时需要所以 runtime 范围的依赖会被打包。</li>
+<li>test：test 范围依赖 在编译和运行时都不需要，它们只有在测试编译和测试运行阶段可用，<br>
+比如：junit。由于运行时不需要所以 test 范围依赖不会被打包。</li>
+<li>system：system 范围依赖与 provided 类似，但是你必须显式的提供一个对于本地系统中 JAR<br>
+文件的路径，需要指定 systemPath 磁盘路径，system 依赖不推荐使用。</li>
+<li><img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-01+14:09:06+p_20200301020817.png" alt=""></li>
+</ul>
+</li>
+<li>
+<p>热部署：maven+tomcat 插件 +Jrebel 实现热部署：Jrebel 启动项目，改变类以后，Ctrl+f9 构建项目，触发 Jrebel 重新加载，直接刷新网页即可。</p>
+</li>
+<li>
+<p>关于 target 目录，maven 运行时的目录结构。</p>
+<ul>
+<li>target 用于存放编译、打包后的输出文件，tomcat 的配置也在这里面。</li>
+<li>对于静态资源，运行时并不放入target 目录，而是还在webapp 目录下，运行时直接访问 webapp 下的静态资源文件。(tomcat插件运行项目，不重启服务器，修改静态资源，没有缓存的情况下，可以加载，说明直接访问，不需要重新部署静态文件)</li>
+<li>对于 JSP 文件，则将编译后的文件放置在 <code>target\tomcat\work</code> 目录下。</li>
+</ul>
+</li>
+</ul>
+                            <div>
+                                <hr>
+
+标题：Maven 学习笔记<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2020/03/01/1583043885121.html" target="_blank">https://Rainsheep.github.io/articles/2020/03/01/1583043885121.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2020/03/01/1582997924952.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: redis 学习笔记
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2020/03/02/1583150597818.html" rel="next"
+                               class="fn__right breadcrumb">
+                                Centos 搭建 redis: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/03/01/1582997924952.html" rel="prev" class="breadcrumb">
+                            旧一篇: redis 学习笔记
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/03/02/1583150597818.html" rel="next"
+                           class="breadcrumb">
+                            新一篇: Centos 搭建 redis
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1583043885121"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h3">
+            <a href="#1--Maven-基础">1. Maven 基础</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1583043885121",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 118ms, 2020/03/18 19:04:10 -->

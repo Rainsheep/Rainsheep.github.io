@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>MySQL学习笔记 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="MySQL学习笔记 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2020/02/20/1582176149227.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="MySQL学习笔记 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2020/02/20/1582176149227.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="Java学习笔记-基础篇(2)" href="https://Rainsheep.github.io/articles/2020/02/19/1582052137407.html">
+            <link rel="next" title="HTML学习笔记" href="https://Rainsheep.github.io/articles/2020/02/22/1582383882794.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2020年">
+                        02月
+                        <span class="item__day">24</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2020/02/20/1582176149227.html">
+                            MySQL学习笔记
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2020-02-24
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">
+                                数据库</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2020/02/20/1582176149227.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1582176149227">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2020/02/20/1582176149227.html">0</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <h3 id="1--MySQL-基础">1. MySQL 基础</h3>
+<ul>
+<li>数据库：用于存储和管理数据的仓库。</li>
+<li>数据库的特点：
+<ul>
+<li>持久化存储数据，就是一个文件系统。</li>
+<li>方便存储和管理数据。</li>
+<li>使用了统一的方式操作数据库 -- SQL。</li>
+</ul>
+</li>
+<li>登录 MySQL 的命令： <code>mysql [-hIP地址] -u账号 -p密码</code> 或 <code>mysql --host=ip --user=账号 --password=密码</code></li>
+<li>退出 MySQL 的命令：<code>exit</code>、<code>quit</code></li>
+<li>MySQL 的卸载：
+<ul>
+<li>在安装目录下找到 my.ini 文件，打开并记录 datadir 的值</li>
+<li>卸载 MySQL</li>
+<li>删除 datadir 所对应路径中 MySQL 文件夹</li>
+</ul>
+</li>
+<li>MySQL 服务启动
+<ul>
+<li>通过界面手动操作</li>
+<li>使用管理员打开 cmd
+<ul>
+<li>net start MySQL：启动 MySQL 服务</li>
+<li>net stop MySQL ：关闭 MySQL 服务</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>MySQL 安装目录结构：
+<ul>
+<li>bin：二进制可执行文件</li>
+<li>data：数据目录，放日志文件、数据文件等</li>
+<li>include：放 C 语言的头文件</li>
+<li>lib：放软件运行所需要的库文件</li>
+<li>share：放置 MySQL 的错误信息</li>
+<li>my.ini：数据库的配置文件</li>
+</ul>
+</li>
+<li>MySQL 数据目录：
+<ul>
+<li>每个数据库对应数据目录的一个文件夹，<code>.frm</code> 文件就是对应的表</li>
+</ul>
+</li>
+<li>MySQL 默认数据库：
+<ul>
+<li>information_schema ：描述 MySQL 信息，里面存的视图，没有对应的本地文件夹。</li>
+<li>MySQL：核心数据库。</li>
+<li>performance_schema：对性能提升做操作的数据库。</li>
+<li>test：用于用户测试的数据库。</li>
+</ul>
+</li>
+<li>SQL(Structured Query Language 结构化查询语言)：定义了操作所有关系型数据库的<strong>规则</strong>。每一种数据库操作的方式存在不一样的地方。</li>
+<li>SQL 语句可以多行书写，以分号结尾。</li>
+<li>SQL 语句不区分大小写，关键字建议用大写。</li>
+<li>注释：
+<ul>
+<li><code>-- 内容</code> ：单行注释，必须加空格</li>
+<li><code># 内容</code> ：单行注释</li>
+<li><code>/* 内容 */</code> ：多行注释</li>
+</ul>
+</li>
+<li>SQL 分类：
+<ul>
+<li>DDL (Data Definition Language) ：数据定义语言。用来定义数据库对象，数据库，表，列等。关键字：create, drop,alter 等。</li>
+<li>DML (Data Manipulation Language)：数据操作语言。用来对数据库中表的数据进行增删改。关键字：insert, delete, update 等。</li>
+<li>DQL (Data Query Language) 数据查询语言。用来查询数据库中表的记录(数据)。关键字：select, where 等</li>
+<li>DCL (Data Control Language) 数据控制语言。用来定义数据库的访问权限和安全级别，及创建用户。关键字：GRANT， REVOKE 等</li>
+</ul>
+</li>
+<li>数据表中数据类型：
+<ul>
+<li>int、double[(m,n)]，m 为数字总宽度，n 为小数点后几位。</li>
+<li>date：日期类型，只包含年月日，<code>yyyy-MM-dd</code>，计算 date 日期差可以使用 <code>datediff(date1,date2);</code></li>
+<li>datetime：日期类型，包含年月日时分秒，<code>yyyy-MM-dd HH:mm:ss</code></li>
+<li>timestamp：时间戳类型，包含年月日时分秒，与 datatime 区别的，如果不给这个字段赋值，或者赋值为 null ，则默认使用当前系统时间自动赋值。</li>
+<li>varchar：字符串，需要定义字符长度，如 <code>varchar(20)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="2--DDL">2. DDL</h3>
+<ul>
+<li>操作数据库：CRUD
+<ul>
+<li>C(Create 创建)：<code>create database if not exists databasename character set utf8;</code> ，注意不能是 utf-8 。</li>
+<li>R(Retrieve 查询)：
+<ul>
+<li>查询所有数据库： <code>show databases;</code></li>
+<li>利用查询某个数据库的创建语句查询数据库的字符集 <code>show create database databasename;</code></li>
+</ul>
+</li>
+<li>U(Update)：修改字符集 <code>alter database 数据库名称 character set 字符集名称;</code></li>
+<li>D(Delete)：<code>drop database if exists 数据库名称;</code></li>
+<li>使用数据库：
+<ul>
+<li>使用数据库：<code>use 数据库名称;</code></li>
+<li>查询当前使用的数据库：<code>select database();</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>操作表 CRUD
+<ul>
+<li>
+<p>C(Creat)</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-n">creat</span> <span class="highlight-k">table</span> <span class="highlight-err">表名</span><span class="highlight-p">(</span>
+    <span class="highlight-err">列名</span><span class="highlight-mi">1</span> <span class="highlight-err">数据类型</span><span class="highlight-mi">1</span><span class="highlight-err">，</span>
+    <span class="highlight-err">列名</span><span class="highlight-mi">2</span> <span class="highlight-err">数据类型</span><span class="highlight-mi">2</span>
+<span class="highlight-p">)</span>
+</code></pre>
+<p>复制表：<code>create table 表名 like 被复制的表名;</code></p>
+</li>
+<li>
+<p>R(Retrieve 查询)</p>
+<ul>
+<li>查询库中所有表：<code>show tables;</code></li>
+<li>查询表结构：<code>desc 表名;</code></li>
+</ul>
+</li>
+<li>
+<p>U(Update)</p>
+<ul>
+<li>修改表名：<code>alter table 表名 rename to 新的表名;</code></li>
+<li>修改表的字符集：<code>alter table 表名 character set 字符集名称;</code></li>
+<li>添加一列：<code>alter table 表名 add 列名 数据类型;</code></li>
+<li>修改列名称和类型：<code>alter table change 列名 新列名 新数据类型;</code> 和 <code>alter table 表名 modify 列名 新数据类型;</code></li>
+<li>删除列：<code>alter table 表名 drop 列名;</code></li>
+</ul>
+</li>
+<li>
+<p>D(Delete)</p>
+<ul>
+<li><code>drop table [if exists] 表名;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3--DML">3. DML</h3>
+<ul>
+<li>DML：增删改表中的数据
+<ul>
+<li>添加数据
+<ul>
+<li><code>insert into 表名(列名1,列名2,...列名n) values(值1,值2,...值n);</code></li>
+<li>如果表名后不定义列名，则默认给所有列添加数据 <code>insert into 表名 values(值1,值2,...值n);</code>，必须是所有列，可以为 NULL ，但不能省略。</li>
+<li>除了数字类型外，其他类型都需要用引号(单双都行)引起来。</li>
+<li>同时向表中添加多条数据 <code>insert into 表名(列名1,列名2,...列名n) values(值1,值2,...值n),(值1,值2,...值n);</code></li>
+</ul>
+</li>
+<li>删除数据
+<ul>
+<li><code>delete from 表名 [where 条件];</code></li>
+<li>delete 的多表使用方法：<br>
+<code>delete t1 from t1,t2 where t1.id=t2.id;</code> 将 t1 表中在 t2 表中有匹配记录的值全部删掉。</li>
+<li>如果要删除所有记录
+<ul>
+<li><code>delete from 表名;</code> 不推荐使用，一条一条删除，效率慢。</li>
+<li><code>truncate table 表名</code> 推荐使用，先删除表，再创建表，效率高。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>修改数据
+<ul>
+<li><code>update 表名 set 列名1=值1,列名2=值2,... [where 条件];</code></li>
+<li>不加任何条件，会修改全部记录。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4--DQL">4. DQL</h3>
+<ul>
+<li>
+<p>DQL：查询表中的数据</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-k">select</span>
+    <span class="highlight-err">字段列表</span>
+<span class="highlight-k">from</span>
+    <span class="highlight-err">表名列表</span>
+<span class="highlight-k">where</span>
+    <span class="highlight-err">条件列表</span>
+<span class="highlight-k">group</span> <span class="highlight-k">by</span>
+    <span class="highlight-err">分组字段</span>
+<span class="highlight-k">having</span>
+    <span class="highlight-err">分组之后的条件</span>
+<span class="highlight-k">order</span> <span class="highlight-k">by</span>
+    <span class="highlight-err">排序</span>
+<span class="highlight-k">limit</span>
+    <span class="highlight-err">分页限定</span>
+</code></pre>
+<ul>
+<li>去除重复 <code>select distinct address from student;</code> 多个字段的话结果集完全一样才能去重。</li>
+<li>计算列：
+<ul>
+<li>可以对数据进行四则运算和取模运算。(一般只会对数值型进行计算)<br>
+<code>select name,math,english,math+english from student;</code></li>
+<li>有 null 参与的运算结果为 null ，可以通过 <code>ifnull()</code> 函数解决。<br>
+<code>select name,math,english,math+ifnull(english,0) from student;</code></li>
+</ul>
+</li>
+<li>起别名：<code>select name,math,english,math+ifnull(english,0) as sum from student;</code> ，as 关键字也可以省略。</li>
+<li>运算符：
+<ul>
+<li>&lt;、&gt;、&lt;=、&gt;=、=、!=、&lt;&gt;</li>
+<li>between...and，前后都包含</li>
+<li>in(集合)，中间加不加空格都可以</li>
+<li>like：模糊查找，<code>_</code> 单个任意字符，<code>%</code> 多个任意字符。</li>
+<li>is null 和 is not null，注意 null 值不能用 = 或者 != 或者 &lt;&gt; 号来判断</li>
+<li>and 或 &amp;&amp; ，推荐 and</li>
+<li>or 或 ||</li>
+<li>not 或 !</li>
+</ul>
+</li>
+<li>排序查询
+<ul>
+<li><code>order by 排序字段1 排序方式1, 排序字段2 排序方式2;</code></li>
+<li>ASC，升序(默认)，DESC，降序</li>
+</ul>
+</li>
+<li>聚合函数：将一列数据作为一个整体，进行纵向计算
+<ul>
+<li>count：计算个数，一般选择非空的列，参数只能为一个
+<ul>
+<li>count(*)：当此行数据有不为 null 的列，就算 1 个数据</li>
+</ul>
+</li>
+<li>max 、min、sum、avg</li>
+<li>聚合函数的计算，会排除 null 值，可以用 ifnull 函数解决</li>
+</ul>
+</li>
+<li>分组查询：
+<ul>
+<li>group by 分组字段;</li>
+<li>分组之后查询的字段必须为分组字段或者聚合函数<br>
+<code>select sex,AVG(math) from student group by sex;</code></li>
+<li>where 和 having 的区别：<br>
+where 后不可以跟聚合函数，having 可以进行聚合函数的判断。<br>
+where 在分组之前进行限定，如果不满足条件，则不参与分组。having 在分组之后进行限定，如果不满足结果，则不会被查询出来。例如：<br>
+按照性别分组。分别查询男、女同学的平均分，人数 要求：分数低于 70 分的人，不参与分组，分组之后。人数要大于 2 个人。<br>
+<code>select sex, avg(math), count(id) from student where math&gt;70 group by sex having count(id)&gt;2;</code></li>
+</ul>
+</li>
+<li>分页查询：
+<ul>
+<li>limit 开始的索引，每页查询的条数，limit 是 MySQL 特有的</li>
+<li>开始的索引 = (当前页码 - 1) * 每页显示的条数</li>
+<li>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-c1">-- 每页显示3条记录
+</span><span class="highlight-c1"></span><span class="highlight-k">select</span> <span class="highlight-o">*</span> <span class="highlight-k">from</span> <span class="highlight-n">student</span> <span class="highlight-k">limit</span> <span class="highlight-mi">0</span><span class="highlight-p">,</span><span class="highlight-mi">3</span><span class="highlight-p">;</span> <span class="highlight-c1">-- 第1页
+</span><span class="highlight-c1"></span><span class="highlight-k">select</span> <span class="highlight-o">*</span> <span class="highlight-k">from</span> <span class="highlight-n">student</span> <span class="highlight-k">limit</span> <span class="highlight-mi">3</span><span class="highlight-p">,</span><span class="highlight-mi">3</span><span class="highlight-p">;</span> <span class="highlight-c1">-- 第2页
+</span><span class="highlight-c1"></span><span class="highlight-k">select</span> <span class="highlight-o">*</span> <span class="highlight-k">from</span> <span class="highlight-n">student</span> <span class="highlight-k">limit</span> <span class="highlight-mi">6</span><span class="highlight-p">,</span><span class="highlight-mi">3</span><span class="highlight-p">;</span> <span class="highlight-c1">-- 第3页
+</span></code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5--MySQL-约束">5. MySQL 约束</h3>
+<ul>
+<li>主键约束：primary key
+<ul>
+<li>添加主键：
+<ul>
+<li><code>alter table stu modify id int primary key;</code></li>
+<li><code>alter table stu add primary key(id);</code></li>
+</ul>
+</li>
+<li>删除主键：<code>alter table stu drop primary key;</code></li>
+</ul>
+</li>
+<li>自动增长：auto_increment
+<ul>
+<li>添加自动增长：<code>alter table stu modify id int auto_increment;</code></li>
+<li>删除自动增长：<code>alter table stu modify id int;</code></li>
+<li>传入值为 null 的话，会自动增长，也可以手动指定值，会以新值为基准继续增长。</li>
+</ul>
+</li>
+<li>非空约束：not null
+<ul>
+<li>添加约束：<code>alter table stu modify name varchar(20) not null;</code></li>
+<li>删除约束：<code>alter table stu modify name varchar(20);</code></li>
+</ul>
+</li>
+<li>唯一约束：unique，唯一约束限定的列的值可以有多个 null 。
+<ul>
+<li>添加约束：<code>alter table stu modify name varchar(20) unique;</code></li>
+<li>删除约束：<code>alter table stu drop index colname;</code></li>
+</ul>
+</li>
+<li>外键约束：foreign key，添加级联操作以后，主键所在的表中的数据发生更改，外键所在表中的数据也发生相应更改。
+<ul>
+<li>添加约束 ：<code>alter table 表名 add [constraint 外键名称] foreign key(外键字段名称) references 主表名称(主表列名称);</code> 不写外键名的话系统会自动分配一个唯一名称的外键。</li>
+<li>删除外键：<code>alter table 表名 drop foreign key 外键名称;</code></li>
+<li>外键值可以为 null ，但不能为主表的主列中不存在的值。</li>
+<li>级联更新：ON UPDATE CASCADE(添加到添加外键约束的后面)</li>
+<li>级联删除：ON DELETE CASCADE</li>
+</ul>
+</li>
+<li>default：设置默认值。</li>
+<li>创建表的时候，<code>primary key(col1,col2)</code> 代表联合主键。</li>
+</ul>
+<h3 id="6--数据库设计">6. 数据库设计</h3>
+<ul>
+<li>
+<p>多表之间的关系：</p>
+<ul>
+<li>一对一：如人和身份证，可以在任意一方添加唯一外键(unique)指向另一方的主键。</li>
+<li>一对多：部门和员工，在多的一方建立外键，指向另一方的主键。</li>
+<li>多对多：学生和课程，一个学生可以选择很多门课程，一个课程也可以被很多学生选择。实现多对多关系需要借助第三张中间表，中间表至少包含两个字段，两个字段作为第三张表的外键，分别指向两张表的主键，例如，这时候可以添加一个有学号和课程号的表，两个键作为联合主键。</li>
+</ul>
+</li>
+<li>
+<p>对于一张表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">学号</th>
+<th align="center">姓名</th>
+<th align="center">系名</th>
+<th align="center">系主任</th>
+<th align="center">课程名称</th>
+<th align="center">分数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">100</td>
+<td align="center">张三</td>
+<td align="center">经济系</td>
+<td align="center">吴红</td>
+<td align="center">高等数学</td>
+<td align="center">99</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>函数依赖：A--&gt;B，如果通过 A 属性(属性组)的值，可以确定唯一 B 属性的值。则称 B 依赖于 A，例如：学号--&gt; 姓名、(学号，课程名称) --&gt; 分数。</li>
+<li>完全函数依赖：A--&gt;B，如果 A 是一个属性组，则 B 属性值的确定需要依赖于 A 属性组中所有的属性值。例如：(学号，课程名称) --&gt; 分数。</li>
+<li>部分函数依赖：A--&gt;B，如果 A 是一个属性组，则 B 属性值的确定只需要依赖于 A 属性组中某一些值即可。例如：（学号，课程名称） -- &gt; 姓名</li>
+<li>传递函数依赖：A--&gt;B, B -- &gt;C ，如果通过 A 属性(属性组)的值，可以确定唯一 B 属性的值，在通过 B 属性(属性组)的值可以确定唯一 C 属性的值，则称 C 传递函数依赖于 A。例如：学号--&gt; 系名，系名--&gt; 系主任。</li>
+<li>码：如果在一张表中，一个属性或属性组，被其他所有属性所完全依赖，则称这个属性(属性组)为该表的码，例如：该表中码为：(学号，课程名称)。<br>
+主属性：码属性组中的所有属性。<br>
+非主属性：除过码属性组的属性。</li>
+</ol>
+</li>
+<li>
+<p>范式：</p>
+<ul>
+<li>
+<p>第一范式（1NF）：每一列都是不可分割的原子数据项。</p>
+</li>
+<li>
+<p>第二范式（2NF）：在 1NF 的基础上，非码属性必须完全依赖于码（在 1NF 基础上消除非主属性对主码的部分函数依赖）</p>
+</li>
+<li>
+<p>第三范式（3NF）：在 2NF 基础上，任何非主属性不依赖于其它非主属性（在 2NF 基础上消除传递依赖）</p>
+</li>
+<li>
+<p>上面经过第二范式后变为</p>
+<table>
+<thead>
+<tr>
+<th align="center">学号</th>
+<th align="center">课程名称</th>
+<th align="center">分数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">100</td>
+<td align="center">高等数学</td>
+<td align="center">99</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center">学号</th>
+<th align="center">姓名</th>
+<th align="center">系名</th>
+<th align="center">系主任</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">100</td>
+<td align="center">张三</td>
+<td align="center">经济系</td>
+<td align="center">吴红</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>经第三范式后变为：</p>
+<table>
+<thead>
+<tr>
+<th align="center">学号</th>
+<th align="center">课程名称</th>
+<th align="center">分数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">100</td>
+<td align="center">高等数学</td>
+<td align="center">99</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center">系名</th>
+<th align="center">系主任</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">经济系</td>
+<td align="center">吴红</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center">学号</th>
+<th align="center">姓名</th>
+<th align="center">系名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">100</td>
+<td align="center">张三</td>
+<td align="center">经济系</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="7--数据库的备份和还原">7. 数据库的备份和还原</h3>
+<ul>
+<li>备份数据库：<code>mysqldump -u用户名 -p密码 要备份的数据库名称 &gt; 要保存的路径</code></li>
+<li>还原数据库：登录数据库 → 创建数据库 →使用数据库 → 执行文件 <code>source 文件路径</code>。</li>
+</ul>
+<h3 id="8--多表查询">8. 多表查询</h3>
+<ul>
+<li>隐式内连接：使用 where 条件消除无用数据，例如 <code>select * from emp,demp where emp.dept_id=dept.id;</code></li>
+<li>显示内连接：<code>select 字段列表 from 表名1 [inner] join 表名2 on 条件;</code><br>
+例如：<code>select * from emp [inner] join dept on emp.dept_id = dept.id;</code></li>
+<li>左外连接：<code>select 字段列表 from 表1 left join 表2 on 条件;</code>，查询的是左表全部数据以及其交集部分。</li>
+<li>右外连接：<code>select 字段列表 from 表1 right join 表2 on 条件;</code></li>
+<li>当子查询结果是单行单列的，可以作为条件判断。</li>
+<li>当子查询结果是多行单列的，子查询可以作为条件，用运算符 in 来判断。</li>
+<li>当子查询结果是多行多列的，子查询可以作为一张虚拟表参与查询。</li>
+<li>表起了别名以后，以前的表名无法使用。</li>
+<li>MySQL 子查询中有 ALL、ANY(SOME)、IN、NOT IN、EXISTS、NOT EXISTS 等关键字。
+<ul>
+<li>ANY 和 SOME 等效。</li>
+<li>ALL 代表所有，ANY 代表任意一个。
+<ul>
+<li><code>SELECT * FROM emp t1 WHERE t1.salary &gt;= ALL(SELECT salary FROM emp); -- 查询薪资最高的人</code></li>
+<li><code>SELECT * FROM emp t1 WHERE t1.salary &gt; ANY(SELECT salary FROM emp); -- 查询结果中去除工资最低的人</code></li>
+</ul>
+</li>
+<li>EXISTS 相当于一个判断条件，将前面查询的结果逐条进行判断，当 EXISTS 条件语句有返回记录行的时候为 true ，没有返回记录行的时候为 false。
+<ul>
+<li><code>SELECT id,ename,mgr FROM emp t1 WHERE EXISTS(SELECT * FROM emp t2 WHERE t2.id = t1.mgr); -- 查询所有有上级的人</code></li>
+</ul>
+</li>
+<li>EXISTS 比 IN 要快。</li>
+</ul>
+</li>
+</ul>
+<h3 id="9--事务">9. 事务</h3>
+<ul>
+<li>事务：如果一个包含多个步骤的业务操作，被事务管理，那么这些操作要么同时成功，要么同时失败。</li>
+<li>操作：
+<ul>
+<li>开启事务：start transaction;</li>
+<li>回滚：rollback;</li>
+<li>提交：commit；</li>
+<li>当开启事务但未提交的时候，在当前窗口查询可以查询到已经改变的数据(但实际未改变，换一个窗口查询或者重开窗口查询都是之前的，除非提交事务)。</li>
+</ul>
+</li>
+<li>MySQL 默认自动提交事务，一条 DML (增删改) 语句会自动提交一次事务。手动提交需要先开启事务再提交。</li>
+<li>查看事务的默认提交方法：<code>select @@autocommit;</code> 1 为自动提交，0 为手动提交。</li>
+<li>修改事务的默认提交方式：<code>set @@autocommit = 值;</code></li>
+<li>事务的四大特征：
+<ul>
+<li>原子性：是不可分割的最小操作单位，要么同时成功，要么同时失败。</li>
+<li>持久性：当事务提交或回滚后，数据库会持久化的保存数据。</li>
+<li>隔离性：多个事务之间，相互隔离。</li>
+<li>一致性：事务操作前后，数据总量不变。</li>
+</ul>
+</li>
+<li>事务存在的问题：
+<ul>
+<li>概念：多个事务之间是隔离的，相互独立的，但是如果多个事务操作同一批数据，则会引发一些问题，设置不同的隔离级别可以解决这些问题。</li>
+<li>脏读：一个事务，读取到另一个事务中没有提及的数据。</li>
+<li>不可重复读(虚读)：在同一个事务中，两次读取到的数据不一样。</li>
+<li>幻读：一个事务操作(DML)数据表中所有记录，另一个事务添加了一条记录，则第一个事务查询不到自己的修改。</li>
+</ul>
+</li>
+<li>事务的隔离级别：
+<ul>
+<li><code>read uncommitted</code>：读未提交。产生问题：脏读，不可重复读，幻读。</li>
+<li><code>read committed</code>：读已提交(Oracle 默认)。产生问题：不可重复读、幻读。</li>
+<li><code>repeatable read</code>：可重复读(MySQL 默认)。产生的问题：幻读。</li>
+<li><code>serializable</code>：串行化。可以解决所有问题，类似于锁机制，同时只能一个事务访问数据。</li>
+<li>隔离级别从上到下，安全越来越高，效率越来越低。</li>
+<li>数据库查询隔离级别：<code>select @@tx_isolation;</code></li>
+<li>数据库设置隔离级别：<code>set global transaction isolation level  隔离级别字符串;</code> (设置完以后重新打开窗口才会生效)</li>
+</ul>
+</li>
+</ul>
+<h3 id="10--用户管理和权限管理">10. 用户管理和权限管理</h3>
+<ul>
+<li>DCL：管理用户、授权</li>
+<li>管理用户：
+<ul>
+<li>添加用户：<code>create user '用户名'@'主机名' identified by '密码';</code></li>
+<li>删除用户：<code>drop user '用户名'@'主机名';</code></li>
+<li>修改用户密码：
+<ul>
+<li><code>update user set password = password('新密码') where user='用户名';</code></li>
+<li><code>set password for '用户名'@'主机名' = password('新密码');</code></li>
+</ul>
+</li>
+<li>查询用户：
+<ul>
+<li>切换到 MySQL 数据库 。<code>use mysql;</code></li>
+<li>查询 user 表。 <code>select * from user;</code></li>
+</ul>
+</li>
+<li>通配符 <code>%</code> 代表在任意主机使用用户登录数据库。</li>
+</ul>
+</li>
+<li>MySQL 中忘记了 root 用户的密码。
+<ul>
+<li>停止 MySQL 服务：cmd(管理员) → <code>net stop mysql</code></li>
+<li>使用无验证方式启动 MySQL 服务：<code>mysql --skip-grant-tables</code></li>
+<li>打开新的 cmd 窗口，输入 <code>mysql</code> ，敲回车登录。</li>
+<li><code>use mysql;</code></li>
+<li><code>update user set password = password('新密码') where user='root';</code></li>
+<li>关闭两个窗口。</li>
+<li>打开任务管理器，手动结束 mysql.exe 进程。</li>
+<li>启动 MySQL 服务。</li>
+<li>使用新密码登录。</li>
+</ul>
+</li>
+<li>权限管理：
+<ul>
+<li>
+<p>查询权限：<code>show grants for '用户名'@'主机名';</code></p>
+</li>
+<li>
+<p>授予权限：<code>grant 权限列表 on 数据库名.表名 to '用户名'@'主机名';</code></p>
+<p>例如：给张三用户授予所有权限，在任意数据库的任意表上<br>
+<code>GRANT ALL ON *.* TO 'zhangsan'@'localhost';</code></p>
+</li>
+<li>
+<p>撤销权限：<code>revoke 权限列表 on 数据库名.表名 from '用户名'@'主机名';</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="11-知识补充">11.知识补充</h3>
+<ul>
+<li>IF 语句的用法：
+<pre><code class="language-sql highlight-chroma"><span class="highlight-cm">/* 性别取反 */</span>
+<span class="highlight-k">update</span> <span class="highlight-k">user</span> 
+<span class="highlight-k">set</span> <span class="highlight-n">sex</span><span class="highlight-o">=</span><span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">sex</span><span class="highlight-o">=</span><span class="highlight-s1">'m'</span><span class="highlight-p">,</span><span class="highlight-s1">'f'</span><span class="highlight-p">,</span><span class="highlight-s1">'m'</span><span class="highlight-p">);</span>
+</code></pre>
+</li>
+<li>CASE 的用法：
+<pre><code class="language-sql highlight-chroma"><span class="highlight-k">update</span> <span class="highlight-k">user</span>
+<span class="highlight-k">set</span> <span class="highlight-n">var</span> <span class="highlight-o">=</span> <span class="highlight-k">case</span> <span class="highlight-n">grade</span> <span class="highlight-k">when</span> <span class="highlight-s1">'A'</span> <span class="highlight-k">then</span> <span class="highlight-s1">'a'</span> <span class="highlight-k">else</span>  <span class="highlight-s1">'B'</span> <span class="highlight-k">then</span> <span class="highlight-s1">'b'</span> <span class="highlight-k">else</span> <span class="highlight-s1">'c'</span> <span class="highlight-k">end</span><span class="highlight-p">;</span> 
+</code></pre>
+</li>
+<li>SQL 语句的执行顺序：
+<pre><code class="language-sql highlight-chroma"><span class="highlight-p">(</span><span class="highlight-mi">8</span><span class="highlight-p">)</span> <span class="highlight-k">SELECT</span> <span class="highlight-p">(</span><span class="highlight-mi">9</span><span class="highlight-p">)</span><span class="highlight-k">DISTINCT</span><span class="highlight-o">&lt;</span><span class="highlight-n">select_list</span><span class="highlight-o">&gt;</span>
+<span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">)</span> <span class="highlight-k">FROM</span> <span class="highlight-o">&lt;</span><span class="highlight-n">left_table</span><span class="highlight-o">&gt;</span>
+<span class="highlight-p">(</span><span class="highlight-mi">3</span><span class="highlight-p">)</span> <span class="highlight-o">&lt;</span><span class="highlight-n">join_type</span><span class="highlight-o">&gt;</span> <span class="highlight-k">JOIN</span> <span class="highlight-o">&lt;</span><span class="highlight-n">right_table</span><span class="highlight-o">&gt;</span>
+<span class="highlight-p">(</span><span class="highlight-mi">2</span><span class="highlight-p">)</span>         <span class="highlight-k">ON</span> <span class="highlight-o">&lt;</span><span class="highlight-n">join_condition</span><span class="highlight-o">&gt;</span>
+<span class="highlight-p">(</span><span class="highlight-mi">4</span><span class="highlight-p">)</span> <span class="highlight-k">WHERE</span> <span class="highlight-o">&lt;</span><span class="highlight-n">where_condition</span><span class="highlight-o">&gt;</span>
+<span class="highlight-p">(</span><span class="highlight-mi">5</span><span class="highlight-p">)</span> <span class="highlight-k">GROUP</span> <span class="highlight-k">BY</span> <span class="highlight-o">&lt;</span><span class="highlight-n">group_by_list</span><span class="highlight-o">&gt;</span>
+<span class="highlight-p">(</span><span class="highlight-mi">6</span><span class="highlight-p">)</span> <span class="highlight-k">WITH</span> <span class="highlight-err">{</span><span class="highlight-k">CUBE</span><span class="highlight-o">|</span><span class="highlight-k">ROLLUP</span><span class="highlight-err">}</span>
+<span class="highlight-p">(</span><span class="highlight-mi">7</span><span class="highlight-p">)</span> <span class="highlight-k">HAVING</span> <span class="highlight-o">&lt;</span><span class="highlight-n">having_condition</span><span class="highlight-o">&gt;</span>
+<span class="highlight-p">(</span><span class="highlight-mi">10</span><span class="highlight-p">)</span> <span class="highlight-k">ORDER</span> <span class="highlight-k">BY</span> <span class="highlight-o">&lt;</span><span class="highlight-n">order_by_list</span><span class="highlight-o">&gt;</span>
+<span class="highlight-p">(</span><span class="highlight-mi">11</span><span class="highlight-p">)</span> <span class="highlight-k">LIMIT</span> <span class="highlight-o">&lt;</span><span class="highlight-n">limit_number</span><span class="highlight-o">&gt;</span>
+</code></pre>
+</li>
+</ul>
+                            <div>
+                                <hr>
+
+标题：MySQL学习笔记<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2020/02/20/1582176149227.html" target="_blank">https://Rainsheep.github.io/articles/2020/02/20/1582176149227.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2020/02/19/1582052137407.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: Java学习笔记-基础篇(2)
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2020/02/22/1582383882794.html" rel="next"
+                               class="fn__right breadcrumb">
+                                HTML学习笔记: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/02/19/1582052137407.html" rel="prev" class="breadcrumb">
+                            旧一篇: Java学习笔记-基础篇(2)
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/02/22/1582383882794.html" rel="next"
+                           class="breadcrumb">
+                            新一篇: HTML学习笔记
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1582176149227"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h3">
+            <a href="#1--MySQL-基础">1. MySQL 基础</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#2--DDL">2. DDL</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#3--DML">3. DML</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#4--DQL">4. DQL</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#5--MySQL-约束">5. MySQL 约束</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#6--数据库设计">6. 数据库设计</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#7--数据库的备份和还原">7. 数据库的备份和还原</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#8--多表查询">8. 多表查询</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#9--事务">9. 事务</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#10--用户管理和权限管理">10. 用户管理和权限管理</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#11-知识补充">11.知识补充</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1582176149227",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 90ms, 2020/03/18 19:04:12 -->

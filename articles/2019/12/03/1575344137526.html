@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>GitHub使用教程详解——官网操作指南 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="GitHub使用教程详解——官网操作指南 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2019/12/03/1575344137526.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="GitHub使用教程详解——官网操作指南 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2019/12/03/1575344137526.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="VS2017使用命令行编译C语言代码" href="https://Rainsheep.github.io/articles/2019/12/03/1575342765204.html">
+            <link rel="next" title="this()与super()使用详解" href="https://Rainsheep.github.io/articles/2019/12/03/1575345084763.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2019年">
+                        12月
+                        <span class="item__day">04</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2019/12/03/1575344137526.html">
+                            GitHub使用教程详解——官网操作指南
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2019-12-04
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B">
+                                软件教程</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2019/12/03/1575344137526.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1575344137526">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2019/12/03/1575344137526.html">10</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <h1 id="GitHub-指南">GitHub 指南</h1>
+<p>原文地址：<a href="https://guides.github.com/activities/hello-world/" target="_blank">GitHub官网指南</a></p>
+<p><strong>示例项目：Hello World</strong></p>
+<p>十分钟轻松教学<br>
+在学习计算机语言编程的过程中创建 Hello World 项目是一个历史悠久的传统。当你接触一门新事物的时候可以用它来做一个简单的练习。让我们开始使用 GitHub 吧！</p>
+<p><strong>通过本文，您将会学到：</strong></p>
+<blockquote>
+<ol>
+<li>如何创建和使用仓库</li>
+<li>如何创建和管理分支</li>
+<li>如何改变一个文件并将它提交到github上</li>
+<li>如何发起以及合并请求</li>
+</ol>
+</blockquote>
+<h1 id="什么是GitHub-">什么是GitHub?</h1>
+<p>GitHub是一个代码版本控制和协作的托管平台。它可以让你和你的伙伴在任何地方一起进行项目开发。</p>
+<p>本教程将帮助你学习GitHub的必备知识，如“仓库”、“分支”、“提交代码”以及“请求代码合并”。你将创建你自己的“hello-world”仓库并且学习GitHub的请求代码合并工作流，这是目前一种非常流行的创建和审查代码方式。</p>
+<p><strong>无需编码</strong></p>
+<p>要完成本教程，您需要注册一个GitHub账户并且需要联网。你不需要知道如何编码，如何使用命令窗口以及如何安装Git(GitHub的客户端软件)。</p>
+<p>提示：你可以将本指南在一个单独的浏览器或浏览器tab窗口中打开，这样你就可以边看着指南边进行操作了。</p>
+<h1 id="第一步-创建一个仓库">第一步：创建一个仓库</h1>
+<p>一个仓库通常用来组织一个单独的项目。该仓库可以包含你项目中的所有文件，如文件夹、文件、图片、视频、电子表格、数据集等。我们建议包含一个README文件，或者你自定义的用来记录项目信息的文件。GitHub将默认在你创建仓库的时候添加它。在创建的同时还提供了权限许可选项。</p>
+<p>你可以用你的“hello-world”仓库来存储你的想法、资源，甚至用它来和别人分享、讨论任何事情。</p>
+<p><strong>创建一个新的仓库</strong></p>
+<ol>
+<li>在页面的最右上角，你的头像的左边，点击“＋”，在弹出的下拉选项中选择“New repository”。</li>
+<li>在仓库名称输入框中输入你的仓库名称：“hello-world”。</li>
+<li>写一个简短的描述。</li>
+<li>勾选“Initialize this repository with a README”。</li>
+</ol>
+<p><img src="https://img.hacpai.com/file/2019/12/20160706143745968-aa180caa.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160706143745968.png"></p>
+<h1 id="第二步-创建一个分支">第二步：创建一个分支</h1>
+<p>分支是一个可以让你在同一时间工作在同一个仓库的不同版本的方法。</p>
+<p>在你的仓库中会有一个默认的名叫“master”的主分支，该分支用来存储你最终确定的版本代码。我们用其他的子分支来进行编辑和更改，确定之后再提交到主分支。</p>
+<p>当你从主分支创建出一个子分支的那一刻，其实你就是对当时时间点的主分支做了一个拷贝。如果之后别的分支的人对主分支做出了更新，在你提交到主分支之前，你必须先从主分支上拉取那些更新。</p>
+<p>下面的图表将显示分支合作的整个流程：</p>
+<ul>
+<li>主分支</li>
+<li>一个新的命名为“feature”的子分支（因为我们正在这个分支上做开发）</li>
+<li>“feature”分支合并到主分支之前的历程<br>
+<img src="https://img.hacpai.com/file/2019/12/20160706151321852-58634c0e.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160706151321852.png"></li>
+</ul>
+<p>你是否像下面这样保存过不同版本的文件？</p>
+<ul>
+<li>story.txt</li>
+<li>story-joe-edit.txt</li>
+<li>story-joe-edit-reviewed.txt</li>
+</ul>
+<p>在GItHub仓库中的分支就是为了完成类似的功能。</p>
+<p>在GitHub上，我们的开发人员，编辑人员以及设计人员，分别在独立的分支上完成自己修改bug或功能编写的工作。当一个功能编写确定之后，他们就将自己的分支合并到主分支上。</p>
+<p><strong>新建一个子分支</strong></p>
+<ol>
+<li>进入你的“hello-world”仓库</li>
+<li>点击文件列表上方的写着“branch: master”的下拉框</li>
+<li>在输入框中输入新的分支名字“readme-edits”</li>
+<li>点击下方蓝色背景的分支创建框或直接按键盘的“Enter”键</li>
+</ol>
+<p><img src="https://img.hacpai.com/file/2019/12/20160706153250404-f0b0be47.gif" alt="20160706153250404.gif"></p>
+<p>现在，你已经有了“master”和“readme-edits”两个分支了。他们看起来几乎一模一样，但是不要着急，接下来，我们将在我们新建的子分支上做出一些改变。</p>
+<h1 id="第三步-做出修改并提交">第三步：做出修改并提交</h1>
+<p>干得好！现在，你已经在你的新分支“readme-edits”上了，让我们来对它写点什么。</p>
+<p>在GitHub中，保存更改被称为“提交”。每一次提交都需要写一段我们为什么做出修改的备注说明。这些备注说明将对你的更改做出记录，其他伙伴看到之后就知道你每次都提交了什么。</p>
+<p><strong>做出修改并提交</strong></p>
+<ol>
+<li>点击“README.md”文件，切换到“README.md”内容页面</li>
+<li>点击编辑框右上角的铅笔按钮，进入编辑界面</li>
+<li>在编辑框中，写一些你自己的信息</li>
+<li>在下方的“提交更改”框中，输入你做出此次修改的备注说明</li>
+<li>点击下方的“Commit changes”按钮</li>
+</ol>
+<p><img src="https://img.hacpai.com/file/2019/12/20160706155111070-116d2a8a.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160706155111070.png"></p>
+<p>这些更改只是针对于位于你的“readme-edits”子分支中的 “README.md ”文件，所以现在这个分支上包含的内容和主分支上已经有所不同。</p>
+<h1 id="第四步-发出-请求代码合并-请求">第四步：发出“请求代码合并”请求</h1>
+<p>现在你已经对你的新分支做出了修改，我们可以发出“请求代码合并”的请求啦。</p>
+<p>请求代码合并是GitHub团队协作的核心功能。当你发出一个“请求代码合并”请求的时候，相当于你请求别人拷贝你当前的代码做出审查，审查通过之后将你的代码下载并且合并到他们的分支上。该请求将会在所有的分支上显示出不相同的部分。你做出的任何更改、增加以及减少，都会用绿色和红色显示出来。</p>
+<p>在你的代码完成之前，你可以随时进行代码提交，发起请求代码合并的请求以及进行一场讨论。</p>
+<p>你可以通过GitHub的“@”功能，在每次发出“请求代码合并”请求的时候，向特定的人或团队做出反馈，无论这个人是在你身边还是远在千里之外。</p>
+<p>你可以向自己的仓库发出“请求代码合并”的请求，并且自己去合并他们。这在你接触到大型项目之前是一个非常好的练习方法。</p>
+<p><strong>为更改的README文件发出“请求代码合并”请求</strong></p>
+<p>第一步：点击“Pull Request”选项卡按钮，切换到请求代码合并页面，点击绿色的“New pull request”按钮</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20160706165827767-72fbd85a.gif" alt="20160706165827767.gif"></p>
+<p>第二步：选择你创建的“readme-edits”分支，与主分支进行比较。</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20160706170047166-e0efb9fa.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160706170047166.png"></p>
+<p>第三步：在对比页面查看这些更改，确定他们就是你想要提交的。</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20160706170732066-12c8811c.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160706170732066.png"></p>
+<p>第四步：当你确定这些更改就是你所要的时候，点击绿色的“Create Pull Request”按钮。<br>
+<img src="https://img.hacpai.com/file/2019/12/20160706170848646-088a58ef.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160706170848646.png"></p>
+<p>第五步：为你的更改做一个简单的标题和描述。<br>
+<img src="https://img.hacpai.com/file/2019/12/20160706171001976-1e746408.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160706171001976.png"></p>
+<p>当你写完备注描述之后，点击“Create pull request”按钮。</p>
+<p>提示：你可以使用emoji表情或者拖拽图片到评论窗口进行评论。</p>
+<h1 id="第五步-合并你的-请求代码合并-请求">第五步：合并你的“请求代码合并”请求</h1>
+<p>这是整个过程的最后一步，是时候将你在子分支“readme-edits”做出的更改合并到主分支“master”上了。</p>
+<ol>
+<li>点击绿色的“Merge pull request”按钮，将这些修改合并到主分支</li>
+<li>点击“Confirm merge”按钮</li>
+<li>由于这个分支的更改已经被合并了，所以我们还需要点击紫色框中的“Delete branch”按钮，删除这个分支</li>
+</ol>
+<p><img src="https://img.hacpai.com/file/2019/12/20160706172801500-0de0d265.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160706172801500.png"></p>
+<p><img src="https://img.hacpai.com/file/2019/12/20160706172818844-aba0fb72.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160706172818844.png"></p>
+<p>大功告成，你已经学会如何在github官网上管理自己的项目了。</p>
+<h1 id="Git安装教程">Git安装教程</h1>
+<p><strong>第一步：下载git</strong></p>
+<p>点击<a href="https://git-scm.com/download" target="_blank">下载git</a>，进入下载页面</p>
+<p>（注：官网不翻墙的话下载太慢，可以去我的资源<a href="http://download.csdn.net/download/u010480479/9578374" target="_blank">下载64位windows系统git-2.9.2安装包</a>）</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20160706181118717-a8686c5d.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160706181118717.png"></p>
+<p>选择相应的操作系统进行下载（本人系统是windows10，所以在这里只演示windows了）</p>
+<p><strong>第二步：安装git</strong></p>
+<p>1.找到你文件下载所在的文件夹，双击这个萌萌哒的图标：<br>
+<img src="https://img.hacpai.com/file/2019/12/20160707101709252-5069b962.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160707101709252.png"></p>
+<p>选择相应的安装目录，一路向下（xi），不要停~~等待安装完毕后，game over~</p>
+<p>2.在github上建立相应的库和分支（如果你不是项目经理的话，估计就不用这布了）<br>
+<img src="https://img.hacpai.com/file/2019/12/20160707103535813-cf2e7b61.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160707103535813.png"></p>
+<p>注：我这里建的示例：仓库 - xifenggudao , 分支 - yinmu</p>
+<p>3.点击绿色的“Clone or download”下拉按钮，在弹出的下拉框中，点击右侧的箭头按钮，点击他，自动复制你的分支地址（留作备用）</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20160707103945756-40518dae.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160707103945756.png"></p>
+<p>4.进入项目所在的文件夹（我在F盘建立了一个test空文件夹，双击进入文件夹）<br>
+<img src="https://img.hacpai.com/file/2019/12/20160707111104290-d1a473b1.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160707111104290.png"></p>
+<p>4.双击打开我们桌面上的Git Bash图标，使用命令行进入项目所在目录<br>
+<img src="https://img.hacpai.com/file/2019/12/20160707104419716-ab9b2c19.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160707104419716.png"></p>
+<p><code>cd f:/test</code><br>
+<img src="https://img.hacpai.com/file/2019/12/20160707111202738-86263f6a.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160707111202738.png"></p>
+<p>或者先进入所在目录，然后右击，在所弹出的操作列表里点击Git Bash Here<br>
+<img src="https://img.hacpai.com/file/2019/12/20160707111356350-ae655cec.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160707111356350.png"></p>
+<p>5.还记得我们刚才在github官网复制的地址么，现在派上用场了<br>
+<code>git clone https://github.com/kabulore/xifenggudao.git</code><br>
+<img src="https://img.hacpai.com/file/2019/12/20160707111617728-1f588c00.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160707111617728.png"></p>
+<p>我们这时候在去看我们的test文件夹，会发现在下面多了一个我们项目的文件夹，里面的文件就是我们在github上的所有文件</p>
+<p>OK，目前为止，所有的安装就学完了，下面让我们来简单的学习一下git十分常用的命令。</p>
+<h1 id="Git命令详解">Git命令详解</h1>
+<p>我们把git装完，总得用呀，对吧，当我们修改了一些文件之后，如何提交到我们的分支，又如何让“老司机带带我”的呢？接下来，我们一探究竟。</p>
+<p>我们这里先修改一下文件，我在我的xifenggudao文件夹新建了一个test.html，接下来，我们要把他传到我的yinmu分支上去</p>
+<ol>
+<li>git pull 命令</li>
+</ol>
+<blockquote>
+<p>git pull 命令用来拉取该分支内容，与本地做为对比，防止冲突。<br>
+因为我这里并没有什么需要更新，所以肯定是直接就没有具体的pull内容。<br>
+<img src="https://img.hacpai.com/file/2019/12/20160802182206900-a341c18f.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160802182206900.png"></p>
+</blockquote>
+<ol start="2">
+<li>git add 命令</li>
+</ol>
+<blockquote>
+<p>git add 命令用来将所要更新的文件，添加到git队列中，以备后续的提交。<br>
+可以用git add test.html 来添加指定的文件，或者直接git add . 来添加所有目录（不含空目录）<br>
+<img src="https://img.hacpai.com/file/2019/12/20160802182503089-f504a691.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160802182503089.png"></p>
+</blockquote>
+<ol start="3">
+<li>git commit -am 命令</li>
+</ol>
+<blockquote>
+<p>用来做提交准备，-am 后面跟上注释，可以让其他人看到你本次为啥做出更改。此时并没有提交上去。<br>
+<img src="https://img.hacpai.com/file/2019/12/20160802182605433-20c38b75.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160802182605433.png"></p>
+</blockquote>
+<ol start="4">
+<li>git push 命令</li>
+</ol>
+<blockquote>
+<p>此命令才是真正的将所更改的文件提交到分支中。<br>
+<img src="https://img.hacpai.com/file/2019/12/20160802182659902-f4865770.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160802182659902.png"></p>
+</blockquote>
+<p>OK，大功告成啦！</p>
+<p>我们去github账户中看一下，发现确实提交到分支上啦。<br>
+<img src="https://img.hacpai.com/file/2019/12/20160802182810278-d5d41abe.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160802182810278.png"></p>
+<p>【附】git命令详解</p>
+<p>右键另存下图即可</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20160802182905950-3c405cec.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20160802182905950.png"></p>
+                            <div>
+                                <hr>
+
+标题：GitHub使用教程详解——官网操作指南<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2019/12/03/1575344137526.html" target="_blank">https://Rainsheep.github.io/articles/2019/12/03/1575344137526.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575342765204.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: VS2017使用命令行编译C语言代码
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575345084763.html" rel="next"
+                               class="fn__right breadcrumb">
+                                this()与super()使用详解: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575342765204.html" rel="prev" class="breadcrumb">
+                            旧一篇: VS2017使用命令行编译C语言代码
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575345084763.html" rel="next"
+                           class="breadcrumb">
+                            新一篇: this()与super()使用详解
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1575344137526"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h1">
+            <a href="#GitHub-指南">GitHub 指南</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#什么是GitHub-">什么是GitHub?</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#第一步-创建一个仓库">第一步：创建一个仓库</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#第二步-创建一个分支">第二步：创建一个分支</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#第三步-做出修改并提交">第三步：做出修改并提交</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#第四步-发出-请求代码合并-请求">第四步：发出“请求代码合并”请求</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#第五步-合并你的-请求代码合并-请求">第五步：合并你的“请求代码合并”请求</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#Git安装教程">Git安装教程</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#Git命令详解">Git命令详解</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1575344137526",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 87ms, 2020/03/18 19:04:24 -->

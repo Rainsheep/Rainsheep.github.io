@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>HDU 4544 湫湫系列故事——消灭兔子 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="HDU 4544 湫湫系列故事——消灭兔子 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2019/12/03/1575345854198.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="HDU 4544 湫湫系列故事——消灭兔子 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2019/12/03/1575345854198.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="zzulioj 2127 tmk射气球" href="https://Rainsheep.github.io/articles/2019/12/03/1575345658197.html">
+            <link rel="next" title="zzuli 2129 DOBRI" href="https://Rainsheep.github.io/articles/2019/12/03/1575346502036.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2019年">
+                        12月
+                        <span class="item__day">03</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2019/12/03/1575345854198.html">
+                            HDU 4544 湫湫系列故事——消灭兔子
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2019-12-03
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/acm">
+                                acm</a>,
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/STL">
+                                STL</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2019/12/03/1575345854198.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1575345854198">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2019/12/03/1575345854198.html">6</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <p>题目链接：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=4544" target="_blank">HDU 4544</a></p>
+<p>一个需要用到优先队列的题 ，这里需要用到自定义优先队列的优先级，优先队列的优先级与sort是相反的，less&lt;&gt;表示大的优先，greater&lt;&gt;表示小的优先，重载小于运算符的时候，a&gt;b在sort里面表示从大到小排列，在优先队列里面表示小的优先弹出，这里关于重载运算符介绍了三种写法，这也是我第一次用优先队列，把兔子血量从大到小排序，把大于兔子血量的箭压进队列 然后依次让价钱最低的弹出...这就是具体思路</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;iostream&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;algorithm&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;queue&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp"></span><span class="highlight-k">using</span> <span class="highlight-k">namespace</span> <span class="highlight-n">std</span><span class="highlight-p">;</span>
+<span class="highlight-cp">#define N 100005
+</span><span class="highlight-cp"></span><span class="highlight-k">struct</span> <span class="highlight-nc">node</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">h</span><span class="highlight-p">;</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">q</span><span class="highlight-p">;</span><span class="highlight-c1">//const保证，在函数作用域内不会修改 node 的值，只交换了位置；&amp;表示传进来的只是引用，可以理解为指针，而不是把node的所有值复制进来，可以节省时间 
+</span><span class="highlight-c1"></span> 
+    <span class="highlight-cm">/*friend bool operator&lt;(const node &amp;x,const node &amp;y)
+</span><span class="highlight-cm">    {
+</span><span class="highlight-cm">        return x.q&gt;y.q;//小的优先 
+</span><span class="highlight-cm">    }第一种写法，重载运算符写到结构体里面，默认less重载小于运算符，这里需要加上friend*/</span> 
+<span class="highlight-p">}</span><span class="highlight-n">j</span><span class="highlight-p">[</span><span class="highlight-n">N</span><span class="highlight-p">];</span>
+<span class="highlight-cm">/*bool operator&lt;(const node &amp;x,const node &amp;y)
+</span><span class="highlight-cm">    {
+</span><span class="highlight-cm">        return x.q&gt;y.q;
+</span><span class="highlight-cm">    } 第二种写法，就是写到结构体外面，不需要加friend，默认less重载小于运算符，只是重载node型的排序或者优先，别的类型还是默认函数*/</span>
+<span class="highlight-k">struct</span> <span class="highlight-nc">cmpn</span>
+<span class="highlight-p">{</span>
+ 
+	<span class="highlight-kt">bool</span> <span class="highlight-nf">operator</span><span class="highlight-p">()(</span><span class="highlight-k">const</span> <span class="highlight-n">node</span> <span class="highlight-o">&amp;</span><span class="highlight-n">x</span><span class="highlight-p">,</span><span class="highlight-k">const</span> <span class="highlight-n">node</span> <span class="highlight-o">&amp;</span><span class="highlight-n">y</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-k">return</span> <span class="highlight-n">x</span><span class="highlight-p">.</span><span class="highlight-n">q</span><span class="highlight-o">&gt;</span><span class="highlight-n">y</span><span class="highlight-p">.</span><span class="highlight-n">q</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+<span class="highlight-p">};</span><span class="highlight-c1">//第三种写法，这里写了一个伪函数cmpn，类似于less，注意格式 
+</span><span class="highlight-c1"></span><span class="highlight-kt">bool</span> <span class="highlight-nf">cmp</span><span class="highlight-p">(</span><span class="highlight-n">node</span> <span class="highlight-n">x</span><span class="highlight-p">,</span><span class="highlight-n">node</span> <span class="highlight-n">y</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-k">return</span> <span class="highlight-n">x</span><span class="highlight-p">.</span><span class="highlight-n">h</span><span class="highlight-o">&gt;</span><span class="highlight-n">y</span><span class="highlight-p">.</span><span class="highlight-n">h</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kt">bool</span> <span class="highlight-nf">cmp1</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">x</span><span class="highlight-p">,</span><span class="highlight-kt">int</span> <span class="highlight-n">y</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-k">return</span> <span class="highlight-n">x</span><span class="highlight-o">&gt;</span><span class="highlight-n">y</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kt">int</span> <span class="highlight-nf">main</span><span class="highlight-p">()</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-p">,</span><span class="highlight-n">n</span><span class="highlight-p">,</span><span class="highlight-n">i</span><span class="highlight-p">,</span><span class="highlight-n">s</span><span class="highlight-p">[</span><span class="highlight-n">N</span><span class="highlight-p">],</span><span class="highlight-n">flag</span><span class="highlight-p">,</span><span class="highlight-n">t</span><span class="highlight-p">,</span><span class="highlight-n">temp</span><span class="highlight-p">;</span>
+    <span class="highlight-k">while</span><span class="highlight-p">(</span><span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d %d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">m</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">n</span><span class="highlight-p">)</span><span class="highlight-o">!=</span><span class="highlight-n">EOF</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+    	<span class="highlight-n">priority_queue</span> <span class="highlight-o">&lt;</span><span class="highlight-n">node</span><span class="highlight-p">,</span><span class="highlight-n">vector</span><span class="highlight-o">&lt;</span><span class="highlight-n">node</span><span class="highlight-o">&gt;</span><span class="highlight-p">,</span><span class="highlight-n">cmpn</span><span class="highlight-o">&gt;</span> <span class="highlight-n">x</span><span class="highlight-p">;</span>
+        <span class="highlight-c1">//前两种这里这样写priority_queue &lt;node,vector&lt;node&gt;,less&lt;node&gt; &gt; x;或者只要&lt;node&gt;
+</span><span class="highlight-c1"></span>        <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">i</span><span class="highlight-o">=</span><span class="highlight-mi">0</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">&lt;</span><span class="highlight-n">m</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+        <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">s</span><span class="highlight-p">[</span><span class="highlight-n">i</span><span class="highlight-p">]);</span>
+        <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">i</span><span class="highlight-o">=</span><span class="highlight-mi">0</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">&lt;</span><span class="highlight-n">n</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+        <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">j</span><span class="highlight-p">[</span><span class="highlight-n">i</span><span class="highlight-p">].</span><span class="highlight-n">h</span><span class="highlight-p">);</span>
+        <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">i</span><span class="highlight-o">=</span><span class="highlight-mi">0</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">&lt;</span><span class="highlight-n">n</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+        <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">j</span><span class="highlight-p">[</span><span class="highlight-n">i</span><span class="highlight-p">].</span><span class="highlight-n">q</span><span class="highlight-p">);</span>
+        <span class="highlight-n">sort</span><span class="highlight-p">(</span><span class="highlight-n">s</span><span class="highlight-p">,</span><span class="highlight-n">s</span><span class="highlight-o">+</span><span class="highlight-n">m</span><span class="highlight-p">,</span><span class="highlight-n">cmp1</span><span class="highlight-p">);</span>
+        <span class="highlight-n">sort</span><span class="highlight-p">(</span><span class="highlight-n">j</span><span class="highlight-p">,</span><span class="highlight-n">j</span><span class="highlight-o">+</span><span class="highlight-n">n</span><span class="highlight-p">,</span><span class="highlight-n">cmp</span><span class="highlight-p">);</span>
+        <span class="highlight-kt">long</span> <span class="highlight-kt">long</span> <span class="highlight-n">num</span><span class="highlight-o">=</span><span class="highlight-mi">0</span><span class="highlight-p">;</span>
+        <span class="highlight-n">flag</span><span class="highlight-o">=</span><span class="highlight-mi">1</span><span class="highlight-p">;</span>
+        <span class="highlight-n">t</span><span class="highlight-o">=</span><span class="highlight-mi">0</span><span class="highlight-p">;</span>
+        <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">i</span><span class="highlight-o">=</span><span class="highlight-mi">0</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">&lt;</span><span class="highlight-n">m</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+        <span class="highlight-p">{</span>
+            <span class="highlight-k">while</span><span class="highlight-p">(</span><span class="highlight-n">t</span><span class="highlight-o">&lt;</span><span class="highlight-n">n</span><span class="highlight-o">&amp;&amp;</span><span class="highlight-n">j</span><span class="highlight-p">[</span><span class="highlight-n">t</span><span class="highlight-p">].</span><span class="highlight-n">h</span><span class="highlight-o">&gt;=</span><span class="highlight-n">s</span><span class="highlight-p">[</span><span class="highlight-n">i</span><span class="highlight-p">])</span>
+            <span class="highlight-p">{</span>
+                <span class="highlight-n">x</span><span class="highlight-p">.</span><span class="highlight-n">push</span><span class="highlight-p">(</span><span class="highlight-n">j</span><span class="highlight-p">[</span><span class="highlight-n">t</span><span class="highlight-p">]);</span>
+                <span class="highlight-n">t</span><span class="highlight-o">++</span><span class="highlight-p">;</span>
+            <span class="highlight-p">}</span>
+            <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span><span class="highlight-p">.</span><span class="highlight-n">empty</span><span class="highlight-p">())</span>
+            <span class="highlight-p">{</span>
+            <span class="highlight-n">flag</span><span class="highlight-o">=</span><span class="highlight-mi">0</span><span class="highlight-p">;</span>
+            <span class="highlight-k">break</span><span class="highlight-p">;</span>
+            <span class="highlight-p">}</span>
+            <span class="highlight-k">else</span>
+            <span class="highlight-p">{</span>
+                <span class="highlight-n">temp</span><span class="highlight-o">=</span><span class="highlight-n">x</span><span class="highlight-p">.</span><span class="highlight-n">top</span><span class="highlight-p">().</span><span class="highlight-n">q</span><span class="highlight-p">;</span>
+                <span class="highlight-n">num</span><span class="highlight-o">+=</span><span class="highlight-n">temp</span><span class="highlight-p">;</span>
+                <span class="highlight-n">x</span><span class="highlight-p">.</span><span class="highlight-n">pop</span><span class="highlight-p">();</span>
+            <span class="highlight-p">}</span>
+        <span class="highlight-p">}</span>
+        <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">flag</span><span class="highlight-o">==</span><span class="highlight-mi">0</span><span class="highlight-p">)</span>
+        <span class="highlight-n">printf</span><span class="highlight-p">(</span><span class="highlight-s">"No</span><span class="highlight-se">\n</span><span class="highlight-s">"</span><span class="highlight-p">);</span>
+        <span class="highlight-k">else</span>
+        <span class="highlight-n">printf</span><span class="highlight-p">(</span><span class="highlight-s">"%lld</span><span class="highlight-se">\n</span><span class="highlight-s">"</span><span class="highlight-p">,</span><span class="highlight-n">num</span><span class="highlight-p">);</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-k">return</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span>
+ <span class="highlight-p">}</span> 
+
+
+</code></pre>
+                            <div>
+                                <hr>
+
+标题：HDU 4544 湫湫系列故事——消灭兔子<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2019/12/03/1575345854198.html" target="_blank">https://Rainsheep.github.io/articles/2019/12/03/1575345854198.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575345658197.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: zzulioj 2127 tmk射气球
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575346502036.html" rel="next"
+                               class="fn__right breadcrumb">
+                                zzuli 2129 DOBRI: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575345658197.html" rel="prev" class="breadcrumb">
+                            旧一篇: zzulioj 2127 tmk射气球
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575346502036.html" rel="next"
+                           class="breadcrumb">
+                            新一篇: zzuli 2129 DOBRI
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1575345854198"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1575345854198",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 117ms, 2020/03/18 19:04:24 -->

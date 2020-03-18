@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Java中的编码和解码 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Java中的编码和解码 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2020/02/11/1581366279386.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="Java中的编码和解码 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2020/02/11/1581366279386.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="无题" href="https://Rainsheep.github.io/articles/2020/02/06/1580919792939.html">
+            <link rel="next" title="Java学习笔记-基础篇(1)" href="https://Rainsheep.github.io/articles/2020/02/19/1582051510367.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2020年">
+                        02月
+                        <span class="item__day">11</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2020/02/11/1581366279386.html">
+                            Java中的编码和解码
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2020-02-11
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/Java">
+                                Java</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2020/02/11/1581366279386.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1581366279386">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2020/02/11/1581366279386.html">0</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <p>参考链接：<br>
+<a href="https://www.zhihu.com/question/23374078" target="_blank">Unicode 和 UTF-8 有什么区别？</a><br>
+<a href="https://www.rainsheep.top/articles/2019/12/04/1575439705569.html">Python2和Python3中字符串编码问题详解</a></p>
+<hr>
+<h3 id="Unicode-和-UTF-8-的区别">Unicode 和 UTF-8 的区别</h3>
+<p>Unicode 是<strong>字符集</strong>，也叫编码表<br>
+UTF-8 是<strong>编码规则</strong><br>
+字符集：为每一个「字符」分配一个唯一的 ID（学名为码位/码点/ Code Point）<br>
+编码规则：将「码位」转换为字节序列的规则（编码/解码）</p>
+<h3 id="字符集和编码表">字符集和编码表</h3>
+<p>一套字符集必然至少有一套字符编码。<br>
+<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-02-11+19:26:19+p_20200211072616.png" alt=""></p>
+<ul>
+<li>
+<p><strong>ASCII字符集</strong> ：</p>
+<ul>
+<li>
+<p>ASCII（American Standard Code for Information Interchange，美国信息交换标准代码）是基于拉丁字母的一套电脑编码系统，用于显示现代英语，主要包括控制字符（回车键、退格、换行键等）和可显示字符（英文大小写字符、阿拉伯数字和西文符号）。</p>
+</li>
+<li>
+<p>基本的ASCII字符集，使用7位（bits）表示一个字符，共128字符。ASCII的扩展字符集使用8位（bits）表示一个字符，共256字符，方便支持欧洲常用字符。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>ISO-8859-1字符集</strong>：</p>
+<ul>
+<li>
+<p>拉丁码表，别名Latin-1，用于显示欧洲使用的语言，包括荷兰、丹麦、德语、意大利语、西班牙语等。</p>
+</li>
+<li>
+<p>ISO-5559-1使用单字节编码，兼容ASCII编码。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>GBxxx字符集</strong>：</p>
+<ul>
+<li>
+<p>GB就是国标的意思，是为了显示中文而设计的一套字符集。</p>
+</li>
+<li>
+<p><strong>GB2312</strong>：简体中文码表。一个小于127的字符的意义与原来相同。但两个大于127的字符连在一起时，就表示一个汉字，这样大约可以组合了包含7000多个简体汉字，此外数学符号、罗马希腊的字母、日文的假名们都编进去了，连在ASCII里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，这就是常说的"全角"字符，而原来在127号以下的那些就叫"半角"字符了。</p>
+</li>
+<li>
+<p><strong>GBK</strong>：最常用的中文码表。是在GB2312标准基础上的扩展规范，使用了双字节编码方案，共收录了21003个汉字，完全兼容GB2312标准，同时支持繁体汉字以及日韩汉字等。</p>
+</li>
+<li>
+<p><strong>GB18030</strong>：最新的中文码表。收录汉字70244个，采用多字节编码，每个字可以由1个、2个或4个字节组成。支持中国国内少数民族的文字，同时支持繁体汉字以及日韩汉字等。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Unicode字符集</strong> ：</p>
+<ul>
+<li>
+<p>Unicode编码系统为表达任意语言的任意字符而设计，是业界的一种标准，也称为统一码、标准万国码。</p>
+</li>
+<li>
+<p>它最多使用4个字节的数字来表达每个字母、符号，或者文字。有三种编码方案，UTF-8、UTF-16和UTF-32。最为常用的UTF-8编码。</p>
+</li>
+<li>
+<p><strong>UTF-8编码</strong>，可以用来表示Unicode标准中任何字符，它是电子邮件、网页及其他存储或传送文字的应用中，优先采用的编码。互联网工程工作小组（IETF）要求所有互联网协议都必须支持UTF-8编码。所以，我们开发Web应用，也要使用UTF-8编码。它使用一至四个字节为每个字符编码，编码规则：</p>
+<ol>
+<li>128个US-ASCII字符，只需一个字节编码。</li>
+<li>拉丁文等字符，需要二个字节编码。</li>
+<li>大部分常用字（含中文），使用三个字节编码。</li>
+<li>其他极少使用的Unicode辅助字符，使用四字节编码。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="编码和解码">编码和解码</h3>
+<p>字符需要<strong>有效</strong>传输，所以需要将字符<strong>编码</strong>为二进制的字节序列，<strong>解码</strong>就是从二进制序列，按照指定的规则，恢复出原始的内容(Unicode)。</p>
+<p>编码：字符(能看懂的)→编码 encode→指定字节序列(看不懂的)<br>
+解码：指定字节序列(看不懂的) →解码 decode→字符(能看懂的)</p>
+<h3 id="UTF-8-编码例子">UTF-8 编码例子</h3>
+<p>看个例子：It's 知乎日报</p>
+<p>你看到的 Unicode 字符集是这样的编码表：</p>
+<pre><code class="highlight-chroma">I  0049
+t  0074
+'  0027
+s  0073
+   0020
+知 77e5
+乎 4e4e
+日 65e5
+报 62a5
+</code></pre>
+<p>每一个字符对应一个十六进制数字。</p>
+<p>计算机只懂二进制，因此，严格按照 Unicode 的方式，应该这样存储：</p>
+<pre><code class="highlight-chroma">I  00000000 01001001
+t  00000000 01110100
+'  00000000 00100111
+s  00000000 01110011
+   00000000 00100000
+知 01110111 11100101
+乎 01001110 01001110
+日 01100101 11100101
+报 01100010 10100101
+</code></pre>
+<p>这个字符串总共占用了 18 个字节，但是对比中英文的二进制码，可以发现，英文前 9 位都是 0！浪费啊，浪费硬盘，浪费流量。</p>
+<p>UTF-8 为了节省空间，这样做：</p>
+<ul>
+<li>单字节的字符，字节的第一位设为 0，对于英语文本，UTF-8 码只占用一个字节，和 ASCII 码完全相同。</li>
+<li>n 个字节的字符(n&gt;1)，第一个字节的前 n 位设为 1，第 n+1 位设为 0，后面字节的前两位都设为 10，这 n 个字节的其余空位填充该字符 Unicode 码，高位用 0 补足。</li>
+</ul>
+<p>这样就形成了如下的 UTF-8 标记位：</p>
+<pre><code class="highlight-chroma">0xxxxxxx
+110xxxxx 10xxxxxx
+1110xxxx 10xxxxxx 10xxxxxx
+11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
+1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx
+... ...
+</code></pre>
+<p>于是，”It's 知乎日报“就变成了：</p>
+<pre><code class="highlight-chroma">I  01001001
+t  01110100
+'  00100111
+s  01110011
+   00100000
+知 11100111 10011111 10100101
+乎 11100100 10111001 10001110
+日 11100110 10010111 10100101
+报 11100110 10001010 10100101
+</code></pre>
+<p>和上边的方案对比一下，英文短了，每个中文字符却多用了一个字节。但是整个字符串只用了 17 个字节，比上边的 18 个短了，所以 UTF-8 编码所占用的空间少了。</p>
+<h3 id="Java-中关于编码的理解">Java 中关于编码的理解</h3>
+<p>在 Java 的内存中，字符(String,char)都以 Unicode 编码存储，使用 Java 内码，UTF-16。虽然 <code>.java</code> 和 <code>.class</code> 文件是 UTF-8 格式，加载进内存的时候，会将字符解码为 Unicode。</p>
+<p>当进行编码的时候，会改变二进制在内存中的样子，只能通过对应的解码规则进行解码，在内存中变成 Unicode 字符，我们才能正常看到。</p>
+<p><code>String.getBytes()</code>是一个用于将String的内码转换为指定的外码的方法。<br>
+无参数使用平台的默认编码作为外码，有参数版使用参数指定的编码作为外码。<br>
+将String的内容用外码编码好，结果放在一个新byte[]返回。</p>
+<p>内存存储的是UTF-16编码的字节，那么<code>String.getBytes("UTF-8")</code>应该是从UTF-16到UTF-8的转换过程。</p>
+<p>验证编码：</p>
+<pre><code class="language-java highlight-chroma"><span class="highlight-kn">package</span> <span class="highlight-nn">package1</span><span class="highlight-o">;</span>
+
+<span class="highlight-kn">import</span> <span class="highlight-nn">java.io.IOException</span><span class="highlight-o">;</span>
+
+<span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">Main</span> <span class="highlight-o">{</span>
+    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-kd">throws</span> <span class="highlight-n">IOException</span> <span class="highlight-o">{</span>
+        <span class="highlight-n">String</span> <span class="highlight-n">name1</span> <span class="highlight-o">=</span> <span class="highlight-s">"小aa"</span><span class="highlight-o">;</span>
+        <span class="highlight-n">String</span> <span class="highlight-n">name2</span> <span class="highlight-o">=</span> <span class="highlight-s">"小aa"</span><span class="highlight-o">;</span>
+        <span class="highlight-kt">byte</span><span class="highlight-o">[]</span> <span class="highlight-n">bytes1</span> <span class="highlight-o">=</span> <span class="highlight-n">name1</span><span class="highlight-o">.</span><span class="highlight-na">getBytes</span><span class="highlight-o">(</span><span class="highlight-s">"utf8"</span><span class="highlight-o">);</span><span class="highlight-c1">//5
+</span><span class="highlight-c1"></span>        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">bytes1</span><span class="highlight-o">.</span><span class="highlight-na">length</span><span class="highlight-o">);</span>
+        <span class="highlight-kt">byte</span><span class="highlight-o">[]</span> <span class="highlight-n">bytes2</span> <span class="highlight-o">=</span> <span class="highlight-n">name1</span><span class="highlight-o">.</span><span class="highlight-na">getBytes</span><span class="highlight-o">(</span><span class="highlight-s">"gbk"</span><span class="highlight-o">);</span><span class="highlight-c1">//4
+</span><span class="highlight-c1"></span>        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">bytes2</span><span class="highlight-o">.</span><span class="highlight-na">length</span><span class="highlight-o">);</span>
+    <span class="highlight-o">}</span>
+<span class="highlight-o">}</span>
+</code></pre>
+<p>编码和解码时规则不一样时：</p>
+<pre><code class="language-java highlight-chroma"><span class="highlight-kn">package</span> <span class="highlight-nn">package1</span><span class="highlight-o">;</span>
+
+<span class="highlight-kn">import</span> <span class="highlight-nn">java.io.IOException</span><span class="highlight-o">;</span>
+
+<span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">Main</span> <span class="highlight-o">{</span>
+    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-kd">throws</span> <span class="highlight-n">IOException</span> <span class="highlight-o">{</span>
+        <span class="highlight-n">String</span> <span class="highlight-n">name</span> <span class="highlight-o">=</span> <span class="highlight-s">"小aa"</span><span class="highlight-o">;</span>
+        <span class="highlight-kt">byte</span><span class="highlight-o">[]</span> <span class="highlight-n">bytes</span> <span class="highlight-o">=</span> <span class="highlight-n">name</span><span class="highlight-o">.</span><span class="highlight-na">getBytes</span><span class="highlight-o">(</span><span class="highlight-s">"utf-8"</span><span class="highlight-o">);</span>
+        <span class="highlight-n">String</span> <span class="highlight-n">s</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">String</span><span class="highlight-o">(</span><span class="highlight-n">bytes</span><span class="highlight-o">,</span> <span class="highlight-s">"utf-8"</span><span class="highlight-o">);</span>
+        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">s</span><span class="highlight-o">);</span><span class="highlight-c1">//小aa
+</span><span class="highlight-c1"></span>
+        <span class="highlight-kt">byte</span><span class="highlight-o">[]</span> <span class="highlight-n">bytes2</span> <span class="highlight-o">=</span> <span class="highlight-n">name</span><span class="highlight-o">.</span><span class="highlight-na">getBytes</span><span class="highlight-o">(</span><span class="highlight-s">"utf-8"</span><span class="highlight-o">);</span>
+        <span class="highlight-n">String</span> <span class="highlight-n">s2</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">String</span><span class="highlight-o">(</span><span class="highlight-n">bytes</span><span class="highlight-o">,</span> <span class="highlight-s">"gbk"</span><span class="highlight-o">);</span>
+        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">s2</span><span class="highlight-o">);</span><span class="highlight-c1">//灏廰a
+</span><span class="highlight-c1"></span>    <span class="highlight-o">}</span>
+<span class="highlight-o">}</span>
+</code></pre>
+                            <div>
+                                <hr>
+
+标题：Java中的编码和解码<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2020/02/11/1581366279386.html" target="_blank">https://Rainsheep.github.io/articles/2020/02/11/1581366279386.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2020/02/06/1580919792939.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: 无题
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2020/02/19/1582051510367.html" rel="next"
+                               class="fn__right breadcrumb">
+                                Java学习笔记-基础篇(1): 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/02/06/1580919792939.html" rel="prev" class="breadcrumb">
+                            旧一篇: 无题
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/02/19/1582051510367.html" rel="next"
+                           class="breadcrumb">
+                            新一篇: Java学习笔记-基础篇(1)
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1581366279386"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h3">
+            <a href="#Unicode-和-UTF-8-的区别">Unicode 和 UTF-8 的区别</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#字符集和编码表">字符集和编码表</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#编码和解码">编码和解码</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#UTF-8-编码例子">UTF-8 编码例子</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#Java-中关于编码的理解">Java 中关于编码的理解</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1581366279386",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 76ms, 2020/03/18 19:04:12 -->

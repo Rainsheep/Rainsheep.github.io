@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>利用solo搭建个人博客 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="利用solo搭建个人博客 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2019/11/26/1574768448759.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="利用solo搭建个人博客 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2019/11/26/1574768448759.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="next" title=" ss国内服务器中转教程" href="https://Rainsheep.github.io/articles/2019/11/27/1574832516527.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2020年">
+                        03月
+                        <span class="item__day">12</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2019/11/26/1574768448759.html">
+                            利用solo搭建个人博客
+                        </a>
+                            <sup>
+                                置顶！
+                            </sup>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2020-03-12
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90">
+                                开源</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2019/11/26/1574768448759.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1574768448759">6</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2019/11/26/1574768448759.html">863</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <p><img src="https://img.hacpai.com/bing/20180604.jpg?imageView2/1/w/960/h/540/interlace/1/q/100" alt=""></p>
+<p>参考链接：<br>
+<a href="https://hacpai.com/article/1492881378588" target="_blank">Solo 用户指南</a><br>
+<a href="https://hacpai.com/article/1565021959471" target="_blank">从零开始安装 solo 博客</a></p>
+<hr>
+<h1 id="搭建前提">搭建前提</h1>
+<ul>
+<li>购买服务器</li>
+<li>购买域名（可不买）</li>
+<li>域名解析与备案</li>
+<li>为服务器安装系统</li>
+</ul>
+<h1 id="安装-docker">安装 docker</h1>
+<blockquote>
+<p>我的系统，Centos7.3</p>
+</blockquote>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-c1">#使用yum更新仓库</span>
+yum update
+
+<span class="highlight-c1">#安装docker</span>
+yum -y install docker
+
+<span class="highlight-c1">#启动 Docker 后台服务</span>
+service docker start
+
+<span class="highlight-c1">#测试运行 hello-world</span>
+docker run hello-world
+</code></pre>
+<blockquote>
+<p>出现 hello world 就证明安装正常了</p>
+</blockquote>
+<h1 id="安装-MySQL">安装 MySQL</h1>
+<blockquote>
+<p>版本随意，我这里选择的 5.6，你可以选择更高版本的，这个没关系，不影响使用</p>
+</blockquote>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-c1"># 安装mysql:5.6,直接docker run 他会自动去官方镜想下载</span>
+<span class="highlight-c1"># MYSQL_ROOT_PASSWORD=你的数据库密码</span>
+docker run --name mysql -p 3306:3306 -e <span class="highlight-nv">MYSQL_ROOT_PASSWORD</span><span class="highlight-o">=</span><span class="highlight-m">123456</span> -d mysql:5.6
+
+<span class="highlight-c1"># docker安装的mysql默认允许远程连接，可以使用xshell等软件连接数据库</span>
+<span class="highlight-c1"># 进入容器mysql</span>
+docker <span class="highlight-nb">exec</span> -it mysql bash
+
+<span class="highlight-c1"># 进入数据库 p后面跟你的密码</span>
+mysql -uroot -p123456
+
+<span class="highlight-c1"># 创建数据库(数据库名:solo;字符集utf8mb4;排序规则utf8mb4_general_ci)</span>
+create database solo DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci<span class="highlight-p">;</span>
+<span class="highlight-c1"># 出现Query OK, 1 row affected (0.00 sec)表示成功</span>
+<span class="highlight-c1">#退出数据库</span>
+<span class="highlight-nb">exit</span>
+<span class="highlight-c1">#退出容器</span>
+<span class="highlight-nb">exit</span>
+</code></pre>
+<blockquote>
+<p>备份 SQL 文件的时候，可以通过 sqlyog 远程连接来备份。</p>
+</blockquote>
+<h1 id="安装-solo">安装 solo</h1>
+<p>直接运行以下命令</p>
+<pre><code class="language-bash highlight-chroma">docker run --detach --name solo --network<span class="highlight-o">=</span>host <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">RUNTIME_DB</span><span class="highlight-o">=</span><span class="highlight-s2">"MYSQL"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_USERNAME</span><span class="highlight-o">=</span><span class="highlight-s2">"root"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_PASSWORD</span><span class="highlight-o">=</span><span class="highlight-s2">"123456"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_DRIVER</span><span class="highlight-o">=</span><span class="highlight-s2">"com.mysql.cj.jdbc.Driver"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_URL</span><span class="highlight-o">=</span><span class="highlight-s2">"jdbc:mysql://127.0.0.1:3306/solo?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=UTC"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--rm <span class="highlight-se">\
+</span><span class="highlight-se"></span>b3log/solo --listen_port<span class="highlight-o">=</span><span class="highlight-m">8080</span> --server_scheme<span class="highlight-o">=</span>http --server_host<span class="highlight-o">=</span>www.rainsheep.top
+</code></pre>
+<p>上面的命令建议手敲，免得出错，参数说明</p>
+<ul>
+<li><code>--network=host</code> 让 solo 容器使用 docker 的 host 网络模式，使容器之间网络互通</li>
+<li><code>--env JDBC_PASSWORD="123456"</code> 将 123456 换成你的密码</li>
+<li><code>--listen_port=8080</code> 监听的端口</li>
+<li><code>--server_scheme=http</code> 请求方式，暂时使用 http，后面我们会换成 https</li>
+<li><code>--server_host=www.rainsheep.top</code> 你的域名，如果你没有域名可以写 ip 地址</li>
+<li><code>--rm</code> 因为这个容器后面要删掉，带上 rm 会省很多事。</li>
+</ul>
+<p>命令成功执行没有报错的话，通过 <code>docker ps</code> 查看执行的容器列表中是否存在 solo，存在这表示启动成功，直接访问你的域名加：8080 即可访问你的博客，http://www.rainsheep.top:8080<br>
+如果你尚在备案中，你可以收藏本帖，后面等备案通过了在研究后面的部分。<br>
+如果你不想使用 nginx 也不想升级 https，那么你可以先执行 <code>docker stop solo</code> ，然后将上面 <code>--listen_port=8080</code> 的 <code>8080</code> 换成 <code>80</code> ，然后去掉 <code>--rm</code> ，再执行一次就 ok。</p>
+<blockquote>
+<p>进入网页可能会出现 Latke 配置错误，如果要配置 nginx 反代理的话不需要管，配完就好了<br>
+如果不配置反代理的话，在后面加上参数 <code>--server_port=8080</code> 或者 <code>--server_port=80</code> ，与前面监听端口一致</p>
+</blockquote>
+<h1 id="安装-nginx">安装 nginx</h1>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-c1"># 切换到服务器根目录</span>
+<span class="highlight-nb">cd</span> /
+<span class="highlight-c1"># 创建主目录</span>
+mkdir dockerData
+<span class="highlight-c1"># 创建文件</span>
+mkdir dockerData/nginx dockerData/nginx/conf dockerData/nginx/logs dockerData/nginx/www dockerData/nginx/ssl
+</code></pre>
+<p>上面的 <code>dockerData</code> 可以换成自己喜欢的名字</p>
+<ul>
+<li><code>dockerData/nginx</code> 用于存放 docker 下 nginx 自定义文件</li>
+<li><code>dockerData/nginx/conf</code> 存放 nginx 配置文件</li>
+<li><code>dockerData/nginx/log</code> 存放 nginx 日志文件</li>
+<li><code>dockerData/nginx/www</code> 存放 nginx 访问的资源文件</li>
+<li><code>dockerData/nginx/ssl</code> 存放 ssl 证书</li>
+</ul>
+<p>启动 nginx<br>
+<code>docker run --name nginx -p 80:80 -d --rm nginx --network=host</code></p>
+<p>如果你没有备案，可以将上面的 <code>80:80</code> 换成 <code>8081:80</code> ，表示将本地的 <code>8081</code> 端口映射到容器内部的 <code>80</code> 端口，因为这个东西一会儿也要删掉，所以加上 <code>--rm</code> 参数，命令执行玩后通过 <code>docker ps</code> 查看 nginx 是否在运行，在运行的情况下访问你的域名加端口号查看是否正常安装， <code>80</code> 直接省略。访问出现 Welcome to nginx!表示成功。</p>
+<p>导出配置文件</p>
+<ul>
+<li><code>docker cp nginx:/etc/nginx/nginx.conf /dockerData/nginx/conf/nginx.conf</code> 导出配置文件 nginx.conf</li>
+<li><code>docker cp nginx:/etc/nginx/conf.d /dockerData/nginx/conf/conf.d</code> 导出配置文件 nginx.conf</li>
+</ul>
+<p>执行 <code>docker stop nginx</code> ，会自动删除现在的 nginx 容器，然后执行如下命令重新启动一个 nginx 容器</p>
+<pre><code class="language-bash highlight-chroma">docker run -d -p 80:80 --name nginx --network<span class="highlight-o">=</span>host <span class="highlight-se">\
+</span><span class="highlight-se"></span>-v /dockerData/nginx/conf/nginx.conf:/etc/nginx/nginx.conf <span class="highlight-se">\
+</span><span class="highlight-se"></span>-v /dockerData/nginx/conf/conf.d:/etc/nginx/conf.d <span class="highlight-se">\
+</span><span class="highlight-se"></span>-v /dockerData/nginx/www:/usr/share/nginx/html <span class="highlight-se">\
+</span><span class="highlight-se"></span>-v /dockerData/nginx/logs:/var/log/nginx nginx
+</code></pre>
+<ul>
+<li><code>-v /dockerData/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \</code> 挂载配置文件 <code>nginx.conf</code></li>
+<li><code>-v /dockerData/nginx/conf/conf.d:/etc/nginx/conf.d</code> 挂载配置文件 <code>default.conf</code></li>
+<li><code>-v /dockerData/nginx/www:/usr/share/nginx/html</code> 挂载项目文件</li>
+<li><code>-v /dockerData/nginx/logs:/var/log/nginx</code> 挂载配置文件</li>
+</ul>
+<p>新建欢迎界面</p>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-c1"># 打开项目文件</span> 
+<span class="highlight-nb">cd</span> /dockerData/nginx/www 
+<span class="highlight-c1"># 使用vim 创建并编辑文件</span>
+vim index.html 
+<span class="highlight-c1"># 此时我们会进入vim界面，按 i 插入，然后输入</span> 
+&lt;h1&gt;Hello Docker-Nginx&lt;/h1&gt; 
+<span class="highlight-c1"># 输入完后，按 esc，然后输入 :wq</span>
+</code></pre>
+<p>访问域名，可看到 Hello Docker-Nginx</p>
+<h1 id="申请-ssl-证书-将-http-升级为-https-可跳过-">申请 ssl 证书，将 http 升级为 https(可跳过)</h1>
+<p>申请完 ssl 证书以后，下载证书<br>
+最后把 <code>Nginx</code> 下的两个文件上传至服务器 <code>/dockerDat/nginx/ssl</code> 目录下</p>
+<blockquote>
+<p>我的两个证书名字为 <code>3118615_rainsheep.top.pem</code> 和 <code>3118615_rainsheep.top.key</code></p>
+</blockquote>
+<h1 id="配置-nginx-配置文件">配置 nginx 配置文件</h1>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-nb">cd</span> /dockerData/nginx/conf/conf.d 
+vim default.conf
+</code></pre>
+<p>参考我的配置，配置自己的 default.conf 文件</p>
+<pre><code class="language-bash highlight-chroma">upstream backend <span class="highlight-o">{</span>
+    server localhost:8080<span class="highlight-p">;</span>   <span class="highlight-c1">#使用localhost时，需要nginx和solo的容器处在同一网络，前面通过--network=host来实现</span>
+<span class="highlight-o">}</span>
+
+server <span class="highlight-o">{</span>
+    listen       443<span class="highlight-p">;</span>    <span class="highlight-c1">#443为https默认端口</span>
+    server_name  www.rainsheep.top<span class="highlight-p">;</span>    <span class="highlight-c1">#域名</span>
+    access_log off<span class="highlight-p">;</span>
+    
+    ssl on<span class="highlight-p">;</span>     <span class="highlight-c1">#ssl证书相关，此步骤主要配置这个</span>
+    ssl_certificate /ssl/3118615_rainsheep.top.pem<span class="highlight-p">;</span>
+    ssl_certificate_key /ssl/3118615_rainsheep.top.key<span class="highlight-p">;</span>
+    ssl_session_timeout 5m<span class="highlight-p">;</span> 
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2<span class="highlight-p">;</span>
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE<span class="highlight-p">;</span>
+    ssl_prefer_server_ciphers on<span class="highlight-p">;</span> 
+
+    location / <span class="highlight-o">{</span> 
+        proxy_pass http://backend<span class="highlight-nv">$request_uri</span><span class="highlight-p">;</span>
+        proxy_set_header  Host <span class="highlight-nv">$http_host</span><span class="highlight-p">;</span>
+        proxy_set_header  X-Real-IP  <span class="highlight-nv">$remote_addr</span><span class="highlight-p">;</span>
+        client_max_body_size  10m<span class="highlight-p">;</span>
+    <span class="highlight-o">}</span>   
+<span class="highlight-o">}</span>
+
+<span class="highlight-c1">#配置80端口跳转到https</span>
+server <span class="highlight-o">{</span>
+    listen       80<span class="highlight-p">;</span> 
+    server_name  www.rainsheep.top<span class="highlight-p">;</span>
+    rewrite ^<span class="highlight-o">(</span>.*<span class="highlight-o">)</span> https://<span class="highlight-si">${</span><span class="highlight-nv">server_name</span><span class="highlight-si">}</span><span class="highlight-nv">$1</span> permanent<span class="highlight-p">;</span>
+<span class="highlight-o">}</span>
+</code></pre>
+<p>由于我们现在用的 nginx 容器并未监听 443 端口，所以需要删除现在的容器，重新启动一个新的 nginx 容器</p>
+<pre><code class="language-bash highlight-chroma">docker stop nginx  <span class="highlight-c1"># 停止容器</span>
+docker rm nginx <span class="highlight-c1"># 删除容器</span>
+<span class="highlight-c1"># 启动新的</span>
+docker run -d -p 80:80 -p 443:443 --name nginx --network<span class="highlight-o">=</span>host <span class="highlight-se">\
+</span><span class="highlight-se"></span>-v /dockerData/nginx/conf/nginx.conf:/etc/nginx/nginx.conf <span class="highlight-se">\
+</span><span class="highlight-se"></span>-v /dockerData/nginx/conf/conf.d:/etc/nginx/conf.d <span class="highlight-se">\
+</span><span class="highlight-se"></span>-v /dockerData/nginx/ssl:/ssl/ <span class="highlight-se">\
+</span><span class="highlight-se"></span>-v /dockerData/nginx/www:/usr/share/nginx/html <span class="highlight-se">\
+</span><span class="highlight-se"></span>-v /dockerData/nginx/logs:/var/log/nginx nginx
+</code></pre>
+<ul>
+<li><code>-p 443:443</code> 监听 443 端口</li>
+<li><code>-v /dockerData/nginx/ssl:/ssl/</code> 挂载 ssl 证书目录</li>
+</ul>
+<p>访问查看，正常访问</p>
+<blockquote>
+<p>访问不到的话，可能是配置文件错了，仔细核对， <code>docker logs nginx</code> 查看日志， <code>docker ps</code> 查看是否运行。</p>
+</blockquote>
+<h1 id="将-solo-通过-nginx-方向代理实现-https-访问">将 solo 通过 nginx 方向代理实现 https 访问</h1>
+<p>让 solo 还是跑在 8080 端口上，通过 nginx 代理到 443 端口即可，由于我们上面启动 solo 时添加了 <code>--rm</code> 参数，只需要 <code>docker stop solo</code> 即可自动删除 solo 容器，然后我们重新启动一个 solo 容器</p>
+<pre><code class="language-bash highlight-chroma">docker run --detach --name solo --network<span class="highlight-o">=</span>host <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">RUNTIME_DB</span><span class="highlight-o">=</span><span class="highlight-s2">"MYSQL"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_USERNAME</span><span class="highlight-o">=</span><span class="highlight-s2">"root"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_PASSWORD</span><span class="highlight-o">=</span><span class="highlight-s2">"123456"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_DRIVER</span><span class="highlight-o">=</span><span class="highlight-s2">"com.mysql.cj.jdbc.Driver"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_URL</span><span class="highlight-o">=</span><span class="highlight-s2">"jdbc:mysql://127.0.0.1:3306/solo?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=UTC"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>b3log/solo --listen_port<span class="highlight-o">=</span><span class="highlight-m">8080</span> --server_scheme<span class="highlight-o">=</span>https --server_host<span class="highlight-o">=</span>www.rainsheep.top --server_port<span class="highlight-o">=</span>
+</code></pre>
+<ul>
+<li><code>--server_scheme=http</code> 换成 <code>--server_scheme=https</code> 即可</li>
+<li><code>--server_port</code> ：最终访问端口，使用浏览器默认的 80 或者 443 的话值留空即可</li>
+</ul>
+<p>然后我们去配置 nginx 配置文件，实现 nginx 反向代理</p>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-nb">cd</span> /dockerData/nginx/conf/conf.d
+vim default.conf
+location / <span class="highlight-o">{</span> 
+	proxy_pass http://backend<span class="highlight-nv">$request_uri</span><span class="highlight-p">;</span>
+	proxy_set_header  Host <span class="highlight-nv">$http_host</span><span class="highlight-p">;</span>
+	proxy_set_header  X-Real-IP  <span class="highlight-nv">$remote_addr</span><span class="highlight-p">;</span>
+	client_max_body_size  10m<span class="highlight-p">;</span>
+<span class="highlight-o">}</span> 
+<span class="highlight-c1"># 替换上面部分即可</span>
+<span class="highlight-c1"># 按esc，然后输入:wq保持退出</span>
+</code></pre>
+<p>重启 nginx， <code>docker restart nginx</code><br>
+访问成功。<br>
+此处附上我最后的配置文件<br>
+<a href="https://img.hacpai.com/file/2019/11/default-c6875a51.zip" target="_blank">default.zip</a></p>
+<h1 id="启用-Lute">启用 Lute</h1>
+<ul>
+<li>获取最新镜像 <code>docker pull b3log/lute-http</code></li>
+<li>启动容器 <code>docker run --detach --rm --network=host --name="lute" b3log/lute-http</code></li>
+<li>停止 solo, <code>docker stop solo</code></li>
+<li>删除 solo， <code>docker rm solo</code></li>
+<li>运行下列命令，重启 solo，注意最后添加 <code>--lute_http=http://127.0.0.1:8249</code></li>
+</ul>
+<pre><code class="language-bash highlight-chroma">docker run --detach --name solo --network<span class="highlight-o">=</span>host <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">RUNTIME_DB</span><span class="highlight-o">=</span><span class="highlight-s2">"MYSQL"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_USERNAME</span><span class="highlight-o">=</span><span class="highlight-s2">"root"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_PASSWORD</span><span class="highlight-o">=</span><span class="highlight-s2">"123456"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_DRIVER</span><span class="highlight-o">=</span><span class="highlight-s2">"com.mysql.cj.jdbc.Driver"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_URL</span><span class="highlight-o">=</span><span class="highlight-s2">"jdbc:mysql://127.0.0.1:3306/solo?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=UTC"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>b3log/solo --listen_port<span class="highlight-o">=</span><span class="highlight-m">8080</span> --server_scheme<span class="highlight-o">=</span>https --server_host<span class="highlight-o">=</span>www.rainsheep.top --server_port<span class="highlight-o">=</span> --lute_http<span class="highlight-o">=</span>http://127.0.0.1:8249
+</code></pre>
+<ul>
+<li>容器启动成功后再启动 Solo、Pipe、Sym 即可，如果成功的话 Solo 等的启动日志中 <code>docker logs solo</code> 会输出 <code>luteAvailable=true</code></li>
+</ul>
+<p>测试代码是否高亮。<br>
+教程结束。</p>
+<h1 id="启用-jsDelivr-CDN-加速">启用 jsDelivr CDN 加速</h1>
+<pre><code class="language-bash highlight-chroma">docker run --detach --name solo --network<span class="highlight-o">=</span>host <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">RUNTIME_DB</span><span class="highlight-o">=</span><span class="highlight-s2">"MYSQL"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_USERNAME</span><span class="highlight-o">=</span><span class="highlight-s2">"root"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_PASSWORD</span><span class="highlight-o">=</span><span class="highlight-s2">"123456"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_DRIVER</span><span class="highlight-o">=</span><span class="highlight-s2">"com.mysql.cj.jdbc.Driver"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_URL</span><span class="highlight-o">=</span><span class="highlight-s2">"jdbc:mysql://127.0.0.1:3306/solo?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=UTC"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>b3log/solo --listen_port<span class="highlight-o">=</span><span class="highlight-m">8080</span> --server_scheme<span class="highlight-o">=</span>https --server_host<span class="highlight-o">=</span>www.rainsheep.top --server_port<span class="highlight-o">=</span> --lute_http<span class="highlight-o">=</span>http://127.0.0.1:8249 <span class="highlight-se">\
+</span><span class="highlight-se"></span>--static_server_scheme<span class="highlight-o">=</span>https <span class="highlight-se">\
+</span><span class="highlight-se"></span>--static_server_host<span class="highlight-o">=</span>cdn.jsdelivr.net <span class="highlight-se">\
+</span><span class="highlight-se"></span>--static_server_port<span class="highlight-o">=</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--static_path<span class="highlight-o">=</span>/gh/88250/solo/src/main/resources
+</code></pre>
+<p>查看方法：打开开发者工具，查看 NetWork 中的请求链接地址。</p>
+<blockquote>
+<p>仅支持内置皮肤</p>
+</blockquote>
+<h1 id="solo-自动更新脚本">solo 自动更新脚本</h1>
+<blockquote>
+<p>利用 crontab 运行脚本自动更新，脚本名 docker-solo-update.sh</p>
+</blockquote>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-cp">#!/bin/bash
+</span><span class="highlight-cp"></span><span class="highlight-nb">echo</span> -e <span class="highlight-s2">"\n"</span>
+<span class="highlight-nb">echo</span> <span class="highlight-sb">`</span>date <span class="highlight-s2">"+%Y-%m-%d %H:%M:%S"</span><span class="highlight-sb">`</span>
+<span class="highlight-nv">isUpdate</span><span class="highlight-o">=</span><span class="highlight-k">$(</span>docker pull b3log/solo<span class="highlight-p">|</span>grep <span class="highlight-s2">"Downloaded"</span><span class="highlight-k">)</span>
+<span class="highlight-k">if</span> <span class="highlight-o">[</span> -z  <span class="highlight-nv">$isUpdate</span> <span class="highlight-o">]</span>
+<span class="highlight-k">then</span>
+    <span class="highlight-nb">echo</span> This is the latest version
+<span class="highlight-k">else</span>
+    docker stop solo
+    docker rm solo
+    docker run --detach --name solo --network<span class="highlight-o">=</span>host <span class="highlight-se">\
+</span><span class="highlight-se"></span>    --env <span class="highlight-nv">RUNTIME_DB</span><span class="highlight-o">=</span><span class="highlight-s2">"MYSQL"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>    --env <span class="highlight-nv">JDBC_USERNAME</span><span class="highlight-o">=</span><span class="highlight-s2">"root"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>    --env <span class="highlight-nv">JDBC_PASSWORD</span><span class="highlight-o">=</span><span class="highlight-s2">"123456"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>    --env <span class="highlight-nv">JDBC_DRIVER</span><span class="highlight-o">=</span><span class="highlight-s2">"com.mysql.cj.jdbc.Driver"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>    --env <span class="highlight-nv">JDBC_URL</span><span class="highlight-o">=</span><span class="highlight-s2">"jdbc:mysql://127.0.0.1:3306/solo?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=UTC"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>    b3log/solo --listen_port<span class="highlight-o">=</span><span class="highlight-m">8080</span> --server_scheme<span class="highlight-o">=</span>https --server_host<span class="highlight-o">=</span>www.rainsheep.top --server_port<span class="highlight-o">=</span> --lute_http<span class="highlight-o">=</span>http://127.0.0.1:8249 <span class="highlight-se">\
+</span><span class="highlight-se"></span>    --static_server_scheme<span class="highlight-o">=</span>https <span class="highlight-se">\
+</span><span class="highlight-se"></span>    --static_server_host<span class="highlight-o">=</span>cdn.jsdelivr.net <span class="highlight-se">\
+</span><span class="highlight-se"></span>    --static_server_port<span class="highlight-o">=</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>    --static_path<span class="highlight-o">=</span>/gh/88250/solo/src/main/resources
+    <span class="highlight-nb">echo</span> Success!
+<span class="highlight-k">fi</span>
+</code></pre>
+<p>使用方法：<br>
+<code>chmod 777 docker-solo-update.sh</code><br>
+<code>crontab -e</code><br>
+写入<br>
+<code>0 3 * * * bash /root/docker-solo-update.sh</code><br>
+需要打印日志信息的话<br>
+<code>0 3 * * * bash /root/docker-solo-update.sh &gt;&gt; /root/sololog.log 2&gt;&amp;1</code><br>
+运行<br>
+<code>crontab -l</code><br>
+查看是否插入成功</p>
+<h1 id="Lute-自动更新脚本">Lute 自动更新脚本</h1>
+<blockquote>
+<p>利用 crontab 运行脚本自动更新，脚本名 docker-lute-update.sh</p>
+</blockquote>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-cp">#!/bin/bash
+</span><span class="highlight-cp"></span><span class="highlight-nb">echo</span> -e <span class="highlight-s2">"\n"</span>
+<span class="highlight-nb">echo</span> <span class="highlight-sb">`</span>date <span class="highlight-s2">"+%Y-%m-%d %H:%M:%S"</span><span class="highlight-sb">`</span>
+<span class="highlight-nv">isUpdate</span><span class="highlight-o">=</span><span class="highlight-k">$(</span>docker pull b3log/lute-http<span class="highlight-p">|</span>grep <span class="highlight-s2">"Downloaded"</span><span class="highlight-k">)</span>
+<span class="highlight-k">if</span> <span class="highlight-o">[</span> -z  <span class="highlight-nv">$isUpdate</span> <span class="highlight-o">]</span>
+<span class="highlight-k">then</span>
+    <span class="highlight-nb">echo</span> This is the latest version
+<span class="highlight-k">else</span>
+    docker stop lute
+    docker run --detach --rm --network<span class="highlight-o">=</span>host --name<span class="highlight-o">=</span><span class="highlight-s2">"lute"</span> b3log/lute-http
+    <span class="highlight-nb">echo</span> Success!
+<span class="highlight-k">fi</span>
+
+</code></pre>
+<p>使用方法：<br>
+<code>chmod 777 docker-lute-update.sh</code><br>
+<code>crontab -e</code><br>
+写入<br>
+<code>0 4 * * * bash /root/docker-lute-update.sh</code><br>
+需要打印日志信息的话<br>
+<code>0 4 * * * bash /root/docker-lute-update.sh &gt;&gt; /root/lutelog.log 2&gt;&amp;1</code><br>
+运行<br>
+<code>crontab -l</code><br>
+查看是否插入成功</p>
+<h1 id="导入-md-文件">导入 .md 文件</h1>
+<p>参考链接：<br>
+<a href="https://hacpai.com/article/1498490209748" target="_blank">Solo 支持 Hexo/Jekyll 数据导入</a></p>
+<p><code>--volume 待导入目录/:/opt/solo/markdowns/ </code> 这样应该就可以了，其中 待导入目录 是你寄主机上的绝对路径。</p>
+<p>例如：</p>
+<pre><code class="language-bash highlight-chroma">docker stop solo
+docker rm solo
+docker run --detach --volume /root/solo-markdown/:/opt/solo/markdowns/ --name solo --network<span class="highlight-o">=</span>host <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">RUNTIME_DB</span><span class="highlight-o">=</span><span class="highlight-s2">"MYSQL"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_USERNAME</span><span class="highlight-o">=</span><span class="highlight-s2">"root"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_PASSWORD</span><span class="highlight-o">=</span><span class="highlight-s2">"123456"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_DRIVER</span><span class="highlight-o">=</span><span class="highlight-s2">"com.mysql.cj.jdbc.Driver"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>--env <span class="highlight-nv">JDBC_URL</span><span class="highlight-o">=</span><span class="highlight-s2">"jdbc:mysql://127.0.0.1:3306/solo?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=UTC"</span> <span class="highlight-se">\
+</span><span class="highlight-se"></span>b3log/solo --listen_port<span class="highlight-o">=</span><span class="highlight-m">8080</span> --server_scheme<span class="highlight-o">=</span>https --server_host<span class="highlight-o">=</span>www.rainsheep.top --server_port<span class="highlight-o">=</span> --lute_http<span class="highlight-o">=</span>http://127.0.0.1:8249
+</code></pre>
+<hr>
+<blockquote>
+<p>过程中需要用到的 docker 命令<br>
+docker ps	查看运行的容器<br>
+docker ps -a 	查看所有容器<br>
+docker stop id||name	停止容器<br>
+docker rm id||name	移除容器<br>
+docker logs 容器名	查看容器日志</p>
+</blockquote>
+<h1 id="MySQL-的内存优化">MySQL 的内存优化</h1>
+<p>输入命令 <code>top</code> 可以查看内存使用情况。</p>
+<p>优化 MySQL 所占内存：</p>
+<p>创建文件夹</p>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-nb">cd</span> /dockerDate
+mkdir mysql
+</code></pre>
+<p>从容器中复制配置文件到服务器<br>
+<code>docker cp mysql:/etc/mysql/mysql.conf.d/mysqld.cnf  /dockerData/mysql</code></p>
+<p>编辑配置文件<br>
+<code>vim mysqld.cnf</code></p>
+<p>末尾添加</p>
+<pre><code class="highlight-chroma">performance_schema_max_table_instances=400
+table_definition_cache=400
+table_open_cache=256
+</code></pre>
+<p>从服务器复制到容器<br>
+<code>docker cp /dockerData/mysql/mysqld.cnf mysql:/etc/mysql/mysql.conf.d/mysqld.cnf</code></p>
+<p>改完之后记得重启 MySQL<br>
+<code>docker restart mysql</code></p>
+                            <div>
+                                <hr>
+
+标题：利用solo搭建个人博客<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2019/11/26/1574768448759.html" target="_blank">https://Rainsheep.github.io/articles/2019/11/26/1574768448759.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2019/11/27/1574832516527.html" rel="next"
+                               class="fn__right breadcrumb">
+                                 ss国内服务器中转教程: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/11/27/1574832516527.html" rel="next"
+                           class="breadcrumb">
+                            新一篇:  ss国内服务器中转教程
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1574768448759"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h1">
+            <a href="#搭建前提">搭建前提</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#安装-docker">安装 docker</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#安装-MySQL">安装 MySQL</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#安装-solo">安装 solo</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#安装-nginx">安装 nginx</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#申请-ssl-证书-将-http-升级为-https-可跳过-">申请 ssl 证书，将 http 升级为 https(可跳过)</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#配置-nginx-配置文件">配置 nginx 配置文件</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#将-solo-通过-nginx-方向代理实现-https-访问">将 solo 通过 nginx 方向代理实现 https 访问</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#启用-Lute">启用 Lute</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#启用-jsDelivr-CDN-加速">启用 jsDelivr CDN 加速</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#solo-自动更新脚本">solo 自动更新脚本</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#Lute-自动更新脚本">Lute 自动更新脚本</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#导入-md-文件">导入 .md 文件</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#MySQL-的内存优化">MySQL 的内存优化</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1574768448759",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 143ms, 2020/03/18 19:04:11 -->

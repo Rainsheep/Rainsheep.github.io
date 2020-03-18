@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>SpringMVC 学习笔记 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="SpringMVC 学习笔记 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2020/03/10/1583771477763.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="SpringMVC 学习笔记 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2020/03/10/1583771477763.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="Linux 学习笔记" href="https://Rainsheep.github.io/articles/2020/03/09/1583763466425.html">
+            <link rel="next" title="ssm 整合" href="https://Rainsheep.github.io/articles/2020/03/11/1583867371280.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2020年">
+                        03月
+                        <span class="item__day">18</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2020/03/10/1583771477763.html">
+                            SpringMVC 学习笔记
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2020-03-18
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/Java">
+                                Java</a>,
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">
+                                学习笔记</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2020/03/10/1583771477763.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1583771477763">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2020/03/10/1583771477763.html">0</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <h3 id="1--SpringMVC-基础">1. SpringMVC 基础</h3>
+<ul>
+<li>
+<p>SpringMVC 在 在 三层架构的位置<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-04+13:26:52+01%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84.png" alt=""></p>
+</li>
+<li>
+<p>SpringMVC 的优势</p>
+<ul>
+<li>清晰的角色划分：
+<ul>
+<li>前端控制器（DispatcherServlet）</li>
+<li>请求到处理器映射（HandlerMapping）</li>
+<li>处理器适配器（HandlerAdapter）</li>
+<li>视图解析器（ViewResolver）</li>
+<li>处理器或页面控制器（Controller）</li>
+<li>验证器（ Validator）</li>
+<li>命令对象（Command 请求参数绑定到的对象就叫命令对象）</li>
+<li>表单对象（Form Object 提供给表单展示和提交到的对象就叫表单对象）。</li>
+</ul>
+</li>
+<li>分工明确，而且扩展点相当灵活，可以很容易扩展，虽然几乎不需要。</li>
+<li>由于命令对象就是一个 POJO，无需继承框架特定 API，可以使用命令对象直接作为业务对象。</li>
+<li>和 Spring 其他框架无缝集成，是其它 Web 框架所不具备的。</li>
+<li>可适配，通过 HandlerAdapter 可以支持任意的类作为处理器。</li>
+<li>可定制性，HandlerMapping、ViewResolver 等能够非常简单的定制。</li>
+<li>功能强大的数据验证、格式化、绑定机制。</li>
+<li>利用 Spring 提供的 Mock 对象能够非常简单的进行 Web 层单元测试。</li>
+<li>本地化、主题的解析的支持，使我们更容易进行国际化和主题的切换。</li>
+<li>强大的 JSP 标签库，使 JSP 编写更容易。</li>
+</ul>
+</li>
+<li>
+<p>SpringMVC 和 和 Struts2</p>
+<ul>
+<li>共同点：
+<ul>
+<li>它们都是表现层框架，都是基于 MVC 模型编写的。</li>
+<li>它们的底层都离不开原始 ServletAPI。</li>
+<li>它们处理请求的机制都是一个核心控制器。</li>
+</ul>
+</li>
+<li>区别：
+<ul>
+<li>Spring MVC 的入口是 Servlet, 而 Struts2 是 Filter</li>
+<li>Spring MVC 是基于方法设计的，而 Struts2 是基于类，Struts2 每次执行都会创建一个动作类。所以 Spring MVC 会稍微比 Struts2 快些。</li>
+<li>Spring MVC 使用更加简洁，同时还支持 JSR303, 处理 AJAX 的请求更方便 (JSR303 是一套 JavaBean 参数校验的标准，它定义了很多常用的校验注解，我们可以直接将这些注解加在我们 JavaBean 的属性上面，就可以在需要校验的时候进行校验了)</li>
+<li>Struts2 的 OGNL 表达式使页面的开发效率相比 Spring MVC 更高些，但执行效率并没有比 JSTL 提升，尤其是 struts2 的表单标签，远没有 HTML 执行效率高。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>入门程序：</p>
+<p>index 页面：</p>
+<pre><code class="language-jsp highlight-chroma">&lt;body&gt;
+&lt;h3&gt;入门程序&lt;/h3&gt;
+&lt;a href="hello"&gt;入门程序&lt;/a&gt;
+&lt;/body&gt;
+</code></pre>
+<p>web.xml</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;web-app&gt;</span>
+  <span class="highlight-nt">&lt;servlet&gt;</span>
+    <span class="highlight-nt">&lt;servlet-name&gt;</span>dispatcherServlet<span class="highlight-nt">&lt;/servlet-name&gt;</span>
+    <span class="highlight-nt">&lt;servlet-class&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="highlight-nt">&lt;/servlet-class&gt;</span>
+    <span class="highlight-nt">&lt;init-param&gt;</span>
+      <span class="highlight-nt">&lt;param-name&gt;</span>contextConfigLocation<span class="highlight-nt">&lt;/param-name&gt;</span>
+      <span class="highlight-nt">&lt;param-value&gt;</span>classpath:springmvc.xml<span class="highlight-nt">&lt;/param-value&gt;</span>
+    <span class="highlight-nt">&lt;/init-param&gt;</span>
+    <span class="highlight-nt">&lt;load-on-startup&gt;</span>1<span class="highlight-nt">&lt;/load-on-startup&gt;</span>
+  <span class="highlight-nt">&lt;/servlet&gt;</span>
+  <span class="highlight-nt">&lt;servlet-mapping&gt;</span>
+    <span class="highlight-nt">&lt;servlet-name&gt;</span>dispatcherServlet<span class="highlight-nt">&lt;/servlet-name&gt;</span>
+    <span class="highlight-nt">&lt;url-pattern&gt;</span>/<span class="highlight-nt">&lt;/url-pattern&gt;</span>
+  <span class="highlight-nt">&lt;/servlet-mapping&gt;</span>
+<span class="highlight-nt">&lt;/web-app&gt;</span>
+</code></pre>
+<ul>
+<li>DispatcherServlet 为前端控制器，所有请求通向前端控制器</li>
+<li>init-param 为初始化参数，用于加载 Spring 配置文件</li>
+<li>load-on-startup 代表程序启动就加载，创建 Servlet 对象</li>
+<li>路径使用 <code>/</code> 而不能使用 <code>/*</code>，<code>/</code> 会匹配到 <code>/springmvc</code> 这样的路径型 url，而不会匹配到像 <code>.jsp</code> 这样的后缀型的 url。</li>
+</ul>
+<p>springmvc.xml</p>
+<pre><code class="language-xml highlight-chroma">  <span class="highlight-c">&lt;!-- 开启注解扫描 --&gt;</span>
+  <span class="highlight-nt">&lt;context:component-scan</span> <span class="highlight-na">base-package=</span><span class="highlight-s">"pers.ylq"</span><span class="highlight-nt">/&gt;</span>
+
+  <span class="highlight-c">&lt;!-- 视图解析器对象 --&gt;</span>
+  <span class="highlight-nt">&lt;bean</span> <span class="highlight-na">id=</span><span class="highlight-s">"internalResourceViewResolver"</span> <span class="highlight-na">class=</span><span class="highlight-s">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span><span class="highlight-nt">&gt;</span>
+      <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"prefix"</span> <span class="highlight-na">value=</span><span class="highlight-s">"/WEB-INF/pages/"</span><span class="highlight-nt">/&gt;</span>
+      <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"suffix"</span> <span class="highlight-na">value=</span><span class="highlight-s">".jsp"</span><span class="highlight-nt">/&gt;</span>
+  <span class="highlight-nt">&lt;/bean&gt;</span>
+
+  <span class="highlight-c">&lt;!-- 开启SpringMVC框架注解的支持 --&gt;</span>
+  <span class="highlight-nt">&lt;mvc:annotation-driven</span> <span class="highlight-na">conversion-service=</span><span class="highlight-s">"conversionService"</span><span class="highlight-nt">/&gt;</span>
+</code></pre>
+<ul>
+<li>InternalResourceViewResolver 为视图解析器</li>
+<li>prefix 为前缀，suffix 为后缀</li>
+<li>经视图解析器跳转至请求页面</li>
+</ul>
+<p>HelloController.java</p>
+<pre><code class="language-java highlight-chroma">  <span class="highlight-nd">@Controller</span>
+  <span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">HelloController</span> <span class="highlight-o">{</span>
+      <span class="highlight-nd">@RequestMapping</span><span class="highlight-o">(</span><span class="highlight-n">path</span> <span class="highlight-o">=</span> <span class="highlight-s">"/hello"</span><span class="highlight-o">)</span>
+      <span class="highlight-kd">public</span> <span class="highlight-n">String</span> <span class="highlight-nf">sayHello</span><span class="highlight-o">(){</span>
+          <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"Hello SpringMVC"</span><span class="highlight-o">);</span>
+          <span class="highlight-k">return</span> <span class="highlight-s">"success"</span><span class="highlight-o">;</span>
+      <span class="highlight-o">}</span>
+  <span class="highlight-o">}</span>
+</code></pre>
+<ul>
+<li>@Controller 用 IoC 创建对象</li>
+<li>RequestMapping 声明请求路径</li>
+<li>当 dispatcherServlet 配置路径为 *.do 的时候，后台可以写 /hello.do 或者 /hello</li>
+<li>返回 success.jsp</li>
+</ul>
+</li>
+<li>
+<p>入门程序简单分析<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-08+20:11:20+03.bmp" alt=""></p>
+</li>
+<li>
+<p>详细分析<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-08+20:12:07+04.bmp" alt=""></p>
+</li>
+<li>
+<p>前端控制器：DispatcherServlet<br>
+用户请求到达前端控制器，它就相当于 mvc 模式中的 c，dispatcherServlet 是整个流程控制的中心，由它调用其它组件处理用户的请求，dispatcherServlet 的存在降低了组件之间的耦合性。</p>
+</li>
+<li>
+<p>处理器映射器：HandlerMapping<br>
+HandlerMapping 负责根据用户请求找到 Handler 即处理器，SpringMVC 提供了不同的映射器实现不同的映射方式，例如：配置文件方式，实现接口方式，注解方式等。</p>
+</li>
+<li>
+<p>处理器：Handler<br>
+它就是我们开发中要编写的具体业务控制器。由 DispatcherServlet 把用户请求转发到 Handler。由 Handler 对具体的用户请求进行处理。</p>
+</li>
+<li>
+<p>处理器适配器：HandlAdapter<br>
+通过 HandlerAdapter 对处理器进行执行，这是适配器模式的应用，通过扩展适配器可以对更多类型的处理器进行执行。</p>
+</li>
+<li>
+<p>视图解析器：View Resolver View Resolver<br>
+负责将处理结果生成 View 视图，View Resolver 首先根据逻辑视图名解析成物理视图名即具体的页面地址，再生成 View 视图对象，最后对 View 进行渲染将处理结果通过页面展示给用户。</p>
+</li>
+<li>
+<p>处理器映射器、处理器适配器、视图解析器称为 SpringMVC 的三大组件。使 用 <code>&lt;mvc:annotation-driven&gt;</code> 自动加载 RequestMappingHandlerMapping （处理映射器） 和 RequestMappingHandlerAdapter（处理适配器），可 用 在 SpringMVC.xml 配 置 文 件 中 使 用 <code>&lt;mvc:annotation-driven&gt;</code> 替代注解处理器和适配器的配置。</p>
+</li>
+<li>
+<p>RequestMapping  注解：用于建立请求 URL 和处理请求方法之间的对应关系。</p>
+<ul>
+<li>位置：
+<ul>
+<li>类上：一级访问目录</li>
+<li>方法上：二级访问目录</li>
+</ul>
+</li>
+<li>属性：
+<ul>
+<li>value：用于指定请求的 URL。它和 path 属性的作用是一样的。</li>
+<li>method：用于指定请求的方式。</li>
+<li>params：用于指定限制请求参数的条件。</li>
+<li>headers：用于指定限制请求消息头的条件。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2--请求参数的绑定">2. 请求参数的绑定</h3>
+<ul>
+<li>可以封装的类型
+<ul>
+<li>基本类型和 String 类型</li>
+<li>实体类，以及关联的实体类</li>
+<li>数组和集合类型</li>
+</ul>
+</li>
+<li>绑定的方法：通过把表单提交请求参数，作为控制器中方法参数进行绑定。</li>
+<li>基本类型和 String 类型的绑定：参数名称必须和控制器中方法的形参名称保持一致。(严格区分大小写)</li>
+<li>实体类类型的绑定：参数名和方法的形参中的实体类的属性名已知即可。</li>
+<li>实体类中有实体类：比如方法的形参为 Account，有一个属性为 User user，User 中有个成员变量 name，则需要前台参数的 name 为 user.name。</li>
+<li>参数的乱码问题：
+<ul>
+<li>配置 Spring 官方提供的过滤器 CharacterEncodingFilter 传递参数即可。</li>
+<li>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;filter&gt;</span>
+    <span class="highlight-nt">&lt;filter-name&gt;</span>characterEncodingFilter<span class="highlight-nt">&lt;/filter-name&gt;</span>
+    <span class="highlight-nt">&lt;filter-class&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="highlight-nt">&lt;/filter-class&gt;</span>
+    <span class="highlight-nt">&lt;init-param&gt;</span>
+        <span class="highlight-nt">&lt;param-name&gt;</span>encoding<span class="highlight-nt">&lt;/param-name&gt;</span>
+        <span class="highlight-nt">&lt;param-value&gt;</span>UTF-8<span class="highlight-nt">&lt;/param-value&gt;</span>
+    <span class="highlight-nt">&lt;/init-param&gt;</span>
+<span class="highlight-nt">&lt;/filter&gt;</span>
+<span class="highlight-nt">&lt;filter-mapping&gt;</span>
+    <span class="highlight-nt">&lt;filter-name&gt;</span>characterEncodingFilter<span class="highlight-nt">&lt;/filter-name&gt;</span>
+    <span class="highlight-nt">&lt;url-pattern&gt;</span>/*<span class="highlight-nt">&lt;/url-pattern&gt;</span>
+<span class="highlight-nt">&lt;/filter-mapping&gt;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>集合的封装：
+<pre><code class="highlight-chroma">public class Account implements Serializable{
+    private List&lt;User&gt; list;
+    private Map&lt;String,User&gt; map;
+}
+
+@RequestMapping("/saveAccount")
+public String saveAccount(Account account){
+    return "success";
+}
+
+&lt;body&gt;
+&lt;input name="list[0].username" /&gt;
+&lt;input name="list[1].username" /&gt;
+&lt;input name="map['key'].username" /&gt;
+&lt;/body&gt;
+</code></pre>
+</li>
+<li>自定义类型转换器：表单提交的任何数据类型全部都是字符串类型，Spring 框架内部会默认进行数据类型转换，来帮我们封装数据。但有时候可能因为格式问题封装失败，比如 String 转 Date，这时，我们需要自定义类型转换器。
+<ol>
+<li>
+<p>自定义类型转换类，实现 Converter 接口。</p>
+</li>
+<li>
+<p>注册自定义类型转换器，在 springmvc.xml 配置文件中编写配置</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;bean</span> <span class="highlight-na">id=</span><span class="highlight-s">"conversionService"</span> <span class="highlight-na">class=</span><span class="highlight-s">"org.springframework.context.support.ConversionServiceFactoryBean"</span><span class="highlight-nt">&gt;</span>
+    <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"converters"</span><span class="highlight-nt">&gt;</span>
+        <span class="highlight-nt">&lt;set&gt;</span>
+            <span class="highlight-nt">&lt;bean</span> <span class="highlight-na">class=</span><span class="highlight-s">"自定义类的全类名"</span><span class="highlight-nt">/&gt;</span>
+        <span class="highlight-nt">&lt;/set&gt;</span>
+    <span class="highlight-nt">&lt;/property&gt;</span>
+<span class="highlight-nt">&lt;/bean&gt;</span>
+<span class="highlight-c">&lt;!-- 注册类型转换器 --&gt;</span>
+<span class="highlight-nt">&lt;mvc:annotation-driven</span> <span class="highlight-na">conversion-service=</span><span class="highlight-s">"conversionService"</span><span class="highlight-nt">/&gt;</span>
+</code></pre>
+<ul>
+<li>注册类型转换器可以添加自定义的类型转换器，原有的不会失效。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>在控制器中获取原生 ServletAPI 对象(request、response 等)
+<ul>
+<li>只需要在控制器的方法参数定义 HttpServletRequest 和 HttpServletResponse 类型的形参。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3--常用注解">3. 常用注解</h3>
+<ul>
+<li>@RequestParam
+<ul>
+<li>作用：把请求中的指定名称的参数传递给控制器中的形参赋值</li>
+<li>位置：参数上</li>
+<li>属性：
+<ul>
+<li>value：请求参数中的名称</li>
+<li>required：请求参数中是否必须提供此参数，默认值是 true，必须提供</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>@RequestBody
+<ul>
+<li>作用：用于获取请求体的内容（注意：get 方法不可以）</li>
+<li>位置：参数上</li>
+<li>属性 required：是否必须有请求体，默认值是 true</li>
+<li>备注：可以用来获取前台异步传输的 JSON 数据</li>
+</ul>
+</li>
+<li>@PathVariable
+<ul>
+<li>作用：拥有绑定 url 中的占位符的。例如：url 中有/delete/{id}，{id}就是占位符</li>
+<li>属性 value：指定 url 中的占位符名称</li>
+<li>RESTFul 风格的 URL：请求路径一样，可以根据不同的请求方式去执行后台的不同方法</li>
+<li>
+<pre><code class="language-java highlight-chroma"><span class="highlight-nd">@RequestMapping</span><span class="highlight-o">(</span><span class="highlight-n">path</span><span class="highlight-o">=</span><span class="highlight-s">"/hello/{id}"</span><span class="highlight-o">)</span>
+    <span class="highlight-kd">public</span> <span class="highlight-n">String</span> <span class="highlight-nf">sayHello</span><span class="highlight-o">(</span><span class="highlight-nd">@PathVariable</span><span class="highlight-o">(</span><span class="highlight-s">"id"</span><span class="highlight-o">)</span> <span class="highlight-n">String</span> <span class="highlight-n">id</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+    <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">id</span><span class="highlight-o">);</span>
+    <span class="highlight-k">return</span> <span class="highlight-s">"success"</span><span class="highlight-o">;</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>@RequestHeader
+<ul>
+<li>作用：获取指定请求头的值</li>
+<li>位置：参数上</li>
+<li>属性 value：请求头的名称</li>
+</ul>
+</li>
+<li>@CookieValue
+<ul>
+<li>作用：用于获取指定 cookie 的名称的值</li>
+<li>属性 value：cookie 的名称</li>
+</ul>
+</li>
+<li>@ModelAttribute
+<ul>
+<li>作用：
+<ul>
+<li>方法上：表示当前方法会在控制器方法执行前先执行。</li>
+<li>参数上：获取指定的数据给参数赋值。</li>
+</ul>
+</li>
+<li>修饰的方法有返回值
+<pre><code class="language-java highlight-chroma"><span class="highlight-nd">@ModelAttribute</span>
+<span class="highlight-kd">public</span> <span class="highlight-n">User</span> <span class="highlight-nf">showUser</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+    <span class="highlight-n">User</span> <span class="highlight-n">user</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">User</span><span class="highlight-o">();</span>
+    <span class="highlight-k">return</span> <span class="highlight-n">user</span><span class="highlight-o">;</span>
+<span class="highlight-o">}</span>
+
+<span class="highlight-nd">@RequestMapping</span><span class="highlight-o">(</span><span class="highlight-s">"/updateUser"</span><span class="highlight-o">)</span>
+<span class="highlight-kd">public</span> <span class="highlight-n">String</span> <span class="highlight-nf">updateUser</span><span class="highlight-o">(</span><span class="highlight-n">User</span> <span class="highlight-n">user</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+    <span class="highlight-c1">//可以获取到showUser方法返回的User
+</span><span class="highlight-c1"></span>    <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">user</span><span class="highlight-o">);</span>
+    <span class="highlight-k">return</span> <span class="highlight-s">"success"</span><span class="highlight-o">;</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+<li>修饰的方法没有返回值
+<pre><code class="language-java highlight-chroma"><span class="highlight-nd">@ModelAttribute</span>
+<span class="highlight-kd">public</span> <span class="highlight-kt">void</span> <span class="highlight-nf">showUser</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">,</span><span class="highlight-n">Map</span><span class="highlight-o">&lt;</span><span class="highlight-n">String</span><span class="highlight-o">,</span> <span class="highlight-n">User</span><span class="highlight-o">&gt;</span> <span class="highlight-n">map</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+    <span class="highlight-n">User</span> <span class="highlight-n">user</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">User</span><span class="highlight-o">();</span>
+    <span class="highlight-n">map</span><span class="highlight-o">.</span><span class="highlight-na">put</span><span class="highlight-o">(</span><span class="highlight-s">"abc"</span><span class="highlight-o">,</span> <span class="highlight-n">user</span><span class="highlight-o">);</span>
+<span class="highlight-o">}</span>
+
+<span class="highlight-nd">@RequestMapping</span><span class="highlight-o">(</span><span class="highlight-s">"/updateUser"</span><span class="highlight-o">)</span>
+<span class="highlight-kd">public</span> <span class="highlight-n">String</span> <span class="highlight-nf">updateUser</span><span class="highlight-o">(</span><span class="highlight-nd">@ModelAttribute</span><span class="highlight-o">(</span><span class="highlight-n">value</span><span class="highlight-o">=</span><span class="highlight-s">"abc"</span><span class="highlight-o">)</span> <span class="highlight-n">User</span> <span class="highlight-n">user</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+    <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">user</span><span class="highlight-o">);</span>
+    <span class="highlight-k">return</span> <span class="highlight-s">"success"</span><span class="highlight-o">;</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>@SessionAttributes
+<ul>
+<li>作用：用于多次执行控制器方法间的参数共享</li>
+<li>属性 value：指定存入属性的名称</li>
+<li>
+<pre><code class="language-java highlight-chroma"><span class="highlight-nd">@Controller</span>
+<span class="highlight-nd">@RequestMapping</span><span class="highlight-o">(</span><span class="highlight-n">path</span><span class="highlight-o">=</span><span class="highlight-s">"/user"</span><span class="highlight-o">)</span>
+<span class="highlight-nd">@SessionAttributes</span><span class="highlight-o">(</span><span class="highlight-n">value</span><span class="highlight-o">=</span> <span class="highlight-o">{</span><span class="highlight-s">"username"</span><span class="highlight-o">,</span><span class="highlight-s">"password"</span><span class="highlight-o">,</span><span class="highlight-s">"age"</span><span class="highlight-o">})</span> <span class="highlight-c1">// 把数据存入到session域对象中
+</span><span class="highlight-c1"></span><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">HelloController</span> <span class="highlight-o">{</span>
+    <span class="highlight-c1">//向session中存入值
+</span><span class="highlight-c1"></span>    <span class="highlight-nd">@RequestMapping</span><span class="highlight-o">(</span><span class="highlight-n">path</span><span class="highlight-o">=</span><span class="highlight-s">"/save"</span><span class="highlight-o">)</span>
+    <span class="highlight-kd">public</span> <span class="highlight-n">String</span> <span class="highlight-nf">save</span><span class="highlight-o">(</span><span class="highlight-n">Model</span> <span class="highlight-n">model</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+        <span class="highlight-n">model</span><span class="highlight-o">.</span><span class="highlight-na">addAttribute</span><span class="highlight-o">(</span><span class="highlight-s">"username"</span><span class="highlight-o">,</span> <span class="highlight-s">"root"</span><span class="highlight-o">);</span>
+        <span class="highlight-n">model</span><span class="highlight-o">.</span><span class="highlight-na">addAttribute</span><span class="highlight-o">(</span><span class="highlight-s">"password"</span><span class="highlight-o">,</span> <span class="highlight-s">"123"</span><span class="highlight-o">);</span>
+        <span class="highlight-n">model</span><span class="highlight-o">.</span><span class="highlight-na">addAttribute</span><span class="highlight-o">(</span><span class="highlight-s">"age"</span><span class="highlight-o">,</span> <span class="highlight-n">20</span><span class="highlight-o">);</span>
+        <span class="highlight-k">return</span> <span class="highlight-s">"success"</span><span class="highlight-o">;</span>
+    <span class="highlight-o">}</span>
+
+    <span class="highlight-c1">//从session中获取值
+</span><span class="highlight-c1"></span>    <span class="highlight-nd">@RequestMapping</span><span class="highlight-o">(</span><span class="highlight-n">path</span><span class="highlight-o">=</span><span class="highlight-s">"/find"</span><span class="highlight-o">)</span>
+    <span class="highlight-kd">public</span> <span class="highlight-n">String</span> <span class="highlight-nf">find</span><span class="highlight-o">(</span><span class="highlight-n">ModelMap</span> <span class="highlight-n">modelMap</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+        <span class="highlight-n">String</span> <span class="highlight-n">username</span> <span class="highlight-o">=</span> <span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">)</span> <span class="highlight-n">modelMap</span><span class="highlight-o">.</span><span class="highlight-na">get</span><span class="highlight-o">(</span><span class="highlight-s">"username"</span><span class="highlight-o">);</span>
+        <span class="highlight-n">String</span> <span class="highlight-n">password</span> <span class="highlight-o">=</span> <span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">)</span> <span class="highlight-n">modelMap</span><span class="highlight-o">.</span><span class="highlight-na">get</span><span class="highlight-o">(</span><span class="highlight-s">"password"</span><span class="highlight-o">);</span>
+        <span class="highlight-n">Integer</span> <span class="highlight-n">age</span> <span class="highlight-o">=</span> <span class="highlight-o">(</span><span class="highlight-n">Integer</span><span class="highlight-o">)</span> <span class="highlight-n">modelMap</span><span class="highlight-o">.</span><span class="highlight-na">get</span><span class="highlight-o">(</span><span class="highlight-s">"age"</span><span class="highlight-o">);</span>
+        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">username</span> <span class="highlight-o">+</span> <span class="highlight-s">" : "</span><span class="highlight-o">+</span><span class="highlight-n">password</span> <span class="highlight-o">+</span><span class="highlight-s">" : "</span><span class="highlight-o">+</span><span class="highlight-n">age</span><span class="highlight-o">);</span>
+        <span class="highlight-k">return</span> <span class="highlight-s">"success"</span><span class="highlight-o">;</span>
+    <span class="highlight-o">}</span>
+
+    <span class="highlight-c1">//清除值
+</span><span class="highlight-c1"></span>    <span class="highlight-nd">@RequestMapping</span><span class="highlight-o">(</span><span class="highlight-n">path</span><span class="highlight-o">=</span><span class="highlight-s">"/delete"</span><span class="highlight-o">)</span>
+    <span class="highlight-kd">public</span> <span class="highlight-n">String</span> <span class="highlight-nf">delete</span><span class="highlight-o">(</span><span class="highlight-n">SessionStatus</span> <span class="highlight-n">status</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+        <span class="highlight-n">status</span><span class="highlight-o">.</span><span class="highlight-na">setComplete</span><span class="highlight-o">();</span>
+        <span class="highlight-k">return</span> <span class="highlight-s">"success"</span><span class="highlight-o">;</span>
+    <span class="highlight-o">}</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+<li>向 Model 中存值，会把值存入 request 域中，通过注解 @SessionAttributes，会将值同时存入 session 域。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4--响应数据和结果视图">4. 响应数据和结果视图</h3>
+<ul>
+<li>
+<p>转发可以访问 WEB-INF 目录，重定向不行。</p>
+</li>
+<li>
+<p>当方法的返回值是字符串的时候，字符串即为逻辑视图的名称，根据视图解析器解析为物理视图的地址，例如返回 "success"</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-c">&lt;!-- 视图解析器对象 --&gt;</span>
+<span class="highlight-nt">&lt;bean</span> <span class="highlight-na">id=</span><span class="highlight-s">"internalResourceViewResolver"</span> <span class="highlight-na">class=</span><span class="highlight-s">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span><span class="highlight-nt">&gt;</span>
+    <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"prefix"</span> <span class="highlight-na">value=</span><span class="highlight-s">"/WEB-INF/pages/"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"suffix"</span> <span class="highlight-na">value=</span><span class="highlight-s">".jsp"</span><span class="highlight-nt">/&gt;</span>
+<span class="highlight-nt">&lt;/bean&gt;</span>
+</code></pre>
+<p>经视图解析器，转发至 <code>/WEB-INF/pages/success.jsp</code></p>
+</li>
+<li>
+<p>当返回值为 void，程序会将请求路径作为返回值，经视图解析器寻找对应路径。比如请求路径为 <code>/user/delete</code>，则会经视图解析器，寻找 <code>WEB-INF/pages/user/delete.jsp</code>，可以由参数获取 request 或 response 自己手动转发或重定向。</p>
+</li>
+<li>
+<p>返回值是 ModelAndView 对象，该对象是 Spring 提供的一个对象，可以用来存储值和要跳转的视图。当返回值为 String，参数为 Model 的时候，底层调用的也是此对象。</p>
+<pre><code class="language-java highlight-chroma"><span class="highlight-nd">@RequestMapping</span><span class="highlight-o">(</span><span class="highlight-s">"/testModelAndView"</span><span class="highlight-o">)</span>
+<span class="highlight-kd">public</span> <span class="highlight-n">ModelAndView</span> <span class="highlight-nf">testModelAndView</span><span class="highlight-o">(){</span>
+    <span class="highlight-c1">// 创建ModelAndView对象
+</span><span class="highlight-c1"></span>    <span class="highlight-n">ModelAndView</span> <span class="highlight-n">mv</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">ModelAndView</span><span class="highlight-o">();</span>
+    <span class="highlight-n">User</span> <span class="highlight-n">user</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">User</span><span class="highlight-o">();</span>
+    <span class="highlight-c1">// 把user对象存储到mv对象中，也会把user对象存入到request对象
+</span><span class="highlight-c1"></span>    <span class="highlight-n">mv</span><span class="highlight-o">.</span><span class="highlight-na">addObject</span><span class="highlight-o">(</span><span class="highlight-s">"user"</span><span class="highlight-o">,</span><span class="highlight-n">user</span><span class="highlight-o">);</span>
+    <span class="highlight-c1">// 跳转到哪个页面
+</span><span class="highlight-c1"></span>    <span class="highlight-n">mv</span><span class="highlight-o">.</span><span class="highlight-na">setViewName</span><span class="highlight-o">(</span><span class="highlight-s">"success"</span><span class="highlight-o">);</span>
+    <span class="highlight-k">return</span> <span class="highlight-n">mv</span><span class="highlight-o">;</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+<li>
+<p>SpringMVC 框架提供的转发和重定向</p>
+<ul>
+<li>forward 关键字进行转发，redirect 关键字进行重定向</li>
+<li>重定向不能访问 WEB-INF 目录，使用 SpringMVC 重定向的时候，路径不需要再加项目名，底层已经帮我们加上了。</li>
+<li>
+<pre><code class="language-java highlight-chroma"><span class="highlight-kd">public</span> <span class="highlight-n">String</span> <span class="highlight-nf">testForwardOrRedirect</span><span class="highlight-o">(){</span>
+    <span class="highlight-k">return</span> <span class="highlight-s">"forward:/WEB-INF/pages/success.jsp"</span><span class="highlight-o">;</span>
+    <span class="highlight-k">return</span> <span class="highlight-s">"redirect:/index.jsp"</span><span class="highlight-o">;</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>SpringMVC 前端控制器也会拦截静态资源，通过 mvc:resources 标签配置不过滤</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;mvc:resources</span> <span class="highlight-na">location=</span><span class="highlight-s">"/css/"</span> <span class="highlight-na">mapping=</span><span class="highlight-s">"/css/**"</span><span class="highlight-nt">/&gt;</span>
+<span class="highlight-nt">&lt;mvc:resources</span> <span class="highlight-na">location=</span><span class="highlight-s">"/images/"</span> <span class="highlight-na">mapping=</span><span class="highlight-s">"/images/**"</span><span class="highlight-nt">/&gt;</span>
+<span class="highlight-nt">&lt;mvc:resources</span> <span class="highlight-na">location=</span><span class="highlight-s">"/js/"</span> <span class="highlight-na">mapping=</span><span class="highlight-s">"/js/**"</span><span class="highlight-nt">/&gt;</span>
+</code></pre>
+<ul>
+<li>location 表示 webapp 目录下的包下的所有文件</li>
+<li>mapping 表示以 <code>/xxx</code> 开头的所有请求路径</li>
+</ul>
+</li>
+<li>
+<p>接收与响应 JSON 数据：</p>
+<pre><code class="language-java highlight-chroma"><span class="highlight-nd">@RequestMapping</span><span class="highlight-o">(</span><span class="highlight-s">"/testJson"</span><span class="highlight-o">)</span>
+<span class="highlight-kd">public</span> <span class="highlight-nd">@ResponseBody</span> <span class="highlight-n">Address</span> <span class="highlight-nf">testJson</span><span class="highlight-o">(</span><span class="highlight-nd">@RequestBody</span> <span class="highlight-n">Address</span> <span class="highlight-n">address</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+    <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">address</span><span class="highlight-o">);</span>
+    <span class="highlight-n">address</span><span class="highlight-o">.</span><span class="highlight-na">setAddressName</span><span class="highlight-o">(</span><span class="highlight-s">"上海"</span><span class="highlight-o">);</span>
+    <span class="highlight-k">return</span> <span class="highlight-n">address</span><span class="highlight-o">;</span>
+<span class="highlight-o">}</span>
+</code></pre>
+<ul>
+<li>@RequestBody 注解会将前台传进来的 JSON 自动封装为对应对象。</li>
+<li>@ResponseBody 会将返回的对象解析为 JSON 然后响应给前台。</li>
+<li>@ResponseBody 可以作用于类和方法上面。</li>
+<li>使用前提：pom 坐标中加入 jackson 2.7.0 以上版本
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;dependency&gt;</span>
+  <span class="highlight-nt">&lt;groupId&gt;</span>com.fasterxml.jackson.core<span class="highlight-nt">&lt;/groupId&gt;</span>
+  <span class="highlight-nt">&lt;artifactId&gt;</span>jackson-databind<span class="highlight-nt">&lt;/artifactId&gt;</span>
+  <span class="highlight-nt">&lt;version&gt;</span>2.9.0<span class="highlight-nt">&lt;/version&gt;</span>
+<span class="highlight-nt">&lt;/dependency&gt;</span>
+<span class="highlight-nt">&lt;dependency&gt;</span>
+  <span class="highlight-nt">&lt;groupId&gt;</span>com.fasterxml.jackson.core<span class="highlight-nt">&lt;/groupId&gt;</span>
+  <span class="highlight-nt">&lt;artifactId&gt;</span>jackson-core<span class="highlight-nt">&lt;/artifactId&gt;</span>
+  <span class="highlight-nt">&lt;version&gt;</span>2.9.0<span class="highlight-nt">&lt;/version&gt;</span>
+<span class="highlight-nt">&lt;/dependency&gt;</span>
+<span class="highlight-nt">&lt;dependency&gt;</span>
+  <span class="highlight-nt">&lt;groupId&gt;</span>com.fasterxml.jackson.core<span class="highlight-nt">&lt;/groupId&gt;</span>
+  <span class="highlight-nt">&lt;artifactId&gt;</span>jackson-annotations<span class="highlight-nt">&lt;/artifactId&gt;</span>
+  <span class="highlight-nt">&lt;version&gt;</span>2.9.0<span class="highlight-nt">&lt;/version&gt;</span>
+<span class="highlight-nt">&lt;/dependency&gt;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5--文件上传">5. 文件上传</h3>
+<ul>
+<li>传统文件上传
+<ul>
+<li>
+<p>jar 包</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;dependency&gt;</span>
+    <span class="highlight-nt">&lt;groupId&gt;</span>commons-fileupload<span class="highlight-nt">&lt;/groupId&gt;</span>
+    <span class="highlight-nt">&lt;artifactId&gt;</span>commons-fileupload<span class="highlight-nt">&lt;/artifactId&gt;</span>
+    <span class="highlight-nt">&lt;version&gt;</span>1.3.1<span class="highlight-nt">&lt;/version&gt;</span>
+<span class="highlight-nt">&lt;/dependency&gt;</span>
+<span class="highlight-nt">&lt;dependency&gt;</span>
+    <span class="highlight-nt">&lt;groupId&gt;</span>commons-io<span class="highlight-nt">&lt;/groupId&gt;</span>
+    <span class="highlight-nt">&lt;artifactId&gt;</span>commons-io<span class="highlight-nt">&lt;/artifactId&gt;</span>
+    <span class="highlight-nt">&lt;version&gt;</span>2.4<span class="highlight-nt">&lt;/version&gt;</span>
+<span class="highlight-nt">&lt;/dependency&gt;</span>
+</code></pre>
+</li>
+<li>
+<p>前台代码</p>
+<pre><code class="language-jsp highlight-chroma">&lt;form action="user/fileupload1" method="post" enctype="multipart/form-data"&gt;
+    选择文件:&lt;input type="file" name="upload"&gt;&lt;br&gt;
+    &lt;input type="submit" value="上传"&gt;
+&lt;/form&gt;
+</code></pre>
+<ul>
+<li>enctype：是表单请求正文的类型，取值必须是 multipart/form-data 才能上传文件，表示把表单分为多个部分。</li>
+<li>必须为 post，get 的 url 有长度限制。</li>
+</ul>
+</li>
+<li>
+<p>后台代码：</p>
+<pre><code class="language-java highlight-chroma"><span class="highlight-nd">@RequestMapping</span><span class="highlight-o">(</span><span class="highlight-s">"/fileupload1"</span><span class="highlight-o">)</span>
+<span class="highlight-kd">public</span> <span class="highlight-n">String</span> <span class="highlight-nf">fileuoload1</span><span class="highlight-o">(</span><span class="highlight-n">HttpServletRequest</span> <span class="highlight-n">request</span><span class="highlight-o">)</span> <span class="highlight-kd">throws</span> <span class="highlight-n">Exception</span> <span class="highlight-o">{</span>
+    <span class="highlight-c1">// 使用fileupload组件完成文件上传
+</span><span class="highlight-c1"></span>    <span class="highlight-c1">// 上传的位置
+</span><span class="highlight-c1"></span>    <span class="highlight-n">String</span> <span class="highlight-n">path</span> <span class="highlight-o">=</span> <span class="highlight-n">request</span><span class="highlight-o">.</span><span class="highlight-na">getSession</span><span class="highlight-o">().</span><span class="highlight-na">getServletContext</span><span class="highlight-o">().</span><span class="highlight-na">getRealPath</span><span class="highlight-o">(</span><span class="highlight-s">"/uploads/"</span><span class="highlight-o">);</span>
+    <span class="highlight-c1">// 判断，该路径是否存在
+</span><span class="highlight-c1"></span>    <span class="highlight-n">File</span> <span class="highlight-n">file</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">File</span><span class="highlight-o">(</span><span class="highlight-n">path</span><span class="highlight-o">);</span>
+    <span class="highlight-k">if</span><span class="highlight-o">(!</span><span class="highlight-n">file</span><span class="highlight-o">.</span><span class="highlight-na">exists</span><span class="highlight-o">()){</span>
+        <span class="highlight-n">file</span><span class="highlight-o">.</span><span class="highlight-na">mkdirs</span><span class="highlight-o">();</span>
+    <span class="highlight-o">}</span>
+    <span class="highlight-c1">// 解析request对象，获取上传文件项
+</span><span class="highlight-c1"></span>    <span class="highlight-n">DiskFileItemFactory</span> <span class="highlight-n">factory</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">DiskFileItemFactory</span><span class="highlight-o">();</span>
+    <span class="highlight-n">ServletFileUpload</span> <span class="highlight-n">upload</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">ServletFileUpload</span><span class="highlight-o">(</span><span class="highlight-n">factory</span><span class="highlight-o">);</span>
+    <span class="highlight-c1">// 解析request
+</span><span class="highlight-c1"></span>    <span class="highlight-n">List</span><span class="highlight-o">&lt;</span><span class="highlight-n">FileItem</span><span class="highlight-o">&gt;</span> <span class="highlight-n">items</span> <span class="highlight-o">=</span> <span class="highlight-n">upload</span><span class="highlight-o">.</span><span class="highlight-na">parseRequest</span><span class="highlight-o">(</span><span class="highlight-n">request</span><span class="highlight-o">);</span>
+    <span class="highlight-c1">// 遍历
+</span><span class="highlight-c1"></span>    <span class="highlight-k">for</span><span class="highlight-o">(</span><span class="highlight-n">FileItem</span> <span class="highlight-n">item</span><span class="highlight-o">:</span><span class="highlight-n">items</span><span class="highlight-o">){</span>
+        <span class="highlight-c1">// 进行判断，当前item对象是否是上传文件项
+</span><span class="highlight-c1"></span>        <span class="highlight-k">if</span><span class="highlight-o">(</span><span class="highlight-n">item</span><span class="highlight-o">.</span><span class="highlight-na">isFormField</span><span class="highlight-o">()){</span>
+            <span class="highlight-c1">// 说明普通表单项
+</span><span class="highlight-c1"></span>        <span class="highlight-o">}</span><span class="highlight-k">else</span><span class="highlight-o">{</span>
+            <span class="highlight-c1">// 说明上传文件项
+</span><span class="highlight-c1"></span>            <span class="highlight-c1">// 获取上传文件的名称
+</span><span class="highlight-c1"></span>            <span class="highlight-n">String</span> <span class="highlight-n">filename</span> <span class="highlight-o">=</span> <span class="highlight-n">item</span><span class="highlight-o">.</span><span class="highlight-na">getName</span><span class="highlight-o">();</span>
+            <span class="highlight-c1">// 把文件的名称设置唯一值，uuid
+</span><span class="highlight-c1"></span>            <span class="highlight-n">String</span> <span class="highlight-n">uuid</span> <span class="highlight-o">=</span> <span class="highlight-n">UUID</span><span class="highlight-o">.</span><span class="highlight-na">randomUUID</span><span class="highlight-o">().</span><span class="highlight-na">toString</span><span class="highlight-o">().</span><span class="highlight-na">replace</span><span class="highlight-o">(</span><span class="highlight-s">"-"</span><span class="highlight-o">,</span> <span class="highlight-s">""</span><span class="highlight-o">);</span>
+            <span class="highlight-n">filename</span> <span class="highlight-o">=</span> <span class="highlight-n">uuid</span><span class="highlight-o">+</span><span class="highlight-s">"_"</span><span class="highlight-o">+</span><span class="highlight-n">filename</span><span class="highlight-o">;</span>
+            <span class="highlight-c1">// 完成文件上传
+</span><span class="highlight-c1"></span>            <span class="highlight-n">item</span><span class="highlight-o">.</span><span class="highlight-na">write</span><span class="highlight-o">(</span><span class="highlight-k">new</span> <span class="highlight-n">File</span><span class="highlight-o">(</span><span class="highlight-n">path</span><span class="highlight-o">,</span><span class="highlight-n">filename</span><span class="highlight-o">));</span>
+            <span class="highlight-c1">// 删除临时文件，大于10k会产生临时文件
+</span><span class="highlight-c1"></span>            <span class="highlight-n">item</span><span class="highlight-o">.</span><span class="highlight-na">delete</span><span class="highlight-o">();</span>
+        <span class="highlight-o">}</span>
+    <span class="highlight-o">}</span>
+    <span class="highlight-k">return</span> <span class="highlight-s">"success"</span><span class="highlight-o">;</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>SpringMVC 文件上传原理
+<ul>
+<li><img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-09+21:36:17+03-%E5%8E%9F%E7%90%86.bmp" alt=""></li>
+<li>我们只需要配置文件解析器，SpringMVC 自动帮我们解析，我们只需要参数获取文件就行。</li>
+<li>解析器的 id 必须为 multipartResolver</li>
+<li>使用 MultipartFile 获取文件。</li>
+<li>参数名必须和前台 name 属性名一致。</li>
+</ul>
+</li>
+<li>代码实现
+<ul>
+<li>
+<p>配置文件解析器</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;bean</span> <span class="highlight-na">id=</span><span class="highlight-s">"multipartResolver"</span> <span class="highlight-na">class=</span><span class="highlight-s">"org.springframework.web.multipart.commons.CommonsMultipartResolver"</span><span class="highlight-nt">&gt;</span>
+    <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"maxInMemorySize"</span> <span class="highlight-na">value=</span><span class="highlight-s">"10485760"</span><span class="highlight-nt">/&gt;</span>
+<span class="highlight-nt">&lt;/bean&gt;</span>
+</code></pre>
+<ul>
+<li>maxInMemorySize 为配置上传文件最大大小，单位字节</li>
+</ul>
+</li>
+<li>
+<p>后台实现</p>
+<pre><code class="language-java highlight-chroma"><span class="highlight-nd">@Controller</span>
+<span class="highlight-nd">@RequestMapping</span><span class="highlight-o">(</span><span class="highlight-s">"/user"</span><span class="highlight-o">)</span>
+<span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">UserController</span> <span class="highlight-o">{</span>
+    <span class="highlight-nd">@RequestMapping</span><span class="highlight-o">(</span><span class="highlight-s">"/fileupload"</span><span class="highlight-o">)</span>
+    <span class="highlight-kd">public</span> <span class="highlight-n">String</span> <span class="highlight-nf">fileupload</span><span class="highlight-o">(</span><span class="highlight-n">HttpServletRequest</span> <span class="highlight-n">request</span><span class="highlight-o">,</span> <span class="highlight-n">MultipartFile</span> <span class="highlight-n">upload</span><span class="highlight-o">)</span> <span class="highlight-kd">throws</span> <span class="highlight-n">Exception</span> <span class="highlight-o">{</span>
+        <span class="highlight-n">String</span> <span class="highlight-n">path</span> <span class="highlight-o">=</span> <span class="highlight-n">request</span><span class="highlight-o">.</span><span class="highlight-na">getSession</span><span class="highlight-o">().</span><span class="highlight-na">getServletContext</span><span class="highlight-o">().</span><span class="highlight-na">getRealPath</span><span class="highlight-o">(</span><span class="highlight-s">"/uploads/"</span><span class="highlight-o">);</span>
+        <span class="highlight-n">File</span> <span class="highlight-n">file</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">File</span><span class="highlight-o">(</span><span class="highlight-n">path</span><span class="highlight-o">);</span>
+        <span class="highlight-k">if</span> <span class="highlight-o">(!</span><span class="highlight-n">file</span><span class="highlight-o">.</span><span class="highlight-na">exists</span><span class="highlight-o">())</span> <span class="highlight-n">file</span><span class="highlight-o">.</span><span class="highlight-na">mkdirs</span><span class="highlight-o">();</span>
+        <span class="highlight-n">String</span> <span class="highlight-n">filename</span> <span class="highlight-o">=</span> <span class="highlight-n">upload</span><span class="highlight-o">.</span><span class="highlight-na">getOriginalFilename</span><span class="highlight-o">();</span>
+        <span class="highlight-n">String</span> <span class="highlight-n">uuid</span> <span class="highlight-o">=</span> <span class="highlight-n">UUID</span><span class="highlight-o">.</span><span class="highlight-na">randomUUID</span><span class="highlight-o">().</span><span class="highlight-na">toString</span><span class="highlight-o">();</span>
+        <span class="highlight-n">filename</span> <span class="highlight-o">=</span> <span class="highlight-n">uuid</span> <span class="highlight-o">+</span> <span class="highlight-s">"_"</span> <span class="highlight-o">+</span> <span class="highlight-n">filename</span><span class="highlight-o">;</span>
+        <span class="highlight-c1">//将文件写入指定目录
+</span><span class="highlight-c1"></span>        <span class="highlight-n">upload</span><span class="highlight-o">.</span><span class="highlight-na">transferTo</span><span class="highlight-o">(</span><span class="highlight-k">new</span> <span class="highlight-n">File</span><span class="highlight-o">(</span><span class="highlight-n">path</span><span class="highlight-o">,</span> <span class="highlight-n">filename</span><span class="highlight-o">));</span>
+        <span class="highlight-k">return</span> <span class="highlight-s">"success"</span><span class="highlight-o">;</span>
+    <span class="highlight-o">}</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>跨服务器上传
+<ul>
+<li>jar 包
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;dependency&gt;</span>
+    <span class="highlight-nt">&lt;groupId&gt;</span>com.sun.jersey<span class="highlight-nt">&lt;/groupId&gt;</span>
+    <span class="highlight-nt">&lt;artifactId&gt;</span>jersey-core<span class="highlight-nt">&lt;/artifactId&gt;</span>
+    <span class="highlight-nt">&lt;version&gt;</span>1.18.1<span class="highlight-nt">&lt;/version&gt;</span>
+<span class="highlight-nt">&lt;/dependency&gt;</span>
+<span class="highlight-nt">&lt;dependency&gt;</span>
+    <span class="highlight-nt">&lt;groupId&gt;</span>com.sun.jersey<span class="highlight-nt">&lt;/groupId&gt;</span>
+    <span class="highlight-nt">&lt;artifactId&gt;</span>jersey-client<span class="highlight-nt">&lt;/artifactId&gt;</span>
+    <span class="highlight-nt">&lt;version&gt;</span>1.18.1<span class="highlight-nt">&lt;/version&gt;</span>
+<span class="highlight-nt">&lt;/dependency&gt;</span>
+</code></pre>
+</li>
+<li>后台实现
+<pre><code class="language-java highlight-chroma"><span class="highlight-nd">@RequestMapping</span><span class="highlight-o">(</span><span class="highlight-s">"/fileupload3"</span><span class="highlight-o">)</span>
+<span class="highlight-kd">public</span> <span class="highlight-n">String</span> <span class="highlight-nf">fileuoload3</span><span class="highlight-o">(</span><span class="highlight-n">MultipartFile</span> <span class="highlight-n">upload</span><span class="highlight-o">)</span> <span class="highlight-kd">throws</span> <span class="highlight-n">Exception</span> <span class="highlight-o">{</span>
+    <span class="highlight-c1">// 定义上传文件服务器路径
+</span><span class="highlight-c1"></span>    <span class="highlight-n">String</span> <span class="highlight-n">path</span> <span class="highlight-o">=</span> <span class="highlight-s">"http://localhost:9090/uploads/"</span><span class="highlight-o">;</span>
+    <span class="highlight-c1">// 获取上传文件的名称
+</span><span class="highlight-c1"></span>    <span class="highlight-n">String</span> <span class="highlight-n">filename</span> <span class="highlight-o">=</span> <span class="highlight-n">upload</span><span class="highlight-o">.</span><span class="highlight-na">getOriginalFilename</span><span class="highlight-o">();</span>
+    <span class="highlight-c1">// 把文件的名称设置唯一值，uuid
+</span><span class="highlight-c1"></span>    <span class="highlight-n">String</span> <span class="highlight-n">uuid</span> <span class="highlight-o">=</span> <span class="highlight-n">UUID</span><span class="highlight-o">.</span><span class="highlight-na">randomUUID</span><span class="highlight-o">().</span><span class="highlight-na">toString</span><span class="highlight-o">().</span><span class="highlight-na">replace</span><span class="highlight-o">(</span><span class="highlight-s">"-"</span><span class="highlight-o">,</span> <span class="highlight-s">""</span><span class="highlight-o">);</span>
+    <span class="highlight-n">filename</span> <span class="highlight-o">=</span> <span class="highlight-n">uuid</span><span class="highlight-o">+</span><span class="highlight-s">"_"</span><span class="highlight-o">+</span><span class="highlight-n">filename</span><span class="highlight-o">;</span>
+    <span class="highlight-c1">// 创建客户端的对象
+</span><span class="highlight-c1"></span>    <span class="highlight-n">Client</span> <span class="highlight-n">client</span> <span class="highlight-o">=</span> <span class="highlight-n">Client</span><span class="highlight-o">.</span><span class="highlight-na">create</span><span class="highlight-o">();</span>
+    <span class="highlight-c1">// 和图片服务器进行连接
+</span><span class="highlight-c1"></span>    <span class="highlight-n">WebResource</span> <span class="highlight-n">webResource</span> <span class="highlight-o">=</span> <span class="highlight-n">client</span><span class="highlight-o">.</span><span class="highlight-na">resource</span><span class="highlight-o">(</span><span class="highlight-n">path</span> <span class="highlight-o">+</span> <span class="highlight-n">filename</span><span class="highlight-o">);</span>
+    <span class="highlight-c1">// 上传文件
+</span><span class="highlight-c1"></span>    <span class="highlight-n">webResource</span><span class="highlight-o">.</span><span class="highlight-na">put</span><span class="highlight-o">(</span><span class="highlight-n">upload</span><span class="highlight-o">.</span><span class="highlight-na">getBytes</span><span class="highlight-o">());</span>
+    <span class="highlight-k">return</span> <span class="highlight-s">"success"</span><span class="highlight-o">;</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="6--SpringMVC-异常处理">6. SpringMVC 异常处理</h3>
+<ul>
+<li><img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-09+22:55:21+05.bmp" alt=""></li>
+<li>自定义异常类
+<pre><code class="language-java highlight-chroma"><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">SysException</span> <span class="highlight-kd">extends</span> <span class="highlight-n">Exception</span><span class="highlight-o">{</span>
+    <span class="highlight-c1">// 存储提示信息的
+</span><span class="highlight-c1"></span>    <span class="highlight-kd">private</span> <span class="highlight-n">String</span> <span class="highlight-n">message</span><span class="highlight-o">;</span>
+    <span class="highlight-kd">public</span> <span class="highlight-nf">SysException</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">message</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+        <span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">message</span> <span class="highlight-o">=</span> <span class="highlight-n">message</span><span class="highlight-o">;</span>
+    <span class="highlight-o">}</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+<li>自定义异常处理器：实现 HandlerExceptionResolver 接口
+<pre><code class="language-java highlight-chroma"><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">SysExceptionResolver</span> <span class="highlight-kd">implements</span> <span class="highlight-n">HandlerExceptionResolver</span><span class="highlight-o">{</span>
+    <span class="highlight-kd">public</span> <span class="highlight-n">ModelAndView</span> <span class="highlight-nf">resolveException</span><span class="highlight-o">(</span><span class="highlight-n">HttpServletRequest</span> <span class="highlight-n">request</span><span class="highlight-o">,</span> <span class="highlight-n">HttpServletResponse</span> <span class="highlight-n">response</span><span class="highlight-o">,</span> <span class="highlight-n">Object</span> <span class="highlight-n">handler</span><span class="highlight-o">,</span> <span class="highlight-n">Exception</span> <span class="highlight-n">ex</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+        <span class="highlight-c1">// 获取到异常对象
+</span><span class="highlight-c1"></span>        <span class="highlight-n">SysException</span> <span class="highlight-n">e</span> <span class="highlight-o">=</span> <span class="highlight-kc">null</span><span class="highlight-o">;</span>
+        <span class="highlight-k">if</span><span class="highlight-o">(</span><span class="highlight-n">ex</span> <span class="highlight-k">instanceof</span> <span class="highlight-n">SysException</span><span class="highlight-o">){</span>
+            <span class="highlight-n">e</span> <span class="highlight-o">=</span> <span class="highlight-o">(</span><span class="highlight-n">SysException</span><span class="highlight-o">)</span><span class="highlight-n">ex</span><span class="highlight-o">;</span>
+        <span class="highlight-o">}</span><span class="highlight-k">else</span><span class="highlight-o">{</span>
+            <span class="highlight-n">e</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">SysException</span><span class="highlight-o">(</span><span class="highlight-s">"系统正在维护...."</span><span class="highlight-o">);</span>
+        <span class="highlight-o">}</span>
+        <span class="highlight-c1">// 创建ModelAndView对象
+</span><span class="highlight-c1"></span>        <span class="highlight-n">ModelAndView</span> <span class="highlight-n">mv</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">ModelAndView</span><span class="highlight-o">();</span>
+        <span class="highlight-n">mv</span><span class="highlight-o">.</span><span class="highlight-na">addObject</span><span class="highlight-o">(</span><span class="highlight-s">"errorMsg"</span><span class="highlight-o">,</span><span class="highlight-n">e</span><span class="highlight-o">.</span><span class="highlight-na">getMessage</span><span class="highlight-o">());</span>
+        <span class="highlight-n">mv</span><span class="highlight-o">.</span><span class="highlight-na">setViewName</span><span class="highlight-o">(</span><span class="highlight-s">"error"</span><span class="highlight-o">);</span>
+        <span class="highlight-k">return</span> <span class="highlight-n">mv</span><span class="highlight-o">;</span>
+    <span class="highlight-o">}</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+<li>配置异常处理器
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;bean</span> <span class="highlight-na">id=</span><span class="highlight-s">"sysExceptionResolver"</span> <span class="highlight-na">class=</span><span class="highlight-s">"cn.itcast.exception.SysExceptionResolver"</span><span class="highlight-nt">/&gt;</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="7--SpringMVC-拦截器">7. SpringMVC 拦截器</h3>
+<ul>
+<li>SpringMVC 框架中的拦截器用于对处理器进行预处理和后处理的技术。</li>
+<li>拦截器和过滤器的功能比较类似，有区别
+<ul>
+<li>过滤器是 Servlet 规范的一部分，任何框架都可以使用过滤器技术。</li>
+<li>拦截器是 SpringMVC 框架独有的。</li>
+<li>过滤器配置了 <code>/*</code>，可以拦截任何资源。</li>
+<li>拦截器只会对控制器中的方法进行拦截。</li>
+</ul>
+</li>
+<li>想要自定义拦截器，需要实现 HandlerInterceptor 接口。</li>
+<li>拦截器的执行流程<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-10+00:16:00+06.bmp" alt=""></li>
+<li>自定义拦截器
+<pre><code class="language-java highlight-chroma"><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">MyInterceptor1</span> <span class="highlight-kd">implements</span> <span class="highlight-n">HandlerInterceptor</span><span class="highlight-o">{</span>
+<span class="highlight-cm">/**
+</span><span class="highlight-cm">* return true放行
+</span><span class="highlight-cm">* return false拦截
+</span><span class="highlight-cm">* 可以使用转发或者重定向直接跳转到指定的页面。
+</span><span class="highlight-cm">*/</span>
+    <span class="highlight-kd">public</span> <span class="highlight-kt">boolean</span> <span class="highlight-nf">preHandle</span><span class="highlight-o">(</span><span class="highlight-n">HttpServletRequest</span> <span class="highlight-n">request</span><span class="highlight-o">,</span> <span class="highlight-n">HttpServletResponse</span> <span class="highlight-n">response</span><span class="highlight-o">,</span> <span class="highlight-n">Object</span> <span class="highlight-n">handler</span><span class="highlight-o">)</span> <span class="highlight-kd">throws</span> <span class="highlight-n">Exception</span> <span class="highlight-o">{</span>
+        <span class="highlight-k">return</span> <span class="highlight-kc">true</span><span class="highlight-o">;</span>
+    <span class="highlight-o">}</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+<li>springmvc.xml 中配置拦截器
+<pre><code class="language-xml highlight-chroma"><span class="highlight-c">&lt;!--配置拦截器--&gt;</span>
+<span class="highlight-nt">&lt;mvc:interceptors&gt;</span>
+    <span class="highlight-nt">&lt;mvc:interceptor&gt;</span>
+        <span class="highlight-c">&lt;!--要拦截的具体的方法--&gt;</span>
+        <span class="highlight-nt">&lt;mvc:mapping</span> <span class="highlight-na">path=</span><span class="highlight-s">"/user/*"</span><span class="highlight-nt">/&gt;</span>
+        <span class="highlight-c">&lt;!--不要拦截的方法
+</span><span class="highlight-c">        &lt;mvc:exclude-mapping path=""/&gt;
+</span><span class="highlight-c">        --&gt;</span>
+        <span class="highlight-c">&lt;!--配置拦截器对象--&gt;</span>
+        <span class="highlight-nt">&lt;bean</span> <span class="highlight-na">class=</span><span class="highlight-s">"cn.itcast.controller.cn.itcast.interceptor.MyInterceptor1"</span> <span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;/mvc:interceptor&gt;</span>
+
+    <span class="highlight-c">&lt;!--配置第二个拦截器--&gt;</span>
+    <span class="highlight-nt">&lt;mvc:interceptor&gt;</span>
+        <span class="highlight-nt">&lt;mvc:mapping</span> <span class="highlight-na">path=</span><span class="highlight-s">"/**"</span><span class="highlight-nt">/&gt;</span>
+        <span class="highlight-nt">&lt;bean</span> <span class="highlight-na">class=</span><span class="highlight-s">"cn.itcast.controller.cn.itcast.interceptor.MyInterceptor2"</span> <span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;/mvc:interceptor&gt;</span>
+<span class="highlight-nt">&lt;/mvc:interceptors&gt;</span>
+</code></pre>
+</li>
+<li>HandlerInterceptor 接口中的方法
+<ul>
+<li>preHandle 方法是 controller 方法执行前拦截的方法，可以进行跳转页面。</li>
+<li>postHandle 方法是 controller 方法执行后执行的方法，在 JSP 视图执行前拦截，可以进行跳转页面。</li>
+<li>afterCompletion 方法是在 JSP 执行后执行，不能进行页面跳转。</li>
+</ul>
+</li>
+</ul>
+                            <div>
+                                <hr>
+
+标题：SpringMVC 学习笔记<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2020/03/10/1583771477763.html" target="_blank">https://Rainsheep.github.io/articles/2020/03/10/1583771477763.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2020/03/09/1583763466425.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: Linux 学习笔记
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2020/03/11/1583867371280.html" rel="next"
+                               class="fn__right breadcrumb">
+                                ssm 整合: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/03/09/1583763466425.html" rel="prev" class="breadcrumb">
+                            旧一篇: Linux 学习笔记
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/03/11/1583867371280.html" rel="next"
+                           class="breadcrumb">
+                            新一篇: ssm 整合
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1583771477763"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h3">
+            <a href="#1--SpringMVC-基础">1. SpringMVC 基础</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#2--请求参数的绑定">2. 请求参数的绑定</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#3--常用注解">3. 常用注解</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#4--响应数据和结果视图">4. 响应数据和结果视图</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#5--文件上传">5. 文件上传</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#6--SpringMVC-异常处理">6. SpringMVC 异常处理</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#7--SpringMVC-拦截器">7. SpringMVC 拦截器</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1583771477763",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 144ms, 2020/03/18 19:04:10 -->

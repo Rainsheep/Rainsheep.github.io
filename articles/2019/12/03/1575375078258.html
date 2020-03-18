@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>STL中常用的vector，map，set，sort 用法 转 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="STL中常用的vector，map，set，sort 用法 转 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2019/12/03/1575375078258.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="STL中常用的vector，map，set，sort 用法 转 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2019/12/03/1575375078258.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="hdu-2546 饭卡" href="https://Rainsheep.github.io/articles/2019/12/03/1575374076393.html">
+            <link rel="next" title=" map的详细用法: 转" href="https://Rainsheep.github.io/articles/2019/12/03/1575375496539.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2019年">
+                        12月
+                        <span class="item__day">03</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2019/12/03/1575375078258.html">
+                            STL中常用的vector，map，set，sort 用法 转
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2019-12-03
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/STL">
+                                STL</a>,
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93">
+                                知识点总结</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2019/12/03/1575375078258.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1575375078258">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2019/12/03/1575375078258.html">6</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <p>STL 中的常用的 vector，map，set，sort，pair 用法</p>
+<p>C++ 的标准模板库（Standard Template Library，简称 STL）是一个容器和算法的类库。容器往往包含同一类型的数据。STL 中比较常用的容器是 vector，set 和 map，比较常用的算法有 Sort 等。</p>
+<h1 id="vector">vector</h1>
+<p>1.声明：<br>
+一个 vector 类似于一个动态的一维数组。<br>
+vector 中可以存在重复的元素！<br>
+vector<int> a;          // 声明一个元素为 int 类型的 vector a<br>
+vectot<mytype> a;       // 声明一个元素为 MyType 类型的 vector a<br>
+这里的声明的 a 包含 0 个元素，既 a.size()的值为 0，但它是动态的，其大小会随着数据的插入和删除改变而改变。<br>
+vector<int> a(100, 0);  // 这里声明的是一个已经存放了 100 个 0 的整数 vector</int></mytype></int></p>
+<p>2.向量操作<br>
+常用函数：<br>
+a.size();                // 返回 vector 的大小，即包含的元素个数<br>
+a.pop_back();            // 删除 vector 末尾的元素，vector 大小相应减一<br>
+a.push_back();           // 用于在 vector 的末尾添加元素<br>
+a.back();                // 返回 vector 末尾的元素<br>
+a.clear();               // 将 vector 清空，vector 大小变为 0<br>
+其他访问方式：<br>
+cout&lt;&lt;a[5]&lt;&lt;endl;<br>
+cout&lt;&lt;a.at(5)&lt;&lt;endl;<br>
+以上区别在于后者在访问越界时会抛出异常，而前者不会。</p>
+<p>3.遍历<br>
+(1). for(vector<datatype>::iterator it=a.begin(); it!=a.end(); it++)<br>
+cout&lt;&lt;*it&lt;&lt;endl;<br>
+(2). for(int i = 0; i &lt; a.size(); i++)<br>
+cout&lt;&lt;a[i]&lt;&lt;endl;</datatype></p>
+<p>1.vector 的数据的存入和输出：</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;cstdio&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;vector&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;iostream&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp"></span><span class="highlight-k">using</span> <span class="highlight-k">namespace</span> <span class="highlight-n">std</span><span class="highlight-p">;</span>
+<span class="highlight-kt">int</span> <span class="highlight-nf">main</span><span class="highlight-p">()</span>
+<span class="highlight-p">{</span>
+	<span class="highlight-kt">int</span> <span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span>
+    <span class="highlight-n">vector</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;</span> <span class="highlight-n">v</span><span class="highlight-p">;</span>
+    <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-n">i</span> <span class="highlight-o">&lt;</span> <span class="highlight-mi">10</span><span class="highlight-p">;</span> <span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+	<span class="highlight-p">{</span>
+		<span class="highlight-n">v</span><span class="highlight-p">.</span><span class="highlight-n">push_back</span><span class="highlight-p">(</span> <span class="highlight-n">i</span> <span class="highlight-p">);</span>       <span class="highlight-c1">//把元素一个一个存入到vector中
+</span><span class="highlight-c1"></span>	<span class="highlight-p">}</span>
+    <span class="highlight-cm">/* v.clear()*/</span> <span class="highlight-c1">//对存入的数据清空
+</span><span class="highlight-c1"></span>	<span class="highlight-k">for</span><span class="highlight-p">(</span> <span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-n">i</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">v</span><span class="highlight-p">.</span><span class="highlight-n">size</span><span class="highlight-p">();</span> <span class="highlight-n">i</span><span class="highlight-o">++</span> <span class="highlight-p">)</span> <span class="highlight-c1">//v.size() 表示vector存入元素的个数
+</span><span class="highlight-c1"></span>	<span class="highlight-p">{</span>
+		<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">v</span><span class="highlight-p">[</span> <span class="highlight-n">i</span> <span class="highlight-p">]</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-s">"  "</span><span class="highlight-p">;</span> <span class="highlight-c1">//把每个元素显示出来
+</span><span class="highlight-c1"></span>	<span class="highlight-p">}</span>
+	<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">endl</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+
+</code></pre>
+<ol>
+<li>push_back()        在数组的最后添加一个数据</li>
+<li>pop_back()         去掉数组的最后一个数据</li>
+<li>at()               得到编号位置的数据</li>
+<li>begin()            得到数组头的指针</li>
+<li>end()              得到数组的最后一个单元 +1 的指针</li>
+<li>front()            得到数组头的引用</li>
+<li>back()             得到数组的最后一个单元的引用</li>
+<li>max_size()         得到 vector 最大可以是多大</li>
+<li>capacity()         当前 vector 分配的大小</li>
+<li>size()             当前使用数据的大小</li>
+<li>resize()           改变当前使用数据的大小，如果它比当前使用的大，则填充默认值</li>
+<li>reserve()          改变当前 vecotr 所分配空间的大小</li>
+<li>erase()            删除指针指向的数据项</li>
+<li>clear()            清空当前的 vector</li>
+<li>rbegin()           将 vector 反转后的开始指针返回(其实就是原来的 end-1)</li>
+<li>rend()             将 vector 反转构的结束指针返回(其实就是原来的 begin-1)</li>
+<li>empty()            判断 vector 是否为空</li>
+<li>swap()             与另一个 vector 交换数据</li>
+</ol>
+<h1 id="map">map</h1>
+<p>附 map 的详细用法：<a href="http://blog.csdn.net/sunshinewave/article/details/8067862" target="_blank">http://blog.csdn.net/sunshinewave/article/details/8067862</a></p>
+<p>Map 是 STL 的一个关联容器，它提供一对一（其中第一个可以称为关键字，每个关键字只能在 map 中出现一次，第二个可能称为该关键字的值）的数据处理能力，由于这个特性<br>
+map 内部的实现自建一颗红黑树(一种非严格意义上的平衡二叉树)，这颗树具有对数据自动排序的功能。<br>
+下面举例说明什么是一对一的数据映射。比如一个班级中，每个学生的学号跟他的姓名就存在着一一映射的关系，这个模型用 map 可能轻易描述，<br>
+很明显学号用 int 描述，姓名用字符串描述(本篇文章中不用 char *来描述字符串，而是采用 STL 中 string 来描述),<br>
+下面给出 map 描述代码：</p>
+<p>1.声明方式：<br>
+map&lt;int, string&gt; mapStudent; 或 map&lt;string，int&gt; mapStudent;<br>
+/<em>两者均是正确声明方式，当然效果是不一样的</em>/</p>
+<p>2.数据的插入<br>
+在构造 map 容器后，我们就可以往里面插入数据了。这里讲三种插入数据的方法：<br>
+第一种：用 insert 函数插入 pair 数据</p>
+<p>map&lt;int, string&gt; mapStudent;<br>
+mapStudent.insert(pair&lt;int, string&gt;(1,“student_one”));</p>
+<p>第二种：用 insert 函数插入 value_type 数据</p>
+<p>map&lt;int, string&gt; mapStudent;<br>
+mapStudent.insert(map&lt;int, string&gt;::value_type (1,"student_one"));<br>
+mapStudent.insert(make_pair(1, "student_one"));</p>
+<p>第三种：用数组方式插入数据</p>
+<p>map&lt;int, string&gt; mapStudent;<br>
+mapStudent[1] = “student_one”;<br>
+mapStudent[2] = “student_two”;</p>
+<p>/*<br>
+如果是<br>
+#include &lt;map&gt;<br>
+map&lt;string, int&gt; mapStudent;<br>
+string s;<br>
+插入就用 m[s]++;<br>
+*/</p>
+<p>以上三种用法，虽然都可以实现数据的插入，但是它们是有区别的，当然了第一种和第二种在效果上是完成一样的，用 insert 函数插入数据，在数据的插入上涉及到集合的唯一性这个概念，即当 map 中有这个关键字时，insert 操作是不能再插入这个数据的，但是用数组方式就不同了，它可以覆盖以前该关键字对应的值;</p>
+<p>3.map 的大小<br>
+在往 map 里面插入了数据，我们怎么知道当前已经插入了多少数据呢，可以用 size 函数：<br>
+int nSize = mapStudent.size();</p>
+<p>4.数据的遍历<br>
+第一种：应用前向迭代器</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;::</span><span class="highlight-n">iterator</span> <span class="highlight-n">iter</span><span class="highlight-p">;</span>
+<span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">iter</span> <span class="highlight-o">=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">begin</span><span class="highlight-p">();</span> <span class="highlight-n">iter</span> <span class="highlight-o">!=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">end</span><span class="highlight-p">();</span> <span class="highlight-n">iter</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+    <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">iter</span><span class="highlight-o">-&gt;</span><span class="highlight-n">first</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"  "</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">iter</span><span class="highlight-o">-&gt;</span><span class="highlight-n">second</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">end</span><span class="highlight-p">;</span>
+</code></pre>
+<p>第二种：应用反向迭代器</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;::</span><span class="highlight-n">reverse_iterator</span> <span class="highlight-n">iter</span><span class="highlight-p">;</span>
+<span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">iter</span> <span class="highlight-o">=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">rbegin</span><span class="highlight-p">();</span> <span class="highlight-n">iter</span> <span class="highlight-o">!=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">rend</span><span class="highlight-p">();</span> <span class="highlight-n">iter</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+    <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">iter</span><span class="highlight-o">-&gt;</span><span class="highlight-n">first</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"  "</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">iter</span><span class="highlight-o">-&gt;</span><span class="highlight-n">second</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">end</span><span class="highlight-p">;</span>
+
+</code></pre>
+<p>第三种：用数组方式</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">int</span> <span class="highlight-n">nsize</span> <span class="highlight-o">=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">size</span><span class="highlight-p">()</span>
+<span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">nIndex</span> <span class="highlight-o">=</span> <span class="highlight-mi">1</span><span class="highlight-p">;</span> <span class="highlight-n">nIndex</span> <span class="highlight-o">&lt;=</span> <span class="highlight-n">nSize</span><span class="highlight-p">;</span> <span class="highlight-n">nIndex</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+     <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">mapStudent</span><span class="highlight-p">[</span><span class="highlight-n">nIndex</span><span class="highlight-p">]</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">end</span><span class="highlight-p">;</span>
+
+</code></pre>
+<p>例如：</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;map&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;string&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;iostream&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp"></span><span class="highlight-k">using</span> <span class="highlight-k">namespace</span> <span class="highlight-n">std</span><span class="highlight-p">;</span>
+ 
+<span class="highlight-kt">int</span> <span class="highlight-nf">main</span><span class="highlight-p">()</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-n">string</span><span class="highlight-p">,</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;</span>  <span class="highlight-n">m</span><span class="highlight-p">;</span>
+    <span class="highlight-n">m</span><span class="highlight-p">[</span><span class="highlight-s">"a"</span><span class="highlight-p">]</span><span class="highlight-o">=</span><span class="highlight-mi">1</span><span class="highlight-p">;</span>
+    <span class="highlight-n">m</span><span class="highlight-p">[</span><span class="highlight-s">"b"</span><span class="highlight-p">]</span><span class="highlight-o">=</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-n">m</span><span class="highlight-p">[</span><span class="highlight-s">"c"</span><span class="highlight-p">]</span><span class="highlight-o">=</span><span class="highlight-mi">3</span><span class="highlight-p">;</span>
+    <span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-n">string</span><span class="highlight-p">,</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;::</span><span class="highlight-n">iterator</span> <span class="highlight-n">it</span><span class="highlight-p">;</span>
+    <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">it</span><span class="highlight-o">=</span><span class="highlight-n">m</span><span class="highlight-p">.</span><span class="highlight-n">begin</span><span class="highlight-p">();</span><span class="highlight-n">it</span><span class="highlight-o">!=</span><span class="highlight-n">m</span><span class="highlight-p">.</span><span class="highlight-n">end</span><span class="highlight-p">();</span><span class="highlight-o">++</span><span class="highlight-n">it</span><span class="highlight-p">)</span>
+        <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"key: "</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">it</span><span class="highlight-o">-&gt;</span><span class="highlight-n">first</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">" value: "</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">it</span><span class="highlight-o">-&gt;</span><span class="highlight-n">second</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">endl</span><span class="highlight-p">;</span>
+    <span class="highlight-k">return</span>   <span class="highlight-mi">0</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+</code></pre>
+<p>map&lt;string,int&gt;::iterator it;   定义一个迭代指针 it。<br>
+it-&gt;first 为索引键值，it-&gt;second 为值。</p>
+<p>5.数据的查找（包括判定这个关键字是否在 map 中出现）<br>
+这里给出三种数据查找方法:<br>
+第一种：用 count 函数来判定关键字是否出现，但是无法定位数据出现位置<br>
+第二种：用 find 函数来定位数据出现位置它返回的一个迭代器，<br>
+当数据出现时，它返回数据所在位置的迭代器，如果 map 中没有要查找的数据，它返回的迭代器等于 end 函数返回的迭代器。</p>
+<p>例如：</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">int</span> <span class="highlight-nf">main</span><span class="highlight-p">()</span>
+<span class="highlight-p">{</span>
+            <span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">;</span>
+            <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">insert</span><span class="highlight-p">(</span><span class="highlight-n">pair</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">,</span> <span class="highlight-err">“</span><span class="highlight-n">student_one</span><span class="highlight-err">”</span><span class="highlight-p">));</span>
+            <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">insert</span><span class="highlight-p">(</span><span class="highlight-n">pair</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;</span><span class="highlight-p">(</span><span class="highlight-mi">2</span><span class="highlight-p">,</span> <span class="highlight-err">“</span><span class="highlight-n">student_two</span><span class="highlight-err">”</span><span class="highlight-p">));</span>
+            <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">insert</span><span class="highlight-p">(</span><span class="highlight-n">pair</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;</span><span class="highlight-p">(</span><span class="highlight-mi">3</span><span class="highlight-p">,</span> <span class="highlight-err">“</span><span class="highlight-n">student_three</span><span class="highlight-err">”</span><span class="highlight-p">));</span>
+            <span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;::</span><span class="highlight-n">iterator</span> <span class="highlight-n">iter</span><span class="highlight-p">;</span>
+            <span class="highlight-n">iter</span> <span class="highlight-o">=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">find</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+            <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">iter</span> <span class="highlight-o">!=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">end</span><span class="highlight-p">())</span>
+            <span class="highlight-p">{</span>
+                   <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-err">”</span><span class="highlight-n">Find</span><span class="highlight-p">,</span> <span class="highlight-n">the</span> <span class="highlight-n">value</span> <span class="highlight-n">is</span> <span class="highlight-err">”</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">iter</span><span class="highlight-o">-&gt;</span><span class="highlight-n">second</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">endl</span><span class="highlight-p">;</span>
+            <span class="highlight-p">}</span>
+            <span class="highlight-k">else</span>
+            <span class="highlight-p">{</span>
+               <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-err">”</span><span class="highlight-n">Do</span> <span class="highlight-n">not</span> <span class="highlight-n">Find</span><span class="highlight-err">”</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">endl</span><span class="highlight-p">;</span>
+            <span class="highlight-p">}</span>
+<span class="highlight-p">}</span>
+
+</code></pre>
+<p>第三种：这个方法用来判定数据是否出现<br>
+lower_bound 函数用法，这个函数用来返回要查找关键字的下界(是一个迭代器)<br>
+upper_bound 函数用法，这个函数用来返回要查找关键字的上界(是一个迭代器)<br>
+例如：map 中已经插入了 1，2，3，4 的话，如果 lower_bound(2)的话，返回的 2，而 upper-bound（2）的话，返回的就是 3<br>
+equal_range 函数返回一个 pair，pair 里面第一个变量是 Lower_bound 返回的迭代器，pair 里面第二个迭代器是 Upper_bound 返回的迭代器，如果这两个迭代器相等的话，则说明 map 中不出现这个关键字，程序说明<br>
+mapPair = mapStudent.equal_range(2);<br>
+if(mapPair.first == mapPair.second)<br>
+cout&lt;&lt;”Do not Find”&lt;&lt;endl;</p>
+<p>6.数据的清空与判空<br>
+清空 map 中的数据可以用 clear()函数，判定 map 中是否有数据可以用 empty()函数，它返回 true 则说明是空 map</p>
+<p>7.数据的删除<br>
+这里要用到 erase 函数，它有三个重载了的函数<br>
+迭代器删除<br>
+iter = mapStudent.find(1);<br>
+mapStudent.erase(iter);<br>
+用关键字删除<br>
+int n = mapStudent.erase(1);//如果删除了会返回 1，否则返回 0<br>
+用迭代器，成片的删除<br>
+一下代码把整个 map 清空<br>
+mapStudent.earse(mapStudent.begin(), mapStudent.end());<br>
+//成片删除要注意的是，也是 STL 的特性，删除区间是一个前闭后开的集合</p>
+<p>8.其他一些函数用法<br>
+这里有 swap,key_comp,value_comp,get_allocator 等函数；</p>
+<p>实例运用请见：<a href="http://blog.csdn.net/u012860063/article/details/35338617" target="_blank">http://blog.csdn.net/u012860063/article/details/35338617</a></p>
+<p>例如：</p>
+<p>map &lt;int, vector<int> &gt; mm;<br>
+第二个键值是一个 vector 容器，就可以存多个值，和二维数组 a[ ] [ ]，差不多了！<br>
+个数 ： int len = mm[tt].size();<br>
+访问其中的值，直接可以用 mm[i] [j]访问;<br>
+vector&lt;int&gt; ::iterator iter;<br>
+iter = lower_bound(mm[tt].begin(), mm[tt].end(), l);<br>
+见：<a href="http://blog.csdn.net/u012860063/article/details/44498559" target="_blank">http://blog.csdn.net/u012860063/article/details/44498559</a></int></p>
+<h1 id="set">set</h1>
+<p>set 是集合，set 中不会包含重复的元素，这是和 vector 的区别。<br>
+定义：<br>
+定义一个元素为整数的集合 a，可以用 set<int> a;<br>
+1，set 的含义是集合，它是一个有序的容器，里面的元素都是排序好的，支持插入，删除，查找等操作，就像一个集合一样。所有的操作都是严格在 logn 时间之内完成的，效率非常高。 set 和 multiset 的区别是：set 插入的元素不能相同，但是 multiset 可以相同。</int></p>
+<p>set 的基本操作：</p>
+<ol>
+<li>begin()         返回指向第一个元素的迭代器</li>
+<li>clear()         清除所有元素</li>
+<li>count()         返回某个值元素的个数</li>
+<li>empty()         如果集合为空，返回 true</li>
+<li>end()           返回指向最后一个元素的迭代器</li>
+<li>equal_range()   返回集合中与给定值相等的上下限的两个迭代器</li>
+<li>erase()         删除集合中的元素</li>
+<li>find()          返回一个指向被查找到元素的迭代器</li>
+<li>get_allocator() 返回集合的分配器</li>
+<li>insert()        在集合中插入元素</li>
+<li>lower_bound()   返回指向大于（或等于）某值的第一个元素的迭代器</li>
+<li>key_comp()      返回一个用于元素间值比较的函数</li>
+<li>max_size()      返回集合能容纳的元素的最大限值</li>
+<li>rbegin()        返回指向集合中最后一个元素的反向迭代器</li>
+<li>rend()          返回指向集合中第一个元素的反向迭代器</li>
+<li>size()          集合中元素的数目</li>
+<li>swap()          交换两个集合变量</li>
+<li>upper_bound()   返回大于某个值元素的迭代器</li>
+<li>value_comp()    返回一个用于比较元素间的值的函数</li>
+</ol>
+<p>set 的遍历<br>
+代码如下：</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-n">set</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;</span><span class="highlight-n">ss</span><span class="highlight-p">;</span>
+        <span class="highlight-n">set</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;::</span><span class="highlight-n">iterator</span> <span class="highlight-n">it</span><span class="highlight-p">;</span>
+        <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">it</span> <span class="highlight-o">=</span> <span class="highlight-n">ss</span><span class="highlight-p">.</span><span class="highlight-n">begin</span><span class="highlight-p">();</span> <span class="highlight-n">it</span> <span class="highlight-o">!=</span> <span class="highlight-n">ss</span><span class="highlight-p">.</span><span class="highlight-n">end</span><span class="highlight-p">();</span> <span class="highlight-n">it</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+        <span class="highlight-p">{</span>
+            <span class="highlight-n">printf</span><span class="highlight-p">(</span><span class="highlight-s">"%d "</span><span class="highlight-p">,</span><span class="highlight-o">*</span><span class="highlight-n">it</span><span class="highlight-p">);</span>
+        <span class="highlight-p">}</span>
+
+</code></pre>
+<p>lower_bound()返回一个 iterator 它指向在[first,last)标记的有序序列中可以插入 value，而不会破坏容器顺序的第一个位置，而这个位置标记了一个大于等于 value 的值。　　<br>
+例如，有如下序列：　　ia[]={12,15,17,19,20,22,23,26,29,35,40,51};<br>
+用值 21 调用 lower_bound(),返回一个指向 22 的 iterator。用值 22 调用 lower_bound(),也返回一个指向 22 的 iterator。<br>
+iterator upper_bound( const key_type &amp;key ):返回一个迭代器，指向键值 &gt; key 的第一个元素</p>
+<hr>
+<p>函数 lower_bound()在 first 和 last 中的前闭后开区间进行二分查找，返回大于或等于 val 的第一个元素位置。如果所有元素都小于 val，则返回 last 的位置</p>
+<p>举例如下：</p>
+<p>一个数组 number 序列为：4,10,11,30,69,70,96,100.设要插入数字 3,9,111.pos 为要插入的位置的下标</p>
+<p>则</p>
+<p>pos = lower_bound( number, number + 8, 3) - number，pos = 0.即 number 数组的下标为 0 的位置。</p>
+<p>pos = lower_bound( number, number + 8, 9) - number， pos = 1，即 number 数组的下标为 1 的位置（即 10 所在的位置）。</p>
+<p>pos = lower_bound( number, number + 8, 111) - number， pos = 8，即 number 数组的下标为 8 的位置（但下标上限为 7，所以返回最后一个元素的下一个元素）。</p>
+<p>所以，要记住：函数 lower_bound()在 first 和 last 中的前闭后开区间进行二分查找，返回大于或等于 val 的第一个元素位置。如果所有元素都小于 val，则返回 last 的位置，且 last 的位置是越界的！！~</p>
+<p>返回查找元素的第一个可安插位置，也就是“元素值 &gt;= 查找值”的第一个元素的位置</p>
+<hr>
+<p>集合的并，交和差<br>
+set_union(a.begin(),a.end(),b.begin(),b.end(),insert_iterator&lt;set<int> &gt;(c,c.begin()));<br>
+set_intersection(a.begin(),a.end(),b.begin(),b.end(),insert_iterator&lt;set<int> &gt;(c,c.begin()));<br>
+set_difference(a.begin(),a.end(),b.begin(),b.end(),insert_iterator&lt;set<int> &gt;(c,c.begin()));</int></int></int></p>
+<p>详见：<a href="http://blog.csdn.net/u012860063/article/details/33797407" target="_blank">http://blog.csdn.net/u012860063/article/details/33797407</a></p>
+<p>（注意在此前要将 c 清为空集）。<br>
+注意：<br>
+为了实现集合的快速运算，set 的实现采用了平衡二叉树，因此，set 中的元素必须是可排序的。如果是自定义的类型，那在定义类型的同时必须给出运算符 &lt; 的定义<br>
+struct node<br>
+{<br>
+int x, y;<br>
+bool operator &lt; (const struct node tmp) const<br>
+{<br>
+if(x == tmp.x)<br>
+return y &lt; tmp.y ;<br>
+return x &lt; tmp.x ;<br>
+}<br>
+} ;</p>
+<h1 id="Sort">Sort</h1>
+<p>sort 顾名思义就是排序</p>
+<p>用法：<br>
+单关键字：<br>
+对于 vector a 来说<br>
+sort(a,a+n); //n=a.size()       将 a 中元素按递增排序。<br>
+多关键字：<br>
+我们也可以利用类 pair<br>
+vector&lt; pair&lt;int,int&gt; &gt; a; // 注意这里两个 &gt; &gt; 中间必须有一个空格，否则编译器会当是运算符 &gt;&gt;<br>
+例如：</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">int</span> <span class="highlight-n">N</span><span class="highlight-p">,</span><span class="highlight-n">x</span><span class="highlight-p">,</span><span class="highlight-n">y</span><span class="highlight-p">;</span>
+<span class="highlight-n">cin</span> <span class="highlight-o">&gt;&gt;</span> <span class="highlight-n">N</span><span class="highlight-p">;</span>
+<span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-n">i</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">N</span><span class="highlight-p">;</span> <span class="highlight-o">++</span><span class="highlight-n">i</span><span class="highlight-p">)</span> 
+<span class="highlight-p">{</span>
+	<span class="highlight-n">cin</span> <span class="highlight-o">&gt;&gt;</span> <span class="highlight-n">x</span> <span class="highlight-o">&gt;&gt;</span> <span class="highlight-n">y</span><span class="highlight-p">;</span>
+	<span class="highlight-n">a</span><span class="highlight-p">.</span><span class="highlight-n">push_back</span><span class="highlight-p">(</span><span class="highlight-n">make_pair</span><span class="highlight-p">(</span><span class="highlight-n">x</span><span class="highlight-p">,</span><span class="highlight-n">y</span><span class="highlight-p">));</span> <span class="highlight-c1">// make_pair用于创建pair对象
+</span><span class="highlight-c1"></span><span class="highlight-p">}</span>
+<span class="highlight-n">sort</span><span class="highlight-p">(</span><span class="highlight-o">&amp;</span><span class="highlight-n">a</span><span class="highlight-p">[</span><span class="highlight-mi">0</span><span class="highlight-p">],</span> <span class="highlight-o">&amp;</span><span class="highlight-n">a</span><span class="highlight-p">[</span><span class="highlight-n">N</span><span class="highlight-p">]);</span><span class="highlight-o">&lt;/</span><span class="highlight-n">span</span><span class="highlight-o">&gt;</span>
+
+
+</code></pre>
+<p>注意：<br>
+对于我们自己定义的类或结构，系统一般不能做比较运算，需要我们自己定义相应的运算符</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">bool</span> <span class="highlight-nf">cmp</span><span class="highlight-p">(</span><span class="highlight-n">MyType</span> <span class="highlight-n">x</span><span class="highlight-p">,</span> <span class="highlight-n">MyType</span> <span class="highlight-n">y</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+	<span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">y</span><span class="highlight-p">)</span>
+		<span class="highlight-k">return</span> <span class="highlight-nb">true</span><span class="highlight-p">;</span>
+	<span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span> <span class="highlight-o">&gt;=</span> <span class="highlight-n">y</span><span class="highlight-p">)</span>
+		<span class="highlight-k">return</span> <span class="highlight-nb">false</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+
+</code></pre>
+<h1 id="Pair">Pair</h1>
+<p>（转自：<a href="http://blog.csdn.net/spaceyqy/article/details/38384501" target="_blank">http://blog.csdn.net/spaceyqy/article/details/38384501</a>）</p>
+<p>map 是一个关联容器，里面存放的是键值对，容器中每一元素都是 pair 类型，通过 map 的 insert()方法来插入元素(pair 类型)。template &lt;class T1,class T2&gt;<br>
+pair&lt;T1,T2&gt; make_pair (T1 x, T2 y)<br>
+{<br>
+return ( pair&lt;T1,T2&gt;(x,y) );<br>
+}</p>
+<p>pair 的类型：</p>
+<p>pair 是 一种模版类型。每个 pair 可以存储两个值。这两种值无限制。也可以将自己写的 struct 的对象放进去。。</p>
+<p>pair&lt;string,int&gt; p;</p>
+<p>pair&lt;int ,int &gt; p;</p>
+<p>pair&lt;double,int&gt; p;</p>
+<p>都可以。。。</p>
+<p>std::pair 主要的作用是将两个数据组合成一个数据，两个数据可以是同一类型或者不同类型。例如 std::pair&lt;int,float&gt; 或者 std：：pair&lt;double,double&gt; 等。pair 实质上是一个结构体，其主要的两个成员变量是 first 和 second，这两个变量可以直接使用。初始化一个 pair 可以使用构造函数，也可以使用 std::make_pair 函数。</p>
+<p>应用：如果一个函数有两个返回值 的话，如果是相同类型，就可以用数组返回，如果是不同类型，就可以自己写个 struct ，但为了方便就可以使用 c++ 自带的 pair ，返回一个 pair,其中带有两个值。除了返回值的应用，在一个对象有多个属性的时候 ，一般自己写一个 struct ，如果就是两个属性的话，就可以用 pair 进行操作。。。<br>
+应用 pair 可以省的自己写一个 struct 。。。如果有三个属性的话，其实也是可以用的 pair 的 ，极端的写法 pair &lt;int ,pair&lt;int ,int &gt; &gt; 写法极端。（后边的两个 &gt; &gt; 要有空格，否则就会是 &gt;&gt; 位移运算符）</p>
+<p>pair&lt;int ,int &gt;p (5,6);<br>
+pair&lt;int ,int &gt; p1= make_pair(5,6);<br>
+pair&lt;string,double&gt; p2 ("aa",5.0);<br>
+pair &lt;string ,double&gt; p3 = make_pair("aa",5.0);<br>
+有这两种写法来生成一个 pair。<br>
+如何取得 pair 的值呢。。<br>
+每个 pair 都有两个属性值 first 和 second    cout&lt;&lt;p1.first&lt;&lt;p1.second; 注意是属性值而不是方法。</p>
+<p>一般 make_pair 都使用在需要 pair 做参数的位置，可以直接调用 make_pair 生成 pair 对象。make_pair 是根据 2 个参数类型推导出 pair 的 2 个模板参数类型的。另一个使用的方面就是 pair 可以接受隐式的类型转换，这样可以获得更高的灵活度。但是这样会出现如下问题：例如有如下两个定义：</p>
+<pre><code class="highlight-chroma">&lt;span style="font-size:18px;"&gt;std::pair&lt;int, float&gt;(1, 1.1);
+std::make_pair(1, 1.1);
+&lt;/span&gt;
+
+</code></pre>
+<p>其中第一个的 second 变量是 float 类型，而 make_pair 函数会将 second 变量都转换成 double 类型。这个问题在编程是需要引起注意。下面是一段 pair 与 make_pair 的例子程序：</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;iostream&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;utility&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;string&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp"></span><span class="highlight-k">using</span> <span class="highlight-k">namespace</span> <span class="highlight-n">std</span><span class="highlight-p">;</span>
+<span class="highlight-kt">int</span> <span class="highlight-nf">main</span> <span class="highlight-p">()</span>
+<span class="highlight-p">{</span>
+        <span class="highlight-n">pair</span> <span class="highlight-o">&lt;</span><span class="highlight-n">string</span><span class="highlight-p">,</span><span class="highlight-kt">double</span><span class="highlight-o">&gt;</span> <span class="highlight-n">product1</span> <span class="highlight-p">(</span><span class="highlight-s">"tomatoes"</span><span class="highlight-p">,</span><span class="highlight-mf">3.25</span><span class="highlight-p">);</span>
+	<span class="highlight-n">pair</span> <span class="highlight-o">&lt;</span><span class="highlight-n">string</span><span class="highlight-p">,</span><span class="highlight-kt">double</span><span class="highlight-o">&gt;</span> <span class="highlight-n">product2</span><span class="highlight-p">;</span>
+	<span class="highlight-n">pair</span> <span class="highlight-o">&lt;</span><span class="highlight-n">string</span><span class="highlight-p">,</span><span class="highlight-kt">double</span><span class="highlight-o">&gt;</span> <span class="highlight-n">product3</span><span class="highlight-p">;</span>
+ 
+	<span class="highlight-n">product2</span><span class="highlight-p">.</span><span class="highlight-n">first</span> <span class="highlight-o">=</span><span class="highlight-s">"lightbulbs"</span><span class="highlight-p">;</span> <span class="highlight-c1">// type of first is string
+</span><span class="highlight-c1"></span>	<span class="highlight-n">product2</span><span class="highlight-p">.</span><span class="highlight-n">second</span> <span class="highlight-o">=</span><span class="highlight-mf">0.99</span><span class="highlight-p">;</span> <span class="highlight-c1">// type of second is double
+</span><span class="highlight-c1"></span>	
+	<span class="highlight-n">product3</span> <span class="highlight-o">=</span> <span class="highlight-n">make_pair</span> <span class="highlight-p">(</span><span class="highlight-s">"shoes"</span><span class="highlight-p">,</span><span class="highlight-mf">20.0</span><span class="highlight-p">);</span>
+		
+	<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"The price of "</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product1</span><span class="highlight-p">.</span><span class="highlight-n">first</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">" is $"</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product1</span><span class="highlight-p">.</span><span class="highlight-n">second</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"</span><span class="highlight-se">\n</span><span class="highlight-s">"</span><span class="highlight-p">;</span>
+	<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"The price of "</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product2</span><span class="highlight-p">.</span><span class="highlight-n">first</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">" is $"</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product2</span><span class="highlight-p">.</span><span class="highlight-n">second</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"</span><span class="highlight-se">\n</span><span class="highlight-s">"</span><span class="highlight-p">;</span>
+	<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"The price of "</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product3</span><span class="highlight-p">.</span><span class="highlight-n">first</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">" is $"</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product3</span><span class="highlight-p">.</span><span class="highlight-n">second</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"</span><span class="highlight-se">\n</span><span class="highlight-s">"</span><span class="highlight-p">;</span>
+	<span class="highlight-k">return</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+
+</code></pre>
+<p>map 是一个关联容器，里面存放的是键值对，容器中每一元素都是 pair 类型，通过 map 的 insert()方法来插入元素(pair 类型)。</p>
+<p>mapStudent.insert(map&lt;int, string&gt;::value_type (1,"student_one"));</p>
+<p>mapStudent.insert(make_pair(1, "student_one"));</p>
+                            <div>
+                                <hr>
+
+标题：STL中常用的vector，map，set，sort 用法 转<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2019/12/03/1575375078258.html" target="_blank">https://Rainsheep.github.io/articles/2019/12/03/1575375078258.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575374076393.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: hdu-2546 饭卡
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575375496539.html" rel="next"
+                               class="fn__right breadcrumb">
+                                 map的详细用法: 转: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575374076393.html" rel="prev" class="breadcrumb">
+                            旧一篇: hdu-2546 饭卡
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575375496539.html" rel="next"
+                           class="breadcrumb">
+                            新一篇:  map的详细用法: 转
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1575375078258"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h1">
+            <a href="#vector">vector</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#map">map</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#set">set</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#Sort">Sort</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#Pair">Pair</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1575375078258",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 93ms, 2020/03/18 19:04:22 -->

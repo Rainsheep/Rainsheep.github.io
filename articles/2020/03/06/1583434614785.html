@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>mybatis 学习笔记 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="mybatis 学习笔记 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2020/03/06/1583434614785.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="mybatis 学习笔记 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2020/03/06/1583434614785.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="Centos 搭建 redis" href="https://Rainsheep.github.io/articles/2020/03/02/1583150597818.html">
+            <link rel="next" title="Spring 学习笔记" href="https://Rainsheep.github.io/articles/2020/03/08/1583653357274.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2020年">
+                        03月
+                        <span class="item__day">07</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2020/03/06/1583434614785.html">
+                            mybatis 学习笔记
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2020-03-07
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/Java">
+                                Java</a>,
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">
+                                学习笔记</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2020/03/06/1583434614785.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1583434614785">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2020/03/06/1583434614785.html">0</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <h3 id="1--MyBatis-入门">1. MyBatis 入门</h3>
+<ul>
+<li>
+<p>ssm 框架与三层架构<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-04+13:26:52+01%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84.png" alt=""></p>
+</li>
+<li>
+<p>MyBatis 是一个持久层框架，用 Java 语言编写，使用 ORM 思想(Object Relational Mapping) 对象关系映射，就是把数据库表和实体类以及实体类的属性对应起来(实体类中的属性和数据库表的字段名称保持一致)，让我们操作实体类就实现操作数据库表。</p>
+</li>
+<li>
+<p>MyBatis 中实体类需要实现 Serializable 接口。</p>
+</li>
+<li>
+<p>MyBatis 的环境搭建</p>
+<ol>
+<li>创建 maven 工程并导入坐标
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;dependency&gt;</span>
+    <span class="highlight-nt">&lt;groupId&gt;</span>org.mybatis<span class="highlight-nt">&lt;/groupId&gt;</span>
+    <span class="highlight-nt">&lt;artifactId&gt;</span>mybatis<span class="highlight-nt">&lt;/artifactId&gt;</span>
+    <span class="highlight-nt">&lt;version&gt;</span>3.4.5<span class="highlight-nt">&lt;/version&gt;</span>
+<span class="highlight-nt">&lt;/dependency&gt;</span>
+<span class="highlight-nt">&lt;dependency&gt;</span>
+    <span class="highlight-nt">&lt;groupId&gt;</span>mysql<span class="highlight-nt">&lt;/groupId&gt;</span>
+    <span class="highlight-nt">&lt;artifactId&gt;</span>mysql-connector-java<span class="highlight-nt">&lt;/artifactId&gt;</span>
+    <span class="highlight-nt">&lt;version&gt;</span>5.1.6<span class="highlight-nt">&lt;/version&gt;</span>
+<span class="highlight-nt">&lt;/dependency&gt;</span>
+</code></pre>
+</li>
+<li>创建实体类(javaBean)，和 dao 层的接口</li>
+<li>创建 MyBatis 的主配置文件，名字没要求，在此 SqlMapConifg.xml
+<pre><code class="language-xml highlight-chroma"><span class="highlight-cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="highlight-cp">&lt;!DOCTYPE configuration
+</span><span class="highlight-cp">        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+</span><span class="highlight-cp">        "http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span>
+<span class="highlight-c">&lt;!-- mybatis的主配置文件 --&gt;</span>
+<span class="highlight-nt">&lt;configuration&gt;</span>
+    <span class="highlight-c">&lt;!-- 配置环境 --&gt;</span>
+    <span class="highlight-nt">&lt;environments</span> <span class="highlight-na">default=</span><span class="highlight-s">"mysql"</span><span class="highlight-nt">&gt;</span>
+        <span class="highlight-c">&lt;!-- 配置mysql的环境--&gt;</span>
+        <span class="highlight-nt">&lt;environment</span> <span class="highlight-na">id=</span><span class="highlight-s">"mysql"</span><span class="highlight-nt">&gt;</span>
+            <span class="highlight-c">&lt;!-- 配置事务的类型--&gt;</span>
+            <span class="highlight-nt">&lt;transactionManager</span> <span class="highlight-na">type=</span><span class="highlight-s">"JDBC"</span><span class="highlight-nt">&gt;&lt;/transactionManager&gt;</span>
+            <span class="highlight-c">&lt;!-- 配置数据源（连接池） --&gt;</span>
+            <span class="highlight-nt">&lt;dataSource</span> <span class="highlight-na">type=</span><span class="highlight-s">"POOLED"</span><span class="highlight-nt">&gt;</span>
+                <span class="highlight-c">&lt;!-- 配置连接数据库的4个基本信息 --&gt;</span>
+                <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"driver"</span> <span class="highlight-na">value=</span><span class="highlight-s">"com.mysql.jdbc.Driver"</span><span class="highlight-nt">/&gt;</span>
+                <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"url"</span> <span class="highlight-na">value=</span><span class="highlight-s">"jdbc:mysql://localhost:3306/eesy_mybatis"</span><span class="highlight-nt">/&gt;</span>
+                <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"username"</span> <span class="highlight-na">value=</span><span class="highlight-s">"root"</span><span class="highlight-nt">/&gt;</span>
+                <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"password"</span> <span class="highlight-na">value=</span><span class="highlight-s">"1234"</span><span class="highlight-nt">/&gt;</span>
+            <span class="highlight-nt">&lt;/dataSource&gt;</span>
+        <span class="highlight-nt">&lt;/environment&gt;</span>
+    <span class="highlight-nt">&lt;/environments&gt;</span>
+
+    <span class="highlight-c">&lt;!-- 指定映射配置文件的位置，映射配置文件指的是每个dao独立的配置文件 --&gt;</span>
+    <span class="highlight-c">&lt;!-- 在注册映射文件时使用&lt;mapper resource="org/xx/demo/mapper/xx.xml"/&gt;，不需要映射文件名和接口名一样 --&gt;</span>
+    <span class="highlight-c">&lt;!-- 如果使用注解来配置，此处的 resources 应该用 class 来指定被注解的 dao 全限定类名 --&gt;</span>
+    <span class="highlight-nt">&lt;mappers&gt;</span>
+        <span class="highlight-nt">&lt;mapper</span> <span class="highlight-na">resource=</span><span class="highlight-s">"com/itheima/dao/IUserDao.xml"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;/mappers&gt;</span>
+<span class="highlight-nt">&lt;/configuration&gt;</span>
+</code></pre>
+</li>
+<li>创建映射配置文件
+<pre><code class="language-xml highlight-chroma"><span class="highlight-cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="highlight-cp">&lt;!DOCTYPE mapper
+</span><span class="highlight-cp">        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+</span><span class="highlight-cp">        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span>
+<span class="highlight-nt">&lt;mapper</span> <span class="highlight-na">namespace=</span><span class="highlight-s">"com.itheima.dao.IUserDao"</span><span class="highlight-nt">&gt;</span>
+    <span class="highlight-c">&lt;!--配置查询所有，id与接口中方法名一样--&gt;</span>
+    <span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findAll"</span> <span class="highlight-na">resultType=</span><span class="highlight-s">"com.itheima.domain.User"</span><span class="highlight-nt">&gt;</span>
+        select * from user
+    <span class="highlight-nt">&lt;/select&gt;</span>
+<span class="highlight-nt">&lt;/mapper&gt;</span>
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>环境搭建的注意事项</p>
+<ul>
+<li>在 MyBatis 中持久层的操作接口名称也和映射文件也叫做 Mapper(以前为 dao)</li>
+<li>在 resources 中创建目录的时候，和包不一样，需一级一级创建</li>
+<li>MyBatis 映射文件的位置必须和 dao 接口的包结构相同</li>
+<li>映射配置文件的 mapper 标签 namespace 属性的取值必须是 dao 接口的全限定类名</li>
+<li>映射配置文件的操作配置(select)，id 属性的取值必须是 dao 接口的方法名</li>
+<li>当我们遵循上述后 3 点之后，在开发中无需再写 dao 的实现类</li>
+</ul>
+</li>
+<li>
+<p>入门案例</p>
+<pre><code class="language-java highlight-chroma"><span class="highlight-kn">package</span> <span class="highlight-nn">com.itheima.test</span><span class="highlight-o">;</span>
+
+<span class="highlight-kn">import</span> <span class="highlight-nn">com.itheima.dao.IUserDao</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">com.itheima.domain.User</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">org.apache.ibatis.io.Resources</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">org.apache.ibatis.session.SqlSession</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">org.apache.ibatis.session.SqlSessionFactory</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">org.apache.ibatis.session.SqlSessionFactoryBuilder</span><span class="highlight-o">;</span>
+
+<span class="highlight-kn">import</span> <span class="highlight-nn">java.io.InputStream</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">java.util.List</span><span class="highlight-o">;</span>
+
+<span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">MybatisTest</span> <span class="highlight-o">{</span>
+    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span><span class="highlight-kd">throws</span> <span class="highlight-n">Exception</span> <span class="highlight-o">{</span>
+        <span class="highlight-c1">//1.读取配置文件
+</span><span class="highlight-c1"></span>        <span class="highlight-n">InputStream</span> <span class="highlight-n">in</span> <span class="highlight-o">=</span> <span class="highlight-n">Resources</span><span class="highlight-o">.</span><span class="highlight-na">getResourceAsStream</span><span class="highlight-o">(</span><span class="highlight-s">"SqlMapConfig.xml"</span><span class="highlight-o">);</span>
+        <span class="highlight-c1">//2.创建SqlSessionFactory工厂
+</span><span class="highlight-c1"></span>        <span class="highlight-n">SqlSessionFactoryBuilder</span> <span class="highlight-n">builder</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">SqlSessionFactoryBuilder</span><span class="highlight-o">();</span>
+        <span class="highlight-n">SqlSessionFactory</span> <span class="highlight-n">factory</span> <span class="highlight-o">=</span> <span class="highlight-n">builder</span><span class="highlight-o">.</span><span class="highlight-na">build</span><span class="highlight-o">(</span><span class="highlight-n">in</span><span class="highlight-o">);</span>
+        <span class="highlight-c1">//3.使用工厂生产SqlSession对象，操作数据库对象
+</span><span class="highlight-c1"></span>        <span class="highlight-n">SqlSession</span> <span class="highlight-n">session</span> <span class="highlight-o">=</span> <span class="highlight-n">factory</span><span class="highlight-o">.</span><span class="highlight-na">openSession</span><span class="highlight-o">();</span>
+        <span class="highlight-c1">//4.使用SqlSession创建Dao接口的代理对象，代理模式
+</span><span class="highlight-c1"></span>        <span class="highlight-n">IUserDao</span> <span class="highlight-n">userDao</span> <span class="highlight-o">=</span> <span class="highlight-n">session</span><span class="highlight-o">.</span><span class="highlight-na">getMapper</span><span class="highlight-o">(</span><span class="highlight-n">IUserDao</span><span class="highlight-o">.</span><span class="highlight-na">class</span><span class="highlight-o">);</span>
+        <span class="highlight-c1">//5.使用代理对象执行方法
+</span><span class="highlight-c1"></span>        <span class="highlight-n">List</span><span class="highlight-o">&lt;</span><span class="highlight-n">User</span><span class="highlight-o">&gt;</span> <span class="highlight-n">users</span> <span class="highlight-o">=</span> <span class="highlight-n">userDao</span><span class="highlight-o">.</span><span class="highlight-na">findAll</span><span class="highlight-o">();</span>
+        <span class="highlight-k">for</span><span class="highlight-o">(</span><span class="highlight-n">User</span> <span class="highlight-n">user</span> <span class="highlight-o">:</span> <span class="highlight-n">users</span><span class="highlight-o">){</span>
+            <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">user</span><span class="highlight-o">);</span>
+        <span class="highlight-o">}</span>
+        <span class="highlight-c1">//6.释放资源
+</span><span class="highlight-c1"></span>        <span class="highlight-n">session</span><span class="highlight-o">.</span><span class="highlight-na">close</span><span class="highlight-o">();</span>
+        <span class="highlight-n">in</span><span class="highlight-o">.</span><span class="highlight-na">close</span><span class="highlight-o">();</span>
+    <span class="highlight-o">}</span>
+<span class="highlight-o">}</span>
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-04+15:55:26+%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B%E7%9A%84%E5%88%86%E6%9E%90.png" alt=""></p>
+</li>
+<li>
+<p>使用注解的时候</p>
+<ul>
+<li>不需要映射配置文件</li>
+<li>主配置文件中 <code>&lt;mapper class="全限定类型"/&gt;</code></li>
+<li>接口上使用注解 <code>@Select("select * from user")</code></li>
+</ul>
+</li>
+<li>
+<p>MyBatis 支持写 dao 实现类，一般不用，不简便。</p>
+<ul>
+<li>配置映射配置文件</li>
+<li>写 dao 的实现类，通过读取配置文件的 SQL 语句来查询
+<pre><code class="language-java highlight-chroma"><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">UserDaoImpl</span> <span class="highlight-kd">implements</span> <span class="highlight-n">IUserDao</span> <span class="highlight-o">{</span>
+    <span class="highlight-kd">private</span> <span class="highlight-n">SqlSessionFactory</span> <span class="highlight-n">factory</span><span class="highlight-o">;</span>
+
+    <span class="highlight-kd">public</span> <span class="highlight-nf">UserDaoImpl</span><span class="highlight-o">(</span><span class="highlight-n">SqlSessionFactory</span> <span class="highlight-n">factory</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+        <span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">factory</span> <span class="highlight-o">=</span> <span class="highlight-n">factory</span><span class="highlight-o">;</span>
+    <span class="highlight-o">}</span>
+
+    <span class="highlight-kd">public</span> <span class="highlight-n">List</span><span class="highlight-o">&lt;</span><span class="highlight-n">User</span><span class="highlight-o">&gt;</span> <span class="highlight-nf">findAll</span><span class="highlight-o">()</span> <span class="highlight-o">{</span>
+        <span class="highlight-n">SqlSession</span> <span class="highlight-n">session</span> <span class="highlight-o">=</span> <span class="highlight-n">factory</span><span class="highlight-o">.</span><span class="highlight-na">openSession</span><span class="highlight-o">();</span>
+        <span class="highlight-n">List</span><span class="highlight-o">&lt;</span><span class="highlight-n">User</span><span class="highlight-o">&gt;</span> <span class="highlight-n">users</span> <span class="highlight-o">=</span> <span class="highlight-n">session</span><span class="highlight-o">.</span><span class="highlight-na">selectList</span><span class="highlight-o">(</span><span class="highlight-s">"com.itheima.dao.IUserDao.findAll"</span><span class="highlight-o">);</span>
+        <span class="highlight-n">session</span><span class="highlight-o">.</span><span class="highlight-na">close</span><span class="highlight-o">();</span>
+        <span class="highlight-k">return</span> <span class="highlight-n">users</span><span class="highlight-o">;</span>
+    <span class="highlight-o">}</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+<li>测试类
+<pre><code class="language-java highlight-chroma"><span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-kd">throws</span> <span class="highlight-n">Exception</span> <span class="highlight-o">{</span>
+        <span class="highlight-c1">//1.读取配置文件
+</span><span class="highlight-c1"></span>        <span class="highlight-n">InputStream</span> <span class="highlight-n">in</span> <span class="highlight-o">=</span> <span class="highlight-n">Resources</span><span class="highlight-o">.</span><span class="highlight-na">getResourceAsStream</span><span class="highlight-o">(</span><span class="highlight-s">"SqlMapConfig.xml"</span><span class="highlight-o">);</span>
+        <span class="highlight-c1">//2.创建SqlSessionFactory工厂
+</span><span class="highlight-c1"></span>        <span class="highlight-n">SqlSessionFactoryBuilder</span> <span class="highlight-n">builder</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">SqlSessionFactoryBuilder</span><span class="highlight-o">();</span>
+        <span class="highlight-n">SqlSessionFactory</span> <span class="highlight-n">factory</span> <span class="highlight-o">=</span> <span class="highlight-n">builder</span><span class="highlight-o">.</span><span class="highlight-na">build</span><span class="highlight-o">(</span><span class="highlight-n">in</span><span class="highlight-o">);</span>
+        <span class="highlight-c1">//3.使用工厂创建dao对象
+</span><span class="highlight-c1"></span>        <span class="highlight-n">UserDaoImpl</span> <span class="highlight-n">userDao</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">UserDaoImpl</span><span class="highlight-o">(</span><span class="highlight-n">factory</span><span class="highlight-o">);</span>
+        <span class="highlight-c1">//4.使用代理对象执行方法
+</span><span class="highlight-c1"></span>        <span class="highlight-n">List</span><span class="highlight-o">&lt;</span><span class="highlight-n">User</span><span class="highlight-o">&gt;</span> <span class="highlight-n">users</span> <span class="highlight-o">=</span> <span class="highlight-n">userDao</span><span class="highlight-o">.</span><span class="highlight-na">findAll</span><span class="highlight-o">();</span>
+        <span class="highlight-k">for</span> <span class="highlight-o">(</span><span class="highlight-n">User</span> <span class="highlight-n">user</span> <span class="highlight-o">:</span> <span class="highlight-n">users</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+            <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">user</span><span class="highlight-o">);</span>
+        <span class="highlight-o">}</span>
+        <span class="highlight-c1">//5.释放资源
+</span><span class="highlight-c1"></span>        <span class="highlight-n">in</span><span class="highlight-o">.</span><span class="highlight-na">close</span><span class="highlight-o">();</span>
+    <span class="highlight-o">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2--自定义-MyBatis-框架">2. 自定义 MyBatis 框架</h3>
+<ul>
+<li>MyBatis 在使用代理 dao 的方式实现增删改查时做了什么事情
+<ol>
+<li>创建代理对象</li>
+<li>在代理对象中调用 selectList 方法</li>
+</ol>
+</li>
+<li>执行查询所有分析<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-04+17:27:40+%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E7%9A%84%E5%88%86%E6%9E%90.png" alt=""></li>
+<li>创建代理对象的分析<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-04+17:35:52+%E8%87%AA%E5%AE%9A%E4%B9%89Mybatis%E5%88%86%E6%9E%90.png" alt=""></li>
+<li>自定义 MyBatis 开发流程图<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-04+20:49:31+%E8%87%AA%E5%AE%9A%E4%B9%89mybatis%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt=""></li>
+</ul>
+<h3 id="3--MyBatis-的-CRUD">3. MyBatis 的 CRUD</h3>
+<ul>
+<li>
+<p>CRUD 使用要求</p>
+<ul>
+<li>持久层接口和持久层接口的映射配置必须在相同的包下</li>
+<li>持久层映射配置中 mapper 标签的 namespace 属性取值必须是持久层接口的全限定类名</li>
+<li>SQL 语句的配置标签 <code>&lt;select&gt;,&lt;insert&gt;,&lt;delete&gt;,&lt;update&gt;</code> 的 id 属性必须和持久层接口的方法名相同。</li>
+</ul>
+</li>
+<li>
+<p>MyBatis 动态执行 SQL。</p>
+</li>
+<li>
+<p>MyBatis 默认手动提交事务，需要 <code>sqlSession.commit();</code></p>
+</li>
+<li>
+<p>insert 操作：</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;insert</span> <span class="highlight-na">id=</span><span class="highlight-s">"saveUser"</span> <span class="highlight-na">parameterType=</span><span class="highlight-s">"pers.ylq.domain.User"</span><span class="highlight-nt">&gt;</span>
+    <span class="highlight-nt">&lt;selectKey</span> <span class="highlight-na">keyProperty=</span><span class="highlight-s">"id"</span> <span class="highlight-na">keyColumn=</span><span class="highlight-s">"id"</span> <span class="highlight-na">resultType=</span><span class="highlight-s">"int"</span> <span class="highlight-na">order=</span><span class="highlight-s">"AFTER"</span><span class="highlight-nt">&gt;</span>
+        select last_insert_id();
+    <span class="highlight-nt">&lt;/selectKey&gt;</span>
+    insert into user(username,address,sex,birthday) values(#{username},#{address},#{sex},#{birthday});
+<span class="highlight-nt">&lt;/insert&gt;</span>
+</code></pre>
+<ul>
+<li>parameterType 属性：用于指定传入参数的类型，全类名。</li>
+<li>resultType 属性：用于指定结果集的类型(查询的每条结果要封装的类型)。简单数据类型可以随意写，能识别就好，比如 int、Integer、String、java.liang.String ，如果结果是一个类，则需要写全类名。</li>
+<li>SQL  语句中使用 <code>#{}</code> 字符 ：
+<ul>
+<li>它代表占位符，相当于原来 JDBC 部分所学的 <code>?</code>，都是用于执行语句时替换实际的数据。具体的数据是由 <code>#{}</code> 里面的内容决定的。</li>
+<li>语法格式就是使用 <code>#{对象.属性}</code> 的方式，<code>#{user.username}</code> 它会先去找 user 对象，然后在 user 对象中找到 username 属性，并调用 <code>getUsername()</code> 方法把值取出来。但是我们在 parameterType 属性上指定了实体类名称，所以可以省略 <code>user.</code> 而直接写 username。</li>
+</ul>
+</li>
+<li>selectKey 的作用：配置保存时获取插入的 id，id 为自增长，keyProperty 表示返回给对象的哪一个属性，keyColumn 指向表中的主键，可省略，order 表示在什么时候执行。</li>
+<li><code>select last_insert_id()</code> 查询上一条自增长数据的 id。</li>
+</ul>
+</li>
+<li>
+<p>update 操作</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;update</span> <span class="highlight-na">id=</span><span class="highlight-s">"updateUser"</span> <span class="highlight-na">parameterType=</span><span class="highlight-s">"pers.ylq.domain.User"</span><span class="highlight-nt">&gt;</span>
+    update user set username=#{username},address=#{address},sex=#{sex},birthday=#{birthday} where id=#{id};
+<span class="highlight-nt">&lt;/update&gt;</span>
+</code></pre>
+<ul>
+<li><code>#{}</code> 中的值代表 User 对象中的属性。</li>
+</ul>
+</li>
+<li>
+<p>delete 操作</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;delete</span> <span class="highlight-na">id=</span><span class="highlight-s">"deleteUser"</span> <span class="highlight-na">parameterType=</span><span class="highlight-s">"int"</span><span class="highlight-nt">&gt;</span>
+    delete from user where id=#{id};
+<span class="highlight-nt">&lt;/delete&gt;</span>
+</code></pre>
+<ul>
+<li>由于参数类型是基本类型，<code>#{}</code> 中内容可随意填写。</li>
+</ul>
+</li>
+<li>
+<p>select 操作：</p>
+<pre><code class="language-xml highlight-chroma">List<span class="highlight-nt">&lt;User&gt;</span> findAll();
+<span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findAll"</span> <span class="highlight-na">resultType=</span><span class="highlight-s">"pers.ylq.domain.User"</span><span class="highlight-nt">&gt;</span>
+    select * from user;
+<span class="highlight-nt">&lt;/select&gt;</span>
+</code></pre>
+<ul>
+<li>resultType 为查询的结果封装的类型，不是方法的返回值类型。</li>
+</ul>
+</li>
+<li>
+<p>模糊查询：</p>
+<pre><code class="language-xml highlight-chroma">List<span class="highlight-nt">&lt;User&gt;</span> findByName(String username);
+<span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findByName"</span> <span class="highlight-na">parameterType=</span><span class="highlight-s">"String"</span> <span class="highlight-na">resultType=</span><span class="highlight-s">"pers.ylq.domain.User"</span><span class="highlight-nt">&gt;</span>
+    select * from user where username like #{name};
+<span class="highlight-nt">&lt;/select&gt;</span>
+List<span class="highlight-nt">&lt;User&gt;</span> users = userDao.findByName("%王%");
+</code></pre>
+<ul>
+<li>在传递参数的时候传递 <code>%</code> 可实现动态模糊查询</li>
+</ul>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findByName"</span> <span class="highlight-na">parameterType=</span><span class="highlight-s">"String"</span> <span class="highlight-na">resultType=</span><span class="highlight-s">"pers.ylq.domain.User"</span><span class="highlight-nt">&gt;</span>
+    select * from user where username like concat('%',#{name},'%');
+<span class="highlight-nt">&lt;/select&gt;</span>
+List<span class="highlight-nt">&lt;User&gt;</span> users = userDao.findByName("王");
+</code></pre>
+<ul>
+<li>使用 concat 函数连接参数。</li>
+</ul>
+<pre><code class="language-xml highlight-chroma">List<span class="highlight-nt">&lt;User&gt;</span> users = userDao.findByName("王");
+<span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findByName"</span> <span class="highlight-na">parameterType=</span><span class="highlight-s">"String"</span> <span class="highlight-na">resultType=</span><span class="highlight-s">"pers.ylq.domain.User"</span><span class="highlight-nt">&gt;</span>
+    select * from user where username like '%${value}%';
+<span class="highlight-nt">&lt;/select&gt;</span>
+</code></pre>
+<ul>
+<li>通过 <code>${}</code> 可以将 parameterType 传入的内容拼接在 SQL 中且不进行 JDBC 类型转换，<code>${}</code>可以接收简单类型值或 pojo 属性值，如果 parameterType 传输<strong>单个简单类型值 <strong>，</strong><code>${}</code>括号中只能是 value</strong>。</li>
+</ul>
+<pre><code class="language-xml highlight-chroma">public class QueryVo implements Serializable {
+    private User user;
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
+}
+
+<span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findUserByVo"</span> <span class="highlight-na">resultType=</span><span class="highlight-s">"pers.ylq.domain.User"</span> <span class="highlight-na">parameterType=</span><span class="highlight-s">"pers.ylq.domain.QueryVo"</span><span class="highlight-nt">&gt;</span>
+    select * from user where username like #{user.username};
+<span class="highlight-nt">&lt;/select&gt;</span>
+
+QueryVo vo = new QueryVo();
+User user = new User();
+vo.setUser(user);
+user.setUsername("%王%");
+List<span class="highlight-nt">&lt;User&gt;</span> users = userDao.findUserByVo(vo);
+</code></pre>
+<ul>
+<li>查询的参数对象中存有对象</li>
+</ul>
+</li>
+<li>
+<p>MyBatis 传递多个参数</p>
+<ul>
+<li>传递多个参数的时候，不能使用 parameterType 指定参数类型。</li>
+<li>可以通过参数传递顺序取值
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findByNameAndAddress"</span> <span class="highlight-na">resultType=</span><span class="highlight-s">"pers.ylq.domain.User"</span><span class="highlight-nt">&gt;</span>
+    select * from user where username = #{arg0} and address = #{arg1};
+<span class="highlight-nt">&lt;/select&gt;</span>
+
+List<span class="highlight-nt">&lt;User&gt;</span> users = userDao.findByNameAndAddress("老王", "北京");
+</code></pre>
+</li>
+<li>在 dao 层通过注解 @Param 实现多参传递，注解中的属性为参数的名字，在 XML 中通过此名字获取参数。
+<pre><code class="language-xml highlight-chroma">List<span class="highlight-nt">&lt;User&gt;</span> findByNameAndAddress(@Param("username") String username, @Param("address") String address);
+
+<span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findByNameAndAddress"</span> <span class="highlight-na">resultType=</span><span class="highlight-s">"pers.ylq.domain.User"</span><span class="highlight-nt">&gt;</span>
+    select * from user where username = #{username} and address = #{address};
+<span class="highlight-nt">&lt;/select&gt;</span>
+
+List<span class="highlight-nt">&lt;User&gt;</span> users = userDao.findByNameAndAddress("老王", "北京");
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>解决实体类属性和数据库列名不对应的两种方式</p>
+<ul>
+<li>第一种：为查询出的数据用 as 关键字起别名，别名跟实体类中名字一样，即可成功封装为对象。</li>
+<li>第二种：建立属性名和列名的对应关系，然后使用 resultMap 属性，指向此对应表即可
+<pre><code class="language-xml highlight-chroma"><span class="highlight-c">&lt;!-- 配置 查询结果的列名和实体类的属性名的对应关系 --&gt;</span>
+<span class="highlight-c">&lt;!-- id为对应表的唯一标识，可以随意起名 --&gt;</span>
+<span class="highlight-nt">&lt;resultMap</span> <span class="highlight-na">id=</span><span class="highlight-s">"userMap"</span> <span class="highlight-na">type=</span><span class="highlight-s">"pers.ylq.damain.User"</span><span class="highlight-nt">&gt;</span>
+    <span class="highlight-c">&lt;!-- 主键字段的对应 --&gt;</span>
+    <span class="highlight-nt">&lt;id</span> <span class="highlight-na">property=</span><span class="highlight-s">"userId"</span> <span class="highlight-na">column=</span><span class="highlight-s">"id"</span><span class="highlight-nt">&gt;&lt;/id&gt;</span>
+    <span class="highlight-c">&lt;!--非主键字段的对应--&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"userName"</span> <span class="highlight-na">column=</span><span class="highlight-s">"username"</span><span class="highlight-nt">&gt;&lt;/result&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"userAddress"</span> <span class="highlight-na">column=</span><span class="highlight-s">"address"</span><span class="highlight-nt">&gt;&lt;/result&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"userSex"</span> <span class="highlight-na">column=</span><span class="highlight-s">"sex"</span><span class="highlight-nt">&gt;&lt;/result&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"userBirthday"</span> <span class="highlight-na">column=</span><span class="highlight-s">"birthday"</span><span class="highlight-nt">&gt;&lt;/result&gt;</span>
+<span class="highlight-nt">&lt;/resultMap&gt;</span>
+
+<span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findById"</span> <span class="highlight-na">parameterType=</span><span class="highlight-s">"INT"</span> <span class="highlight-na">resultMap=</span><span class="highlight-s">"userMap"</span><span class="highlight-nt">&gt;</span>
+    select * from user where id = #{uid}
+<span class="highlight-nt">&lt;/select&gt;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4--主配置文件的配置和顺序">4. 主配置文件的配置和顺序</h3>
+<ul>
+<li>
+<p>properties 标签：配置属性</p>
+<ul>
+<li>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;properties&gt;</span>
+    <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"driver"</span> <span class="highlight-na">value=</span><span class="highlight-s">"com.mysql.jdbc.Driver"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"url"</span> <span class="highlight-na">value=</span><span class="highlight-s">"jdbc:mysql://localhost:3306/eesy-mybatis"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"username"</span> <span class="highlight-na">value=</span><span class="highlight-s">"root"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"password"</span> <span class="highlight-na">value=</span><span class="highlight-s">"123456"</span><span class="highlight-nt">/&gt;</span>
+<span class="highlight-nt">&lt;/properties&gt;</span>
+<span class="highlight-nt">&lt;environments</span> <span class="highlight-na">default=</span><span class="highlight-s">"mysql"</span><span class="highlight-nt">&gt;</span>
+    <span class="highlight-nt">&lt;environment</span> <span class="highlight-na">id=</span><span class="highlight-s">"mysql"</span><span class="highlight-nt">&gt;</span>
+        <span class="highlight-nt">&lt;transactionManager</span> <span class="highlight-na">type=</span><span class="highlight-s">"JDBC"</span><span class="highlight-nt">&gt;&lt;/transactionManager&gt;</span>
+        <span class="highlight-nt">&lt;dataSource</span> <span class="highlight-na">type=</span><span class="highlight-s">"POOLED"</span><span class="highlight-nt">&gt;</span>
+            <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"url"</span> <span class="highlight-na">value=</span><span class="highlight-s">"${url}"</span><span class="highlight-nt">/&gt;</span>
+            <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"driver"</span> <span class="highlight-na">value=</span><span class="highlight-s">"${driver}"</span><span class="highlight-nt">/&gt;</span>
+            <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"username"</span> <span class="highlight-na">value=</span><span class="highlight-s">"${username}"</span><span class="highlight-nt">/&gt;</span>
+            <span class="highlight-nt">&lt;property</span> <span class="highlight-na">name=</span><span class="highlight-s">"password"</span> <span class="highlight-na">value=</span><span class="highlight-s">"${password}"</span><span class="highlight-nt">/&gt;</span>
+        <span class="highlight-nt">&lt;/dataSource&gt;</span>
+    <span class="highlight-nt">&lt;/environment&gt;</span>
+<span class="highlight-nt">&lt;/environments&gt;</span>
+</code></pre>
+<p>配置完成之后，可在下面通过 <code>${name}</code> 取值。</p>
+</li>
+<li>
+<p>resources 属性：用于指定配置文件的位置，是按照类路径的写法来写，并且必须存在于类路径下。</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;properties</span> <span class="highlight-na">resource=</span><span class="highlight-s">"jdbcConfig.properties"</span><span class="highlight-nt">&gt;</span>
+<span class="highlight-nt">&lt;/properties&gt;</span>
+
+<span class="highlight-nt">&lt;properties</span> <span class="highlight-na">resource=</span><span class="highlight-s">"pers/ylq/dao/jdbcConfig.properties"</span><span class="highlight-nt">&gt;</span>
+<span class="highlight-nt">&lt;/properties&gt;</span>
+</code></pre>
+<p>此文件若处于类的根路径下，因此直接写文件名就行。<br>
+下面依旧通过 <code>${name}</code> 来取值。</p>
+</li>
+<li>
+<p>url 属性</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;properties</span> <span class="highlight-na">url=</span><span class="highlight-s">"file:///C:/Users/10766/Desktop/jdbcConfig.properties"</span><span class="highlight-nt">&gt;</span>
+<span class="highlight-nt">&lt;/properties&gt;</span>
+</code></pre>
+<p>URL：Uniform Resource Locator 统一资源定位符。它是可以唯一标识一个资源的位置。<br>
+它的写法：http://localhost:8080/mybatisserver/demo1Servlet 协议      主机     端口       URI<br>
+URI:Uniform Resource Identifier 统一资源标识符。它是在应用中可以唯一定位一个资源的。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>settings 标签：对 MyBatis 进行一些设置，比如延迟加载。</p>
+</li>
+<li>
+<p>typeAliases 标签：为类型起别名</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;typeAliases&gt;</span>
+    <span class="highlight-nt">&lt;typeAlias</span> <span class="highlight-na">type=</span><span class="highlight-s">"pers.ylq.domain.User"</span> <span class="highlight-na">alias=</span><span class="highlight-s">"user"</span><span class="highlight-nt">&gt;&lt;/typeAlias&gt;</span>
+<span class="highlight-nt">&lt;/typeAliases&gt;</span>
+</code></pre>
+<p>type 为实体类类型，alias 为别名，起了别名之后，不再区分大小写，在映射配置文件中可以用别名。<br>
+package 标签：用于指定要配置别名的包，当指定之后，该包下的实体类都会注册别名，并且类名就是别名，不再区分大小写。</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;typeAliases&gt;</span>
+    <span class="highlight-nt">&lt;package</span> <span class="highlight-na">name=</span><span class="highlight-s">"pers.ylq.domain"</span><span class="highlight-nt">&gt;&lt;/package&gt;</span>
+<span class="highlight-nt">&lt;/typeAliases&gt;</span>
+</code></pre>
+</li>
+<li>
+<p>environments 标签（环境集合属性对象）</p>
+<ul>
+<li>environment（环境子属性对象）
+<ul>
+<li>transactionManager（事务管理）</li>
+<li>dataSource（数据源）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>mappers 标签</p>
+<ul>
+<li>mapper：指定映射的接口或者 XML 文件，因为两者路径一样，指定哪个都行。
+<ul>
+<li>resource：指定映射配置文件</li>
+<li>class：指定 mapper 接口类路径，此种方法要求 mapper 接口名称和 mapper 映射文件名称相同，且放在同一个目录中。</li>
+<li>package：用于指定 dao 接口所在的包，当指定了之后就不需要再写 mapper 以及 resource 或者 class 了。此种方法要求 mapper 接口名称和 mapper 映射文件名称相同，且放在同一个目录中。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5--执行过程分析-了解-">5. 执行过程分析（了解）</h3>
+<ul>
+<li>分析编写 dao 实现类 MyBatis 的执行过程<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-05+12:36:11+%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81%E7%9A%84%E4%B8%80%E5%BC%A0%E5%9B%BE-%E5%88%86%E6%9E%90%E7%BC%96%E5%86%99dao%E5%AE%9E%E7%8E%B0%E7%B1%BBMybatis%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B.png" alt=""></li>
+<li>分析代理 dao 的执行过程<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-05+12:36:45+%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81%E7%9A%84%E4%B8%80%E5%BC%A0%E5%9B%BE-%E5%88%86%E6%9E%90%E4%BB%A3%E7%90%86dao%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B.png" alt=""></li>
+</ul>
+<h3 id="6--MyBatis-连接池及事务">6. MyBatis 连接池及事务</h3>
+<ul>
+<li>MyBatis 提供了 3 中连接池的配置方式
+<ul>
+<li>配置的位置：主配置文件的 DataSource 标签，type 属性。</li>
+<li>取值：
+<ul>
+<li>POOLED 采用传统的 <code>javax.sql.DataSource</code> 规范中的连接池，MyBatis 有针对规范的实现。<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-05+13:38:24+mybatis_pooled%E7%9A%84%E8%BF%87%E7%A8%8B.png" alt=""></li>
+<li>UNPOOLED 采用传统的获取连接的方式，虽然也实现了 DataSource 接口，但并没有使用池的思想。<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-05+13:39:43+%E6%97%A0%E6%A0%87%E9%A2%982.png" alt=""></li>
+<li>JNDI 采用服务器提供的 JNDI 技术实现，来获取 DataSource 对象，不同服务器所能拿到的 DataSource 是不一样的。Tomcat 获取的连接池就是 dbcp 连接池。<br>
+注意：如果不是 Web 或者 maven 的 war 工程，是不能使用的。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>MyBatis 中事务通过 sqlsession 对象的 commit 方法和 rollback 方法实现事务的提交和回滚。</li>
+<li><code>SqlSession openSession(boolean var1);</code> 可通过设置参数为 true 来自动提交事务。</li>
+</ul>
+<h3 id="7--动态-SQL">7. 动态 SQL</h3>
+<ul>
+<li>
+<p>if 标签</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findUserByCondition"</span> <span class="highlight-na">parameterType=</span><span class="highlight-s">"User"</span> <span class="highlight-na">resultMap=</span><span class="highlight-s">"userMap"</span><span class="highlight-nt">&gt;</span>
+    select * from user where 1 = 1
+    <span class="highlight-nt">&lt;if</span> <span class="highlight-na">test=</span><span class="highlight-s">"username!=null"</span><span class="highlight-nt">&gt;</span>
+        and username=#{username}
+    <span class="highlight-nt">&lt;/if&gt;</span>
+<span class="highlight-nt">&lt;/select&gt;</span>
+</code></pre>
+</li>
+<li>
+<p>where 标签</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findUserByCondition"</span> <span class="highlight-na">parameterType=</span><span class="highlight-s">"User"</span> <span class="highlight-na">resultMap=</span><span class="highlight-s">"userMap"</span><span class="highlight-nt">&gt;</span>
+    select * from user
+    <span class="highlight-nt">&lt;where&gt;</span>
+        <span class="highlight-nt">&lt;if</span> <span class="highlight-na">test=</span><span class="highlight-s">"username!=null"</span><span class="highlight-nt">&gt;</span>
+            and username=#{username}
+        <span class="highlight-nt">&lt;/if&gt;</span>
+        <span class="highlight-nt">&lt;if</span> <span class="highlight-na">test=</span><span class="highlight-s">"sex!=null"</span><span class="highlight-nt">&gt;</span>
+            and sex=#{sex}
+        <span class="highlight-nt">&lt;/if&gt;</span>
+    <span class="highlight-nt">&lt;/where&gt;</span>
+<span class="highlight-nt">&lt;/select&gt;</span>
+</code></pre>
+</li>
+<li>
+<p>foreach 标签</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findUserByList"</span>  <span class="highlight-na">resultMap=</span><span class="highlight-s">"userMap"</span><span class="highlight-nt">&gt;</span>
+    select * from user
+    <span class="highlight-nt">&lt;where&gt;</span>
+        <span class="highlight-nt">&lt;foreach</span> <span class="highlight-na">collection=</span><span class="highlight-s">"list"</span> <span class="highlight-na">open=</span><span class="highlight-s">"id in("</span> <span class="highlight-na">close=</span><span class="highlight-s">")"</span> <span class="highlight-na">item=</span><span class="highlight-s">"id"</span> <span class="highlight-na">separator=</span><span class="highlight-s">","</span><span class="highlight-nt">&gt;</span>
+            #{id}
+        <span class="highlight-nt">&lt;/foreach&gt;</span>
+    <span class="highlight-nt">&lt;/where&gt;</span>
+<span class="highlight-nt">&lt;/select&gt;</span>
+</code></pre>
+<ul>
+<li>如果传入的是单参数且参数类型是一个 List 的时候，collection 属性值为 list</li>
+<li>如果传入的是单参数且参数类型是一个 array 数组的时候，collection 的属性值为 array</li>
+</ul>
+</li>
+<li>
+<p>SQL 标签：声明 SQL 语句，下面可以直接引入</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;sql</span> <span class="highlight-na">id=</span><span class="highlight-s">"defaultUser"</span><span class="highlight-nt">&gt;</span>
+    select * from user
+<span class="highlight-nt">&lt;/sql&gt;</span>
+<span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findAll"</span> <span class="highlight-na">resultMap=</span><span class="highlight-s">"userMap"</span><span class="highlight-nt">&gt;</span>
+    <span class="highlight-nt">&lt;include</span> <span class="highlight-na">refid=</span><span class="highlight-s">"defaultUser"</span><span class="highlight-nt">&gt;&lt;/include&gt;</span>
+<span class="highlight-nt">&lt;/select&gt;</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="8--多表查询">8. 多表查询</h3>
+<ul>
+<li>一对一查询（多对一查询）
+<ul>
+<li>
+<p>有两个表，User 表和 Account 表，Account 表中有外键 uid 于 User 中 id 对应。</p>
+</li>
+<li>
+<p>方式一：定义一个新的类，AccountUser extends Account，还包含用户的信息字段，将返回结果封装到此类中。</p>
+</li>
+<li>
+<p>方式二：在 Account 类中加入 User 类的对象作为 Account 类的一个属性，定义一个 resultMap</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;resultMap</span> <span class="highlight-na">id=</span><span class="highlight-s">"accountUserMap"</span> <span class="highlight-na">type=</span><span class="highlight-s">"Account"</span><span class="highlight-nt">&gt;</span>
+    <span class="highlight-nt">&lt;id</span> <span class="highlight-na">property=</span><span class="highlight-s">"id"</span> <span class="highlight-na">column=</span><span class="highlight-s">"aid"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"uid"</span> <span class="highlight-na">column=</span><span class="highlight-s">"uid"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"money"</span> <span class="highlight-na">column=</span><span class="highlight-s">"money"</span><span class="highlight-nt">/&gt;</span>
+
+    <span class="highlight-nt">&lt;association</span> <span class="highlight-na">property=</span><span class="highlight-s">"user"</span> <span class="highlight-na">javaType=</span><span class="highlight-s">"User"</span><span class="highlight-nt">&gt;</span>
+        <span class="highlight-nt">&lt;id</span> <span class="highlight-na">property=</span><span class="highlight-s">"id"</span> <span class="highlight-na">column=</span><span class="highlight-s">"id"</span><span class="highlight-nt">/&gt;</span>
+        <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"username"</span> <span class="highlight-na">column=</span><span class="highlight-s">"username"</span><span class="highlight-nt">/&gt;</span>
+        <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"address"</span> <span class="highlight-na">column=</span><span class="highlight-s">"address"</span><span class="highlight-nt">/&gt;</span>
+        <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"sex"</span> <span class="highlight-na">column=</span><span class="highlight-s">"sex"</span><span class="highlight-nt">/&gt;</span>
+        <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"birthday"</span> <span class="highlight-na">column=</span><span class="highlight-s">"birthday"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;/association&gt;</span>
+<span class="highlight-nt">&lt;/resultMap&gt;</span>
+</code></pre>
+<p>查询结果的 resultMap 指向此映射关系。</p>
+</li>
+</ul>
+</li>
+<li>一对多查询：
+<ul>
+<li>User 类中加入 <code>List&lt;Account&gt; accounts;</code>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;resultMap</span> <span class="highlight-na">id=</span><span class="highlight-s">"userAccountMap"</span> <span class="highlight-na">type=</span><span class="highlight-s">"User"</span><span class="highlight-nt">&gt;</span>
+    <span class="highlight-nt">&lt;id</span> <span class="highlight-na">property=</span><span class="highlight-s">"id"</span> <span class="highlight-na">column=</span><span class="highlight-s">"id"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"username"</span> <span class="highlight-na">column=</span><span class="highlight-s">"username"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"address"</span> <span class="highlight-na">column=</span><span class="highlight-s">"address"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"sex"</span> <span class="highlight-na">column=</span><span class="highlight-s">"sex"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"birthday"</span> <span class="highlight-na">column=</span><span class="highlight-s">"birthday"</span><span class="highlight-nt">/&gt;</span>
+
+    <span class="highlight-nt">&lt;collection</span> <span class="highlight-na">property=</span><span class="highlight-s">"accounts"</span> <span class="highlight-na">ofType=</span><span class="highlight-s">"Account"</span><span class="highlight-nt">&gt;</span>
+        <span class="highlight-nt">&lt;id</span> <span class="highlight-na">property=</span><span class="highlight-s">"id"</span> <span class="highlight-na">column=</span><span class="highlight-s">"aid"</span><span class="highlight-nt">/&gt;</span>
+        <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"uid"</span> <span class="highlight-na">column=</span><span class="highlight-s">"uid"</span><span class="highlight-nt">/&gt;</span>
+        <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"money"</span> <span class="highlight-na">column=</span><span class="highlight-s">"money"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;/collection&gt;</span>
+<span class="highlight-nt">&lt;/resultMap&gt;</span>
+
+<span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findAll"</span> <span class="highlight-na">resultMap=</span><span class="highlight-s">"userAccountMap"</span><span class="highlight-nt">&gt;</span>
+    SELECT u.*,a.id aid,uid,money FROM USER u LEFT JOIN account a ON u.id=a.uid;
+<span class="highlight-nt">&lt;/select&gt;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>多对多查询：在两个表的实体类中分别加入对方实体类的 List 集合，在各自配置文件配置 resultMap 查询即可。</li>
+</ul>
+<h3 id="9--MyBatis-延迟加载">9. MyBatis 延迟加载</h3>
+<ul>
+<li>延迟加载：需要数据的时候才加载，不需要不加载。</li>
+<li>实现：先从单表查询，需要时再去从关联表关联查询。</li>
+<li>主配置文件配置：
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;settings&gt;</span>
+    <span class="highlight-c">&lt;!-- 延迟加载全局开关 --&gt;</span>
+    <span class="highlight-nt">&lt;setting</span> <span class="highlight-na">name=</span><span class="highlight-s">"lazyLoadingEnabled"</span> <span class="highlight-na">value=</span><span class="highlight-s">"true"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-c">&lt;!-- 开启时，任何方法调用都会加载该对象所有属性，否则，按需加载，默认false(true in&lt;=3.4.1)       --&gt;</span>
+    <span class="highlight-nt">&lt;setting</span> <span class="highlight-na">name=</span><span class="highlight-s">"aggressiveLazyLoading"</span> <span class="highlight-na">value=</span><span class="highlight-s">"false"</span><span class="highlight-nt">/&gt;</span>
+<span class="highlight-nt">&lt;/settings&gt;</span>
+</code></pre>
+</li>
+<li>实体类配置文件：
+<ul>
+<li>
+<p>一对一实现延迟加载，association 实现</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;resultMap</span> <span class="highlight-na">id=</span><span class="highlight-s">"accountUserMap"</span> <span class="highlight-na">type=</span><span class="highlight-s">"Account"</span><span class="highlight-nt">&gt;</span>
+    <span class="highlight-nt">&lt;id</span> <span class="highlight-na">property=</span><span class="highlight-s">"id"</span> <span class="highlight-na">column=</span><span class="highlight-s">"id"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"uid"</span> <span class="highlight-na">column=</span><span class="highlight-s">"uid"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"money"</span> <span class="highlight-na">column=</span><span class="highlight-s">"money"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;association</span> <span class="highlight-na">property=</span><span class="highlight-s">"user"</span> <span class="highlight-na">column=</span><span class="highlight-s">"uid"</span> <span class="highlight-na">javaType=</span><span class="highlight-s">"User"</span>
+                 <span class="highlight-na">select=</span><span class="highlight-s">"pers.ylq.dao.IUserDao.findById"</span><span class="highlight-nt">/&gt;</span>
+<span class="highlight-nt">&lt;/resultMap&gt;</span>
+
+<span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findAll"</span> <span class="highlight-na">resultMap=</span><span class="highlight-s">"accountUserMap"</span><span class="highlight-nt">&gt;</span>
+   select * from account
+<span class="highlight-nt">&lt;/select&gt;</span>
+</code></pre>
+<p>select 标签声明延迟加载调用的方法，clomu 为所传递的参数，property 指向实体类中的成员变量</p>
+</li>
+<li>
+<p>一对多实现延迟加载，collection 实现</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;resultMap</span> <span class="highlight-na">id=</span><span class="highlight-s">"userMap"</span> <span class="highlight-na">type=</span><span class="highlight-s">"user"</span><span class="highlight-nt">&gt;</span>
+    <span class="highlight-nt">&lt;id</span> <span class="highlight-na">property=</span><span class="highlight-s">"id"</span> <span class="highlight-na">column=</span><span class="highlight-s">"id"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"username"</span> <span class="highlight-na">column=</span><span class="highlight-s">"username"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"address"</span> <span class="highlight-na">column=</span><span class="highlight-s">"address"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"sex"</span> <span class="highlight-na">column=</span><span class="highlight-s">"sex"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;result</span> <span class="highlight-na">property=</span><span class="highlight-s">"birthday"</span> <span class="highlight-na">column=</span><span class="highlight-s">"birthday"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;collection</span> <span class="highlight-na">property=</span><span class="highlight-s">"accounts"</span> <span class="highlight-na">ofType=</span><span class="highlight-s">"Account"</span> <span class="highlight-na">column=</span><span class="highlight-s">"id"</span>
+                <span class="highlight-na">select=</span><span class="highlight-s">"pers.ylq.dao.IAccountDao.findAccountById"</span><span class="highlight-nt">/&gt;</span>
+<span class="highlight-nt">&lt;/resultMap&gt;</span>
+
+<span class="highlight-nt">&lt;select</span> <span class="highlight-na">id=</span><span class="highlight-s">"findAll"</span> <span class="highlight-na">resultMap=</span><span class="highlight-s">"userMap"</span><span class="highlight-nt">&gt;</span>
+    select * from user
+<span class="highlight-nt">&lt;/select&gt;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="10--缓存">10. 缓存</h3>
+<ul>
+<li>MyBatis 中有一级缓存和二级缓存</li>
+<li>一级缓存：
+<ul>
+<li>它指的是 MyBatis 中 SqlSession 对象的缓存。</li>
+<li>当我们执行查询之后，查询的结果会同时存入到 SqlSession 为我们提供一块区域中。</li>
+<li>该区域的结构是一个 Map。当我们再次查询同样的数据，MyBatis 会先去 sqlsession 中查询是否有，有的话直接拿出来用。</li>
+<li>当 SqlSession 对象消失时，MyBatis 的一级缓存也就消失了。</li>
+</ul>
+</li>
+<li>一级缓存的清空：一级缓存是 SqlSession 范围的缓存，当调用 SqlSession 的修改，添加，删除，commit()，close() 等方法时，就会清空一级缓存。</li>
+<li>二级缓存：它指的是 MyBatis 中 SqlSessionFactory 对象的缓存。由同一个 SqlSessionFactory 对象创建的 SqlSession 共享其缓存。</li>
+<li>二级缓存的使用步骤：
+<ol>
+<li>让 MyBatis 框架支持二级缓存（在主配置文件中配置），默认为 true
+<pre><code class="language-xml highlight-chroma"><span class="highlight-nt">&lt;settings&gt;</span>
+    <span class="highlight-nt">&lt;setting</span> <span class="highlight-na">name=</span><span class="highlight-s">"cacheEnabled"</span> <span class="highlight-na">value=</span><span class="highlight-s">"true"</span><span class="highlight-nt">/&gt;</span>
+<span class="highlight-nt">&lt;/settings&gt;</span>
+</code></pre>
+</li>
+<li>让当前的映射文件支持二级缓存（在映射配置文件中配置），<code>&lt;cache/&gt;</code></li>
+<li>让当前的操作支持二级缓存（在 select 标签中配置），<code>useCache=true</code></li>
+</ol>
+</li>
+<li>如果有 SqlSession 去执行相同 mapper 映射下 SQL 语句，执行 commit 提交，将会清空该 mapper 映射下的二级缓存区域的数据。</li>
+<li>二级缓存存的是数据，而不是对象，从缓存中查询数据的时候将数据封装进对象，所以多次查询获取的对象的地址是不同的。<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-03-05+22:15:12+%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98.png" alt=""></li>
+</ul>
+<h3 id="11--MyBatis-注解开发">11. MyBatis 注解开发</h3>
+<ul>
+<li>在 MyBatis 中，CRUD 共 4 个注解
+<ul>
+<li>@Select</li>
+<li>@Insert</li>
+<li>@Update</li>
+<li>@Delete</li>
+</ul>
+</li>
+<li>一个接口只能使用注解或 XML 文件，无法共存，即使用注解又使用 XML 会报错。即使 mapper 中使用 class 指向注解也会报错。</li>
+<li>当实体类的成员变量名和数据库字段名不对应的时候，可以使用 @Results 来配置对应关系
+<pre><code class="language-java highlight-chroma"><span class="highlight-nd">@Select</span><span class="highlight-o">(</span><span class="highlight-s">"select * from user"</span><span class="highlight-o">)</span>
+<span class="highlight-nd">@Results</span><span class="highlight-o">(</span><span class="highlight-n">id</span> <span class="highlight-o">=</span> <span class="highlight-s">"userMap"</span><span class="highlight-o">,</span> <span class="highlight-n">value</span> <span class="highlight-o">=</span> <span class="highlight-o">{</span>
+        <span class="highlight-nd">@Result</span><span class="highlight-o">(</span><span class="highlight-n">id</span> <span class="highlight-o">=</span> <span class="highlight-kc">true</span><span class="highlight-o">,</span> <span class="highlight-n">property</span> <span class="highlight-o">=</span> <span class="highlight-s">"userId"</span><span class="highlight-o">,</span> <span class="highlight-n">column</span> <span class="highlight-o">=</span> <span class="highlight-s">"id"</span><span class="highlight-o">),</span>
+        <span class="highlight-nd">@Result</span><span class="highlight-o">(</span><span class="highlight-n">property</span> <span class="highlight-o">=</span> <span class="highlight-s">"userName"</span><span class="highlight-o">,</span> <span class="highlight-n">column</span> <span class="highlight-o">=</span> <span class="highlight-s">"username"</span><span class="highlight-o">),</span>
+        <span class="highlight-nd">@Result</span><span class="highlight-o">(</span><span class="highlight-n">property</span> <span class="highlight-o">=</span> <span class="highlight-s">"userAddress"</span><span class="highlight-o">,</span> <span class="highlight-n">column</span> <span class="highlight-o">=</span> <span class="highlight-s">"address"</span><span class="highlight-o">),</span>
+        <span class="highlight-nd">@Result</span><span class="highlight-o">(</span><span class="highlight-n">property</span> <span class="highlight-o">=</span> <span class="highlight-s">"userSex"</span><span class="highlight-o">,</span> <span class="highlight-n">column</span> <span class="highlight-o">=</span> <span class="highlight-s">"sex"</span><span class="highlight-o">),</span>
+        <span class="highlight-nd">@Result</span><span class="highlight-o">(</span><span class="highlight-n">property</span> <span class="highlight-o">=</span> <span class="highlight-s">"userBirthday"</span><span class="highlight-o">,</span> <span class="highlight-n">column</span> <span class="highlight-o">=</span> <span class="highlight-s">"birthday"</span><span class="highlight-o">),</span>
+<span class="highlight-o">})</span>
+<span class="highlight-n">List</span><span class="highlight-o">&lt;</span><span class="highlight-n">User1</span><span class="highlight-o">&gt;</span> <span class="highlight-nf">findAll</span><span class="highlight-o">();</span>
+</code></pre>
+<ul>
+<li>id 为该对应关系的唯一标识，供别的方法引用。</li>
+<li>@Result 中的 id=true，代表其为主键</li>
+<li>@Result 实现结果集的封装。</li>
+<li>别的方法可通过 @ResultMap("id") 引用此映射关系</li>
+</ul>
+</li>
+<li>一对一查询配置（多对一）
+<ul>
+<li>MyBatis 中没有多对一的概念，多对一是通过一对一的方式来实现的。</li>
+<li>首先在 Account 实体类中添加 User 变量，生成 getter 和 setter 方法。</li>
+<li>在接口中使用注解配置 @Result
+<pre><code class="language-java highlight-chroma"><span class="highlight-nd">@Select</span><span class="highlight-o">(</span><span class="highlight-s">"select * from account"</span><span class="highlight-o">)</span>
+<span class="highlight-nd">@Results</span><span class="highlight-o">(</span><span class="highlight-n">id</span> <span class="highlight-o">=</span> <span class="highlight-s">"accountMap"</span><span class="highlight-o">,</span> <span class="highlight-n">value</span> <span class="highlight-o">=</span> <span class="highlight-o">{</span>
+        <span class="highlight-nd">@Result</span><span class="highlight-o">(</span><span class="highlight-n">id</span> <span class="highlight-o">=</span> <span class="highlight-kc">true</span><span class="highlight-o">,</span> <span class="highlight-n">property</span> <span class="highlight-o">=</span> <span class="highlight-s">"id"</span><span class="highlight-o">,</span> <span class="highlight-n">column</span> <span class="highlight-o">=</span> <span class="highlight-s">"id"</span><span class="highlight-o">),</span>
+        <span class="highlight-nd">@Result</span><span class="highlight-o">(</span><span class="highlight-n">property</span> <span class="highlight-o">=</span> <span class="highlight-s">"uid"</span><span class="highlight-o">,</span> <span class="highlight-n">column</span> <span class="highlight-o">=</span> <span class="highlight-s">"uid"</span><span class="highlight-o">),</span>
+        <span class="highlight-nd">@Result</span><span class="highlight-o">(</span><span class="highlight-n">property</span> <span class="highlight-o">=</span> <span class="highlight-s">"money"</span><span class="highlight-o">,</span> <span class="highlight-n">column</span> <span class="highlight-o">=</span> <span class="highlight-s">"money"</span><span class="highlight-o">),</span>
+        <span class="highlight-nd">@Result</span><span class="highlight-o">(</span><span class="highlight-n">property</span> <span class="highlight-o">=</span> <span class="highlight-s">"user"</span><span class="highlight-o">,</span><span class="highlight-n">column</span> <span class="highlight-o">=</span> <span class="highlight-s">"uid"</span><span class="highlight-o">,</span><span class="highlight-n">one</span> <span class="highlight-o">=</span> <span class="highlight-nd">@One</span><span class="highlight-o">(</span><span class="highlight-n">select</span> <span class="highlight-o">=</span> <span class="highlight-s">"pers.ylq.dao.IUserDao.findById"</span><span class="highlight-o">,</span><span class="highlight-n">fetchType</span> <span class="highlight-o">=</span> <span class="highlight-n">FetchType</span><span class="highlight-o">.</span><span class="highlight-na">EAGER</span><span class="highlight-o">))</span>
+<span class="highlight-o">})</span>
+<span class="highlight-n">List</span><span class="highlight-o">&lt;</span><span class="highlight-n">Account</span><span class="highlight-o">&gt;</span> <span class="highlight-nf">findAll</span><span class="highlight-o">();</span>
+</code></pre>
+<ul>
+<li>最后一个 @Result  中，property 代表实体类中的变量，column 代表要传入的数据库的列名</li>
+<li>@Result 中有：<code>One one() default @One;</code> 和 <code>Many many() default @Many;</code>，one 代表一对一，many 代表一对多，代表此对象对应几个对象。</li>
+<li>@One 中的属性 select 代表要执行的语句的唯一标识。</li>
+<li>fetchType 有三个取值：LAZY(延迟加载),EAGER(立即加载),DEFAULT(默认)。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>一对多查询配置：
+<ul>
+<li>在 User 实体类中添加 <code>private List&lt;Account&gt; accounts;</code></li>
+<li>配置接口的注解
+<pre><code class="language-java highlight-chroma"><span class="highlight-nd">@Select</span><span class="highlight-o">(</span><span class="highlight-s">"select * from user"</span><span class="highlight-o">)</span>
+<span class="highlight-nd">@Results</span><span class="highlight-o">(</span><span class="highlight-n">id</span> <span class="highlight-o">=</span> <span class="highlight-s">"userMap"</span><span class="highlight-o">,</span> <span class="highlight-n">value</span> <span class="highlight-o">=</span> <span class="highlight-o">{</span>
+        <span class="highlight-nd">@Result</span><span class="highlight-o">(</span><span class="highlight-n">id</span> <span class="highlight-o">=</span> <span class="highlight-kc">true</span><span class="highlight-o">,</span> <span class="highlight-n">property</span> <span class="highlight-o">=</span> <span class="highlight-s">"id"</span><span class="highlight-o">,</span> <span class="highlight-n">column</span> <span class="highlight-o">=</span> <span class="highlight-s">"id"</span><span class="highlight-o">),</span>
+        <span class="highlight-nd">@Result</span><span class="highlight-o">(</span><span class="highlight-n">property</span> <span class="highlight-o">=</span> <span class="highlight-s">"username"</span><span class="highlight-o">,</span> <span class="highlight-n">column</span> <span class="highlight-o">=</span> <span class="highlight-s">"username"</span><span class="highlight-o">),</span>
+        <span class="highlight-nd">@Result</span><span class="highlight-o">(</span><span class="highlight-n">property</span> <span class="highlight-o">=</span> <span class="highlight-s">"address"</span><span class="highlight-o">,</span> <span class="highlight-n">column</span> <span class="highlight-o">=</span> <span class="highlight-s">"address"</span><span class="highlight-o">),</span>
+        <span class="highlight-nd">@Result</span><span class="highlight-o">(</span><span class="highlight-n">property</span> <span class="highlight-o">=</span> <span class="highlight-s">"sex"</span><span class="highlight-o">,</span> <span class="highlight-n">column</span> <span class="highlight-o">=</span> <span class="highlight-s">"sex"</span><span class="highlight-o">),</span>
+        <span class="highlight-nd">@Result</span><span class="highlight-o">(</span><span class="highlight-n">property</span> <span class="highlight-o">=</span> <span class="highlight-s">"birthday"</span><span class="highlight-o">,</span> <span class="highlight-n">column</span> <span class="highlight-o">=</span> <span class="highlight-s">"birthday"</span><span class="highlight-o">),</span>
+        <span class="highlight-nd">@Result</span><span class="highlight-o">(</span><span class="highlight-n">property</span> <span class="highlight-o">=</span> <span class="highlight-s">"accounts"</span><span class="highlight-o">,</span><span class="highlight-n">column</span> <span class="highlight-o">=</span> <span class="highlight-s">"id"</span><span class="highlight-o">,</span>
+                <span class="highlight-n">many</span> <span class="highlight-o">=</span> <span class="highlight-nd">@Many</span><span class="highlight-o">(</span><span class="highlight-n">select</span> <span class="highlight-o">=</span> <span class="highlight-s">"pers.ylq.dao.IAccountDao.findAccountByUid"</span><span class="highlight-o">,</span>
+                        <span class="highlight-n">fetchType</span> <span class="highlight-o">=</span> <span class="highlight-n">FetchType</span><span class="highlight-o">.</span><span class="highlight-na">LAZY</span><span class="highlight-o">))</span>
+<span class="highlight-o">})</span>
+<span class="highlight-n">List</span><span class="highlight-o">&lt;</span><span class="highlight-n">User</span><span class="highlight-o">&gt;</span> <span class="highlight-nf">findAll</span><span class="highlight-o">();</span>
+</code></pre>
+<ul>
+<li>many 代表一对多的关系。</li>
+<li>FetchType.LAZY 代表延迟加载，此属性代替了在主配置文件中 settings 中的配置。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>注解使用二级缓存：在 dao 层的接口上配置 <code>@CacheNamespace(blocking=true)</code></li>
+<li>常用注解说明：
+<ul>
+<li>@Insert：实现新增</li>
+<li>@Update：实现更新</li>
+<li>@Delete：实现删除</li>
+<li>@Select：实现查询</li>
+<li>@Result：实现结果集封装</li>
+<li>@Results：可以与 @Result 一起使用，封装多个结果集</li>
+<li>@ResultMap：实现引用 @Results 定义的封装</li>
+<li>@One：实现一对一结果集封装</li>
+<li>@Many：实现一对多结果集封装</li>
+<li>@SelectProvider： 实现动态 SQL 映射</li>
+<li>@CacheNamespace：实现注解二级缓存的使用</li>
+</ul>
+</li>
+<li>@SelectProvider： 实现动态 SQL 映射
+<ul>
+<li><code>@SelectProvider(type = Provider.class,method = "selectProvider")</code> 指定了一个类的 class 和类中的方法。</li>
+<li>此方法返回一个字符串，即为所要执行的 SQL 语句。</li>
+<li>
+<pre><code class="language-java highlight-chroma"><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">Provider</span> <span class="highlight-o">{</span>
+    <span class="highlight-kd">public</span> <span class="highlight-n">String</span> <span class="highlight-nf">selectProvider</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+        <span class="highlight-n">String</span> <span class="highlight-n">sql</span> <span class="highlight-o">=</span> <span class="highlight-s">"select * from user where 1=1 "</span><span class="highlight-o">;</span>
+        <span class="highlight-k">if</span> <span class="highlight-o">(</span><span class="highlight-n">name</span> <span class="highlight-o">!=</span> <span class="highlight-kc">null</span> <span class="highlight-o">&amp;&amp;</span> <span class="highlight-o">!</span><span class="highlight-n">name</span><span class="highlight-o">.</span><span class="highlight-na">equals</span><span class="highlight-o">(</span><span class="highlight-s">" "</span><span class="highlight-o">))</span> <span class="highlight-o">{</span>
+            <span class="highlight-n">sql</span> <span class="highlight-o">+=</span> <span class="highlight-s">" and username=#{name} "</span><span class="highlight-o">;</span>
+        <span class="highlight-o">}</span>
+        <span class="highlight-k">return</span> <span class="highlight-n">sql</span><span class="highlight-o">;</span>
+    <span class="highlight-o">}</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+                            <div>
+                                <hr>
+
+标题：mybatis 学习笔记<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2020/03/06/1583434614785.html" target="_blank">https://Rainsheep.github.io/articles/2020/03/06/1583434614785.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2020/03/02/1583150597818.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: Centos 搭建 redis
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2020/03/08/1583653357274.html" rel="next"
+                               class="fn__right breadcrumb">
+                                Spring 学习笔记: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/03/02/1583150597818.html" rel="prev" class="breadcrumb">
+                            旧一篇: Centos 搭建 redis
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/03/08/1583653357274.html" rel="next"
+                           class="breadcrumb">
+                            新一篇: Spring 学习笔记
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1583434614785"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h3">
+            <a href="#1--MyBatis-入门">1. MyBatis 入门</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#2--自定义-MyBatis-框架">2. 自定义 MyBatis 框架</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#3--MyBatis-的-CRUD">3. MyBatis 的 CRUD</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#4--主配置文件的配置和顺序">4. 主配置文件的配置和顺序</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#5--执行过程分析-了解-">5. 执行过程分析（了解）</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#6--MyBatis-连接池及事务">6. MyBatis 连接池及事务</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#7--动态-SQL">7. 动态 SQL</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#8--多表查询">8. 多表查询</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#9--MyBatis-延迟加载">9. MyBatis 延迟加载</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#10--缓存">10. 缓存</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#11--MyBatis-注解开发">11. MyBatis 注解开发</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1583434614785",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 215ms, 2020/03/18 19:04:11 -->

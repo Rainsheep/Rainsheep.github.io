@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>XML 学习笔记 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="XML 学习笔记 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2020/02/24/1582486920030.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="XML 学习笔记 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2020/02/24/1582486920030.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="BootStrap 学习笔记" href="https://Rainsheep.github.io/articles/2020/02/23/1582438595579.html">
+            <link rel="next" title="tomcat 相关知识" href="https://Rainsheep.github.io/articles/2020/02/24/1582492601874.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2020年">
+                        02月
+                        <span class="item__day">24</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2020/02/24/1582486920030.html">
+                            XML 学习笔记
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2020-02-24
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/Java">
+                                Java</a>,
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">
+                                学习笔记</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2020/02/24/1582486920030.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1582486920030">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2020/02/24/1582486920030.html">0</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <h3 id="1--XML-概念">1. XML 概念</h3>
+<ul>
+<li>Extensible Markup Language 可扩展标记语言。</li>
+<li>可扩展：标签都是自定义的。</li>
+<li>功能：存储数据
+<ul>
+<li>用于配置文件</li>
+<li>用于在网络中传输</li>
+</ul>
+</li>
+<li>XML 与 HTML 的区别
+<ul>
+<li>XML 标签都是自定义的，HTML 标签是预定义。</li>
+<li>XML 的语法严格，HTML 语法松散。</li>
+<li>XML 是存储数据的，HTML 是展示数据。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2--语法">2. 语法</h3>
+<ul>
+<li>
+<p>基本语法：</p>
+<ul>
+<li>XML 文档的后缀名 <code>.xml</code></li>
+<li>XML <strong>第一行</strong>必须定义为文档声明</li>
+<li>XML 文档中有且仅有一个根标签</li>
+<li><strong>属性值</strong>必须使用引号(单双都可)引起来</li>
+<li>标签必须正确关闭（有闭合标签或者自闭合）</li>
+<li>XML 标签名称<strong>区分大小写</strong></li>
+</ul>
+</li>
+<li>
+<p>快速入门：</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-cp">&lt;?xml version='1.0' encoding='UTF-8' ?&gt;</span>
+<span class="highlight-nt">&lt;users&gt;</span>
+    <span class="highlight-nt">&lt;user</span> <span class="highlight-na">id=</span><span class="highlight-s">'1'</span><span class="highlight-nt">&gt;</span>
+        <span class="highlight-nt">&lt;name&gt;</span>zhangsan<span class="highlight-nt">&lt;/name&gt;</span>
+        <span class="highlight-nt">&lt;age&gt;</span>23<span class="highlight-nt">&lt;/age&gt;</span>
+        <span class="highlight-nt">&lt;gender&gt;</span>male<span class="highlight-nt">&lt;/gender&gt;</span>
+        <span class="highlight-nt">&lt;br/&gt;</span>
+    <span class="highlight-nt">&lt;/user&gt;</span>
+
+    <span class="highlight-nt">&lt;user</span> <span class="highlight-na">id=</span><span class="highlight-s">'2'</span><span class="highlight-nt">&gt;</span>
+        <span class="highlight-nt">&lt;name&gt;</span>lisi<span class="highlight-nt">&lt;/name&gt;</span>
+        <span class="highlight-nt">&lt;age&gt;</span>24<span class="highlight-nt">&lt;/age&gt;</span>
+        <span class="highlight-nt">&lt;gender&gt;</span>female<span class="highlight-nt">&lt;/gender&gt;</span>
+    <span class="highlight-nt">&lt;/user&gt;</span>
+<span class="highlight-nt">&lt;/users&gt;</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="3--组成部分">3. 组成部分</h3>
+<ul>
+<li>文档声明：
+<ul>
+<li>格式：<code>&lt;?xml 属性列表 ?&gt;</code></li>
+<li>属性列表：
+<ul>
+<li>version：版本号，必须的属性</li>
+<li>encoding：编码方式。告知解析引擎当前文档使用的字符集，默认值：ISO-8859-1</li>
+<li>standalone：是否独立（了解）
+<ul>
+<li>yes：不依赖其他文件</li>
+<li>no：依赖其他文件</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>指令（了解）：结合 css 的，现已经不使用
+<ul>
+<li><code>&lt;?xml-stylesheet type="text/css" href="a.css" ?&gt;</code>，将 XML 像 HTML 一样结合 CSS 将数据展示在网页上面。</li>
+</ul>
+</li>
+<li>标签：标签名称自定义的
+<ul>
+<li>名称可以包含字母、数字以及其他的字符</li>
+<li>名称不能以数字或者标点符号开始</li>
+<li>名称不能以字母 xml（或者 XML、Xml 等等）开始</li>
+<li>名称不能包含空格</li>
+</ul>
+</li>
+<li>属性：
+<ul>
+<li>id 属性值唯一</li>
+</ul>
+</li>
+<li>文本
+<ul>
+<li>CDATA 区：在该区域中的数据会被原样展示，(因为直接写一些符合需要转义，比如大于号，小于号)
+<ul>
+<li>格式：<code> &lt;![CDATA[ 数据 ]]&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4--约束">4. 约束</h3>
+<ul>
+<li>
+<p>约束：规定 XML 文档的书写规则。<img src="https://raw.githubusercontent.com/Rainsheep/pic-bed/master/img/2020-02-23+19:28:12+%E7%BA%A6%E6%9D%9F.bmp" alt=""></p>
+</li>
+<li>
+<p>作为框架的使用者(程序员)：</p>
+<ul>
+<li>能够在 XML 中引入约束文档</li>
+<li>能够简单的读懂约束文档</li>
+</ul>
+</li>
+<li>
+<p>约束的分类：</p>
+<ul>
+<li>DTD：一种简单的约束技术</li>
+<li>Schema：一种复杂的约束技术（重点）
+<ul>
+<li>Schema 约束定义在 <code>.xsd</code> 文件中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>读 DTD （读懂即可，无需编写）</p>
+<pre><code class="highlight-chroma">&lt;!ELEMENT students (student*) &gt;
+&lt;!ELEMENT student (name,age,sex)&gt;
+&lt;!ELEMENT name (#PCDATA)&gt;
+&lt;!ELEMENT age (#PCDATA)&gt;
+&lt;!ELEMENT sex (#PCDATA)&gt;
+&lt;!ATTLIST student number ID #REQUIRED&gt;
+
+第一行表示：students 为根标签，标签中可以包含0个或多个 student 标签
+第二行表示：student 标签中有三个标签，分别为 name、age、sex
+第三行表示：name 标签中有一个字符串
+最后一行表示：student 标签有一个属性 number，number的类型为 ID (唯一的)，且 ID 是必须有的
+</code></pre>
+</li>
+<li>
+<p>DTD的引入：</p>
+<ul>
+<li>外部 DTD：将约束的规则定义在外部的 <code>.dtd</code> 文件中，通过下面语句引入
+<ul>
+<li>本地：<code>&lt;!DOCTYPE 根标签名 SYSTEM "dtd文件的位置"&gt;</code></li>
+<li>网络：<code>&lt;!DOCTYPE 根标签名 PUBLIC "dtd文件名字" "dtd文件的位置URL"&gt;</code></li>
+</ul>
+</li>
+<li>内部 DTD：将约束规则定义在 XML 文档中（了解即可）
+<ul>
+<li><code>&lt;!DOCTYPE students [ DTD约束内容 ]&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>DTD 的缺点：规定不了字符串的内容，没办法约束，Schema 可以约束。</p>
+</li>
+<li>
+<p>读 Schema （简单读懂即可）</p>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="highlight-nt">&lt;xsd:schema</span> <span class="highlight-na">xmlns=</span><span class="highlight-s">"http://www.itcast.cn/xml"</span>
+        <span class="highlight-na">xmlns:xsd=</span><span class="highlight-s">"http://www.w3.org/2001/XMLSchema"</span>
+        <span class="highlight-na">targetNamespace=</span><span class="highlight-s">"http://www.itcast.cn/xml"</span> <span class="highlight-na">elementFormDefault=</span><span class="highlight-s">"qualified"</span><span class="highlight-nt">&gt;</span>
+	<span class="highlight-c">&lt;!-- 定义根元素students,类型为studentsType  --&gt;</span>	
+    <span class="highlight-nt">&lt;xsd:element</span> <span class="highlight-na">name=</span><span class="highlight-s">"students"</span> <span class="highlight-na">type=</span><span class="highlight-s">"studentsType"</span><span class="highlight-nt">/&gt;</span>
+	<span class="highlight-c">&lt;!-- 说明复杂类型studentsType  --&gt;</span>
+    <span class="highlight-nt">&lt;xsd:complexType</span> <span class="highlight-na">name=</span><span class="highlight-s">"studentsType"</span><span class="highlight-nt">&gt;</span>
+        <span class="highlight-nt">&lt;xsd:sequence&gt;</span>
+			<span class="highlight-c">&lt;!-- studentsType类型的标签中顺序出现student(类型为studentType)，最少出现0次，最多无限制 --&gt;</span>
+            <span class="highlight-nt">&lt;xsd:element</span> <span class="highlight-na">name=</span><span class="highlight-s">"student"</span> <span class="highlight-na">type=</span><span class="highlight-s">"studentType"</span> <span class="highlight-na">minOccurs=</span><span class="highlight-s">"0"</span> <span class="highlight-na">maxOccurs=</span><span class="highlight-s">"unbounded"</span><span class="highlight-nt">/&gt;</span>
+        <span class="highlight-nt">&lt;/xsd:sequence&gt;</span>
+    <span class="highlight-nt">&lt;/xsd:complexType&gt;</span>
+	<span class="highlight-c">&lt;!-- 说明复杂类型studentType  --&gt;</span>
+    <span class="highlight-nt">&lt;xsd:complexType</span> <span class="highlight-na">name=</span><span class="highlight-s">"studentType"</span><span class="highlight-nt">&gt;</span>
+        <span class="highlight-nt">&lt;xsd:sequence&gt;</span>
+			<span class="highlight-c">&lt;!-- studentType类型的标签中顺序出现name(string类型)、age(ageType类型)、sex(sexType类型) --&gt;</span>
+            <span class="highlight-nt">&lt;xsd:element</span> <span class="highlight-na">name=</span><span class="highlight-s">"name"</span> <span class="highlight-na">type=</span><span class="highlight-s">"xsd:string"</span><span class="highlight-nt">/&gt;</span>
+            <span class="highlight-nt">&lt;xsd:element</span> <span class="highlight-na">name=</span><span class="highlight-s">"age"</span> <span class="highlight-na">type=</span><span class="highlight-s">"ageType"</span> <span class="highlight-nt">/&gt;</span>
+            <span class="highlight-nt">&lt;xsd:element</span> <span class="highlight-na">name=</span><span class="highlight-s">"sex"</span> <span class="highlight-na">type=</span><span class="highlight-s">"sexType"</span> <span class="highlight-nt">/&gt;</span>
+        <span class="highlight-nt">&lt;/xsd:sequence&gt;</span>
+		<span class="highlight-c">&lt;!-- 此类型的标签(student标签)有一个必须的属性number(类型为numberType) --&gt;</span>
+        <span class="highlight-nt">&lt;xsd:attribute</span> <span class="highlight-na">name=</span><span class="highlight-s">"number"</span> <span class="highlight-na">type=</span><span class="highlight-s">"numberType"</span> <span class="highlight-na">use=</span><span class="highlight-s">"required"</span><span class="highlight-nt">/&gt;</span>
+    <span class="highlight-nt">&lt;/xsd:complexType&gt;</span>
+	<span class="highlight-c">&lt;!-- 说明简单类型sexType，为string类型，值为枚举male,female --&gt;</span>
+    <span class="highlight-nt">&lt;xsd:simpleType</span> <span class="highlight-na">name=</span><span class="highlight-s">"sexType"</span><span class="highlight-nt">&gt;</span>
+        <span class="highlight-nt">&lt;xsd:restriction</span> <span class="highlight-na">base=</span><span class="highlight-s">"xsd:string"</span><span class="highlight-nt">&gt;</span>
+            <span class="highlight-nt">&lt;xsd:enumeration</span> <span class="highlight-na">value=</span><span class="highlight-s">"male"</span><span class="highlight-nt">/&gt;</span>
+            <span class="highlight-nt">&lt;xsd:enumeration</span> <span class="highlight-na">value=</span><span class="highlight-s">"female"</span><span class="highlight-nt">/&gt;</span>
+        <span class="highlight-nt">&lt;/xsd:restriction&gt;</span>
+    <span class="highlight-nt">&lt;/xsd:simpleType&gt;</span>
+	<span class="highlight-c">&lt;!-- 说明简单类型ageType，为integer类型，最小值为0，最大值为256 --&gt;</span>
+    <span class="highlight-nt">&lt;xsd:simpleType</span> <span class="highlight-na">name=</span><span class="highlight-s">"ageType"</span><span class="highlight-nt">&gt;</span>
+        <span class="highlight-nt">&lt;xsd:restriction</span> <span class="highlight-na">base=</span><span class="highlight-s">"xsd:integer"</span><span class="highlight-nt">&gt;</span>
+            <span class="highlight-nt">&lt;xsd:minInclusive</span> <span class="highlight-na">value=</span><span class="highlight-s">"0"</span><span class="highlight-nt">/&gt;</span>
+            <span class="highlight-nt">&lt;xsd:maxInclusive</span> <span class="highlight-na">value=</span><span class="highlight-s">"256"</span><span class="highlight-nt">/&gt;</span>
+        <span class="highlight-nt">&lt;/xsd:restriction&gt;</span>
+    <span class="highlight-nt">&lt;/xsd:simpleType&gt;</span>
+	<span class="highlight-c">&lt;!-- 说明简单类型numberType，为string类型，符合正则表达式value --&gt;</span>
+    <span class="highlight-nt">&lt;xsd:simpleType</span> <span class="highlight-na">name=</span><span class="highlight-s">"numberType"</span><span class="highlight-nt">&gt;</span>
+        <span class="highlight-nt">&lt;xsd:restriction</span> <span class="highlight-na">base=</span><span class="highlight-s">"xsd:string"</span><span class="highlight-nt">&gt;</span>
+            <span class="highlight-nt">&lt;xsd:pattern</span> <span class="highlight-na">value=</span><span class="highlight-s">"heima_\d{4}"</span><span class="highlight-nt">/&gt;</span>
+        <span class="highlight-nt">&lt;/xsd:restriction&gt;</span>
+    <span class="highlight-nt">&lt;/xsd:simpleType&gt;</span>
+<span class="highlight-nt">&lt;/xsd:schema&gt;</span> 
+</code></pre>
+</li>
+<li>
+<p>Schema 的引入</p>
+<ul>
+<li>
+<p>填写 XML 文档的根元素</p>
+</li>
+<li>
+<p>定义 xsi 开头的命名空间，<code>xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</code></p>
+</li>
+<li>
+<p>为每一个 xsd 约束声明一个前缀，作为标识</p>
+</li>
+<li>
+<p>引入 xsd 文件命名空间，<code>xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</code></p>
+</li>
+<li>
+<pre><code class="language-xml highlight-chroma"><span class="highlight-cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="highlight-nt">&lt;beans</span> <span class="highlight-na">xmlns:xsi=</span><span class="highlight-s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+       <span class="highlight-na">xmlns=</span><span class="highlight-s">"http://www.springframework.org/schema/beans"</span>
+       <span class="highlight-na">xmlns:mvc=</span><span class="highlight-s">"http://www.springframework.org/schema/mvc"</span>
+       <span class="highlight-na">xsi:schemaLocation=</span><span class="highlight-s">"
+</span><span class="highlight-s">        http://www.springframework.org/schema/beans
+</span><span class="highlight-s">        http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span class="highlight-s">        http://www.springframework.org/schema/mvc
+</span><span class="highlight-s">        http://www.springframework.org/schema/mvc/spring-mvc.xsd"</span><span class="highlight-nt">&gt;</span>
+</code></pre>
+</li>
+</ul>
+<hr>
+<ul>
+<li>xmlns：XML Name Space，命名空间</li>
+<li>命名空间：首先介绍一下 XML 中标签的命名空间的概念。<br>
+命名空间就是标签的前缀，没有前缀的标签，使用的是默认的命名空间。<br>
+命名空间是用来解决标签命名冲突的（多个名字相同的标签在不同的约束文件中）。<br>
+指定一个标签的命名空间：命名空间 + 冒号(:) + 标签名，如<code>&lt;mvc:name&gt;</code><br>
+每一个命名空间都需要有一个 xsd （XML Schema Definition）文件与之对应。</li>
+<li>默认命名空间，就是 <code>xlmns=""</code> ，如果未声明，默认值为 <code>http://www.w3.org/2000/xmlns/</code>，没有前缀的标签使用的就是默认命名空间。</li>
+<li><code>xmlns:xsi</code>：定义了以 xsi 开头的命名空间，如果值是 <code>http://www.w3.org/2001/XMLSchema-instance</code>，该命名空间就可以在 XML 文件中直接使用，而无需指定 xsd 文件，是标准核心命名空间之一，xsi 前缀可以更改成别的字符串。</li>
+<li>xmlns:xyz：用来定义具有前缀（xyz）的命名空间，为了使命名空间不发生命名上的冲突，一般都采用网址的形式，作为命名空间的值，使用前缀作为命名空间的简写。</li>
+<li>命名空间的前缀不能为 xml。</li>
+<li><code>xsi:schemaLocation</code>：schemaLocation 是 <code>http://www.w3.org/2001/XMLSchema-instance</code> 命名空间下的属性，这个属性定义了除了该命名空间外的其他命名空间与其 xsd 文件的位置，格式为 <code>命名空间 命名空间的 xsd 文件</code>。</li>
+<li>xsd 文件中的 targetNamespace 属性：该属性声明了本 XML Schema 文档中定义的元素是属于 targetNamespace 属性指定的命名空间(URI)下的。</li>
+<li>xml 使用 schema 约束的时候，要想让约束起作用，xml 中与此 xsd 文件对应的命名空间的值需要与 xsd 文件中的 targetNamespace 属性的值一样。</li>
+</ul>
+</li>
+</ul>
+<h3 id="5--解析">5. 解析</h3>
+<ul>
+<li>
+<p>解析：操作 XML 文档，将文档中的数据读取到内存中。</p>
+</li>
+<li>
+<p>操作 XML 文档：</p>
+<ul>
+<li>解析(读取)：将文档中的数据读取到内存中。</li>
+<li>写入：将内存中的数据保存到 XML 文档中。持久化的存储。</li>
+</ul>
+</li>
+<li>
+<p>解析 XML 的方式：</p>
+<ul>
+<li>DOM：将标记语言文档一次性加载进内存，在内存中形成一颗 DOM 树
+<ul>
+<li>优点：操作方便，可以对文档进行CRUD的所有操作</li>
+<li>缺点：占内存</li>
+</ul>
+</li>
+<li>SAX：逐行读取，基于事件驱动的。
+<ul>
+<li>优点：不占内存。</li>
+<li>缺点：只能读取，不能增删改。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>XML 常见的解析器：</p>
+<ul>
+<li>JAXP：SUN 公司提供的解析器，支持 DOM 和 SAX 两种思想。</li>
+<li>DOM4J：一款非常优秀的解析器。</li>
+<li>Jsoup：jsoup 是一款Java 的HTML解析器，可直接解析某个URL地址、HTML文本内容。它提供了一套非常省力的API，可通过DOM，CSS以及类似于jQuery的操作方法来取出和操作数据。可以用来解析 XML。</li>
+<li>PULL：Android操作系统内置的解析器，SAX 方式的。</li>
+</ul>
+</li>
+<li>
+<p>Jsoup 的使用步骤：</p>
+<ul>
+<li>
+<p>导入 jar 包</p>
+</li>
+<li>
+<p>获取 Document 对象</p>
+</li>
+<li>
+<p>获取对应的标签 Element 对象</p>
+</li>
+<li>
+<p>获取数据</p>
+</li>
+<li>
+<pre><code class="language-java highlight-chroma"><span class="highlight-kn">import</span> <span class="highlight-nn">org.jsoup.Jsoup</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">org.jsoup.nodes.Document</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">org.jsoup.nodes.Element</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">org.jsoup.select.Elements</span><span class="highlight-o">;</span>
+
+<span class="highlight-kn">import</span> <span class="highlight-nn">java.io.File</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">java.io.IOException</span><span class="highlight-o">;</span>
+
+<span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">JsoupDemo1</span> <span class="highlight-o">{</span>
+    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-kd">throws</span> <span class="highlight-n">IOException</span> <span class="highlight-o">{</span>
+        <span class="highlight-c1">//2.获取Document对象，根据xml文档获取
+</span><span class="highlight-c1"></span>        <span class="highlight-c1">//2.1获取student.xml的path
+</span><span class="highlight-c1"></span>        <span class="highlight-n">String</span> <span class="highlight-n">path</span> <span class="highlight-o">=</span> <span class="highlight-n">JsoupDemo1</span><span class="highlight-o">.</span><span class="highlight-na">class</span><span class="highlight-o">.</span><span class="highlight-na">getClassLoader</span><span class="highlight-o">().</span><span class="highlight-na">getResource</span><span class="highlight-o">(</span><span class="highlight-s">"students.xml"</span><span class="highlight-o">).</span><span class="highlight-na">getPath</span><span class="highlight-o">();</span>
+        <span class="highlight-c1">//2.2解析xml文档，加载文档进内存，获取dom树---&gt;Document
+</span><span class="highlight-c1"></span>        <span class="highlight-n">Document</span> <span class="highlight-n">document</span> <span class="highlight-o">=</span> <span class="highlight-n">Jsoup</span><span class="highlight-o">.</span><span class="highlight-na">parse</span><span class="highlight-o">(</span><span class="highlight-k">new</span> <span class="highlight-n">File</span><span class="highlight-o">(</span><span class="highlight-n">path</span><span class="highlight-o">),</span> <span class="highlight-s">"utf-8"</span><span class="highlight-o">);</span>
+        <span class="highlight-c1">//3.获取元素对象 Element
+</span><span class="highlight-c1"></span>        <span class="highlight-n">Elements</span> <span class="highlight-n">elements</span> <span class="highlight-o">=</span> <span class="highlight-n">document</span><span class="highlight-o">.</span><span class="highlight-na">getElementsByTag</span><span class="highlight-o">(</span><span class="highlight-s">"name"</span><span class="highlight-o">);</span>
+
+        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">elements</span><span class="highlight-o">.</span><span class="highlight-na">size</span><span class="highlight-o">());</span>
+        <span class="highlight-c1">//3.1获取第一个name的Element对象
+</span><span class="highlight-c1"></span>        <span class="highlight-n">Element</span> <span class="highlight-n">element</span> <span class="highlight-o">=</span> <span class="highlight-n">elements</span><span class="highlight-o">.</span><span class="highlight-na">get</span><span class="highlight-o">(</span><span class="highlight-n">0</span><span class="highlight-o">);</span>
+        <span class="highlight-c1">//3.2获取数据
+</span><span class="highlight-c1"></span>        <span class="highlight-n">String</span> <span class="highlight-n">name</span> <span class="highlight-o">=</span> <span class="highlight-n">element</span><span class="highlight-o">.</span><span class="highlight-na">text</span><span class="highlight-o">();</span>
+        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">name</span><span class="highlight-o">);</span>
+    <span class="highlight-o">}</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Jsoup：工具类，可以解析 HTML 或 XML 文档，返回 Document</p>
+<ul>
+<li><code>parse(File in, String charsetName)</code>：解析 xml 或 html 文件，加载文档进内存，获取 DOM 树</li>
+<li><code>parse(String html)</code>：解析 xml 或 html 字符串，字符串即为 xml 或 html 文档中的内容，不常用</li>
+<li><code>parse(URL url, int timeoutMillis)</code>：通过网络路径获取指定的 html 或 xml 的文档
+<ul>
+<li>URL 可通过 <code>new URL("网址")</code> 来获取</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Document：文档对象。代表内存中的 DOM 树，继承 Element，下面方法来自 Element</p>
+<ul>
+<li><code>getElementById(String id)</code>：根据 id 属性值获取唯一的 element 对象，多用于解析 HTML</li>
+<li><code>getElementsByTag(String tagName)</code>：根据标签名称获取元素对象集合</li>
+<li><code>getElementsByAttribute(String key)</code>：根据属性名称获取元素对象集合</li>
+<li><code>getElementsByAttributeValue(String key, String value)</code>：根据对应的属性名和属性值获取元素对象集合</li>
+</ul>
+</li>
+<li>
+<p>Elements：元素 Element 对象的集合。继承 <code>ArrayList&lt;Element&gt;</code></p>
+</li>
+<li>
+<p>Element：元素对象</p>
+<ul>
+<li>获取子对象，只能获取此元素下面的子元素对象
+<ul>
+<li><code>getElementById(String id)</code>：根据 id 属性值获取唯一的 element 对象</li>
+<li><code>getElementsByTag(String tagName)</code>：根据标签名称获取元素对象集合</li>
+<li><code>getElementsByAttribute(String key)</code>：根据属性名称获取元素对象集合</li>
+<li><code>getElementsByAttributeValue(String key, String value)</code>：根据对应的属性名和属性值获取元素对象集合</li>
+</ul>
+</li>
+<li>获取属性值：
+<ul>
+<li><code>String attr(String key)</code>：根据属性名称获取属性值</li>
+</ul>
+</li>
+<li>获取文本内容：
+<ul>
+<li><code>String text()</code>：获取所有字标签的纯文本内容</li>
+<li><code>String html()</code>：获取标签体的所有内容(包括子标签的标签和文本内容)，类似于 innerHTML</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Node：节点对象</p>
+<ul>
+<li>是 Document 和 Element 的父类，包含了很多有关增删改的方法</li>
+</ul>
+</li>
+<li>
+<p>快捷查询方式：selector选择器</p>
+<ul>
+<li>
+<p>使用方法：<code>Elements select(String cssQuery)</code>，是 Element 中的对象，一般用 document 来调用，查询整个文档，因为 Document extends Element</p>
+</li>
+<li>
+<p>参数：与 CSS 选择器类似，参考 Selector 类中定义的语法</p>
+</li>
+<li>
+<pre><code class="language-java highlight-chroma"><span class="highlight-kn">import</span> <span class="highlight-nn">org.jsoup.Jsoup</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">org.jsoup.nodes.Document</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">org.jsoup.nodes.Element</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">org.jsoup.select.Elements</span><span class="highlight-o">;</span>
+
+<span class="highlight-kn">import</span> <span class="highlight-nn">java.io.File</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">java.io.IOException</span><span class="highlight-o">;</span>
+
+<span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">JsoupDemo5</span> <span class="highlight-o">{</span>
+    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-kd">throws</span> <span class="highlight-n">IOException</span> <span class="highlight-o">{</span>
+        <span class="highlight-c1">//1.获取student.xml的path
+</span><span class="highlight-c1"></span>        <span class="highlight-n">String</span> <span class="highlight-n">path</span> <span class="highlight-o">=</span> <span class="highlight-n">JsoupDemo5</span><span class="highlight-o">.</span><span class="highlight-na">class</span><span class="highlight-o">.</span><span class="highlight-na">getClassLoader</span><span class="highlight-o">().</span><span class="highlight-na">getResource</span><span class="highlight-o">(</span><span class="highlight-s">"student.xml"</span><span class="highlight-o">).</span><span class="highlight-na">getPath</span><span class="highlight-o">();</span>
+        <span class="highlight-c1">//2.获取Document对象
+</span><span class="highlight-c1"></span>        <span class="highlight-n">Document</span> <span class="highlight-n">document</span> <span class="highlight-o">=</span> <span class="highlight-n">Jsoup</span><span class="highlight-o">.</span><span class="highlight-na">parse</span><span class="highlight-o">(</span><span class="highlight-k">new</span> <span class="highlight-n">File</span><span class="highlight-o">(</span><span class="highlight-n">path</span><span class="highlight-o">),</span> <span class="highlight-s">"utf-8"</span><span class="highlight-o">);</span>
+
+        <span class="highlight-c1">//3.查询name标签
+</span><span class="highlight-c1"></span>        <span class="highlight-n">Elements</span> <span class="highlight-n">elements</span> <span class="highlight-o">=</span> <span class="highlight-n">document</span><span class="highlight-o">.</span><span class="highlight-na">select</span><span class="highlight-o">(</span><span class="highlight-s">"name"</span><span class="highlight-o">);</span>
+        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">elements</span><span class="highlight-o">);</span>
+        <span class="highlight-c1">//4.查询id值为itcast的元素
+</span><span class="highlight-c1"></span>        <span class="highlight-n">Elements</span> <span class="highlight-n">elements1</span> <span class="highlight-o">=</span> <span class="highlight-n">document</span><span class="highlight-o">.</span><span class="highlight-na">select</span><span class="highlight-o">(</span><span class="highlight-s">"#itcast"</span><span class="highlight-o">);</span>
+        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">elements1</span><span class="highlight-o">);</span>
+        <span class="highlight-c1">//5.获取student标签并且number属性值为heima_0001的age子标签
+</span><span class="highlight-c1"></span>        <span class="highlight-c1">//5.1.获取student标签并且number属性值为heima_0001
+</span><span class="highlight-c1"></span>        <span class="highlight-n">Elements</span> <span class="highlight-n">elements2</span> <span class="highlight-o">=</span> <span class="highlight-n">document</span><span class="highlight-o">.</span><span class="highlight-na">select</span><span class="highlight-o">(</span><span class="highlight-s">"student[number=\"heima_0001\"]"</span><span class="highlight-o">);</span>
+        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">elements2</span><span class="highlight-o">);</span>
+        <span class="highlight-c1">//5.2获取student标签并且number属性值为heima_0001的age子标签
+</span><span class="highlight-c1"></span>        <span class="highlight-n">Elements</span> <span class="highlight-n">elements3</span> <span class="highlight-o">=</span> <span class="highlight-n">document</span><span class="highlight-o">.</span><span class="highlight-na">select</span><span class="highlight-o">(</span><span class="highlight-s">"student[number=\"heima_0001\"] &gt; age"</span><span class="highlight-o">);</span>
+        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">elements3</span><span class="highlight-o">);</span>
+    <span class="highlight-o">}</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>快捷查询方式：Xpath</p>
+<ul>
+<li>
+<p>Xpath：XPath 即为 XML 路径语言，它是一种用来确定 XML（标准通用标记语言的子集）文档中某部分位置的语言。</p>
+</li>
+<li>
+<p>使用 Jsoup 的 Xpath 需要额外导入 jar 包。</p>
+</li>
+<li>
+<p>查询 w3cshool 参考手册，使用 Xpath 的语法完成查询。</p>
+</li>
+<li>
+<pre><code class="language-java highlight-chroma"><span class="highlight-kn">import</span> <span class="highlight-nn">cn.wanghaomiao.xpath.exception.XpathSyntaxErrorException</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">cn.wanghaomiao.xpath.model.JXDocument</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">cn.wanghaomiao.xpath.model.JXNode</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">org.jsoup.Jsoup</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">org.jsoup.nodes.Document</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">org.jsoup.select.Elements</span><span class="highlight-o">;</span>
+
+<span class="highlight-kn">import</span> <span class="highlight-nn">java.io.File</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">java.io.IOException</span><span class="highlight-o">;</span>
+<span class="highlight-kn">import</span> <span class="highlight-nn">java.util.List</span><span class="highlight-o">;</span>
+
+<span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">JsoupDemo6</span> <span class="highlight-o">{</span>
+    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-kd">throws</span> <span class="highlight-n">IOException</span><span class="highlight-o">,</span> <span class="highlight-n">XpathSyntaxErrorException</span> <span class="highlight-o">{</span>
+        <span class="highlight-c1">//1.获取student.xml的path
+</span><span class="highlight-c1"></span>        <span class="highlight-n">String</span> <span class="highlight-n">path</span> <span class="highlight-o">=</span> <span class="highlight-n">JsoupDemo6</span><span class="highlight-o">.</span><span class="highlight-na">class</span><span class="highlight-o">.</span><span class="highlight-na">getClassLoader</span><span class="highlight-o">().</span><span class="highlight-na">getResource</span><span class="highlight-o">(</span><span class="highlight-s">"student.xml"</span><span class="highlight-o">).</span><span class="highlight-na">getPath</span><span class="highlight-o">();</span>
+        <span class="highlight-c1">//2.获取Document对象
+</span><span class="highlight-c1"></span>        <span class="highlight-n">Document</span> <span class="highlight-n">document</span> <span class="highlight-o">=</span> <span class="highlight-n">Jsoup</span><span class="highlight-o">.</span><span class="highlight-na">parse</span><span class="highlight-o">(</span><span class="highlight-k">new</span> <span class="highlight-n">File</span><span class="highlight-o">(</span><span class="highlight-n">path</span><span class="highlight-o">),</span> <span class="highlight-s">"utf-8"</span><span class="highlight-o">);</span>
+        <span class="highlight-c1">//3.根据document对象，创建JXDocument对象
+</span><span class="highlight-c1"></span>        <span class="highlight-n">JXDocument</span> <span class="highlight-n">jxDocument</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">JXDocument</span><span class="highlight-o">(</span><span class="highlight-n">document</span><span class="highlight-o">);</span>
+        <span class="highlight-c1">//4.结合xpath语法查询
+</span><span class="highlight-c1"></span>        <span class="highlight-c1">//4.1查询所有student标签
+</span><span class="highlight-c1"></span>        <span class="highlight-n">List</span><span class="highlight-o">&lt;</span><span class="highlight-n">JXNode</span><span class="highlight-o">&gt;</span> <span class="highlight-n">jxNodes</span> <span class="highlight-o">=</span> <span class="highlight-n">jxDocument</span><span class="highlight-o">.</span><span class="highlight-na">selN</span><span class="highlight-o">(</span><span class="highlight-s">"//student"</span><span class="highlight-o">);</span>
+        <span class="highlight-k">for</span> <span class="highlight-o">(</span><span class="highlight-n">JXNode</span> <span class="highlight-n">jxNode</span> <span class="highlight-o">:</span> <span class="highlight-n">jxNodes</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+            <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">jxNode</span><span class="highlight-o">);</span>
+        <span class="highlight-o">}</span>
+        <span class="highlight-c1">//4.2查询所有student标签下的name标签
+</span><span class="highlight-c1"></span>        <span class="highlight-n">List</span><span class="highlight-o">&lt;</span><span class="highlight-n">JXNode</span><span class="highlight-o">&gt;</span> <span class="highlight-n">jxNodes2</span> <span class="highlight-o">=</span> <span class="highlight-n">jxDocument</span><span class="highlight-o">.</span><span class="highlight-na">selN</span><span class="highlight-o">(</span><span class="highlight-s">"//student/name"</span><span class="highlight-o">);</span>
+        <span class="highlight-k">for</span> <span class="highlight-o">(</span><span class="highlight-n">JXNode</span> <span class="highlight-n">jxNode</span> <span class="highlight-o">:</span> <span class="highlight-n">jxNodes2</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+            <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">jxNode</span><span class="highlight-o">);</span>
+        <span class="highlight-o">}</span>
+        <span class="highlight-c1">//4.3查询student标签下带有id属性的name标签
+</span><span class="highlight-c1"></span>        <span class="highlight-n">List</span><span class="highlight-o">&lt;</span><span class="highlight-n">JXNode</span><span class="highlight-o">&gt;</span> <span class="highlight-n">jxNodes3</span> <span class="highlight-o">=</span> <span class="highlight-n">jxDocument</span><span class="highlight-o">.</span><span class="highlight-na">selN</span><span class="highlight-o">(</span><span class="highlight-s">"//student/name[@id]"</span><span class="highlight-o">);</span>
+        <span class="highlight-k">for</span> <span class="highlight-o">(</span><span class="highlight-n">JXNode</span> <span class="highlight-n">jxNode</span> <span class="highlight-o">:</span> <span class="highlight-n">jxNodes3</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+            <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">jxNode</span><span class="highlight-o">);</span>
+        <span class="highlight-o">}</span>
+        <span class="highlight-c1">//4.4查询student标签下带有id属性的name标签 并且id属性值为itcast
+</span><span class="highlight-c1"></span>        <span class="highlight-n">List</span><span class="highlight-o">&lt;</span><span class="highlight-n">JXNode</span><span class="highlight-o">&gt;</span> <span class="highlight-n">jxNodes4</span> <span class="highlight-o">=</span> <span class="highlight-n">jxDocument</span><span class="highlight-o">.</span><span class="highlight-na">selN</span><span class="highlight-o">(</span><span class="highlight-s">"//student/name[@id='itcast']"</span><span class="highlight-o">);</span>
+        <span class="highlight-k">for</span> <span class="highlight-o">(</span><span class="highlight-n">JXNode</span> <span class="highlight-n">jxNode</span> <span class="highlight-o">:</span> <span class="highlight-n">jxNodes4</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+            <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">jxNode</span><span class="highlight-o">);</span>
+        <span class="highlight-o">}</span>
+    <span class="highlight-o">}</span>
+<span class="highlight-o">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+                            <div>
+                                <hr>
+
+标题：XML 学习笔记<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2020/02/24/1582486920030.html" target="_blank">https://Rainsheep.github.io/articles/2020/02/24/1582486920030.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2020/02/23/1582438595579.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: BootStrap 学习笔记
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2020/02/24/1582492601874.html" rel="next"
+                               class="fn__right breadcrumb">
+                                tomcat 相关知识: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/02/23/1582438595579.html" rel="prev" class="breadcrumb">
+                            旧一篇: BootStrap 学习笔记
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/02/24/1582492601874.html" rel="next"
+                           class="breadcrumb">
+                            新一篇: tomcat 相关知识
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1582486920030"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h3">
+            <a href="#1--XML-概念">1. XML 概念</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#2--语法">2. 语法</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#3--组成部分">3. 组成部分</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#4--约束">4. 约束</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#5--解析">5. 解析</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1582486920030",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 89ms, 2020/03/18 19:04:12 -->

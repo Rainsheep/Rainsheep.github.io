@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>win10下JAVA环境的安装及eclipse安装与汉化 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="win10下JAVA环境的安装及eclipse安装与汉化 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2019/12/03/1575384194057.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="win10下JAVA环境的安装及eclipse安装与汉化 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2019/12/03/1575384194057.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="位运算" href="https://Rainsheep.github.io/articles/2019/12/03/1575383563959.html">
+            <link rel="next" title=" 牛客多校第五场-平均绩点（二分）" href="https://Rainsheep.github.io/articles/2019/12/03/1575384407094.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2019年">
+                        12月
+                        <span class="item__day">04</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2019/12/03/1575384194057.html">
+                            win10下JAVA环境的安装及eclipse安装与汉化
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2019-12-04
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B">
+                                软件教程</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2019/12/03/1575384194057.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1575384194057">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2019/12/03/1575384194057.html">36</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <h1 id="Java-环境的配置-">Java 环境的配置：</h1>
+<p>先去官网下载 jdk:<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">https://www.oracle.com/technetwork/java/javase/downloads/index.html</a><br>
+百度云盘链接：<a href="https://pan.baidu.com/s/1t3VjaMRPSnI2rGd1hjIcMQ" target="_blank">https://pan.baidu.com/s/1t3VjaMRPSnI2rGd1hjIcMQ</a> 密码：6hjy</p>
+<p>建议下载 jdk8, jdk10 太新了，容易出现不兼容现象，下载 jdl 不是 jre。</p>
+<p>Jre 是 Java runtime environment, 是 Java 程序的运行环境。既然是运行，当然要包含 jvm，也就是大家熟悉的虚拟机啦，还有所有 Java 类库的 class 文件，都在 lib 目录下打包成了 jar。<br>
+Jdk 是 Java development kit，是 Java 的开发工具包，里面包含了各种类库和工具，当然也包括了另外一个 Jre。<br>
+这里只需要下载 jdk 即可，安装的时候会自动安装 jre。</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180801233008728-e29428d1.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180801233008728.png"></p>
+<p>这里接受点上去才能下载：<br>
+<img src="https://img.hacpai.com/file/2019/12/20180801234112240-fe7f424a.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180801234112240.png"></p>
+<p>下载完以后直接安装就行，安装的时候不要修改路径！特别容易出问题，安装过程中提示安装 jre 的时候安装上去就行。</p>
+<p>中途提一下卸载，如果要卸载的话把 jdk 和 jre 都卸载掉。</p>
+<p>接下来说环境 win10 下环境的配置，我的系统版本是 win10 1803 版本</p>
+<p>我的电脑-&gt; 右键-&gt; 属性-&gt; 高级系统设置-&gt; 环境变量</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180801234549808-5c6145dc.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180801234549808.png"></p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180801234643373-aaa8c420.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180801234643373.png"></p>
+<p>可以看到两个环境变量，接下来的操作是在下面那个环境变量进行的，就是系统变量，切记</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180801234802233-b5f36c45.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180801234802233.png"></p>
+<p>新建 JAVA_HOME，变量值填写你 jdk 刚才安装的路径，默认如下</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180801235052967-fcae7512.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180801235052967.png"></p>
+<p>新建 CLASSPATH，变量值<code>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</code></p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180801235143949-40117514.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180801235143949.png"></p>
+<p>最重要的一步，也是 win10 和 win7 的差距</p>
+<p>在系统变量区域找到“Path”变量，并双击打开，path 是原有的</p>
+<p>win7 下添加<code>%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</code>即可</p>
+<p>win10 的 path 必须写绝对路径，如下设置，添加两行</p>
+<p><img src="https://img.hacpai.com/file/2019/12/2018080123553566-4f7a5020.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="2018080123553566.png"></p>
+<p>（在对环境变量有了进一步了解后，更新一下此处，如果只安装的 jdk 的话，第二个环境变量可以写成</p>
+<p><code>C:\Program Files\Java\jdk1.8.0_181\jre\bin</code> 因为 jdk 是自带 jre 的，就在 jdk 下面的 jre 文件夹内，所以说是一样的，</p>
+<p>另外，刚刚我测试的时候，发现 win10 也可以使用相对路径了，所以也可以写成</p>
+<pre><code class="highlight-chroma">%JAVA_HOME%\bin
+%JAVA_HOME%\jre\bin
+</code></pre>
+<p>点确定返回即可，是 3 个确定</p>
+<p>然后 WIN+R 输入 cmd，打开运行</p>
+<p>在 cmd 中分别输入 Java，Java -version(jdk 版本号)，javac(编译命令)</p>
+<p>结果如下</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180801235815341-c993424c.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180801235815341.png"><br>
+<img src="https://img.hacpai.com/file/2019/12/20180801235839148-41277ca1.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180801235839148.png"><br>
+<img src="https://img.hacpai.com/file/2019/12/20180801235902746-1bc886b1.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180801235902746.png"></p>
+<p>至此，Java 环境配置成功</p>
+<h1 id="eclipse-的安装">eclipse 的安装</h1>
+<p>我参考的<a href="https://blog.csdn.net/longshenlmj/article/details/52330106" target="_blank">https://blog.csdn.net/longshenlmj/article/details/52330106</a></p>
+<p>首先去官网下载 eclipse,<a href="http://www.eclipse.org/downloads/packages/" target="_blank">http://www.eclipse.org/downloads/packages/</a></p>
+<p>百度网盘链接：<a href="https://pan.baidu.com/s/1NnJER35HQL-HWqCMJtOglw" target="_blank">https://pan.baidu.com/s/1NnJER35HQL-HWqCMJtOglw</a> 密码：33nl</p>
+<p>现在应该可以自动安装，还是推荐下载包</p>
+<p>选择 “Eclipse IDE for Java Developers”，确定是 64bit 还是 32 的</p>
+<p>下载完是个压缩包，加压出来即可使用，注意:配置完 Java 环境后才能使用</p>
+<p>打开以后直接使用</p>
+<h1 id="eclipse-的汉化">eclipse 的汉化</h1>
+<p>明确一下现在你的软件版本，打开安装目录的 readme 文件夹，可以看到一个 HTML 文件，用浏览器打开，如图，</p>
+<p>4.8 就是版本号，后面是一个版本代号，不显示的话百度查各版本对应的代号</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180802000958457-d1327101.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180802000958457.png"></p>
+<p>4.7 Oxygen   氧气           4.8 Photo 光子</p>
+<p>光子版本的百度云盘链接： <a href="https://pan.baidu.com/s/1NnJER35HQL-HWqCMJtOglw" target="_blank">https://pan.baidu.com/s/1NnJER35HQL-HWqCMJtOglw</a> 密码：33nl</p>
+<p>查完以后打开语言包下载网址：<a href="http://www.eclipse.org/babel/" target="_blank">http://www.eclipse.org/babel/</a></p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180802001208993-40fe2713.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180802001208993.png"></p>
+<p>下载对应版本</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180802001248627-fa7f74f8.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180802001248627.png"></p>
+<p>找到与此名字类似的包下载</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180802001357530-37a5d1be.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180802001357530.png"></p>
+<p>解压下载的压缩文件，可以看到 eclipse 目录下有 plugins 和 features 两个文件夹，把他们复制或者剪切下来放到 Eclipse 安装目录里的 dropins 文件夹下</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180802001605910-6361a388.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180802001605910.png"></p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180802001630250-ec8fe4df.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180802001630250.png"></p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180802001645406-e79f31df.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180802001645406.png"></p>
+<p>到此完成，打开软件看看是不是汉化成功了</p>
+<h1 id="API-的汉化-不适用于-JDK10-">API 的汉化（不适用于 JDK10）</h1>
+<p>下载中文的 API，下载链接：<a href="https://pan.baidu.com/s/1G4CAYWzunFHnkl9Ab2V7gA" target="_blank">https://pan.baidu.com/s/1G4CAYWzunFHnkl9Ab2V7gA</a> 密码：p6de</p>
+<p>参考<a href="https://jingyan.baidu.com/article/c275f6bacb4425e33d7567b6.html" target="_blank">https://jingyan.baidu.com/article/c275f6bacb4425e33d7567b6.html</a></p>
+<p>我们点击窗口单击”首选项“，我们在“Java”下找到“已安装的 JRE”，我们点击里面已安装的 JRE，界面显示如下：</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180802002323808-59e29575.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180802002323808.png"></p>
+<p>我们点击“编辑”，界面显示如下：</p>
+<p><img src="https://img.hacpai.com/file/2019/12/2018080200241673-2ed4fcc0.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="2018080200241673.png"></p>
+<p>我们单击上图中的选项，然后单击“移除”，界面显示如下：</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180802002456245-e2387737.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180802002456245.png"></p>
+<p>我们选中底下的一个选项，然后单击“Javadoc 位置”，界面显示如下：</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180802002530965-3eb5ff31.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180802002530965.png"></p>
+<p>我们按照上图所示的，找到我们之前下载的 Eclipse 的中文 API，要一直到“API”路径，然后点击“确定”，界面显示如下：</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180802002618159-61222e6f.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180802002618159.png"></p>
+<p>我们可以点击“测试”，看看我们选择的路径是否正确</p>
+<p>我们点击“确定”，关闭弹出窗口，再点击“确定”</p>
+<p>对下图 jar 做出同样操作，（操作包括移除以前的，再设置现在的“Javadoc 位置”）</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20180802002748441-059437d1.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20180802002748441.png"></p>
+<p>对两个选项都设置完成后，我们再单击“确定”，即完成了对 Eclipse 的全部设置，现在我们把鼠标放在代码上，就会出现中文的提示了</p>
+                            <div>
+                                <hr>
+
+标题：win10下JAVA环境的安装及eclipse安装与汉化<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2019/12/03/1575384194057.html" target="_blank">https://Rainsheep.github.io/articles/2019/12/03/1575384194057.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575383563959.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: 位运算
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575384407094.html" rel="next"
+                               class="fn__right breadcrumb">
+                                 牛客多校第五场-平均绩点（二分）: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575383563959.html" rel="prev" class="breadcrumb">
+                            旧一篇: 位运算
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575384407094.html" rel="next"
+                           class="breadcrumb">
+                            新一篇:  牛客多校第五场-平均绩点（二分）
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1575384194057"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h1">
+            <a href="#Java-环境的配置-">Java 环境的配置：</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#eclipse-的安装">eclipse 的安装</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#eclipse-的汉化">eclipse 的汉化</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#API-的汉化-不适用于-JDK10-">API 的汉化（不适用于 JDK10）</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1575384194057",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 85ms, 2020/03/18 19:04:16 -->

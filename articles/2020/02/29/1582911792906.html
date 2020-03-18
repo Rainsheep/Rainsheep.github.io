@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>JQuery 学习笔记 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="JQuery 学习笔记 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2020/02/29/1582911792906.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="JQuery 学习笔记 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2020/02/29/1582911792906.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="Filter&Listener&动态代理 学习笔记" href="https://Rainsheep.github.io/articles/2020/02/28/1582828003127.html">
+            <link rel="next" title="Ajax 学习笔记" href="https://Rainsheep.github.io/articles/2020/02/29/1582959858110.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2020年">
+                        03月
+                        <span class="item__day">02</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2020/02/29/1582911792906.html">
+                            JQuery 学习笔记
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2020-03-02
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF">
+                                前端</a>,
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">
+                                学习笔记</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2020/02/29/1582911792906.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1582911792906">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2020/02/29/1582911792906.html">0</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <h3 id="1--jQuery-基础">1. jQuery 基础</h3>
+<ul>
+<li>概念：一个 JavaScript 框架。简化 JS 开发。</li>
+<li>jQuery 版本：
+<ul>
+<li>1.x：兼容 ie678,使用最为广泛的，官方只做 BUG 维护，功能不再新增。因此一般项目来说，使用 1.x 版本就可以了。</li>
+<li>2.x：不兼容 ie678，很少有人使用，官方只做 BUG 维护，功能不再新增。如果不考虑兼容低版本的浏览器可以使用 2.x。</li>
+<li>3.x：不兼容 ie678，只支持最新的浏览器。除非特殊要求，一般不会使用 3.x 版本的，很多老的 jQuery 插件不支持这个版本。</li>
+</ul>
+</li>
+<li>jQuery 对象和 JS 对象区别与转换
+<ul>
+<li>jQuery 对象在操作时，更加方便。</li>
+<li>jQuery 对象和 js 对象方法不通用的。</li>
+<li>jQuery 对象转 js 对象：jQuery 对象[索引] 或者 jQuery 对象。get(索引)，一个元素索引为 0。</li>
+<li>js 对象转 jQuery 对象：$(js 对象)</li>
+<li>通过 $ 获取的对象为 jQuery 对象，而不是 js 对象。</li>
+</ul>
+</li>
+<li>使用 jQuery 对象的时候不需要再遍历数组。
+<pre><code class="language-js highlight-chroma"><span class="highlight-c1">// 将所有div中的内容改为aaa
+</span><span class="highlight-c1"></span><span class="highlight-kd">var</span> <span class="highlight-nx">div</span> <span class="highlight-o">=</span> <span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"div"</span><span class="highlight-p">);</span>
+<span class="highlight-nx">div</span><span class="highlight-p">.</span><span class="highlight-nx">html</span><span class="highlight-p">(</span><span class="highlight-s2">"aaa"</span><span class="highlight-p">);</span>
+</code></pre>
+</li>
+<li>事件绑定例子：通过内部方法实现
+<pre><code class="language-js highlight-chroma"><span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"#div1"</span><span class="highlight-p">).</span><span class="highlight-nx">click</span><span class="highlight-p">(</span><span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+    <span class="highlight-nx">alert</span><span class="highlight-p">(</span><span class="highlight-s2">"abc"</span><span class="highlight-p">);</span>
+<span class="highlight-p">});</span>
+</code></pre>
+</li>
+<li>样式控制：CSS 方法
+<ul>
+<li><code>$("#div1").css("background-color","red");</code></li>
+<li><code>$("#div1").css("backgroundColor","pink");</code></li>
+<li>第二种写法鼠标放上去以后按 ctrl 会变蓝，可以检验对错。</li>
+</ul>
+</li>
+<li>入口函数：
+<ul>
+<li><code>$(document).ready(function(){});</code></li>
+<li><code>$().ready(function(){});</code> ready 函数仅能用于当前文档，无需选择器，所以 document 选择器可以不要。</li>
+<li><code>$(function(){});</code> $ 的默认事件就是 ready，所以，ready 也可以省略。这三种写法相同。</li>
+<li><code>$(function(){});</code>  和 <code>window.onload</code> 的区别：
+<ul>
+<li><code>window.onload</code> 就是一个页面加载完以后执行的函数，只能定义一次，如果定义多次，后边的会将前边的覆盖掉。</li>
+<li><code>$(function(){});</code>  ：可以定义多次的。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>jQuery 对象的 click 方法中可以使用 this，代表调用点击的 <strong>js</strong> 对象，HTML 调用函数中需要传递 this 参数才可以使用。</li>
+<li><code>clone()</code> 克隆对象</li>
+<li><code>serialize()</code> 将表单序列化为字符串，<code>action=register&amp;username=abc&amp;password=123</code></li>
+</ul>
+<h3 id="2--选择器">2. 选择器</h3>
+<ul>
+<li>基本选择器：
+<ul>
+<li>标签选择器：<code>$("html标签名")</code> 获得所有匹配标签名称的元素。</li>
+<li>id 选择器：<code>$("#id的属性值")</code> 获得与指定 id 属性值匹配的元素。</li>
+<li>类选择器：<code>$(".class的属性值")</code> 获得与指定的 class 属性值匹配的元素。</li>
+<li>并集选择器：<code>$("选择器1,选择器2....")</code> 获取多个选择器选中的所有元素。</li>
+</ul>
+</li>
+<li>层级选择器：
+<ul>
+<li>后代选择器：<code>$("A B")</code>：选择 A 元素内部的所有 B 元素。</li>
+<li>子选择器：<code>$("A &gt; B")</code> 选择 A 元素内部的所有 B 子元素。</li>
+</ul>
+</li>
+<li>属性选择器：
+<ul>
+<li>属性名称选择器：<code>$("A[属性名]")</code>：包含指定属性的选择器。</li>
+<li>属性选择器：<code>$("A[属性名='值']")</code>：包含指定属性等于指定值的选择器
+<ul>
+<li><code>$("A[属性名!='值']")</code>：包含指定属性不等于指定值的选择器</li>
+<li><code>$("A[属性名^='值']")</code>：包含指定属性的值以指定值开头的选择器</li>
+<li><code>$("A[属性名$='值']")</code>：包含指定属性的值以指定值结尾的选择器</li>
+<li><code>$("A[属性名*='值']")</code>：包含指定属性的值含有指定值的选择器</li>
+</ul>
+</li>
+<li>复合属性选择器：<code>$("A[属性名='值'][]...")</code>：包含多个属性条件的选择器
+<ul>
+<li>
+<pre><code class="language-js highlight-chroma"><span class="highlight-c1">// &lt;input type="button" value="选取有属性id的div元素，然后在结果中选取属性title值含有“es”的 div 元素背景色为红色"  id="b7"/&gt;
+</span><span class="highlight-c1"></span><span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"#b7"</span><span class="highlight-p">).</span><span class="highlight-nx">click</span><span class="highlight-p">(</span><span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+    <span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"div[id][title*='es']"</span><span class="highlight-p">).</span><span class="highlight-nx">css</span><span class="highlight-p">(</span><span class="highlight-s2">"backgroundColor"</span><span class="highlight-p">,</span><span class="highlight-s2">"pink"</span><span class="highlight-p">);</span>
+<span class="highlight-p">});</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>过滤选择器：
+<ul>
+<li>首元素选择器 ：<code>:first</code> 获得选择的元素中的第一个元素
+<ul>
+<li>
+<pre><code class="language-js highlight-chroma"><span class="highlight-c1">// &lt;input type="button" value=" 改变第一个 div 元素的背景色为 红色"  id="b1"/&gt;
+</span><span class="highlight-c1"></span><span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"#b1"</span><span class="highlight-p">).</span><span class="highlight-nx">click</span><span class="highlight-p">(</span><span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+    <span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"div:first"</span><span class="highlight-p">).</span><span class="highlight-nx">css</span><span class="highlight-p">(</span><span class="highlight-s2">"backgroundColor"</span><span class="highlight-p">,</span><span class="highlight-s2">"pink"</span><span class="highlight-p">);</span>
+<span class="highlight-p">});</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>尾元素选择器 ：<code>:last</code> 获得选择的元素中的最后一个元素</li>
+<li>非元素选择器：<code>:not(selector)</code> 不包括指定内容的元素
+<ul>
+<li>
+<pre><code class="language-js highlight-chroma"><span class="highlight-c1">// &lt;input type="button" value=" 改变class不为 one 的所有 div 元素的背景色为 红色"  id="b3"/&gt;
+</span><span class="highlight-c1"></span><span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"#b3"</span><span class="highlight-p">).</span><span class="highlight-nx">click</span><span class="highlight-p">(</span><span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+    <span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"div:not(.one)"</span><span class="highlight-p">).</span><span class="highlight-nx">css</span><span class="highlight-p">(</span><span class="highlight-s2">"backgroundColor"</span><span class="highlight-p">,</span><span class="highlight-s2">"pink"</span><span class="highlight-p">);</span>
+<span class="highlight-p">});</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>偶数选择器：<code>:even</code> 偶数，从 0 开始计数</li>
+<li>奇数选择器：<code>:odd</code> 奇数，从 0 开始计数</li>
+<li>等于索引选择器：<code>:eq(index)</code> 指定索引元素</li>
+<li>大于索引选择器：<code>:gt(index)</code> 大于指定索引元素</li>
+<li>小于索引选择器：<code>:lt(index)</code> 小于指定索引元素</li>
+<li>标题选择器：<code>:header</code> 获得标题（h1~h6）元素，固定写法
+<ul>
+<li>
+<pre><code class="language-js highlight-chroma"><span class="highlight-c1">// &lt;input type="button" value=" 改变所有的标题元素的背景色为 红色"  id="b9"/&gt;
+</span><span class="highlight-c1"></span><span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"#b9"</span><span class="highlight-p">).</span><span class="highlight-nx">click</span><span class="highlight-p">(</span><span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+    <span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">":header"</span><span class="highlight-p">).</span><span class="highlight-nx">css</span><span class="highlight-p">(</span><span class="highlight-s2">"backgroundColor"</span><span class="highlight-p">,</span><span class="highlight-s2">"pink"</span><span class="highlight-p">);</span>
+<span class="highlight-p">});</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>下拉框加上 <code>multiple="multiple"</code> 属性后可以变成多选的下拉框，可以用来做权限授予。</li>
+<li>表单过滤选择器：
+<ul>
+<li>可用元素选择器：<code>:enabled</code> 获得可用元素
+<ul>
+<li>
+<pre><code class="language-js highlight-chroma"><span class="highlight-c1">// &lt;input type="button" value=" 利用 jQuery 对象的 val() 方法改变表单内可用 &lt;input&gt; 元素的值"  id="b1"/&gt;
+</span><span class="highlight-c1"></span><span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"#b1"</span><span class="highlight-p">).</span><span class="highlight-nx">click</span><span class="highlight-p">(</span><span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+    <span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"input[type='text']:enabled"</span><span class="highlight-p">).</span><span class="highlight-nx">val</span><span class="highlight-p">(</span><span class="highlight-s2">"aaa"</span><span class="highlight-p">);</span>
+<span class="highlight-p">});</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>不可用元素选择器：<code>:disabled</code> 获得不可用元素</li>
+<li>选中选择器：<code>:checked</code> 获得单选/复选框选中的元素</li>
+<li>
+<pre><code class="language-js highlight-chroma"><span class="highlight-c1">// &lt;input type="button" value=" 利用 jQuery 对象的 length 属性获取复选框选中的个数"  id="b3"/&gt;
+</span><span class="highlight-c1"></span><span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"#b3"</span><span class="highlight-p">).</span><span class="highlight-nx">click</span><span class="highlight-p">(</span><span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+    <span class="highlight-nx">alert</span><span class="highlight-p">(</span><span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"input[type='checkbox']:checked"</span><span class="highlight-p">).</span><span class="highlight-nx">length</span><span class="highlight-p">);</span>
+<span class="highlight-p">});</span>
+</code></pre>
+</li>
+<li>选中选择器：<code>:selected</code> 获得下拉框选中的元素，注意被选中的为 option
+<ul>
+<li>
+<pre><code class="language-js highlight-chroma"><span class="highlight-c1">// &lt;input type="button" value=" 利用 jQuery 对象的 length 属性获取下拉框选中的个数"  id="b4"/&gt;
+</span><span class="highlight-c1"></span><span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"#b4"</span><span class="highlight-p">).</span><span class="highlight-nx">click</span><span class="highlight-p">(</span><span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+    <span class="highlight-nx">alert</span><span class="highlight-p">(</span><span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"#job &gt; option:selected"</span><span class="highlight-p">).</span><span class="highlight-nx">length</span><span class="highlight-p">);</span>
+<span class="highlight-p">});</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3--DOM-操作">3. DOM 操作</h3>
+<ul>
+<li>内容操作：
+<ul>
+<li><code>html()</code>： 获取/设置元素的标签体内容，空参为获取，有参数为设置。</li>
+<li><code>text()</code>： 获取/设置元素的标签体纯文本内容，设置纯文本的时候，会把此标签体内全部内容(包含子标签)都替换为文本，如果设置的内容中有 HTML 标签，也会以文本的形式展示(html()方法可以以标签形式展示)，多个空格展示为一个空格。</li>
+<li><code>val()</code>：获取/设置元素的 value 属性值。</li>
+</ul>
+</li>
+<li>通用属性操作
+<ul>
+<li><code>attr()</code>：获取/设置元素的属性，一个参数(属性名)为获取，两个参数(属性名，属性值)为设置。</li>
+<li><code>removeAttr()</code>：删除属性</li>
+<li><code>prop()</code>：获取/设置元素的属性</li>
+<li><code>removeProp()</code>：删除属性</li>
+<li>attr 和 prop 区别？
+<ul>
+<li>如果操作的是元素的固有属性(id 和 name 不属于固有属性，class 为 div 的固有属性)，则建议使用 prop，prop 获取 id 和 name 的话获取不到。</li>
+<li>如果操作的是元素自定义的属性，则建议使用 attr，元素的 checked, selected, disabled 状态无法使用 attr 获取。</li>
+<li>总结：一般使用 attr 即可，涉及到上面提到的三个使用 prop。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对 class 属性操作
+<ul>
+<li><code>addClass()</code>：添加 class 属性值</li>
+<li><code>removeClass()</code>：删除 class 属性值</li>
+<li><code>toggleClass()</code>：切换 class 属性
+<ul>
+<li>判断如果元素对象上存在 <code>class="one"</code>，则将属性值 one 删除掉。如果元素对象上不存在 <code>class="one"</code>，则添加。</li>
+</ul>
+</li>
+<li><code>css()</code>：获取/设置 CSS 属性值。</li>
+</ul>
+</li>
+<li>CRUD 操作：两个对象都为 jQuery 对象
+<ul>
+<li><code>append()</code>：父元素将子元素追加到末尾
+<ul>
+<li>对象 <code>1.append(对象2)</code>：将对象 2 添加到对象 1 元素内部，并且在末尾，并且原对象 1 会消失</li>
+</ul>
+</li>
+<li><code>prepend()</code>：父元素将子元素追加到开头
+<ul>
+<li>对象 <code>1.prepend(对象2)</code>：将对象 2 添加到对象 1 元素内部，并且在开头</li>
+</ul>
+</li>
+<li><code>appendTo()</code>：
+<ul>
+<li>对象 <code>1.appendTo(对象2)</code>：将对象 1 添加到对象 2 内部，并且在末尾</li>
+</ul>
+</li>
+<li><code>prependTo()</code>：
+<ul>
+<li>对象 <code>1.prependTo(对象2)</code>：将对象 1 添加到对象 2 内部，并且在开头</li>
+</ul>
+</li>
+<li><code>after()</code>：添加元素到元素后边
+<ul>
+<li>对象 <code>1.after(对象2)</code>：将对象 2 添加到对象 1 后边。对象 1 和对象 2 是兄弟关系</li>
+</ul>
+</li>
+<li><code>before()</code>：添加元素到元素前边
+<ul>
+<li>对象 <code>1.before(对象2)</code>：将对象 2 添加到对象 1 前边。对象 1 和对象 2 是兄弟关系</li>
+</ul>
+</li>
+<li><code>insertAfter()</code>：
+<ul>
+<li>对象 <code>1.insertAfter(对象2)</code>：将对象 1 添加到对象 2 后边。对象 1 和对象 2 是兄弟关系</li>
+</ul>
+</li>
+<li><code>insertBefore()</code>：
+<ul>
+<li>对象 <code>1.insertBefore(对象2)</code>：将对象 1 添加到对象 2 前边。对象 1 和对象 2 是兄弟关系</li>
+</ul>
+</li>
+<li><code>remove()</code>：移除元素
+<ul>
+<li><code>对象.remove()</code>：将对象删除掉</li>
+</ul>
+</li>
+<li><code>empty()</code>：清空元素的所有后代元素
+<ul>
+<li><code>对象.empty()</code>：将对象的后代元素全部清空，但是保留当前对象以及其属性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4--jQuery-动画">4. jQuery 动画</h3>
+<ul>
+<li>默认显示和隐藏方式
+<ul>
+<li><code>show([speed],[easing],[fn]])</code>：显示，刚开始即为显示</li>
+<li><code>hide([speed],[easing],[fn]])</code>：隐藏</li>
+<li><code>toggle([speed],[easing],[fn])</code>：切换</li>
+</ul>
+</li>
+<li>参数解释
+<ul>
+<li>speed：动画的速度。可以设置为 "slow","normal", "fast" 或表示动画时长的毫秒数值(如：1000)</li>
+<li>easing：用来指定切换效果，默认是"swing"，可用参数"linear"
+<ul>
+<li>swing：动画执行时效果是 先慢，中间快，最后又慢</li>
+<li>linear：动画执行时速度是匀速的</li>
+</ul>
+</li>
+<li>fn：在动画完成时执行的函数，每个元素执行一次。</li>
+<li>三个参数皆为可选的。</li>
+</ul>
+</li>
+<li>滑动显示和隐藏方式
+<ul>
+<li><code>slideDown([speed],[easing],[fn])</code>：滑动显示</li>
+<li><code>slideUp([speed,[easing],[fn]])</code>：滑动隐藏</li>
+<li><code>slideToggle([speed],[easing],[fn])</code>：滑动切换</li>
+</ul>
+</li>
+<li>淡入淡出显示和隐藏方式
+<ul>
+<li><code>fadeIn([speed],[easing],[fn])</code>：淡入显示</li>
+<li><code>fadeOut([speed],[easing],[fn])</code>：淡出显示</li>
+<li><code>fadeToggle([speed,[easing],[fn]])</code>：淡入淡出切换</li>
+</ul>
+</li>
+</ul>
+<h3 id="5--jQuery-遍历">5. jQuery 遍历</h3>
+<ul>
+<li>js 的遍历方式：<code>for(初始化值;循环结束条件;步长)</code></li>
+<li><code>jquery对象.each(function([index,[element]]){});</code>
+<ul>
+<li>对于数组中的每个对象，去执行括号中的函数。</li>
+<li>函数的两个参数为可选项，也可以只传递 index，但不能直接传递 element。</li>
+<li>index：就是元素在集合中的索引。</li>
+<li>element：就是集合中的每一个元素对象，是 js 对象，需要参数传递。</li>
+<li>this：集合中的每一个元素对象，是 js 对象，可以直接使用。</li>
+<li>回调函数返回值：
+<ul>
+<li>false：如果当前 function <code>return false</code>，则结束循环(break)。</li>
+<li>true：如果当前 function <code>return true</code>，则结束本次循环，继续下次循环(continue)，默认在最后返回 true。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>$.each(object, [callback])</code>：object 可以是 jQuery 对象，也可以是 js 对象，其余与上遍历函数类似。</li>
+<li><code>for..of</code>: jQuery 3.0 版本之后提供的方式，<code>for(元素对象 of 容器对象)</code></li>
+</ul>
+<h3 id="6--事件绑定">6. 事件绑定</h3>
+<ul>
+<li>标准的绑定方式
+<ul>
+<li><code>jquery对象.事件方法(回调函数);</code></li>
+<li>如果调用事件方法，不传递回调函数，则会触发浏览器默认行为。
+<ul>
+<li><code>表单对象.submit();</code>//让表单提交</li>
+<li>
+<pre><code class="language-js highlight-chroma"><span class="highlight-c1">//会阻止表单的提交
+</span><span class="highlight-c1"></span><span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"form"</span><span class="highlight-p">).</span><span class="highlight-nx">submit</span><span class="highlight-p">(</span><span class="highlight-kd">function</span><span class="highlight-p">()</span> <span class="highlight-p">{</span>
+    <span class="highlight-k">return</span> <span class="highlight-kc">false</span><span class="highlight-p">;</span>
+<span class="highlight-p">});</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>on 绑定事件/off 解除绑定
+<ul>
+<li><code>jueryq对象.on("事件名称",回调函数)</code> 绑定事件</li>
+<li><code>jquery对象.off("事件名称")</code> 解绑事件，不局限于用 on 绑定的事件。
+<ul>
+<li>如果 off 方法不传递任何参数，则将组件上的所有事件全部解绑</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>事件切换：toggle
+<ul>
+<li><code>jq对象.toggle(fn1,fn2...);</code>
+<ul>
+<li>当单击 jq 对象对应的组件后，会执行 fn1.第二次点击会执行 fn2.....</li>
+</ul>
+</li>
+<li>注意：1.9 版本 toggle 方法删除(不能切换事件，只保留切换动画功能)，jQuery Migrate（迁移）插件可以恢复此功能。</li>
+</ul>
+</li>
+<li>可以链式编程绑定多个事件：
+<pre><code class="language-js highlight-chroma"><span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"#name"</span><span class="highlight-p">).</span><span class="highlight-nx">mouseover</span><span class="highlight-p">(</span><span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+    <span class="highlight-nx">alert</span><span class="highlight-p">(</span><span class="highlight-s2">"鼠标来了..."</span><span class="highlight-p">)</span>
+<span class="highlight-p">}).</span><span class="highlight-nx">mouseout</span><span class="highlight-p">(</span><span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+    <span class="highlight-nx">alert</span><span class="highlight-p">(</span><span class="highlight-s2">"鼠标走了..."</span><span class="highlight-p">)</span>
+<span class="highlight-p">});</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="7--插件">7. 插件</h3>
+<ul>
+<li>在 jQuery 插件的范围里， this 关键字代表了这个插件将要执行的 jQuery 对象， 但是在其他包含 callback 的 jQuery 函数中，this 关键字代表了原生的 DOM 元素。</li>
+<li><code>$</code> 就是 jQuery 对象，<code>$()</code> 就是 <code>jQuery()</code>，在里面可以传参数，作用就是获取元素。</li>
+<li><code>$</code> 可以调用那些不需要操作对象的方法（像 Java 代码中的静态方法，不用声明对象就可以操作）。</li>
+<li>插件：增强 jQuery 的功能</li>
+<li>实现方式：
+<ul>
+<li><code>$.fn.extend(object)</code>：增强通过 jQuery 获取的对象的功能，如 $("#id")
+<pre><code class="language-html highlight-chroma"><span class="highlight-cp">&lt;!DOCTYPE html&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">html</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">head</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-p">&lt;</span><span class="highlight-nt">meta</span> <span class="highlight-na">charset</span><span class="highlight-o">=</span><span class="highlight-s">"UTF-8"</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-p">&lt;</span><span class="highlight-nt">title</span><span class="highlight-p">&gt;</span>01-jQuery对象进行方法扩展<span class="highlight-p">&lt;/</span><span class="highlight-nt">title</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-p">&lt;</span><span class="highlight-nt">script</span> <span class="highlight-na">src</span><span class="highlight-o">=</span><span class="highlight-s">"../js/jquery-3.3.1.min.js"</span> <span class="highlight-na">type</span><span class="highlight-o">=</span><span class="highlight-s">"text/javascript"</span> <span class="highlight-na">charset</span><span class="highlight-o">=</span><span class="highlight-s">"utf-8"</span><span class="highlight-p">&gt;&lt;/</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-p">&lt;</span><span class="highlight-nt">script</span> <span class="highlight-na">type</span><span class="highlight-o">=</span><span class="highlight-s">"text/javascript"</span><span class="highlight-p">&gt;</span>
+       <span class="highlight-c1">//使用jquery插件 给jq对象添加2个方法 check()选中所有复选框，uncheck()取消选中所有复选框
+</span><span class="highlight-c1"></span>
+
+        <span class="highlight-c1">//1.定义jqeury的对象插件
+</span><span class="highlight-c1"></span>        <span class="highlight-nx">$</span><span class="highlight-p">.</span><span class="highlight-nx">fn</span><span class="highlight-p">.</span><span class="highlight-nx">extend</span><span class="highlight-p">({</span>
+            <span class="highlight-c1">//定义了一个check()方法。所有的jq对象都可以调用该方法
+</span><span class="highlight-c1"></span>            <span class="highlight-nx">check</span><span class="highlight-o">:</span><span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+               <span class="highlight-c1">//让复选框选中
+</span><span class="highlight-c1"></span>                <span class="highlight-c1">//this:调用该方法的jq对象
+</span><span class="highlight-c1"></span>                <span class="highlight-k">this</span><span class="highlight-p">.</span><span class="highlight-nx">prop</span><span class="highlight-p">(</span><span class="highlight-s2">"checked"</span><span class="highlight-p">,</span><span class="highlight-kc">true</span><span class="highlight-p">);</span>
+            <span class="highlight-p">},</span>
+            <span class="highlight-nx">uncheck</span><span class="highlight-o">:</span><span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+                <span class="highlight-c1">//让复选框不选中
+</span><span class="highlight-c1"></span>                <span class="highlight-k">this</span><span class="highlight-p">.</span><span class="highlight-nx">prop</span><span class="highlight-p">(</span><span class="highlight-s2">"checked"</span><span class="highlight-p">,</span><span class="highlight-kc">false</span><span class="highlight-p">);</span>
+            <span class="highlight-p">}</span>
+        <span class="highlight-p">});</span>
+        <span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+           <span class="highlight-c1">// 获取按钮
+</span><span class="highlight-c1"></span>            <span class="highlight-c1">//$("#btn-check").check();
+</span><span class="highlight-c1"></span>            <span class="highlight-c1">//复选框对象.check();
+</span><span class="highlight-c1"></span>            <span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"#btn-check"</span><span class="highlight-p">).</span><span class="highlight-nx">click</span><span class="highlight-p">(</span><span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+                <span class="highlight-c1">//获取复选框对象
+</span><span class="highlight-c1"></span>                <span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"input[type='checkbox']"</span><span class="highlight-p">).</span><span class="highlight-nx">check</span><span class="highlight-p">();</span>
+            <span class="highlight-p">});</span>
+            <span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"#btn-uncheck"</span><span class="highlight-p">).</span><span class="highlight-nx">click</span><span class="highlight-p">(</span><span class="highlight-kd">function</span> <span class="highlight-p">()</span> <span class="highlight-p">{</span>
+                <span class="highlight-c1">//获取复选框对象
+</span><span class="highlight-c1"></span>                <span class="highlight-nx">$</span><span class="highlight-p">(</span><span class="highlight-s2">"input[type='checkbox']"</span><span class="highlight-p">).</span><span class="highlight-nx">uncheck</span><span class="highlight-p">();</span>
+            <span class="highlight-p">});</span>
+        <span class="highlight-p">});</span>
+    <span class="highlight-p">&lt;/</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">head</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">body</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">input</span> <span class="highlight-na">id</span><span class="highlight-o">=</span><span class="highlight-s">"btn-check"</span> <span class="highlight-na">type</span><span class="highlight-o">=</span><span class="highlight-s">"button"</span> <span class="highlight-na">value</span><span class="highlight-o">=</span><span class="highlight-s">"点击选中复选框"</span> <span class="highlight-na">onclick</span><span class="highlight-o">=</span><span class="highlight-s">"checkFn()"</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">input</span> <span class="highlight-na">id</span><span class="highlight-o">=</span><span class="highlight-s">"btn-uncheck"</span> <span class="highlight-na">type</span><span class="highlight-o">=</span><span class="highlight-s">"button"</span> <span class="highlight-na">value</span><span class="highlight-o">=</span><span class="highlight-s">"点击取消复选框选中"</span> <span class="highlight-na">onclick</span><span class="highlight-o">=</span><span class="highlight-s">"uncheckFn()"</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">br</span><span class="highlight-p">/&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">input</span> <span class="highlight-na">type</span><span class="highlight-o">=</span><span class="highlight-s">"checkbox"</span> <span class="highlight-na">value</span><span class="highlight-o">=</span><span class="highlight-s">"football"</span><span class="highlight-p">&gt;</span>足球
+<span class="highlight-p">&lt;</span><span class="highlight-nt">input</span> <span class="highlight-na">type</span><span class="highlight-o">=</span><span class="highlight-s">"checkbox"</span> <span class="highlight-na">value</span><span class="highlight-o">=</span><span class="highlight-s">"basketball"</span><span class="highlight-p">&gt;</span>篮球
+<span class="highlight-p">&lt;</span><span class="highlight-nt">input</span> <span class="highlight-na">type</span><span class="highlight-o">=</span><span class="highlight-s">"checkbox"</span> <span class="highlight-na">value</span><span class="highlight-o">=</span><span class="highlight-s">"volleyball"</span><span class="highlight-p">&gt;</span>排球
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">body</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">html</span><span class="highlight-p">&gt;</span>
+</code></pre>
+</li>
+<li><code>$.extend(object)</code>：增强 JQeury 对象自身的功能 <code>$</code>/<code>jQuery</code>
+<pre><code class="language-html highlight-chroma"><span class="highlight-cp">&lt;!DOCTYPE html&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">html</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">head</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-p">&lt;</span><span class="highlight-nt">meta</span> <span class="highlight-na">charset</span><span class="highlight-o">=</span><span class="highlight-s">"UTF-8"</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-p">&lt;</span><span class="highlight-nt">title</span><span class="highlight-p">&gt;</span>01-jQuery对象进行方法扩展<span class="highlight-p">&lt;/</span><span class="highlight-nt">title</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-p">&lt;</span><span class="highlight-nt">script</span> <span class="highlight-na">src</span><span class="highlight-o">=</span><span class="highlight-s">"../js/jquery-3.3.1.min.js"</span> <span class="highlight-na">type</span><span class="highlight-o">=</span><span class="highlight-s">"text/javascript"</span> <span class="highlight-na">charset</span><span class="highlight-o">=</span><span class="highlight-s">"utf-8"</span><span class="highlight-p">&gt;&lt;/</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+    <span class="highlight-p">&lt;</span><span class="highlight-nt">script</span> <span class="highlight-na">type</span><span class="highlight-o">=</span><span class="highlight-s">"text/javascript"</span><span class="highlight-p">&gt;</span>
+        <span class="highlight-c1">//对全局方法扩展2个方法，扩展min方法：求2个值的最小值；扩展max方法：求2个值最大值
+</span><span class="highlight-c1"></span>        <span class="highlight-nx">$</span><span class="highlight-p">.</span><span class="highlight-nx">extend</span><span class="highlight-p">({</span>
+            <span class="highlight-nx">max</span><span class="highlight-o">:</span><span class="highlight-kd">function</span> <span class="highlight-p">(</span><span class="highlight-nx">a</span><span class="highlight-p">,</span><span class="highlight-nx">b</span><span class="highlight-p">)</span> <span class="highlight-p">{</span>
+                <span class="highlight-c1">//返回两数中的较大值
+</span><span class="highlight-c1"></span>                <span class="highlight-k">return</span> <span class="highlight-nx">a</span> <span class="highlight-o">&gt;=</span> <span class="highlight-nx">b</span> <span class="highlight-o">?</span> <span class="highlight-nx">a</span><span class="highlight-o">:</span><span class="highlight-nx">b</span><span class="highlight-p">;</span>
+            <span class="highlight-p">},</span>
+            <span class="highlight-nx">min</span><span class="highlight-o">:</span><span class="highlight-kd">function</span> <span class="highlight-p">(</span><span class="highlight-nx">a</span><span class="highlight-p">,</span><span class="highlight-nx">b</span><span class="highlight-p">)</span> <span class="highlight-p">{</span>
+                <span class="highlight-c1">//返回两数中的较小值
+</span><span class="highlight-c1"></span>                <span class="highlight-k">return</span> <span class="highlight-nx">a</span> <span class="highlight-o">&lt;=</span> <span class="highlight-nx">b</span> <span class="highlight-o">?</span> <span class="highlight-nx">a</span><span class="highlight-o">:</span><span class="highlight-nx">b</span><span class="highlight-p">;</span>
+            <span class="highlight-p">}</span>
+        <span class="highlight-p">});</span>
+        <span class="highlight-c1">//调用全局方法
+</span><span class="highlight-c1"></span>        <span class="highlight-kd">var</span> <span class="highlight-nx">max</span> <span class="highlight-o">=</span> <span class="highlight-nx">$</span><span class="highlight-p">.</span><span class="highlight-nx">max</span><span class="highlight-p">(</span><span class="highlight-mi">4</span><span class="highlight-p">,</span><span class="highlight-mi">3</span><span class="highlight-p">);</span>
+        <span class="highlight-c1">//alert(max);
+</span><span class="highlight-c1"></span>        <span class="highlight-kd">var</span> <span class="highlight-nx">min</span> <span class="highlight-o">=</span> <span class="highlight-nx">$</span><span class="highlight-p">.</span><span class="highlight-nx">min</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+        <span class="highlight-nx">alert</span><span class="highlight-p">(</span><span class="highlight-nx">min</span><span class="highlight-p">);</span>
+    <span class="highlight-p">&lt;/</span><span class="highlight-nt">script</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">head</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;</span><span class="highlight-nt">body</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">body</span><span class="highlight-p">&gt;</span>
+<span class="highlight-p">&lt;/</span><span class="highlight-nt">html</span><span class="highlight-p">&gt;</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+                            <div>
+                                <hr>
+
+标题：JQuery 学习笔记<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2020/02/29/1582911792906.html" target="_blank">https://Rainsheep.github.io/articles/2020/02/29/1582911792906.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2020/02/28/1582828003127.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: Filter&Listener&动态代理 学习笔记
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2020/02/29/1582959858110.html" rel="next"
+                               class="fn__right breadcrumb">
+                                Ajax 学习笔记: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/02/28/1582828003127.html" rel="prev" class="breadcrumb">
+                            旧一篇: Filter&Listener&动态代理 学习笔记
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2020/02/29/1582959858110.html" rel="next"
+                           class="breadcrumb">
+                            新一篇: Ajax 学习笔记
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1582911792906"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h3">
+            <a href="#1--jQuery-基础">1. jQuery 基础</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#2--选择器">2. 选择器</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#3--DOM-操作">3. DOM 操作</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#4--jQuery-动画">4. jQuery 动画</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#5--jQuery-遍历">5. jQuery 遍历</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#6--事件绑定">6. 事件绑定</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#7--插件">7. 插件</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1582911792906",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 127ms, 2020/03/18 19:04:11 -->

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>拓扑排序 最短工期 PTA - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="拓扑排序 最短工期 PTA - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2019/12/03/1575377857089.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="拓扑排序 最短工期 PTA - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2019/12/03/1575377857089.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="杂碎知识点总结" href="https://Rainsheep.github.io/articles/2019/12/03/1575377693241.html">
+            <link rel="next" title="星期几的计算" href="https://Rainsheep.github.io/articles/2019/12/03/1575378060617.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2019年">
+                        12月
+                        <span class="item__day">03</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2019/12/03/1575377857089.html">
+                            拓扑排序 最短工期 PTA
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2019-12-03
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/acm">
+                                acm</a>,
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E5%9B%BE">
+                                图</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2019/12/03/1575377857089.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1575377857089">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2019/12/03/1575377857089.html">5</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <h1 id="题目-">题目：</h1>
+<p>一个项目由若干个任务组成，任务之间有先后依赖顺序。项目经理需要设置一系列里程碑，在每个里程碑节点处检查任务的完成情况，并启动后续的任务。现给定一个项目中各个任务之间的关系，请你计算出这个项目的最早完工时间。</p>
+<h1 id="输入格式-">输入格式：</h1>
+<p>首先第一行给出两个正整数：项目里程碑的数量 N（≤）和任务总数 M。这里的里程碑从 0 到 N−1 编号。随后 M行，每行给出一项任务的描述，格式为“任务起始里程碑 任务结束里程碑 工作时长”，三个数字均为非负整数，以空格分隔。</p>
+<h1 id="输出格式-">输出格式：</h1>
+<p>如果整个项目的安排是合理可行的，在一行中输出最早完工时间；否则输出"Impossible"。</p>
+<h1 id="输入样例-1-">输入样例 1：</h1>
+<pre><code class="highlight-chroma">9 12
+0 1 6
+0 2 4
+0 3 5
+1 4 1
+2 4 1
+3 5 2
+5 4 0
+4 6 9
+4 7 7
+5 7 4
+6 8 2
+7 8 4
+
+</code></pre>
+<h1 id="输出样例-1-">输出样例 1：</h1>
+<pre><code class="highlight-chroma">18
+</code></pre>
+<h1 id="输入样例-2-">输入样例 2：</h1>
+<pre><code class="highlight-chroma">4 5
+0 1 1
+0 2 2
+2 1 3
+1 3 4
+3 2 5
+
+</code></pre>
+<h1 id="输出样例-2-">输出样例 2：</h1>
+<pre><code class="highlight-chroma">Impossible
+
+</code></pre>
+<p>判断一个图是否为有向无环图的算法：</p>
+<ol>
+<li>定义一个队列Q，并把所有入度为0的结点加入队列。</li>
+<li>取队首结点，输出，然后删除所有从它出发的边，并令这些边到达的定点的入度减1，如果某个顶点的入度减为0，则将其加入队列。</li>
+<li>反复进行2的操作，直到队列为空。如果队列为空时入过队的结点数恰好为N，说明拓扑排序成功，图G为有向无环图；否则，拓扑排序失败，图G中有环。</li>
+</ol>
+<p>最早发生时间ve的求法<br>
+求ve[j]的时候需要找到前继结点，比较麻烦，而通过前驱结点去寻找后继结点比较容易，那么在拓扑排序时访问到某个结点v时，更新它所有的后继结点的ve最大值，ve[u]+g[u][v]&gt;ve<a href="%E6%9B%B4%E6%96%B0u%E7%9A%84%E6%89%80%E6%9C%89%E5%90%8E%E7%BB%A7%E7%BB%93%E7%82%B9v" target="_blank">v</a>。 有可能出现多个起点或者终点，这时候找出最大的ve即为整个工程的最早发生时间。</p>
+<p>最晚发生时间的求法<br>
+按求最早发生时间时入栈顺序出栈，出栈的每个元素更新它后继结点的最晚发生时间，此时，它后继结点一定已经出栈</p>
+<p>关键路径的求法<br>
+最早发生时间与最晚发生时间相等的点即为关键路径</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;iostream&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;string&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;cstring&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;vector&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;map&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;unordered_map&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;set&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;unordered_set&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;cmath&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;algorithm&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;queue&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;stack&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;cstdio&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;ctime&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;list&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;sstream&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;iomanip&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;functional&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp"></span><span class="highlight-c1">//#include&lt;bits/stdc++.h&gt;
+</span><span class="highlight-c1"></span><span class="highlight-cp">#define LL long long
+</span><span class="highlight-cp">#define FIN freopen("input.txt","r",stdin)
+</span><span class="highlight-cp">#define FOUT freopen("output.txt","w",stdout)
+</span><span class="highlight-cp">#define CLOSEIN fclose(stdin)
+</span><span class="highlight-cp">#define CLOSEOUT fclose(stdout)
+</span><span class="highlight-cp"></span><span class="highlight-k">using</span> <span class="highlight-k">namespace</span> <span class="highlight-n">std</span><span class="highlight-p">;</span>
+<span class="highlight-k">const</span> <span class="highlight-kt">int</span> <span class="highlight-n">MAXV</span> <span class="highlight-o">=</span> <span class="highlight-mi">105</span><span class="highlight-p">;</span>
+<span class="highlight-n">vector</span><span class="highlight-o">&lt;</span><span class="highlight-n">pair</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-kt">int</span><span class="highlight-o">&gt;</span> <span class="highlight-o">&gt;</span> <span class="highlight-n">g</span><span class="highlight-p">[</span><span class="highlight-n">MAXV</span><span class="highlight-p">];</span><span class="highlight-c1">//图,first为后继点，second为边长
+</span><span class="highlight-c1"></span><span class="highlight-kt">int</span> <span class="highlight-n">n</span><span class="highlight-p">,</span> <span class="highlight-n">m</span><span class="highlight-p">;</span>
+<span class="highlight-kt">int</span> <span class="highlight-n">indegree</span><span class="highlight-p">[</span><span class="highlight-n">MAXV</span><span class="highlight-p">]</span> <span class="highlight-o">=</span> <span class="highlight-p">{</span> <span class="highlight-mi">0</span> <span class="highlight-p">};</span><span class="highlight-c1">//每个点的入度
+</span><span class="highlight-c1"></span><span class="highlight-kt">int</span> <span class="highlight-n">ve</span><span class="highlight-p">[</span><span class="highlight-n">MAXV</span><span class="highlight-p">]</span> <span class="highlight-o">=</span> <span class="highlight-p">{</span> <span class="highlight-mi">0</span> <span class="highlight-p">};</span><span class="highlight-c1">//最早发生时间
+</span><span class="highlight-c1"></span><span class="highlight-kt">int</span> <span class="highlight-n">vl</span><span class="highlight-p">[</span><span class="highlight-n">MAXV</span><span class="highlight-p">];</span>
+<span class="highlight-n">stack</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;</span> <span class="highlight-n">toporder</span><span class="highlight-p">;</span><span class="highlight-c1">//入度为0的点出队时依次进栈
+</span><span class="highlight-c1"></span><span class="highlight-kt">int</span> <span class="highlight-nf">criticalpath</span><span class="highlight-p">()</span> <span class="highlight-p">{</span><span class="highlight-c1">//计算最晚发生时间和输出关键活动，返回关键路径长度，适用于汇点确定且唯一的情况
+</span><span class="highlight-c1"></span>	<span class="highlight-n">fill</span><span class="highlight-p">(</span><span class="highlight-n">vl</span><span class="highlight-p">,</span> <span class="highlight-n">vl</span> <span class="highlight-o">+</span> <span class="highlight-n">n</span><span class="highlight-p">,</span> <span class="highlight-n">ve</span><span class="highlight-p">[</span><span class="highlight-n">n</span> <span class="highlight-o">-</span> <span class="highlight-mi">1</span><span class="highlight-p">]);</span><span class="highlight-c1">//vl数组初始化为汇点的ve值
+</span><span class="highlight-c1"></span>	<span class="highlight-c1">//直接使用toporder出栈即为逆拓扑序列，求解vl数组
+</span><span class="highlight-c1"></span>	<span class="highlight-k">while</span> <span class="highlight-p">(</span><span class="highlight-o">!</span><span class="highlight-n">toporder</span><span class="highlight-p">.</span><span class="highlight-n">empty</span><span class="highlight-p">())</span> <span class="highlight-p">{</span>
+		<span class="highlight-kt">int</span> <span class="highlight-n">u</span> <span class="highlight-o">=</span> <span class="highlight-n">toporder</span><span class="highlight-p">.</span><span class="highlight-n">top</span><span class="highlight-p">();</span>
+		<span class="highlight-n">toporder</span><span class="highlight-p">.</span><span class="highlight-n">pop</span><span class="highlight-p">();</span>
+		<span class="highlight-k">for</span> <span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-n">i</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">g</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">].</span><span class="highlight-n">size</span><span class="highlight-p">();</span> <span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span> <span class="highlight-p">{</span>
+			<span class="highlight-kt">int</span> <span class="highlight-n">v</span> <span class="highlight-o">=</span> <span class="highlight-n">g</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">][</span><span class="highlight-n">i</span><span class="highlight-p">].</span><span class="highlight-n">first</span><span class="highlight-p">;</span><span class="highlight-c1">//u的后继结点
+</span><span class="highlight-c1"></span>			<span class="highlight-c1">//用u的所有后继结点v的vl值来更新vl[u]
+</span><span class="highlight-c1"></span>			<span class="highlight-k">if</span> <span class="highlight-p">(</span><span class="highlight-n">vl</span><span class="highlight-p">[</span><span class="highlight-n">v</span><span class="highlight-p">]</span> <span class="highlight-o">-</span> <span class="highlight-n">g</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">][</span><span class="highlight-n">i</span><span class="highlight-p">].</span><span class="highlight-n">second</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">vl</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">])</span> <span class="highlight-p">{</span>
+				<span class="highlight-n">vl</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">]</span> <span class="highlight-o">=</span> <span class="highlight-n">vl</span><span class="highlight-p">[</span><span class="highlight-n">v</span><span class="highlight-p">]</span> <span class="highlight-o">-</span> <span class="highlight-n">g</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">][</span><span class="highlight-n">i</span><span class="highlight-p">].</span><span class="highlight-n">second</span><span class="highlight-p">;</span>
+			<span class="highlight-p">}</span>
+		<span class="highlight-p">}</span>
+	<span class="highlight-p">}</span>
+	<span class="highlight-c1">//上面计算最晚发生时间，下面输出关键活动
+</span><span class="highlight-c1"></span>	<span class="highlight-c1">//遍历邻接表的所有边，计算活动的最早发生时间与最迟开始时间
+</span><span class="highlight-c1"></span>	<span class="highlight-k">for</span> <span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">u</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-n">u</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">n</span><span class="highlight-p">;</span> <span class="highlight-n">u</span><span class="highlight-o">++</span><span class="highlight-p">)</span> <span class="highlight-p">{</span>
+		<span class="highlight-k">for</span> <span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-n">i</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">g</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">].</span><span class="highlight-n">size</span><span class="highlight-p">();</span> <span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span> <span class="highlight-p">{</span>
+			<span class="highlight-kt">int</span> <span class="highlight-n">v</span> <span class="highlight-o">=</span> <span class="highlight-n">g</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">][</span><span class="highlight-n">i</span><span class="highlight-p">].</span><span class="highlight-n">first</span><span class="highlight-p">,</span> <span class="highlight-n">w</span> <span class="highlight-o">=</span> <span class="highlight-n">g</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">][</span><span class="highlight-n">i</span><span class="highlight-p">].</span><span class="highlight-n">second</span><span class="highlight-p">;</span>
+			<span class="highlight-c1">//e活动最早开始时间，l活动最晚发生时间
+</span><span class="highlight-c1"></span>			<span class="highlight-kt">int</span> <span class="highlight-n">e</span> <span class="highlight-o">=</span> <span class="highlight-n">ve</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">],</span> <span class="highlight-n">l</span> <span class="highlight-o">=</span> <span class="highlight-n">vl</span><span class="highlight-p">[</span><span class="highlight-n">v</span><span class="highlight-p">]</span> <span class="highlight-o">-</span> <span class="highlight-n">w</span><span class="highlight-p">;</span>
+			<span class="highlight-c1">//e==l说明，活动u-&gt;v是关键活动
+</span><span class="highlight-c1"></span>			<span class="highlight-k">if</span> <span class="highlight-p">(</span><span class="highlight-n">e</span> <span class="highlight-o">==</span> <span class="highlight-n">l</span><span class="highlight-p">)</span><span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">u</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-s">"-&gt;"</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">v</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">endl</span><span class="highlight-p">;</span>
+		<span class="highlight-p">}</span>
+	<span class="highlight-p">}</span>
+	<span class="highlight-k">return</span> <span class="highlight-n">ve</span><span class="highlight-p">[</span><span class="highlight-n">n</span> <span class="highlight-o">-</span> <span class="highlight-mi">1</span><span class="highlight-p">];</span><span class="highlight-c1">//返回关键路径长度
+</span><span class="highlight-c1"></span><span class="highlight-p">}</span>
+<span class="highlight-kt">bool</span> <span class="highlight-nf">toplogicalsort</span><span class="highlight-p">()</span> <span class="highlight-p">{</span>
+	<span class="highlight-n">queue</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;</span> <span class="highlight-n">q</span><span class="highlight-p">;</span>
+	<span class="highlight-k">for</span> <span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-n">i</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">n</span><span class="highlight-p">;</span> <span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span> <span class="highlight-p">{</span><span class="highlight-c1">//入度为0的点进队
+</span><span class="highlight-c1"></span>		<span class="highlight-k">if</span> <span class="highlight-p">(</span><span class="highlight-n">indegree</span><span class="highlight-p">[</span><span class="highlight-n">i</span><span class="highlight-p">]</span> <span class="highlight-o">==</span> <span class="highlight-mi">0</span><span class="highlight-p">)</span><span class="highlight-n">q</span><span class="highlight-p">.</span><span class="highlight-n">push</span><span class="highlight-p">(</span><span class="highlight-n">i</span><span class="highlight-p">);</span>
+	<span class="highlight-p">}</span>
+	<span class="highlight-k">while</span> <span class="highlight-p">(</span><span class="highlight-o">!</span><span class="highlight-n">q</span><span class="highlight-p">.</span><span class="highlight-n">empty</span><span class="highlight-p">())</span> <span class="highlight-p">{</span>
+		<span class="highlight-kt">int</span> <span class="highlight-n">u</span> <span class="highlight-o">=</span> <span class="highlight-n">q</span><span class="highlight-p">.</span><span class="highlight-n">front</span><span class="highlight-p">();</span>
+		<span class="highlight-n">q</span><span class="highlight-p">.</span><span class="highlight-n">pop</span><span class="highlight-p">();</span>
+		<span class="highlight-n">toporder</span><span class="highlight-p">.</span><span class="highlight-n">push</span><span class="highlight-p">(</span><span class="highlight-n">u</span><span class="highlight-p">);</span>
+		<span class="highlight-k">for</span> <span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-n">i</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">g</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">].</span><span class="highlight-n">size</span><span class="highlight-p">();</span> <span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span> <span class="highlight-p">{</span>
+			<span class="highlight-kt">int</span> <span class="highlight-n">v</span> <span class="highlight-o">=</span> <span class="highlight-n">g</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">][</span><span class="highlight-n">i</span><span class="highlight-p">].</span><span class="highlight-n">first</span><span class="highlight-p">;</span><span class="highlight-c1">//记录此后继结点
+</span><span class="highlight-c1"></span>			<span class="highlight-n">indegree</span><span class="highlight-p">[</span><span class="highlight-n">v</span><span class="highlight-p">]</span><span class="highlight-o">--</span><span class="highlight-p">;</span><span class="highlight-c1">//后继点入度减1
+</span><span class="highlight-c1"></span>			<span class="highlight-k">if</span> <span class="highlight-p">(</span><span class="highlight-n">indegree</span><span class="highlight-p">[</span><span class="highlight-n">v</span><span class="highlight-p">]</span> <span class="highlight-o">==</span> <span class="highlight-mi">0</span><span class="highlight-p">)</span><span class="highlight-n">q</span><span class="highlight-p">.</span><span class="highlight-n">push</span><span class="highlight-p">(</span><span class="highlight-n">v</span><span class="highlight-p">);</span><span class="highlight-c1">//后继点入度为0时入队
+</span><span class="highlight-c1"></span> 
+			<span class="highlight-k">if</span> <span class="highlight-p">(</span><span class="highlight-n">ve</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">]</span> <span class="highlight-o">+</span> <span class="highlight-n">g</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">][</span><span class="highlight-n">i</span><span class="highlight-p">].</span><span class="highlight-n">second</span> <span class="highlight-o">&gt;</span> <span class="highlight-n">ve</span><span class="highlight-p">[</span><span class="highlight-n">v</span><span class="highlight-p">])</span><span class="highlight-c1">//最早发生时间取最大值
+</span><span class="highlight-c1"></span>				<span class="highlight-n">ve</span><span class="highlight-p">[</span><span class="highlight-n">v</span><span class="highlight-p">]</span> <span class="highlight-o">=</span> <span class="highlight-n">ve</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">]</span> <span class="highlight-o">+</span> <span class="highlight-n">g</span><span class="highlight-p">[</span><span class="highlight-n">u</span><span class="highlight-p">][</span><span class="highlight-n">i</span><span class="highlight-p">].</span><span class="highlight-n">second</span><span class="highlight-p">;</span>
+		<span class="highlight-p">}</span>
+	<span class="highlight-p">}</span>
+	<span class="highlight-k">if</span> <span class="highlight-p">(</span><span class="highlight-n">toporder</span><span class="highlight-p">.</span><span class="highlight-n">size</span><span class="highlight-p">()</span> <span class="highlight-o">==</span> <span class="highlight-n">n</span><span class="highlight-p">)</span><span class="highlight-k">return</span> <span class="highlight-nb">true</span><span class="highlight-p">;</span><span class="highlight-c1">//如果有n个结点，说明是有向无环图
+</span><span class="highlight-c1"></span>	<span class="highlight-k">else</span> <span class="highlight-k">return</span> <span class="highlight-nb">false</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kt">int</span> <span class="highlight-nf">main</span><span class="highlight-p">()</span> <span class="highlight-p">{</span>
+	<span class="highlight-n">cin</span> <span class="highlight-o">&gt;&gt;</span> <span class="highlight-n">n</span> <span class="highlight-o">&gt;&gt;</span> <span class="highlight-n">m</span><span class="highlight-p">;</span>
+	<span class="highlight-kt">int</span> <span class="highlight-n">a</span><span class="highlight-p">,</span> <span class="highlight-n">b</span><span class="highlight-p">,</span> <span class="highlight-n">c</span><span class="highlight-p">;</span>
+	<span class="highlight-k">while</span> <span class="highlight-p">(</span><span class="highlight-n">m</span><span class="highlight-o">--</span><span class="highlight-p">)</span> <span class="highlight-p">{</span>
+		<span class="highlight-n">cin</span> <span class="highlight-o">&gt;&gt;</span> <span class="highlight-n">a</span> <span class="highlight-o">&gt;&gt;</span> <span class="highlight-n">b</span> <span class="highlight-o">&gt;&gt;</span> <span class="highlight-n">c</span><span class="highlight-p">;</span>
+		<span class="highlight-n">g</span><span class="highlight-p">[</span><span class="highlight-n">a</span><span class="highlight-p">].</span><span class="highlight-n">push_back</span><span class="highlight-p">(</span><span class="highlight-n">make_pair</span><span class="highlight-p">(</span><span class="highlight-n">b</span><span class="highlight-p">,</span> <span class="highlight-n">c</span><span class="highlight-p">));</span>
+		<span class="highlight-n">indegree</span><span class="highlight-p">[</span><span class="highlight-n">b</span><span class="highlight-p">]</span><span class="highlight-o">++</span><span class="highlight-p">;</span>
+	<span class="highlight-p">}</span>
+	<span class="highlight-k">if</span> <span class="highlight-p">(</span><span class="highlight-n">toplogicalsort</span><span class="highlight-p">())</span> <span class="highlight-p">{</span><span class="highlight-c1">//有多个终点时
+</span><span class="highlight-c1"></span>		<span class="highlight-kt">int</span> <span class="highlight-n">k</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span>
+		<span class="highlight-k">for</span> <span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-n">i</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">n</span><span class="highlight-p">;</span> <span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+			<span class="highlight-n">k</span> <span class="highlight-o">=</span> <span class="highlight-n">max</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-p">,</span> <span class="highlight-n">ve</span><span class="highlight-p">[</span><span class="highlight-n">i</span><span class="highlight-p">]);</span>
+		<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">k</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">endl</span><span class="highlight-p">;</span>
+	<span class="highlight-p">}</span>
+	<span class="highlight-k">else</span> <span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-s">"Impossible"</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">endl</span><span class="highlight-p">;</span>
+	<span class="highlight-c1">//criticalpath();计算最晚发生时间，输出关键路径，返回关键路径长度
+</span><span class="highlight-c1"></span><span class="highlight-p">}</span>
+
+</code></pre>
+                            <div>
+                                <hr>
+
+标题：拓扑排序 最短工期 PTA<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2019/12/03/1575377857089.html" target="_blank">https://Rainsheep.github.io/articles/2019/12/03/1575377857089.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575377693241.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: 杂碎知识点总结
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575378060617.html" rel="next"
+                               class="fn__right breadcrumb">
+                                星期几的计算: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575377693241.html" rel="prev" class="breadcrumb">
+                            旧一篇: 杂碎知识点总结
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575378060617.html" rel="next"
+                           class="breadcrumb">
+                            新一篇: 星期几的计算
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1575377857089"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h1">
+            <a href="#题目-">题目：</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#输入格式-">输入格式：</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#输出格式-">输出格式：</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#输入样例-1-">输入样例 1：</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#输出样例-1-">输出样例 1：</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#输入样例-2-">输入样例 2：</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#输出样例-2-">输出样例 2：</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1575377857089",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 710ms, 2020/03/18 19:04:19 -->

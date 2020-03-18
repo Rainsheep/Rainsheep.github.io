@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>线段树 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="线段树 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2019/12/04/1575438590893.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="线段树 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2019/12/04/1575438590893.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
+            <link rel="prev" title="LIS（最长上升子序列）" href="https://Rainsheep.github.io/articles/2019/12/04/1575436974755.html">
+            <link rel="next" title="window下python2与python3共存" href="https://Rainsheep.github.io/articles/2019/12/04/1575439328865.html">
+    </head>
+<body>
+<div class="bg"></div>
+<div class="bg bg--1"></div>
+<div class="bg bg--2"></div>
+<div class="bg bg--3"></div>
+<div class="bg bg--4"></div>
+<div class="bg bg--5"></div>
+<header class="header">
+    <div class="header__wrap">
+        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+            <i class="icon__home"></i> 雨羊的个人博客
+        </a>
+
+        <nav class="mobile__hidden header__nav">
+                <a href="/my-github-repos" target="_self" rel="section">
+                    <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                </a>
+            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <i class="icon__tags"></i> 标签墙
+            </a>
+            <a href="https://Rainsheep.github.io/archives.html">
+                <i class="icon__inbox"></i> 存档
+            </a>
+            <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友情链接
+            </a>
+            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <i class="icon__rss"></i> RSS
+            </a>
+        </nav>
+
+    </div>
+</header>
+<div class="header__m fn__none">
+    <i class="icon__list fn__none" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list fn__none"></main>
+    <i class="icon__more" onclick="$(this).next().slideToggle()"></i>
+    <main class="module__list">
+        <ul>
+                <li>
+                    <a href="/my-github-repos" target="_self" rel="section">
+                        <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
+                    </a>
+                </li>
+            <li>
+                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                    <i class="icon__tags"></i> 标签墙
+                </a>
+            </li>
+            <li>
+                <a href="https://Rainsheep.github.io/archives.html">
+                    <i class="icon__inbox"></i> 存档
+                </a>
+            </li>
+            <li>
+                <a rel="archive" href="https://Rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友情链接
+                </a>
+            </li>
+            <li>
+                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                    <i class="icon__rss"></i> RSS
+                </a>
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="main" id="pjax">
+    
+    <div class="content">
+        <main id="articlePage">
+            <div class="article-list">
+                <div class="item item--active">
+                    <time class="vditor-tooltipped vditor-tooltipped__n item__date"
+                          aria-label="2019年">
+                        12月
+                        <span class="item__day">04</span>
+                    </time>
+
+                    <h2 class="item__title">
+                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2019/12/04/1575438590893.html">
+                            线段树
+                        </a>
+                    </h2>
+
+                    <div class="item__date--m fn__none">
+                        <i class="icon__date"></i>
+                        2019-12-04
+                    </div>
+
+                    <div class="ft__center">
+                        <span class="tag">
+                            <i class="icon__tags"></i>
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93">
+                                知识点总结</a>,
+                            <a rel="tag" href="https://Rainsheep.github.io/tags/acm">
+                                acm</a>
+                        </span>
+                            <a class="tag" href="https://Rainsheep.github.io/articles/2019/12/04/1575438590893.html#b3logsolocomments">
+                                <i class="icon__comments"></i> <span data-uvstatcmt="1575438590893">0</span> 评论
+                            </a>
+                        <span class="tag">
+                            <i class="icon__views"></i>
+                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2019/12/04/1575438590893.html">5</span> 浏览
+                        </span>
+                    </div>
+
+                    <div class="vditor-reset">
+                        <details>
+	<summary>参考链接</summary>
+	<a href="https://www.cnblogs.com/TheRoadToTheGold/p/6254255.html" target="_blank">据结构——线段树</a>
+</details>
+<h1 id="引例">引例</h1>
+<ol>
+<li>
+<p>给出n个数，n&lt;=100，和m个询问，每次询问区间[l，r]的和，并输出。<br>
+一种回答：这也太简单了，O（n）枚举搜索就行了。<br>
+另一种回答：还用得着o(n）枚举，前缀和o(1)就搞定。<br>
+那好，我再修改一下题目。</p>
+</li>
+<li>
+<p>给出n个数，n&lt;=100，和m个操作，每个操作可能有两种：1、在某个位置加上一个数；2、询问区间[l，r]的和，并输出。<br>
+回答：o（n）枚举。<br>
+动态修改最起码不能用静态的前缀和做了。<br>
+好，我再修改题目：</p>
+</li>
+<li>
+<p>给出n个数，n&lt;=1000000，和m个操作，每个操作可能有两种：1、在某个位置加上一个数；2、询问区间[l，r]的和，并输出。<br>
+回答：o（n）枚举绝对超时。<br>
+再改：</p>
+</li>
+<li>
+<p>给出n个数，n&lt;=1000000，和m个操作，每个操作修改一段连续区间[a,b]的值<br>
+回答：从a枚举到b，一个一个改。。。。。。有点儿常识的人都知道超时<br>
+那怎么办？这就需要一种强大的数据结构：线段树。</p>
+</li>
+</ol>
+<h1 id="基本概念">基本概念</h1>
+<ol>
+<li>线段树是一棵二叉搜索树，它储存的是一个区间的信息。</li>
+<li>每个节点以结构体的方式存储，结构体包含以下几个信息：
+<ul>
+<li>区间左端点、右端点；（这两者必有）</li>
+<li>这个区间要维护的信息（事实际情况而定，数目不等）。</li>
+</ul>
+</li>
+<li>线段树的基本思想：二分。</li>
+<li>线段树一般结构如图所示：</li>
+</ol>
+<p><img src="https://img.hacpai.com/file/2019/12/105683420170105203630800980605038-15cf7333.jpg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="105683420170105203630800980605038.jpg"></p>
+<ol start="5">
+<li>特殊性质：</li>
+</ol>
+<p>由上图可得，</p>
+<ul>
+<li><strong>每个节点的左孩子区间范围为[l，mid]，右孩子为[mid+1,r]</strong></li>
+<li><strong>对于结点k，左孩子结点为2<em>k，右孩子为2</em>k+1，这符合完全二叉树的性质</strong></li>
+</ul>
+<h1 id="线段树的基础操作">线段树的基础操作</h1>
+<blockquote>
+<p>注：以下基础操作均以引例中的求和为例，结构体以此为例：</p>
+</blockquote>
+<pre><code class="highlight-chroma">struct node
+{
+       int l,r,w;//l，r分别表示区间左右端点，w表示区间和
+}tree[4*n+1];
+</code></pre>
+<p>线段树的基础操作主要有5个：<br>
+建树、单点查询、单点修改、区间查询、区间修改。</p>
+<p><strong>1、建树，即建立一棵线段树</strong></p>
+<p>① 主体思路：</p>
+<ul>
+<li>对于二分到的每一个结点，给它的左右端点确定范围。</li>
+<li>如果是叶子节点，存储要维护的信息。</li>
+<li>状态合并。</li>
+</ul>
+<p>②代码</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">void</span> <span class="highlight-nf">build</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">l</span><span class="highlight-p">,</span><span class="highlight-kt">int</span> <span class="highlight-n">r</span><span class="highlight-p">,</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">=</span><span class="highlight-n">l</span><span class="highlight-p">;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">=</span><span class="highlight-n">r</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">l</span><span class="highlight-o">==</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-c1">//叶子节点 
+</span><span class="highlight-c1"></span>    <span class="highlight-p">{</span>
+        <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">);</span>
+        <span class="highlight-k">return</span> <span class="highlight-p">;</span> 
+    <span class="highlight-p">}</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-n">build</span><span class="highlight-p">(</span><span class="highlight-n">l</span><span class="highlight-p">,</span><span class="highlight-n">m</span><span class="highlight-p">,</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span><span class="highlight-c1">//左孩子 
+</span><span class="highlight-c1"></span>    <span class="highlight-n">build</span><span class="highlight-p">(</span><span class="highlight-n">m</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-n">r</span><span class="highlight-p">,</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span><span class="highlight-c1">//右孩子 
+</span><span class="highlight-c1"></span>    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span><span class="highlight-c1">//状态合并，此结点的w=两个孩子的w之和 
+</span><span class="highlight-c1"></span><span class="highlight-p">}</span>
+</code></pre>
+<p>③注意</p>
+<ul>
+<li>结构体要开4倍空间，为啥自己画一个[1,10]的线段树就懂了</li>
+<li>千万不要漏了return语句，因为到了叶子节点不需要再继续递归了。</li>
+</ul>
+<p><strong>2、单点查询，即查询一个点的状态，设待查询点为x</strong></p>
+<p>①主体思路：与二分查询法基本一致，如果当前枚举的点左右端点相等，即叶子节点，就是目标节点。如果不是，因为这是二分法,所以设查询位置为x，当前结点区间范围为了l，r，中点为 mid，则如果x&lt;=mid，则递归它的左孩子，否则递归它的右孩子</p>
+<p>②代码</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">void</span> <span class="highlight-nf">ask</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">==</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span> <span class="highlight-c1">//当前结点的左右端点相等，是叶子节点，是最终答案 
+</span><span class="highlight-c1"></span>    <span class="highlight-p">{</span>
+        <span class="highlight-n">ans</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span> <span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">ask</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span><span class="highlight-c1">//目标位置比中点靠左，就递归左孩子 
+</span><span class="highlight-c1"></span>    <span class="highlight-k">else</span> <span class="highlight-n">ask</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span><span class="highlight-c1">//反之，递归右孩子 
+</span><span class="highlight-c1"></span><span class="highlight-p">}</span>
+</code></pre>
+<p>③正确性分析：<br>
+因为如果不是目标位置，由if—else语句对目标位置定位，逐步缩小目标范围，最后一定能只到达目标叶子节点。</p>
+<p><strong>3、单点修改，即更改某一个点的状态。用引例中的例子，对第x个数加上y</strong></p>
+<p>①主体思路<br>
+结合单点查询的原理，找到x的位置；根据建树状态合并的原理，修改每个结点的状态。</p>
+<p><img src="https://img.hacpai.com/file/2019/12/1056834201701052143388782092313389-193a37ee.jpg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="1056834201701052143388782092313389.jpg"></p>
+<p>②代码</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">void</span> <span class="highlight-nf">add</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">==</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-c1">//找到目标位置 
+</span><span class="highlight-c1"></span>    <span class="highlight-p">{</span>
+        <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+=</span><span class="highlight-n">y</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">add</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-k">else</span> <span class="highlight-n">add</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span><span class="highlight-c1">//所有包含结点k的结点状态更新 
+</span><span class="highlight-c1"></span><span class="highlight-p">}</span>
+</code></pre>
+<p><strong>4、区间查询，即查询一段区间的状态，在引例中为查询区间[x,y]的和</strong></p>
+<p>①主体思路</p>
+<p><img src="https://img.hacpai.com/file/2019/12/20190204115306271-d9257e5c.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20190204115306271.png"></p>
+<p><img src="https://img.hacpai.com/file/2019/12/20190204115404357-b4863aa1.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20190204115404357.png"></p>
+<p>mid=(l+r)/2<br>
+y&lt;=mid ,即 查询区间全在，当前区间的左子区间，往左孩子走<br>
+x&gt;mid 即 查询区间全在，当前区间的右子区间，往右孩子走<br>
+否则，两个子区间都走</p>
+<p>②代码</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">void</span> <span class="highlight-nf">sum</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">&gt;=</span><span class="highlight-n">x</span><span class="highlight-o">&amp;&amp;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">&lt;=</span><span class="highlight-n">y</span><span class="highlight-p">)</span> 
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">ans</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">sum</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">y</span><span class="highlight-o">&gt;</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">sum</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+<span class="highlight-p">}</span>
+</code></pre>
+<p>③正确性分析</p>
+<p>情况1，3不用说，对于情况2，最差情况是搜到叶子节点，此时一定满足情况1</p>
+<p><strong>5、区间修改，即修改一段连续区间的值，我们已给区间[a,b]的每个数都加x为例讲解</strong></p>
+<p><strong>Ⅰ.引子</strong><br>
+<img src="https://img.hacpai.com/file/2019/12/1056834201701070822538621637203209-c4414cd1.jpg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="1056834201701070822538621637203209.jpg"></p>
+<p>有人可能就想到了：<br>
+修改的时候只修改对查询有用的点。<br>
+对，这就是区间修改的关键思路。<br>
+为了实现这个，我们引入一个新的状态——懒标记。</p>
+<p><strong>Ⅱ 懒标记</strong></p>
+<p>（懒标记比较难理解，我尽力讲明白。。。。。。）</p>
+<ol>
+<li>直观理解：“懒”标记，懒嘛！用到它才动，不用它就睡觉。</li>
+<li>作用：存储到这个节点的修改信息，暂时不把修改信息传到子节点。就像家长扣零花钱，你用的时候才给你，不用不给你。</li>
+<li>实现思路（重点）：<br>
+<strong>3.1 原结构体中增加新的变量，存储这个懒标记。</strong><br>
+<strong>3.2 递归到这个节点时，只更新这个节点的状态，并把当前的更改值累积到标记中。</strong> 注意是累积，可以这样理解：过年，很多个亲戚都给你压岁钱，但你暂时不用，所以都被你父母扣下了。<br>
+3.3 什么时候才用到这个懒标记？**当需要递归这个节点的子节点时，标记下传给子节点。**这里不必管用哪个子节点，两个都传下去。就像你如果还有妹妹，父母给你们零花钱时总不能偏心吧<br>
+3.4 <strong>下传</strong>操作：3部分：
+<ul>
+<li>
+<p><strong>当前节点的懒标记累积到子节点的懒标记中。</strong></p>
+</li>
+<li>
+<p><strong>修改子节点状态。</strong> 在引例中，<strong>就是原状态+子节点区间点的个数*父节点传下来的懒标记。</strong><br>
+这就有疑问了，既然父节点都把标记传下来了，为什么还要乘父节点的懒标记，乘自己的不行吗？<br>
+因为自己的标记可能是父节点多次传下来的累积，每次都乘自己的懒标记造成重复累积</p>
+</li>
+<li>
+<p><strong>父节点懒标记清0。</strong> 这个懒标记已经传下去了，不清0后面再用这个懒标记时会重复下传。就像你父母给了你5元钱，你不能说因为前几次给了你10元钱, 所以这次给了你15元，那你不就亏大了。</p>
+<p>懒标记下穿代码：f为懒标记，其余变量与前面含义一致。</p>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">void</span> <span class="highlight-nf">down</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">;</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">;</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">*</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">-</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">*</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">-</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">=</span><span class="highlight-mi">0</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+</code></pre>
+<p><strong>Ⅲ 完整的区间修改代码：</strong></p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">void</span> <span class="highlight-nf">add</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">&gt;=</span><span class="highlight-n">a</span><span class="highlight-o">&amp;&amp;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">&lt;=</span><span class="highlight-n">b</span><span class="highlight-p">)</span><span class="highlight-c1">//当前区间全部对要修改的区间有用 
+</span><span class="highlight-c1"></span>    <span class="highlight-p">{</span>
+        <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">-</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">)</span><span class="highlight-o">*</span><span class="highlight-n">x</span><span class="highlight-p">;</span><span class="highlight-c1">//(r-1)+1区间点的总数
+</span><span class="highlight-c1"></span>        <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">+=</span><span class="highlight-n">x</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">)</span> <span class="highlight-n">down</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-p">);</span><span class="highlight-c1">//懒标记下传。只有不满足上面的if条件才执行，所以一定会用到当前节点的子节点 
+</span><span class="highlight-c1"></span>    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">a</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">add</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">b</span><span class="highlight-o">&gt;</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">add</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span><span class="highlight-c1">//更改区间状态 
+</span><span class="highlight-c1"></span><span class="highlight-p">}</span>
+</code></pre>
+<p><strong>Ⅳ.懒标记的引入对其他基本操作的影响</strong></p>
+<p>因为引入了懒标记，很多用不着的更改状态存了起来，这就会对区间查询、单点查询造成一定的影响。</p>
+<p>所以在使用了懒标记的程序中，<strong>单点查询、区间查询也要像区间修改那样，对用得到的懒标记下传。</strong> 其实就是加上一句if(tree[k].f)  down（k），其余不变。</p>
+<p>引入了懒标记的单点查询代码：</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">void</span> <span class="highlight-nf">ask</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span><span class="highlight-c1">//单点查询
+</span><span class="highlight-c1"></span><span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">==</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">ans</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span> <span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">)</span> <span class="highlight-n">down</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-p">);</span><span class="highlight-c1">//懒标记下传，唯一需要更改的地方
+</span><span class="highlight-c1"></span>    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">ask</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-k">else</span> <span class="highlight-n">ask</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+<span class="highlight-p">}</span>
+</code></pre>
+<p>引入了懒标记的区间查询代码：</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">void</span> <span class="highlight-nf">sum</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span><span class="highlight-c1">//区间查询
+</span><span class="highlight-c1"></span><span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">&gt;=</span><span class="highlight-n">x</span><span class="highlight-o">&amp;&amp;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">&lt;=</span><span class="highlight-n">y</span><span class="highlight-p">)</span> 
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">ans</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">)</span>  <span class="highlight-n">down</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-p">)</span><span class="highlight-c1">//懒标记下传，唯一需要更改的地方
+</span><span class="highlight-c1"></span>    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">sum</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">y</span><span class="highlight-o">&gt;</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">sum</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+<span class="highlight-p">}</span>
+</code></pre>
+<h1 id="总结">总结</h1>
+<p>线段树5种基本操作代码：</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;cstdio&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp"></span><span class="highlight-k">using</span> <span class="highlight-k">namespace</span> <span class="highlight-n">std</span><span class="highlight-p">;</span>
+<span class="highlight-kt">int</span> <span class="highlight-n">n</span><span class="highlight-p">,</span><span class="highlight-n">p</span><span class="highlight-p">,</span><span class="highlight-n">a</span><span class="highlight-p">,</span><span class="highlight-n">b</span><span class="highlight-p">,</span><span class="highlight-n">m</span><span class="highlight-p">,</span><span class="highlight-n">x</span><span class="highlight-p">,</span><span class="highlight-n">y</span><span class="highlight-p">,</span><span class="highlight-n">ans</span><span class="highlight-p">;</span>
+<span class="highlight-k">struct</span> <span class="highlight-nc">node</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">l</span><span class="highlight-p">,</span><span class="highlight-n">r</span><span class="highlight-p">,</span><span class="highlight-n">w</span><span class="highlight-p">,</span><span class="highlight-n">f</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-mi">400001</span><span class="highlight-p">];</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">build</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">,</span><span class="highlight-kt">int</span> <span class="highlight-n">ll</span><span class="highlight-p">,</span><span class="highlight-kt">int</span> <span class="highlight-n">rr</span><span class="highlight-p">)</span><span class="highlight-c1">//建树 
+</span><span class="highlight-c1"></span><span class="highlight-p">{</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">=</span><span class="highlight-n">ll</span><span class="highlight-p">,</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">=</span><span class="highlight-n">rr</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">==</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">);</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">ll</span><span class="highlight-o">+</span><span class="highlight-n">rr</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-n">build</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">,</span><span class="highlight-n">ll</span><span class="highlight-p">,</span><span class="highlight-n">m</span><span class="highlight-p">);</span>
+    <span class="highlight-n">build</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-n">m</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-n">rr</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">down</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span><span class="highlight-c1">//标记下传 
+</span><span class="highlight-c1"></span><span class="highlight-p">{</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">;</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">;</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">*</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">-</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">*</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">-</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">=</span><span class="highlight-mi">0</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">ask_point</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span><span class="highlight-c1">//单点查询
+</span><span class="highlight-c1"></span><span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">==</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">ans</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span> <span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">)</span> <span class="highlight-n">down</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-p">);</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">ask_point</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-k">else</span> <span class="highlight-n">ask_point</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">change_point</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span><span class="highlight-c1">//单点修改 
+</span><span class="highlight-c1"></span><span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">==</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+=</span><span class="highlight-n">y</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">)</span> <span class="highlight-n">down</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-p">);</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">change_point</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-k">else</span> <span class="highlight-n">change_point</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span> 
+<span class="highlight-p">}</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">ask_interval</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span><span class="highlight-c1">//区间查询 
+</span><span class="highlight-c1"></span><span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">&gt;=</span><span class="highlight-n">a</span><span class="highlight-o">&amp;&amp;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">&lt;=</span><span class="highlight-n">b</span><span class="highlight-p">)</span> 
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">ans</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">)</span> <span class="highlight-n">down</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-p">);</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">a</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">ask_interval</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">b</span><span class="highlight-o">&gt;</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">ask_interval</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">change_interval</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span><span class="highlight-c1">//区间修改 
+</span><span class="highlight-c1"></span><span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">&gt;=</span><span class="highlight-n">a</span><span class="highlight-o">&amp;&amp;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">&lt;=</span><span class="highlight-n">b</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">-</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">)</span><span class="highlight-o">*</span><span class="highlight-n">y</span><span class="highlight-p">;</span>
+        <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">+=</span><span class="highlight-n">y</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">)</span> <span class="highlight-n">down</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-p">);</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">a</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">change_interval</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">b</span><span class="highlight-o">&gt;</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">change_interval</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kt">int</span> <span class="highlight-nf">main</span><span class="highlight-p">()</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">n</span><span class="highlight-p">);</span><span class="highlight-c1">//n个节点 
+</span><span class="highlight-c1"></span>    <span class="highlight-n">build</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-n">n</span><span class="highlight-p">);</span><span class="highlight-c1">//建树 
+</span><span class="highlight-c1"></span>    <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">m</span><span class="highlight-p">);</span><span class="highlight-c1">//m种操作 
+</span><span class="highlight-c1"></span>    <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span><span class="highlight-o">=</span><span class="highlight-mi">1</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">p</span><span class="highlight-p">);</span>
+        <span class="highlight-n">ans</span><span class="highlight-o">=</span><span class="highlight-mi">0</span><span class="highlight-p">;</span>
+        <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">p</span><span class="highlight-o">==</span><span class="highlight-mi">1</span><span class="highlight-p">)</span>
+        <span class="highlight-p">{</span>
+            <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">x</span><span class="highlight-p">);</span>
+            <span class="highlight-n">ask_point</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">);</span><span class="highlight-c1">//单点查询,输出第x个数 
+</span><span class="highlight-c1"></span>            <span class="highlight-n">printf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-n">ans</span><span class="highlight-p">);</span>
+        <span class="highlight-p">}</span> 
+        <span class="highlight-k">else</span> <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">p</span><span class="highlight-o">==</span><span class="highlight-mi">2</span><span class="highlight-p">)</span>
+        <span class="highlight-p">{</span>
+            <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">x</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">y</span><span class="highlight-p">);</span>
+            <span class="highlight-n">change_point</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">);</span><span class="highlight-c1">//单点修改 
+</span><span class="highlight-c1"></span>        <span class="highlight-p">}</span>
+        <span class="highlight-k">else</span> <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">p</span><span class="highlight-o">==</span><span class="highlight-mi">3</span><span class="highlight-p">)</span>
+        <span class="highlight-p">{</span>
+            <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">a</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">b</span><span class="highlight-p">);</span><span class="highlight-c1">//区间查询 
+</span><span class="highlight-c1"></span>            <span class="highlight-n">ask_interval</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+            <span class="highlight-n">printf</span><span class="highlight-p">(</span><span class="highlight-s">"%d</span><span class="highlight-se">\n</span><span class="highlight-s">"</span><span class="highlight-p">,</span><span class="highlight-n">ans</span><span class="highlight-p">);</span>
+        <span class="highlight-p">}</span>
+        <span class="highlight-k">else</span>
+        <span class="highlight-p">{</span>
+             <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d%d%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">a</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">b</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">y</span><span class="highlight-p">);</span><span class="highlight-c1">//区间修改 
+</span><span class="highlight-c1"></span>             <span class="highlight-n">change_interval</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+        <span class="highlight-p">}</span>
+    <span class="highlight-p">}</span>
+<span class="highlight-p">}</span>
+</code></pre>
+<h1 id="空间优化">空间优化</h1>
+<p>父节点k，左二子2<em>k，右儿子2</em>k+1，需要4<em>n的空间<br>
+但并不是所有的叶子节点占用到2n+1——4n<br>
+这就造成大量空间浪费<br>
+2</em>n空间表示法：推荐博客：<a href="http://www.cppblog.com/MatoNo1/archive/2015/05/05/195857.html" target="_blank">http://www.cppblog.com/MatoNo1/archive/2015/05/05/195857.html</a><br>
+用dfs序表示做节点下标<br>
+父节点k，左儿子k+1，右儿子：k+左儿子区间长度*2，不是父节点下标+父节点区间长度。因为当树不满时，两者不相等<br>
+具体实现这里就不再写模板了，就是改改左右儿子的下标<br>
+可参考代码： 题目：楼房重建<a href="http://www.cnblogs.com/TheRoadToTheGold/p/6361242.html" target="_blank">http://www.cnblogs.com/TheRoadToTheGold/p/6361242.html</a></p>
+<p>里面的建树用的2*n空间</p>
+<h1 id="模板题">模板题</h1>
+<p>1、<a href="http://codevs.cn/problem/1080/" target="_blank"> codevs 1080 线段树练习 （单点修改+区间查询）</a></p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;cstdio&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp"></span><span class="highlight-k">using</span> <span class="highlight-k">namespace</span> <span class="highlight-n">std</span><span class="highlight-p">;</span>
+<span class="highlight-kt">int</span> <span class="highlight-n">n</span><span class="highlight-p">,</span><span class="highlight-n">m</span><span class="highlight-p">,</span><span class="highlight-n">p</span><span class="highlight-p">,</span><span class="highlight-n">x</span><span class="highlight-p">,</span><span class="highlight-n">y</span><span class="highlight-p">,</span><span class="highlight-n">ans</span><span class="highlight-p">;</span>
+<span class="highlight-k">struct</span> <span class="highlight-nc">node</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">l</span><span class="highlight-p">,</span><span class="highlight-n">r</span><span class="highlight-p">,</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-mi">400001</span><span class="highlight-p">];</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">build</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">l</span><span class="highlight-p">,</span><span class="highlight-kt">int</span> <span class="highlight-n">r</span><span class="highlight-p">,</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">=</span><span class="highlight-n">l</span><span class="highlight-p">;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">=</span><span class="highlight-n">r</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">l</span><span class="highlight-o">==</span><span class="highlight-n">r</span><span class="highlight-p">)</span> 
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">);</span>
+        <span class="highlight-k">return</span> <span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-n">build</span><span class="highlight-p">(</span><span class="highlight-n">l</span><span class="highlight-p">,</span><span class="highlight-n">m</span><span class="highlight-p">,</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-n">build</span><span class="highlight-p">(</span><span class="highlight-n">m</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-n">r</span><span class="highlight-p">,</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">add</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">==</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+=</span><span class="highlight-n">y</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">add</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-k">else</span> <span class="highlight-n">add</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span> 
+<span class="highlight-p">}</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">sum</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">&gt;=</span><span class="highlight-n">x</span><span class="highlight-o">&amp;&amp;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">&lt;=</span><span class="highlight-n">y</span><span class="highlight-p">)</span> 
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">ans</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">sum</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">y</span><span class="highlight-o">&gt;</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">sum</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kt">int</span> <span class="highlight-nf">main</span><span class="highlight-p">()</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">n</span><span class="highlight-p">);</span>
+    <span class="highlight-n">build</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-n">n</span><span class="highlight-p">,</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">m</span><span class="highlight-p">);</span>
+    <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span><span class="highlight-o">=</span><span class="highlight-mi">1</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d%d%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">p</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">x</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">y</span><span class="highlight-p">);</span>
+        <span class="highlight-n">ans</span><span class="highlight-o">=</span><span class="highlight-mi">0</span><span class="highlight-p">;</span>
+        <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">p</span><span class="highlight-o">==</span><span class="highlight-mi">1</span><span class="highlight-p">)</span> <span class="highlight-n">add</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+        <span class="highlight-k">else</span> 
+        <span class="highlight-p">{</span>
+            <span class="highlight-n">sum</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+            <span class="highlight-n">printf</span><span class="highlight-p">(</span><span class="highlight-s">"%d</span><span class="highlight-se">\n</span><span class="highlight-s">"</span><span class="highlight-p">,</span><span class="highlight-n">ans</span><span class="highlight-p">);</span>
+        <span class="highlight-p">}</span>
+    <span class="highlight-p">}</span>
+<span class="highlight-p">}</span>
+</code></pre>
+<p>2、 <a href="http://codevs.cn/problem/1081/" target="_blank">codevs 1081 线段树练习2 （单点查询+区间修改）</a></p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;cstdio&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp"></span><span class="highlight-k">using</span> <span class="highlight-k">namespace</span> <span class="highlight-n">std</span><span class="highlight-p">;</span>
+<span class="highlight-kt">int</span> <span class="highlight-n">n</span><span class="highlight-p">,</span><span class="highlight-n">p</span><span class="highlight-p">,</span><span class="highlight-n">a</span><span class="highlight-p">,</span><span class="highlight-n">b</span><span class="highlight-p">,</span><span class="highlight-n">m</span><span class="highlight-p">,</span><span class="highlight-n">x</span><span class="highlight-p">,</span><span class="highlight-n">ans</span><span class="highlight-p">;</span>
+<span class="highlight-k">struct</span> <span class="highlight-nc">node</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">l</span><span class="highlight-p">,</span><span class="highlight-n">r</span><span class="highlight-p">,</span><span class="highlight-n">w</span><span class="highlight-p">,</span><span class="highlight-n">f</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-mi">400001</span><span class="highlight-p">];</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">build</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">,</span><span class="highlight-kt">int</span> <span class="highlight-n">ll</span><span class="highlight-p">,</span><span class="highlight-kt">int</span> <span class="highlight-n">rr</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">=</span><span class="highlight-n">ll</span><span class="highlight-p">,</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">=</span><span class="highlight-n">rr</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">==</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">);</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">ll</span><span class="highlight-o">+</span><span class="highlight-n">rr</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-n">build</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">,</span><span class="highlight-n">ll</span><span class="highlight-p">,</span><span class="highlight-n">m</span><span class="highlight-p">);</span>
+    <span class="highlight-n">build</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-n">m</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-n">rr</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">down</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">;</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">;</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">*</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">-</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">*</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">-</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">=</span><span class="highlight-mi">0</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">add</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">&gt;=</span><span class="highlight-n">a</span><span class="highlight-o">&amp;&amp;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">&lt;=</span><span class="highlight-n">b</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">-</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">)</span><span class="highlight-o">*</span><span class="highlight-n">x</span><span class="highlight-p">;</span>
+        <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">+=</span><span class="highlight-n">x</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">)</span> <span class="highlight-n">down</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-p">);</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">a</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">add</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">b</span><span class="highlight-o">&gt;</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">add</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">ask</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">==</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">ans</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">)</span> <span class="highlight-n">down</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-p">);</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">ask</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-k">else</span> <span class="highlight-n">ask</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span> 
+<span class="highlight-p">}</span>
+<span class="highlight-kt">int</span> <span class="highlight-nf">main</span><span class="highlight-p">()</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">n</span><span class="highlight-p">);</span>
+    <span class="highlight-n">build</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-n">n</span><span class="highlight-p">);</span>
+    <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">m</span><span class="highlight-p">);</span>
+    <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span><span class="highlight-o">=</span><span class="highlight-mi">1</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">p</span><span class="highlight-p">);</span>
+        <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">p</span><span class="highlight-o">==</span><span class="highlight-mi">1</span><span class="highlight-p">)</span>
+        <span class="highlight-p">{</span>
+            <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d%d%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">a</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">b</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">x</span><span class="highlight-p">);</span>
+            <span class="highlight-n">add</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+        <span class="highlight-p">}</span>
+        <span class="highlight-k">else</span>
+        <span class="highlight-p">{</span>
+            <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">x</span><span class="highlight-p">);</span>
+            <span class="highlight-n">ask</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+            <span class="highlight-n">printf</span><span class="highlight-p">(</span><span class="highlight-s">"%d</span><span class="highlight-se">\n</span><span class="highlight-s">"</span><span class="highlight-p">,</span><span class="highlight-n">ans</span><span class="highlight-p">);</span>
+        <span class="highlight-p">}</span>
+    <span class="highlight-p">}</span>
+<span class="highlight-p">}</span>
+</code></pre>
+<p>3、codevs 1082 线段树练习3  （区间修改+区间查询）</p>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;cstdio&gt;</span><span class="highlight-cp">
+</span><span class="highlight-cp"></span><span class="highlight-k">using</span> <span class="highlight-k">namespace</span> <span class="highlight-n">std</span><span class="highlight-p">;</span>
+<span class="highlight-kt">int</span> <span class="highlight-n">n</span><span class="highlight-p">,</span><span class="highlight-n">p</span><span class="highlight-p">,</span><span class="highlight-n">a</span><span class="highlight-p">,</span><span class="highlight-n">b</span><span class="highlight-p">,</span><span class="highlight-n">m</span><span class="highlight-p">,</span><span class="highlight-n">x</span><span class="highlight-p">,</span><span class="highlight-n">y</span><span class="highlight-p">;</span>
+<span class="highlight-kt">long</span> <span class="highlight-kt">long</span> <span class="highlight-n">ans</span><span class="highlight-p">;</span>
+<span class="highlight-k">struct</span> <span class="highlight-nc">node</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-kt">long</span> <span class="highlight-kt">long</span> <span class="highlight-n">l</span><span class="highlight-p">,</span><span class="highlight-n">r</span><span class="highlight-p">,</span><span class="highlight-n">w</span><span class="highlight-p">,</span><span class="highlight-n">f</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-mi">800001</span><span class="highlight-p">];</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">build</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">,</span><span class="highlight-kt">int</span> <span class="highlight-n">ll</span><span class="highlight-p">,</span><span class="highlight-kt">int</span> <span class="highlight-n">rr</span><span class="highlight-p">)</span><span class="highlight-c1">//建树 
+</span><span class="highlight-c1"></span><span class="highlight-p">{</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">=</span><span class="highlight-n">ll</span><span class="highlight-p">,</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">=</span><span class="highlight-n">rr</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">==</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">);</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">ll</span><span class="highlight-o">+</span><span class="highlight-n">rr</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-n">build</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">,</span><span class="highlight-n">ll</span><span class="highlight-p">,</span><span class="highlight-n">m</span><span class="highlight-p">);</span>
+    <span class="highlight-n">build</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-n">m</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-n">rr</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">down</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span><span class="highlight-c1">//标记下穿 
+</span><span class="highlight-c1"></span><span class="highlight-p">{</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">;</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">;</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">*</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">-</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">*</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">-</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">=</span><span class="highlight-mi">0</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">ask_interval</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span><span class="highlight-c1">//区间查询 
+</span><span class="highlight-c1"></span><span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">&gt;=</span><span class="highlight-n">a</span><span class="highlight-o">&amp;&amp;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">&lt;=</span><span class="highlight-n">b</span><span class="highlight-p">)</span> 
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">ans</span><span class="highlight-o">+=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">)</span> <span class="highlight-n">down</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-p">);</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">a</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">ask_interval</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">b</span><span class="highlight-o">&gt;</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">ask_interval</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kr">inline</span> <span class="highlight-kt">void</span> <span class="highlight-nf">change_interval</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">k</span><span class="highlight-p">)</span><span class="highlight-c1">//区间修改 
+</span><span class="highlight-c1"></span><span class="highlight-p">{</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">&gt;=</span><span class="highlight-n">a</span><span class="highlight-o">&amp;&amp;</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">&lt;=</span><span class="highlight-n">b</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-o">-</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">)</span><span class="highlight-o">*</span><span class="highlight-n">y</span><span class="highlight-p">;</span>
+        <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-o">+=</span><span class="highlight-n">y</span><span class="highlight-p">;</span>
+        <span class="highlight-k">return</span><span class="highlight-p">;</span>
+    <span class="highlight-p">}</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">f</span><span class="highlight-p">)</span> <span class="highlight-n">down</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-p">);</span>
+    <span class="highlight-kt">int</span> <span class="highlight-n">m</span><span class="highlight-o">=</span><span class="highlight-p">(</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">l</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">r</span><span class="highlight-p">)</span><span class="highlight-o">/</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">a</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">change_interval</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">);</span>
+    <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">b</span><span class="highlight-o">&gt;</span><span class="highlight-n">m</span><span class="highlight-p">)</span> <span class="highlight-n">change_interval</span><span class="highlight-p">(</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+    <span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">=</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-o">+</span><span class="highlight-n">tree</span><span class="highlight-p">[</span><span class="highlight-n">k</span><span class="highlight-o">*</span><span class="highlight-mi">2</span><span class="highlight-o">+</span><span class="highlight-mi">1</span><span class="highlight-p">].</span><span class="highlight-n">w</span><span class="highlight-p">;</span>
+<span class="highlight-p">}</span>
+<span class="highlight-kt">int</span> <span class="highlight-nf">main</span><span class="highlight-p">()</span>
+<span class="highlight-p">{</span>
+    <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">n</span><span class="highlight-p">);</span> 
+    <span class="highlight-n">build</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-mi">1</span><span class="highlight-p">,</span><span class="highlight-n">n</span><span class="highlight-p">);</span>
+    <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">m</span><span class="highlight-p">);</span>
+    <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span><span class="highlight-o">=</span><span class="highlight-mi">1</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">&lt;=</span><span class="highlight-n">m</span><span class="highlight-p">;</span><span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+    <span class="highlight-p">{</span>
+        <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">p</span><span class="highlight-p">);</span>
+        <span class="highlight-n">ans</span><span class="highlight-o">=</span><span class="highlight-mi">0</span><span class="highlight-p">;</span>
+        <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">p</span><span class="highlight-o">==</span><span class="highlight-mi">1</span><span class="highlight-p">)</span> 
+        <span class="highlight-p">{</span>
+             <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d%d%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">a</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">b</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">y</span><span class="highlight-p">);</span><span class="highlight-c1">//区间修改 
+</span><span class="highlight-c1"></span>             <span class="highlight-n">change_interval</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+        <span class="highlight-p">}</span>
+        <span class="highlight-k">else</span> 
+        <span class="highlight-p">{</span>
+            <span class="highlight-n">scanf</span><span class="highlight-p">(</span><span class="highlight-s">"%d%d"</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">a</span><span class="highlight-p">,</span><span class="highlight-o">&amp;</span><span class="highlight-n">b</span><span class="highlight-p">);</span><span class="highlight-c1">//区间查询 
+</span><span class="highlight-c1"></span>            <span class="highlight-n">ask_interval</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+            <span class="highlight-n">printf</span><span class="highlight-p">(</span><span class="highlight-s">"%lld</span><span class="highlight-se">\n</span><span class="highlight-s">"</span><span class="highlight-p">,</span><span class="highlight-n">ans</span><span class="highlight-p">);</span>
+        <span class="highlight-p">}</span>
+    
+    <span class="highlight-p">}</span>
+<span class="highlight-p">}</span>
+</code></pre>
+<h1 id="经典例题">经典例题</h1>
+<blockquote>
+<p>codevs 3981/SPOJ GSS1/GSS3 ——区间最大子段和<br>
+Bzoj3813 奇数国——区间内某个值是否出现过<br>
+洛谷 P2894 酒店 Hotel ——区间连续一段空的长度<br>
+codevs 2421 /Bzoj1858 序列操作——多种操作<br>
+codevs 2000 / BZOJ 2957: 楼房重建——区间的最长上升子序列<br>
+Codevs3044 矩形面积求并——扫描线</p>
+</blockquote>
+<p>代码的话到随笔分类——线段树里找找吧 <a href="http://www.cnblogs.com/TheRoadToTheGold/category/933602.html" target="_blank">http://www.cnblogs.com/TheRoadToTheGold/category/933602.html</a></p>
+                            <div>
+                                <hr>
+
+标题：线段树<br>
+作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://Rainsheep.github.io/articles/2019/12/04/1575438590893.html" target="_blank">https://Rainsheep.github.io/articles/2019/12/04/1575438590893.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="module mobile__hidden">
+                    <div class="module__content fn__clear">
+                            <a href="https://Rainsheep.github.io/articles/2019/12/04/1575436974755.html" rel="prev" class="fn__left breadcrumb">
+                                旧一篇: LIS（最长上升子序列）
+                            </a>
+                            <a href="https://Rainsheep.github.io/articles/2019/12/04/1575439328865.html" rel="next"
+                               class="fn__right breadcrumb">
+                                window下python2与python3共存: 新一篇
+                            </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/04/1575436974755.html" rel="prev" class="breadcrumb">
+                            旧一篇: LIS（最长上升子序列）
+                        </a>
+                    </div>
+                </div>
+
+                <div class="module mobile__hidden fn__none">
+                    <div class="module__content">
+                        <a href="https://Rainsheep.github.io/articles/2019/12/04/1575439328865.html" rel="next"
+                           class="breadcrumb">
+                            新一篇: window下python2与python3共存
+                        </a>
+                    </div>
+                </div>
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
+                     data-name="Rainsheep" data-postId="1575438590893"></div>
+
+            <div class="fn__flex article__relevant">
+                <div class="fn__flex-1" id="externalRelevantArticlesWrap">
+                    <div class="module">
+                        <div id="externalRelevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="randomArticlesWrap">
+                    <div class="module">
+                        <div id="randomArticles" class="module__list"></div>
+                    </div>
+                </div>
+                <div class="mobile__hidden">&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="fn__flex-1" id="relevantArticlesWrap">
+                    <div class="module">
+                        <div id="relevantArticles" class="module__list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<aside class="side">
+        <div class="module">
+            <div class="module__list">
+<ul class="article__toc">
+        <li class="toc__h1">
+            <a href="#引例">引例</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#基本概念">基本概念</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#线段树的基础操作">线段树的基础操作</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#总结">总结</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#空间优化">空间优化</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#模板题">模板题</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#经典例题">经典例题</a>
+        </li>
+</ul>            </div>
+        </div>
+        <section class="vditor-reset module">
+            <main class="module__content">
+                <b><i><font><span id="hitokoto">欢迎来到Rain sheep的博客</span></font></i></b>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+            </main>
+        </section>
+
+
+    <div class="module item">
+        <header class="module__header ft__center">
+            Rainsheep
+        </header>
+        <main class="module__content ft__center">
+            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            咸鱼不配拥有梦想 <br> <br>
+    <a href="https://hacpai.com/member/Rainsheep"
+       title="https://hacpai.com/member/Rainsheep"
+       class="user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/Rainsheep"
+           title="https://github.com/Rainsheep"
+           class="user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+        <a href="tencent://message/?uin=1045674971"
+           title="1045674971"
+           target="_blank"
+           class="user__site" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M4.821 14.393c-0.125-0.304-0.143-0.607-0.143-0.929 0-0.5 0.321-1.304 0.625-1.679-0.018-0.464 0.179-1.411 0.536-1.714 0-3.304 2.554-7.464 5.536-8.893 1.839-0.875 3.768-1.179 5.786-1.179 1.571 0 3.286 0.375 4.75 0.982 4.196 1.768 5.143 5.054 6.036 9.25l0.018 0.089c0.518 0.786 0.982 1.714 0.982 2.679 0 0.482-0.321 0.964-0.321 1.393 0 0.036 0.107 0.179 0.125 0.214 1.536 2.268 2.929 4.732 2.929 7.554 0 0.625-0.339 2.804-1.339 2.804-0.696 0-1.464-1.696-1.714-2.161-0.018-0.018-0.036-0.018-0.054-0.018l-0.089 0.071c-0.571 1.482-1.196 2.875-2.357 3.982 1.018 0.982 2.661 0.893 2.964 2.589-0.089 0.196-0.054 0.411-0.196 0.607-1.018 1.536-3.75 1.732-5.393 1.732-2.179 0-3.946-0.571-6-1.179-0.429-0.125-1.071-0.054-1.536-0.107-1.089 1.196-3.75 1.518-5.286 1.518-1.357 0-6.607-0.089-6.607-2.411 0-1 0.214-1.286 0.911-1.929 0.554-0.107 0.964-0.411 1.607-0.446 0.089 0 0.161-0.018 0.25-0.036 0.018-0.018 0.036-0.018 0.036-0.071l-0.036-0.054c-1.232-0.286-2.964-3.393-3.232-4.679l-0.089-0.054c-0.125 0-0.179 0.268-0.214 0.357-0.393 0.911-1.321 1.893-2.357 2h-0.018c-0.143 0-0.089-0.143-0.196-0.179-0.25-0.589-0.411-1.125-0.411-1.786 0-3.571 1.714-6.214 4.5-8.321z"></path>
+            </svg>
+        </a>
+        </main>
+    </div>
+
+
+        <div class="module item">
+            <header class="module__header">标签</header>
+            <main class="module__content--three module__content fn__clear">
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/acm"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="76 篇文章">
+                        acm</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="59 篇文章">
+                        知识点总结</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Java"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="29 篇文章">
+                        Java</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="24 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="23 篇文章">
+                        软件教程</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/STL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="20 篇文章">
+                        STL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/windows"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        windows</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/ss"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="13 篇文章">
+                        ss</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="9 篇文章">
+                        前端</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/Linux"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="7 篇文章">
+                        Linux</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="6 篇文章">
+                        树</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        生活轨迹</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        模拟</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        字符串</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        递归</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/python"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        python</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="3 篇文章">
+                        图</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        开源</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        水题</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/centos"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        centos</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="2 篇文章">
+                        递推</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        硬件</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        数据库</a>
+                    <a rel="tag"
+                       href="https://Rainsheep.github.io/tags/bfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        bfs</a>
+            </main>
+        </div>
+
+    <div class="module item">
+        <div class="module__header">
+            <div class="fn__flex">
+                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    211
+                    文章
+                </a>
+            </div>
+            <br/>
+            <div class="fn__flex">
+                <div class="fn__flex-1 ft__center">
+                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+    
+</div>
+</div>
+<div class="icon__up" onclick="Util.goTop()"></div>
+<footer class="footer">
+    &copy; 2020
+    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
+    <div class="fn__none"></div>
+    <br/>
+
+    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
+    <div class="fn__none"></div>
+    &nbsp; &heartsuit;  &nbsp;
+    Theme nijigen
+    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
+    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+</footer>
+<div class="icon-up" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    servePath: "https://Rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    luteAvailable: true,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1575438590893",
+        "blogHost": "https://Rainsheep.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+    Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 162ms, 2020/03/18 19:04:16 -->
