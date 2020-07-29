@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Python2和Python3中字符串编码问题详解 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Python2和Python3中字符串编码问题详解 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2019/12/04/1575439705569.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="Python2和Python3中字符串编码问题详解 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2019/12/04/1575439705569.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
-            <link rel="prev" title="window下python2与python3共存" href="https://Rainsheep.github.io/articles/2019/12/04/1575439328865.html">
-            <link rel="next" title="莫队算法 牛客多校赛题" href="https://Rainsheep.github.io/articles/2019/12/04/1575439848633.html">
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Python2和Python3中字符串编码问题详解 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Python2和Python3中字符串编码问题详解 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://rainsheep.github.io/articles/2019/12/04/1575439705569.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="Python2和Python3中字符串编码问题详解 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://rainsheep.github.io/articles/2019/12/04/1575439705569.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources/skins/nijigen/css/base.css?1595344563647"/>
+            <link rel="prev" title="window下python2与python3共存" href="https://rainsheep.github.io/articles/2019/12/04/1575439328865.html">
+            <link rel="next" title="莫队算法 牛客多校赛题" href="https://rainsheep.github.io/articles/2019/12/04/1575439848633.html">
     </head>
 <body>
 <div class="bg"></div>
@@ -15,7 +15,7 @@
 <div class="bg bg--5"></div>
 <header class="header">
     <div class="header__wrap">
-        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+        <a href="https://rainsheep.github.io" rel="start" class="header__logo">
             <i class="icon__home"></i> 雨羊的个人博客
         </a>
 
@@ -23,16 +23,16 @@
                 <a href="/my-github-repos" target="_self" rel="section">
                     <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
                 </a>
-            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+            <a href="https://rainsheep.github.io/tags.html" rel="section">
                 <i class="icon__tags"></i> 标签墙
             </a>
-            <a href="https://Rainsheep.github.io/archives.html">
+            <a href="https://rainsheep.github.io/archives.html">
                 <i class="icon__inbox"></i> 存档
             </a>
-            <a rel="archive" href="https://Rainsheep.github.io/links.html">
-                <i class="icon__link"></i> 友情链接
+            <a rel="archive" href="https://rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友链
             </a>
-            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+            <a rel="alternate" href="https://rainsheep.github.io/rss.xml" rel="section">
                 <i class="icon__rss"></i> RSS
             </a>
         </nav>
@@ -51,22 +51,22 @@
                     </a>
                 </li>
             <li>
-                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <a href="https://rainsheep.github.io/tags.html" rel="section">
                     <i class="icon__tags"></i> 标签墙
                 </a>
             </li>
             <li>
-                <a href="https://Rainsheep.github.io/archives.html">
+                <a href="https://rainsheep.github.io/archives.html">
                     <i class="icon__inbox"></i> 存档
                 </a>
             </li>
             <li>
-                <a rel="archive" href="https://Rainsheep.github.io/links.html">
-                    <i class="icon__link"></i> 友情链接
+                <a rel="archive" href="https://rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友链
                 </a>
             </li>
             <li>
-                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <a rel="alternate" href="https://rainsheep.github.io/rss.xml" rel="section">
                     <i class="icon__rss"></i> RSS
                 </a>
             </li>
@@ -86,7 +86,7 @@
                     </time>
 
                     <h2 class="item__title">
-                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2019/12/04/1575439705569.html">
+                        <a rel="bookmark" href="https://rainsheep.github.io/articles/2019/12/04/1575439705569.html">
                             Python2和Python3中字符串编码问题详解
                         </a>
                     </h2>
@@ -99,15 +99,15 @@
                     <div class="ft__center">
                         <span class="tag">
                             <i class="icon__tags"></i>
-                            <a rel="tag" href="https://Rainsheep.github.io/tags/python">
+                            <a rel="tag" href="https://rainsheep.github.io/tags/python">
                                 python</a>
                         </span>
-                            <a class="tag" href="https://Rainsheep.github.io/articles/2019/12/04/1575439705569.html#b3logsolocomments">
+                            <a class="tag" href="https://rainsheep.github.io/articles/2019/12/04/1575439705569.html#b3logsolocomments">
                                 <i class="icon__comments"></i> <span data-uvstatcmt="1575439705569">0</span> 评论
                             </a>
                         <span class="tag">
                             <i class="icon__views"></i>
-                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2019/12/04/1575439705569.html">5</span> 浏览
+                        <span data-uvstaturl="https://rainsheep.github.io/articles/2019/12/04/1575439705569.html">0</span> 浏览
                         </span>
                     </div>
 
@@ -119,181 +119,181 @@
 	<a href="https://www.cnblogs.com/saolv/p/8158159.html" target="_blank">str和unicode类</a><br>
 </details>
 <p>首先说明：</p>
-<p>Python2和Python3的默认字符串编码是不一样的！</p>
-<p>字符在内存中都是二进制的01，统一使用Unicode编码，当需要保存到硬盘或者传输的时候，就转换为指定编码(比如UTF8)！</p>
-<p>Unicode和ASCII一样，即是字符集，也是一种编码，只是ASCII规定了这个二进制怎么存储，Unicode只是规定了符合的二进制代码（码点），没有规定这个二进制代码如何存储和传输。UTF-8是Unicode的一种实现方式！</p>
-<p>UTF-8与ASCII兼容！</p>
-<p>首先需要知道什么是Unicode，如上文解释，Python以Unicode编码为转换中介，进行字符串的转码。</p>
+<p>Python2 和 Python3 的默认字符串编码是不一样的！</p>
+<p>字符在内存中都是二进制的 01，统一使用 Unicode 编码，当需要保存到硬盘或者传输的时候，就转换为指定编码(比如 UTF8)！</p>
+<p>Unicode 和 ASCII 一样，即是字符集，也是一种编码，只是 ASCII 规定了这个二进制怎么存储，Unicode 只是规定了符合的二进制代码（码点），没有规定这个二进制代码如何存储和传输。UTF-8 是 Unicode 的一种实现方式！</p>
+<p>UTF-8 与 ASCII 兼容！</p>
+<p>首先需要知道什么是 Unicode，如上文解释，Python 以 Unicode 编码为转换中介，进行字符串的转码。</p>
 <p>了解一下什么是编码，解码：</p>
 <p>字符需要'有效'传输，所以需要将字符编码为二进制的字节序列，解码就是从二进制序列，按照指定的规则，恢复出原始的内容(Unicode)。</p>
-<p>字符(Unicode编码)→编码encode→指定字节序列</p>
-<p>指定字节序列→解码decode→字符(Unicode编码)</p>
-<p>了解Python中的编码和解码：</p>
-<p>Python中解码就是把某种编码格式的“内容(二进制序列)”解码成Unicode(其实也是一种二进制序列，只是不便于传输)，编码就是将Unicode编码成某种编码格式的“内容(二进制序列)”,Python中encode和decode的默认参数(也可以自己指定编码)是指定的编码（Python2为ASCII，Python3为utf8），默认参数与你模块的编码，编译环境的全局编码，第一行指定的编码都没有关系！</p>
-<p>Python2中：</p>
-<p>str类型(utf8等编码)字符串→解码(decode)→Unicode类型(Unicode编码)字符串</p>
-<p>Unicode类型(Unicode编码)字符串→编码(encode)→str类型(utf8等编码)字符串</p>
-<p>Python3中：</p>
-<p>str类型(Unicode编码)字符串→编码(encode)→bytes类型字节序列</p>
-<p>bytes类型字节序列→解码(decode)→str类型(Unicode编码)字符串</p>
-<p>Python3中的str类型是Python2中的Unicode类型和str类型的一种组整合！！！在此处可以先简单的认为只是python2中的Unicode类型换了一个名字。</p>
-<p>Python2中的字符串有两个类型，分别为str和unicode，接下来看两者区别</p>
+<p>字符(Unicode 编码)→编码 encode→指定字节序列</p>
+<p>指定字节序列 →解码 decode→字符(Unicode 编码)</p>
+<p>了解 Python 中的编码和解码：</p>
+<p>Python 中解码就是把某种编码格式的“内容(二进制序列)”解码成 Unicode(其实也是一种二进制序列，只是不便于传输)，编码就是将 Unicode 编码成某种编码格式的“内容(二进制序列)”,Python 中 encode 和 decode 的默认参数(也可以自己指定编码)是指定的编码（Python2 为 ASCII，Python3 为 utf8），默认参数与你模块的编码，编译环境的全局编码，第一行指定的编码都没有关系！</p>
+<p>Python2 中：</p>
+<p>str 类型(utf8 等编码)字符串 →解码(decode)→Unicode 类型(Unicode 编码)字符串</p>
+<p>Unicode 类型(Unicode 编码)字符串 →编码(encode)→str 类型(utf8 等编码)字符串</p>
+<p>Python3 中：</p>
+<p>str 类型(Unicode 编码)字符串 →编码(encode)→bytes 类型字节序列</p>
+<p>bytes 类型字节序列 →解码(decode)→str 类型(Unicode 编码)字符串</p>
+<p>Python3 中的 str 类型是 Python2 中的 Unicode 类型和 str 类型的一种组整合！！！在此处可以先简单的认为只是 python2 中的 Unicode 类型换了一个名字。</p>
+<p>Python2 中的字符串有两个类型，分别为 str 和 unicode，接下来看两者区别</p>
 <p><img src="https://img.hacpai.com/file/2019/12/20190318132815548-26222188.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20190318132815548.png"><br>
 <img src="https://img.hacpai.com/file/2019/12/20190318132840944-6fe9a99e.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20190318132840944.png"></p>
 <p>看一段代码：</p>
-<pre><code class="language-python highlight-chroma"><span class="highlight-c1"># coding:utf-8</span>
-<span class="highlight-n">str1</span> <span class="highlight-o">=</span> <span class="highlight-s2">"严"</span>
-<span class="highlight-k">print</span> <span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">)</span>
-<span class="highlight-k">print</span> <span class="highlight-n">str1</span>
-<span class="highlight-k">print</span> <span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">)</span>
- 
-<span class="highlight-n">str2</span> <span class="highlight-o">=</span> <span class="highlight-sa">u</span><span class="highlight-s2">"严"</span>
-<span class="highlight-k">print</span> <span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">)</span>
-<span class="highlight-k">print</span> <span class="highlight-n">str2</span>
-<span class="highlight-k">print</span> <span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">)</span>
- 
- 
-<span class="highlight-err">运行结果：</span>
-<span class="highlight-o">&lt;</span><span class="highlight-nb">type</span> <span class="highlight-s1">'str'</span><span class="highlight-o">&gt;</span>
-<span class="highlight-err">严</span>
-<span class="highlight-mi">3</span>
-<span class="highlight-o">&lt;</span><span class="highlight-nb">type</span> <span class="highlight-s1">'unicode'</span><span class="highlight-o">&gt;</span>
-<span class="highlight-err">严</span>
-<span class="highlight-mi">1</span>
+<pre><code class="language-python highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-c1"># coding:utf-8</span>
+<span class="highlight-ln"> 2</span><span class="highlight-n">str1</span> <span class="highlight-o">=</span> <span class="highlight-s2">"严"</span>
+<span class="highlight-ln"> 3</span><span class="highlight-k">print</span> <span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">)</span>
+<span class="highlight-ln"> 4</span><span class="highlight-k">print</span> <span class="highlight-n">str1</span>
+<span class="highlight-ln"> 5</span><span class="highlight-k">print</span> <span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">)</span>
+<span class="highlight-ln"> 6</span> 
+<span class="highlight-ln"> 7</span><span class="highlight-n">str2</span> <span class="highlight-o">=</span> <span class="highlight-sa">u</span><span class="highlight-s2">"严"</span>
+<span class="highlight-ln"> 8</span><span class="highlight-k">print</span> <span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">)</span>
+<span class="highlight-ln"> 9</span><span class="highlight-k">print</span> <span class="highlight-n">str2</span>
+<span class="highlight-ln">10</span><span class="highlight-k">print</span> <span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">)</span>
+<span class="highlight-ln">11</span> 
+<span class="highlight-ln">12</span> 
+<span class="highlight-ln">13</span><span class="highlight-err">运行结果：</span>
+<span class="highlight-ln">14</span><span class="highlight-o">&lt;</span><span class="highlight-nb">type</span> <span class="highlight-s1">'str'</span><span class="highlight-o">&gt;</span>
+<span class="highlight-ln">15</span><span class="highlight-err">严</span>
+<span class="highlight-ln">16</span><span class="highlight-mi">3</span>
+<span class="highlight-ln">17</span><span class="highlight-o">&lt;</span><span class="highlight-nb">type</span> <span class="highlight-s1">'unicode'</span><span class="highlight-o">&gt;</span>
+<span class="highlight-ln">18</span><span class="highlight-err">严</span>
+<span class="highlight-ln">19</span><span class="highlight-mi">1</span>
 </code></pre>
 <p>下面解释每一行代码</p>
-<p>Python2中你定义字符串的时候，字符串的类型是str，也就是具有某种编码格式的字符串，这个字符串的编码格式取决于你第一行代码声明的编码格式，注意第一行声明的编码格式需要与.py文件的编码格式相同！</p>
-<p>第一行代码是声明本模块的编码格式，当不写这一行的时候，在Pythcam中的字符串是没办法输入汉字的，写上这一行</p>
-<p>以后，str1就是以utf8编码的类型为str的字符串，输出的是它本身，长度为3（可以理解这个3，不知道怎么解释，utf8一个汉字三个字节）。</p>
-<p>str2是一个unicode类型的字符串，输出也为它本身，长度为1（1个Unicode）</p>
+<p>Python2 中你定义字符串的时候，字符串的类型是 str，也就是具有某种编码格式的字符串，这个字符串的编码格式取决于你第一行代码声明的编码格式，注意第一行声明的编码格式需要与。py 文件的编码格式相同！</p>
+<p>第一行代码是声明本模块的编码格式，当不写这一行的时候，在 Pythcam 中的字符串是没办法输入汉字的，写上这一行</p>
+<p>以后，str1 就是以 utf8 编码的类型为 str 的字符串，输出的是它本身，长度为 3（可以理解这个 3，不知道怎么解释，utf8 一个汉字三个字节）。</p>
+<p>str2 是一个 unicode 类型的字符串，输出也为它本身，长度为 1（1 个 Unicode）</p>
 <p>再看一段代码：</p>
-<pre><code class="language-cpp highlight-chroma"><span class="highlight-cp"># coding:utf8
-</span><span class="highlight-cp"></span><span class="highlight-n">str1</span> <span class="highlight-o">=</span> <span class="highlight-s">"严"</span>  <span class="highlight-err">#</span><span class="highlight-n">utf8的str类型的字符串</span>
-<span class="highlight-n">print</span> <span class="highlight-n">type</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">)</span>
-<span class="highlight-n">print</span> <span class="highlight-n">str1</span>
-<span class="highlight-n">print</span> <span class="highlight-n">len</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">)</span>
- 
-<span class="highlight-n">str2</span><span class="highlight-o">=</span><span class="highlight-n">str1</span><span class="highlight-p">.</span><span class="highlight-n">decode</span><span class="highlight-p">(</span><span class="highlight-s">"utf8"</span><span class="highlight-p">)</span>  <span class="highlight-err">#参数必须与第一行的声明相同，解码为</span><span class="highlight-n">unicode类型的字符串</span>
-<span class="highlight-n">print</span> <span class="highlight-n">type</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">)</span>
-<span class="highlight-n">print</span> <span class="highlight-n">str2</span>
-<span class="highlight-n">print</span> <span class="highlight-n">len</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">)</span>
- 
-<span class="highlight-n">str3</span><span class="highlight-o">=</span><span class="highlight-n">str2</span><span class="highlight-p">.</span><span class="highlight-n">encode</span><span class="highlight-p">(</span><span class="highlight-s">"utf8"</span><span class="highlight-p">)</span>  <span class="highlight-err">#</span><span class="highlight-n">unicode字符串编码为utf8的str类型的字符串</span>
-<span class="highlight-n">print</span> <span class="highlight-n">type</span><span class="highlight-p">(</span><span class="highlight-n">str3</span><span class="highlight-p">)</span>
-<span class="highlight-n">print</span> <span class="highlight-n">str3</span>
-<span class="highlight-n">print</span> <span class="highlight-n">len</span><span class="highlight-p">(</span><span class="highlight-n">str3</span><span class="highlight-p">)</span>
- 
-<span class="highlight-n">str4</span><span class="highlight-o">=</span><span class="highlight-n">str2</span><span class="highlight-p">.</span><span class="highlight-n">encode</span><span class="highlight-p">(</span><span class="highlight-s">"gbk"</span><span class="highlight-p">)</span>  <span class="highlight-err">#</span><span class="highlight-n">unicode字符串编码为gbk的str类型的字符串</span>
-<span class="highlight-n">print</span> <span class="highlight-n">type</span><span class="highlight-p">(</span><span class="highlight-n">str4</span><span class="highlight-p">)</span>
-<span class="highlight-n">print</span> <span class="highlight-n">str4</span>
-<span class="highlight-n">print</span> <span class="highlight-n">len</span><span class="highlight-p">(</span><span class="highlight-n">str4</span><span class="highlight-p">)</span>
- 
-<span class="highlight-err">运行结果：</span>
-<span class="highlight-o">&lt;</span><span class="highlight-n">type</span> <span class="highlight-err">'</span><span class="highlight-n">str</span><span class="highlight-err">'</span><span class="highlight-o">&gt;</span>
-<span class="highlight-err">严</span>
-<span class="highlight-mi">3</span>
-<span class="highlight-o">&lt;</span><span class="highlight-n">type</span> <span class="highlight-err">'</span><span class="highlight-n">unicode</span><span class="highlight-err">'</span><span class="highlight-o">&gt;</span>
-<span class="highlight-err">严</span>
-<span class="highlight-mi">1</span>
-<span class="highlight-o">&lt;</span><span class="highlight-n">type</span> <span class="highlight-err">'</span><span class="highlight-n">str</span><span class="highlight-err">'</span><span class="highlight-o">&gt;</span>
-<span class="highlight-err">严</span>
-<span class="highlight-mi">3</span>
-<span class="highlight-o">&lt;</span><span class="highlight-n">type</span> <span class="highlight-err">'</span><span class="highlight-n">str</span><span class="highlight-err">'</span><span class="highlight-o">&gt;</span>
-<span class="highlight-err">��</span>
-<span class="highlight-mi">2</span>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-cp"># coding:utf8
+</span><span class="highlight-ln"> 2</span><span class="highlight-cp"></span><span class="highlight-n">str1</span> <span class="highlight-o">=</span> <span class="highlight-s">"严"</span>  <span class="highlight-err">#</span><span class="highlight-n">utf8的str类型的字符串</span>
+<span class="highlight-ln"> 3</span><span class="highlight-n">print</span> <span class="highlight-n">type</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">)</span>
+<span class="highlight-ln"> 4</span><span class="highlight-n">print</span> <span class="highlight-n">str1</span>
+<span class="highlight-ln"> 5</span><span class="highlight-n">print</span> <span class="highlight-n">len</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">)</span>
+<span class="highlight-ln"> 6</span> 
+<span class="highlight-ln"> 7</span><span class="highlight-n">str2</span><span class="highlight-o">=</span><span class="highlight-n">str1</span><span class="highlight-p">.</span><span class="highlight-n">decode</span><span class="highlight-p">(</span><span class="highlight-s">"utf8"</span><span class="highlight-p">)</span>  <span class="highlight-err">#参数必须与第一行的声明相同，解码为</span><span class="highlight-n">unicode类型的字符串</span>
+<span class="highlight-ln"> 8</span><span class="highlight-n">print</span> <span class="highlight-n">type</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">)</span>
+<span class="highlight-ln"> 9</span><span class="highlight-n">print</span> <span class="highlight-n">str2</span>
+<span class="highlight-ln">10</span><span class="highlight-n">print</span> <span class="highlight-n">len</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">)</span>
+<span class="highlight-ln">11</span> 
+<span class="highlight-ln">12</span><span class="highlight-n">str3</span><span class="highlight-o">=</span><span class="highlight-n">str2</span><span class="highlight-p">.</span><span class="highlight-n">encode</span><span class="highlight-p">(</span><span class="highlight-s">"utf8"</span><span class="highlight-p">)</span>  <span class="highlight-err">#</span><span class="highlight-n">unicode字符串编码为utf8的str类型的字符串</span>
+<span class="highlight-ln">13</span><span class="highlight-n">print</span> <span class="highlight-n">type</span><span class="highlight-p">(</span><span class="highlight-n">str3</span><span class="highlight-p">)</span>
+<span class="highlight-ln">14</span><span class="highlight-n">print</span> <span class="highlight-n">str3</span>
+<span class="highlight-ln">15</span><span class="highlight-n">print</span> <span class="highlight-n">len</span><span class="highlight-p">(</span><span class="highlight-n">str3</span><span class="highlight-p">)</span>
+<span class="highlight-ln">16</span> 
+<span class="highlight-ln">17</span><span class="highlight-n">str4</span><span class="highlight-o">=</span><span class="highlight-n">str2</span><span class="highlight-p">.</span><span class="highlight-n">encode</span><span class="highlight-p">(</span><span class="highlight-s">"gbk"</span><span class="highlight-p">)</span>  <span class="highlight-err">#</span><span class="highlight-n">unicode字符串编码为gbk的str类型的字符串</span>
+<span class="highlight-ln">18</span><span class="highlight-n">print</span> <span class="highlight-n">type</span><span class="highlight-p">(</span><span class="highlight-n">str4</span><span class="highlight-p">)</span>
+<span class="highlight-ln">19</span><span class="highlight-n">print</span> <span class="highlight-n">str4</span>
+<span class="highlight-ln">20</span><span class="highlight-n">print</span> <span class="highlight-n">len</span><span class="highlight-p">(</span><span class="highlight-n">str4</span><span class="highlight-p">)</span>
+<span class="highlight-ln">21</span> 
+<span class="highlight-ln">22</span><span class="highlight-err">运行结果：</span>
+<span class="highlight-ln">23</span><span class="highlight-o">&lt;</span><span class="highlight-n">type</span> <span class="highlight-err">'</span><span class="highlight-n">str</span><span class="highlight-err">'</span><span class="highlight-o">&gt;</span>
+<span class="highlight-ln">24</span><span class="highlight-err">严</span>
+<span class="highlight-ln">25</span><span class="highlight-mi">3</span>
+<span class="highlight-ln">26</span><span class="highlight-o">&lt;</span><span class="highlight-n">type</span> <span class="highlight-err">'</span><span class="highlight-n">unicode</span><span class="highlight-err">'</span><span class="highlight-o">&gt;</span>
+<span class="highlight-ln">27</span><span class="highlight-err">严</span>
+<span class="highlight-ln">28</span><span class="highlight-mi">1</span>
+<span class="highlight-ln">29</span><span class="highlight-o">&lt;</span><span class="highlight-n">type</span> <span class="highlight-err">'</span><span class="highlight-n">str</span><span class="highlight-err">'</span><span class="highlight-o">&gt;</span>
+<span class="highlight-ln">30</span><span class="highlight-err">严</span>
+<span class="highlight-ln">31</span><span class="highlight-mi">3</span>
+<span class="highlight-ln">32</span><span class="highlight-o">&lt;</span><span class="highlight-n">type</span> <span class="highlight-err">'</span><span class="highlight-n">str</span><span class="highlight-err">'</span><span class="highlight-o">&gt;</span>
+<span class="highlight-ln">33</span><span class="highlight-err">��</span>
+<span class="highlight-ln">34</span><span class="highlight-mi">2</span>
 </code></pre>
-<p>str1为utf8(第一行决定的)编码的str类型的字符串。第二段代码decode将其解码为unicode类型的字符串str2.</p>
-<p>Python2中的encode和decode函数默认为ASCII编码，可以自己写参数指定。</p>
-<p>第三段代码，unicode类型的str2用utf8编码格式编码为str类型的字符串str3,同理，第四段代码， unicode类型的str2用gbk编码格式编码为str类型的字符串str4。当中文以utf8编码的时候占3个字节，以gbk编码的时候占2个字节。至于第四段输出乱码问题我感觉是控制台的编码是utf8的原因。</p>
-<p>需要知道的是str类型和unicode类型的字符串输出到控制台都是可见的字符串，不是字节序列（bytes）。</p>
-<p>接下来看Python3：</p>
-<p>Python3中：字符串有str类型(Unicode编码)和bytes类型(字节序列)两种</p>
-<p>str类型(Unicode编码)字符串→编码(encode)→bytes类型字节序列</p>
-<p>bytes类型字节序列→解码(decode)→str类型(Unicode编码)字符串</p>
-<p>Python3中的str类型是Python2中的Unicode类型和str类型的一种组整合！！！在此处可以先简单的认为只是python2中的Unicode类型换了一个名字。</p>
+<p>str1 为 utf8(第一行决定的)编码的 str 类型的字符串。第二段代码 decode 将其解码为 unicode 类型的字符串 str2.</p>
+<p>Python2 中的 encode 和 decode 函数默认为 ASCII 编码，可以自己写参数指定。</p>
+<p>第三段代码，unicode 类型的 str2 用 utf8 编码格式编码为 str 类型的字符串 str3，同理，第四段代码， unicode 类型的 str2 用 gbk 编码格式编码为 str 类型的字符串 str4。当中文以 utf8 编码的时候占 3 个字节，以 gbk 编码的时候占 2 个字节。至于第四段输出乱码问题我感觉是控制台的编码是 utf8 的原因。</p>
+<p>需要知道的是 str 类型和 unicode 类型的字符串输出到控制台都是可见的字符串，不是字节序列（bytes）。</p>
+<p>接下来看 Python3：</p>
+<p>Python3 中：字符串有 str 类型(Unicode 编码)和 bytes 类型(字节序列)两种</p>
+<p>str 类型(Unicode 编码)字符串 →编码(encode)→bytes 类型字节序列</p>
+<p>bytes 类型字节序列 →解码(decode)→str 类型(Unicode 编码)字符串</p>
+<p>Python3 中的 str 类型是 Python2 中的 Unicode 类型和 str 类型的一种组整合！！！在此处可以先简单的认为只是 python2 中的 Unicode 类型换了一个名字。</p>
 <p>看两者的区别：</p>
 <p><img src="https://img.hacpai.com/file/2019/12/20190318132912579-ae385afd.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20190318132912579.png"><br>
 <img src="https://img.hacpai.com/file/2019/12/20190318132937977-fec8b3bc.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20190318132937977.png"></p>
 <p>看段代码：</p>
-<pre><code class="language-python highlight-chroma"><span class="highlight-n">str1</span> <span class="highlight-o">=</span> <span class="highlight-s2">"我是abc"</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">))</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">)</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">))</span>
- 
-<span class="highlight-n">str2</span> <span class="highlight-o">=</span> <span class="highlight-nb">bytes</span><span class="highlight-p">(</span><span class="highlight-s2">"我是abc"</span><span class="highlight-p">,</span> <span class="highlight-n">encoding</span><span class="highlight-o">=</span><span class="highlight-s2">"utf8"</span><span class="highlight-p">)</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">))</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">)</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">))</span>
- 
-<span class="highlight-err">运行结果：</span>
-<span class="highlight-o">&lt;</span><span class="highlight-k">class</span> <span class="highlight-err">'</span><span class="highlight-nc">str</span><span class="highlight-s1">'&gt;</span>
-<span class="highlight-err">我是</span><span class="highlight-n">abc</span>
-<span class="highlight-mi">5</span>
-<span class="highlight-o">&lt;</span><span class="highlight-k">class</span> <span class="highlight-err">'</span><span class="highlight-nc">bytes</span><span class="highlight-s1">'&gt;</span>
-<span class="highlight-sa">b</span><span class="highlight-s1">'</span><span class="highlight-se">\xe6\x88\x91\xe6\x98\xaf</span><span class="highlight-s1">abc'</span>
-<span class="highlight-mi">9</span>
+<pre><code class="language-python highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-n">str1</span> <span class="highlight-o">=</span> <span class="highlight-s2">"我是abc"</span>
+<span class="highlight-ln"> 2</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">))</span>
+<span class="highlight-ln"> 3</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">)</span>
+<span class="highlight-ln"> 4</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">))</span>
+<span class="highlight-ln"> 5</span> 
+<span class="highlight-ln"> 6</span><span class="highlight-n">str2</span> <span class="highlight-o">=</span> <span class="highlight-nb">bytes</span><span class="highlight-p">(</span><span class="highlight-s2">"我是abc"</span><span class="highlight-p">,</span> <span class="highlight-n">encoding</span><span class="highlight-o">=</span><span class="highlight-s2">"utf8"</span><span class="highlight-p">)</span>
+<span class="highlight-ln"> 7</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">))</span>
+<span class="highlight-ln"> 8</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">)</span>
+<span class="highlight-ln"> 9</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">))</span>
+<span class="highlight-ln">10</span> 
+<span class="highlight-ln">11</span><span class="highlight-err">运行结果：</span>
+<span class="highlight-ln">12</span><span class="highlight-o">&lt;</span><span class="highlight-k">class</span> <span class="highlight-err">'</span><span class="highlight-nc">str</span><span class="highlight-s1">'&gt;</span>
+<span class="highlight-ln">13</span><span class="highlight-err">我是</span><span class="highlight-n">abc</span>
+<span class="highlight-ln">14</span><span class="highlight-mi">5</span>
+<span class="highlight-ln">15</span><span class="highlight-o">&lt;</span><span class="highlight-k">class</span> <span class="highlight-err">'</span><span class="highlight-nc">bytes</span><span class="highlight-s1">'&gt;</span>
+<span class="highlight-ln">16</span><span class="highlight-sa">b</span><span class="highlight-s1">'</span><span class="highlight-se">\xe6\x88\x91\xe6\x98\xaf</span><span class="highlight-s1">abc'</span>
+<span class="highlight-ln">17</span><span class="highlight-mi">9</span>
 </code></pre>
-<p>注意：Python3的字符串默认为Unicode编码的字符串(str类型)，当你定义一个带中文的字符串的时候，需要在第一行声明文本类型(# coding:utf8)，此类型也需要与.py文件的编码相同，如果不声明第一行的话，默认为utf8，也就是说这时候，需要.py文件的编码为utf8，否则会出错。</p>
-<p>其原理就是，当你定义一个字符串的时候，你的文本是以一个编码成的，而Python3的str是Unicode编码的，会自动以你这一个编码(不声明的话，默认为UTF8)去解码成Unicode，当你文本格式不是UTF8并且没有声明编码格式的话，就会解码错误。</p>
-<p>str1为str类型的(Unicode编码)的字符串，可以直接显示，长度为5。</p>
-<p>str2为bytes类型的(必须指定编码格式)字节序列，输出时看到的不是字符串，是b开头的字节序列，长度为9，utf8中一个汉字三个字节。</p>
-<p>注意：Python2中str类型和Unicode类型输出都是可见的字符串，Python3中str类型(Unicode编码)为可见字符串，bytes类型为字节序列，输出看不懂。</p>
+<p>注意：Python3 的字符串默认为 Unicode 编码的字符串(str 类型)，当你定义一个带中文的字符串的时候，需要在第一行声明文本类型(# coding:utf8)，此类型也需要与。py 文件的编码相同，如果不声明第一行的话，默认为 utf8，也就是说这时候，需要。py 文件的编码为 utf8，否则会出错。</p>
+<p>其原理就是，当你定义一个字符串的时候，你的文本是以一个编码成的，而 Python3 的 str 是 Unicode 编码的，会自动以你这一个编码(不声明的话，默认为 UTF8)去解码成 Unicode，当你文本格式不是 UTF8 并且没有声明编码格式的话，就会解码错误。</p>
+<p>str1 为 str 类型的(Unicode 编码)的字符串，可以直接显示，长度为 5。</p>
+<p>str2 为 bytes 类型的(必须指定编码格式)字节序列，输出时看到的不是字符串，是 b 开头的字节序列，长度为 9，utf8 中一个汉字三个字节。</p>
+<p>注意：Python2 中 str 类型和 Unicode 类型输出都是可见的字符串，Python3 中 str 类型(Unicode 编码)为可见字符串，bytes 类型为字节序列，输出看不懂。</p>
 <p>再看一段代码：</p>
-<pre><code class="language-python highlight-chroma"><span class="highlight-n">str1</span> <span class="highlight-o">=</span> <span class="highlight-s2">"我是abc"</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">))</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">)</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">))</span>
- 
-<span class="highlight-n">str2</span> <span class="highlight-o">=</span> <span class="highlight-n">str1</span><span class="highlight-o">.</span><span class="highlight-n">encode</span><span class="highlight-p">()</span>  <span class="highlight-c1"># 默认为utf8，等效于encode("utf8")</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">))</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">)</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">))</span>
- 
-<span class="highlight-n">str3</span> <span class="highlight-o">=</span> <span class="highlight-n">str2</span><span class="highlight-o">.</span><span class="highlight-n">decode</span><span class="highlight-p">()</span>  <span class="highlight-c1"># 默认为utf8，等效于decode("utf8")</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str3</span><span class="highlight-p">))</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str3</span><span class="highlight-p">)</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str3</span><span class="highlight-p">))</span>
- 
-<span class="highlight-n">str4</span> <span class="highlight-o">=</span> <span class="highlight-n">str1</span><span class="highlight-o">.</span><span class="highlight-n">encode</span><span class="highlight-p">(</span><span class="highlight-s2">"gbk"</span><span class="highlight-p">)</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str4</span><span class="highlight-p">))</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str4</span><span class="highlight-p">)</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str4</span><span class="highlight-p">))</span>
- 
-<span class="highlight-n">str5</span> <span class="highlight-o">=</span> <span class="highlight-n">str4</span><span class="highlight-o">.</span><span class="highlight-n">decode</span><span class="highlight-p">(</span><span class="highlight-s2">"gbk"</span><span class="highlight-p">)</span>  <span class="highlight-c1"># 参数需要与上面相同</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str5</span><span class="highlight-p">))</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str5</span><span class="highlight-p">)</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str5</span><span class="highlight-p">))</span>
- 
-<span class="highlight-n">str6</span> <span class="highlight-o">=</span> <span class="highlight-n">str4</span><span class="highlight-o">.</span><span class="highlight-n">decode</span><span class="highlight-p">(</span><span class="highlight-s2">"utf16"</span><span class="highlight-p">,</span><span class="highlight-n">errors</span><span class="highlight-o">=</span><span class="highlight-s2">"ignore"</span><span class="highlight-p">)</span>  <span class="highlight-c1">#以不同方式解码的话就会报错或者乱码，由参数决定</span>
-<span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str6</span><span class="highlight-p">)</span>
- 
- 
-<span class="highlight-err">执行结果：</span>
-<span class="highlight-o">&lt;</span><span class="highlight-k">class</span> <span class="highlight-err">'</span><span class="highlight-nc">str</span><span class="highlight-s1">'&gt;</span>
-<span class="highlight-err">我是</span><span class="highlight-n">abc</span>
-<span class="highlight-mi">5</span>
-<span class="highlight-o">&lt;</span><span class="highlight-k">class</span> <span class="highlight-err">'</span><span class="highlight-nc">bytes</span><span class="highlight-s1">'&gt;</span>
-<span class="highlight-sa">b</span><span class="highlight-s1">'</span><span class="highlight-se">\xe6\x88\x91\xe6\x98\xaf</span><span class="highlight-s1">abc'</span>
-<span class="highlight-mi">9</span>
-<span class="highlight-o">&lt;</span><span class="highlight-k">class</span> <span class="highlight-err">'</span><span class="highlight-nc">str</span><span class="highlight-s1">'&gt;</span>
-<span class="highlight-err">我是</span><span class="highlight-n">abc</span>
-<span class="highlight-mi">5</span>
-<span class="highlight-o">&lt;</span><span class="highlight-k">class</span> <span class="highlight-err">'</span><span class="highlight-nc">bytes</span><span class="highlight-s1">'&gt;</span>
-<span class="highlight-sa">b</span><span class="highlight-s1">'</span><span class="highlight-se">\xce\xd2\xca\xc7</span><span class="highlight-s1">abc'</span>
-<span class="highlight-mi">7</span>
-<span class="highlight-o">&lt;</span><span class="highlight-k">class</span> <span class="highlight-err">'</span><span class="highlight-nc">str</span><span class="highlight-s1">'&gt;</span>
-<span class="highlight-err">我是</span><span class="highlight-n">abc</span>
-<span class="highlight-mi">5</span>
-<span class="highlight-err">틎쟊扡</span>
+<pre><code class="language-python highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-n">str1</span> <span class="highlight-o">=</span> <span class="highlight-s2">"我是abc"</span>
+<span class="highlight-ln"> 2</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">))</span>
+<span class="highlight-ln"> 3</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">)</span>
+<span class="highlight-ln"> 4</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str1</span><span class="highlight-p">))</span>
+<span class="highlight-ln"> 5</span> 
+<span class="highlight-ln"> 6</span><span class="highlight-n">str2</span> <span class="highlight-o">=</span> <span class="highlight-n">str1</span><span class="highlight-o">.</span><span class="highlight-n">encode</span><span class="highlight-p">()</span>  <span class="highlight-c1"># 默认为utf8，等效于encode("utf8")</span>
+<span class="highlight-ln"> 7</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">))</span>
+<span class="highlight-ln"> 8</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">)</span>
+<span class="highlight-ln"> 9</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str2</span><span class="highlight-p">))</span>
+<span class="highlight-ln">10</span> 
+<span class="highlight-ln">11</span><span class="highlight-n">str3</span> <span class="highlight-o">=</span> <span class="highlight-n">str2</span><span class="highlight-o">.</span><span class="highlight-n">decode</span><span class="highlight-p">()</span>  <span class="highlight-c1"># 默认为utf8，等效于decode("utf8")</span>
+<span class="highlight-ln">12</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str3</span><span class="highlight-p">))</span>
+<span class="highlight-ln">13</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str3</span><span class="highlight-p">)</span>
+<span class="highlight-ln">14</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str3</span><span class="highlight-p">))</span>
+<span class="highlight-ln">15</span> 
+<span class="highlight-ln">16</span><span class="highlight-n">str4</span> <span class="highlight-o">=</span> <span class="highlight-n">str1</span><span class="highlight-o">.</span><span class="highlight-n">encode</span><span class="highlight-p">(</span><span class="highlight-s2">"gbk"</span><span class="highlight-p">)</span>
+<span class="highlight-ln">17</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str4</span><span class="highlight-p">))</span>
+<span class="highlight-ln">18</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str4</span><span class="highlight-p">)</span>
+<span class="highlight-ln">19</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str4</span><span class="highlight-p">))</span>
+<span class="highlight-ln">20</span> 
+<span class="highlight-ln">21</span><span class="highlight-n">str5</span> <span class="highlight-o">=</span> <span class="highlight-n">str4</span><span class="highlight-o">.</span><span class="highlight-n">decode</span><span class="highlight-p">(</span><span class="highlight-s2">"gbk"</span><span class="highlight-p">)</span>  <span class="highlight-c1"># 参数需要与上面相同</span>
+<span class="highlight-ln">22</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">type</span><span class="highlight-p">(</span><span class="highlight-n">str5</span><span class="highlight-p">))</span>
+<span class="highlight-ln">23</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str5</span><span class="highlight-p">)</span>
+<span class="highlight-ln">24</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-nb">len</span><span class="highlight-p">(</span><span class="highlight-n">str5</span><span class="highlight-p">))</span>
+<span class="highlight-ln">25</span> 
+<span class="highlight-ln">26</span><span class="highlight-n">str6</span> <span class="highlight-o">=</span> <span class="highlight-n">str4</span><span class="highlight-o">.</span><span class="highlight-n">decode</span><span class="highlight-p">(</span><span class="highlight-s2">"utf16"</span><span class="highlight-p">,</span><span class="highlight-n">errors</span><span class="highlight-o">=</span><span class="highlight-s2">"ignore"</span><span class="highlight-p">)</span>  <span class="highlight-c1">#以不同方式解码的话就会报错或者乱码，由参数决定</span>
+<span class="highlight-ln">27</span><span class="highlight-k">print</span><span class="highlight-p">(</span><span class="highlight-n">str6</span><span class="highlight-p">)</span>
+<span class="highlight-ln">28</span> 
+<span class="highlight-ln">29</span> 
+<span class="highlight-ln">30</span><span class="highlight-err">执行结果：</span>
+<span class="highlight-ln">31</span><span class="highlight-o">&lt;</span><span class="highlight-k">class</span> <span class="highlight-err">'</span><span class="highlight-nc">str</span><span class="highlight-s1">'&gt;</span>
+<span class="highlight-ln">32</span><span class="highlight-err">我是</span><span class="highlight-n">abc</span>
+<span class="highlight-ln">33</span><span class="highlight-mi">5</span>
+<span class="highlight-ln">34</span><span class="highlight-o">&lt;</span><span class="highlight-k">class</span> <span class="highlight-err">'</span><span class="highlight-nc">bytes</span><span class="highlight-s1">'&gt;</span>
+<span class="highlight-ln">35</span><span class="highlight-sa">b</span><span class="highlight-s1">'</span><span class="highlight-se">\xe6\x88\x91\xe6\x98\xaf</span><span class="highlight-s1">abc'</span>
+<span class="highlight-ln">36</span><span class="highlight-mi">9</span>
+<span class="highlight-ln">37</span><span class="highlight-o">&lt;</span><span class="highlight-k">class</span> <span class="highlight-err">'</span><span class="highlight-nc">str</span><span class="highlight-s1">'&gt;</span>
+<span class="highlight-ln">38</span><span class="highlight-err">我是</span><span class="highlight-n">abc</span>
+<span class="highlight-ln">39</span><span class="highlight-mi">5</span>
+<span class="highlight-ln">40</span><span class="highlight-o">&lt;</span><span class="highlight-k">class</span> <span class="highlight-err">'</span><span class="highlight-nc">bytes</span><span class="highlight-s1">'&gt;</span>
+<span class="highlight-ln">41</span><span class="highlight-sa">b</span><span class="highlight-s1">'</span><span class="highlight-se">\xce\xd2\xca\xc7</span><span class="highlight-s1">abc'</span>
+<span class="highlight-ln">42</span><span class="highlight-mi">7</span>
+<span class="highlight-ln">43</span><span class="highlight-o">&lt;</span><span class="highlight-k">class</span> <span class="highlight-err">'</span><span class="highlight-nc">str</span><span class="highlight-s1">'&gt;</span>
+<span class="highlight-ln">44</span><span class="highlight-err">我是</span><span class="highlight-n">abc</span>
+<span class="highlight-ln">45</span><span class="highlight-mi">5</span>
+<span class="highlight-ln">46</span><span class="highlight-err">틎쟊扡</span>
 </code></pre>
-<p>str1的类型为str(Unicode编码)，str2为str1用默认编码格式(utf8)编码以后形成的bytes类型的字节序列，str3为str2解码后的str类型的字符串，str4和str5分别于str2和str3相同，只是编码不同，编码不同也导致了长度不同，，str6位当解码方式不同的时候的乱码，会报错，可以用参数忽略错误。</p>
+<p>str1 的类型为 str(Unicode 编码)，str2 为 str1 用默认编码格式(utf8)编码以后形成的 bytes 类型的字节序列，str3 为 str2 解码后的 str 类型的字符串，str4 和 str5 分别于 str2 和 str3 相同，只是编码不同，编码不同也导致了长度不同，，str6 位当解码方式不同的时候的乱码，会报错，可以用参数忽略错误。</p>
 <p>先写到这，回头想起来什么再来不错，有什么不对的地方，希望大家可以提出。</p>
                             <div>
                                 <hr>
 
 标题：Python2和Python3中字符串编码问题详解<br>
-作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
-地址：<a href="https://Rainsheep.github.io/articles/2019/12/04/1575439705569.html" target="_blank">https://Rainsheep.github.io/articles/2019/12/04/1575439705569.html</a><br>
+作者：<a href="https://rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://rainsheep.github.io/articles/2019/12/04/1575439705569.html" target="_blank">https://rainsheep.github.io/articles/2019/12/04/1575439705569.html</a><br>
 
 <!-- 签名档内可使用 HTML、JavaScript -->
 <br>
@@ -304,10 +304,10 @@
 
                 <div class="module mobile__hidden">
                     <div class="module__content fn__clear">
-                            <a href="https://Rainsheep.github.io/articles/2019/12/04/1575439328865.html" rel="prev" class="fn__left breadcrumb">
+                            <a href="https://rainsheep.github.io/articles/2019/12/04/1575439328865.html" rel="prev" class="fn__left breadcrumb">
                                 旧一篇: window下python2与python3共存
                             </a>
-                            <a href="https://Rainsheep.github.io/articles/2019/12/04/1575439848633.html" rel="next"
+                            <a href="https://rainsheep.github.io/articles/2019/12/04/1575439848633.html" rel="next"
                                class="fn__right breadcrumb">
                                 莫队算法 牛客多校赛题: 新一篇
                             </a>
@@ -316,7 +316,7 @@
 
                 <div class="module mobile__hidden fn__none">
                     <div class="module__content">
-                        <a href="https://Rainsheep.github.io/articles/2019/12/04/1575439328865.html" rel="prev" class="breadcrumb">
+                        <a href="https://rainsheep.github.io/articles/2019/12/04/1575439328865.html" rel="prev" class="breadcrumb">
                             旧一篇: window下python2与python3共存
                         </a>
                     </div>
@@ -324,12 +324,14 @@
 
                 <div class="module mobile__hidden fn__none">
                     <div class="module__content">
-                        <a href="https://Rainsheep.github.io/articles/2019/12/04/1575439848633.html" rel="next"
+                        <a href="https://rainsheep.github.io/articles/2019/12/04/1575439848633.html" rel="next"
                            class="breadcrumb">
                             新一篇: 莫队算法 牛客多校赛题
                         </a>
                     </div>
                 </div>
+                <div id="gitalk-container" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"></div>
                 <div id="b3logsolocomments"></div>
                 <div id="vcomment" class="module__content"
                      style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
@@ -371,7 +373,7 @@
             Rainsheep
         </header>
         <main class="module__content ft__center">
-            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            <img class="side__avatar" src="https://b3logfile.com/avatar/1573792699119_1591777626791.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
             咸鱼不配拥有梦想 <br> <br>
     <a href="https://hacpai.com/member/Rainsheep"
        title="https://hacpai.com/member/Rainsheep"
@@ -409,185 +411,185 @@
             <header class="module__header">标签</header>
             <main class="module__content--three module__content fn__clear">
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/acm"
+                       href="https://rainsheep.github.io/tags/acm"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="76 篇文章">
                         acm</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       href="https://rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="59 篇文章">
                         知识点总结</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/Java"
+                       href="https://rainsheep.github.io/tags/Java"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="29 篇文章">
+                       aria-label="31 篇文章">
                         Java</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       href="https://rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="24 篇文章">
-                        学习笔记</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="23 篇文章">
+                       aria-label="26 篇文章">
                         软件教程</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/STL"
+                       href="https://rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="25 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/STL"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="20 篇文章">
                         STL</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/DP"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="15 篇文章">
-                        DP</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/windows"
+                       href="https://rainsheep.github.io/tags/windows"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="15 篇文章">
                         windows</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       href="https://rainsheep.github.io/tags/Linux"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="13 篇文章">
-                        Shadowsocks</a>
+                       aria-label="15 篇文章">
+                        Linux</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/ss"
+                       href="https://rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/ss"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="13 篇文章">
                         ss</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       href="https://rainsheep.github.io/tags/Shadowsocks"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="9 篇文章">
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="11 篇文章">
                         前端</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/Linux"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="7 篇文章">
-                        Linux</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       href="https://rainsheep.github.io/tags/%E6%A0%91"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="6 篇文章">
                         树</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       href="https://rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="5 篇文章">
-                        数学问题</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="5 篇文章">
+                       aria-label="6 篇文章">
                         生活轨迹</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       href="https://rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="5 篇文章">
                         模拟</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       href="https://rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="3 篇文章">
-                        字符串</a>
+                       aria-label="5 篇文章">
+                        数学问题</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="3 篇文章">
-                        递归</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/python"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="3 篇文章">
-                        python</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       href="https://rainsheep.github.io/tags/%E5%9B%BE"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         图</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       href="https://rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="2 篇文章">
-                        开源</a>
+                       aria-label="3 篇文章">
+                        字符串</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       href="https://rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="2 篇文章">
-                        水题</a>
+                       aria-label="3 篇文章">
+                        递归</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/centos"
+                       href="https://rainsheep.github.io/tags/python"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="2 篇文章">
-                        centos</a>
+                       aria-label="3 篇文章">
+                        python</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       href="https://rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="2 篇文章">
                         递推</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       href="https://rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        资源搜索</a>
+                       aria-label="2 篇文章">
+                        开源</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       href="https://rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        图床</a>
+                       aria-label="2 篇文章">
+                        水题</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/GitHub"
+                       href="https://rainsheep.github.io/tags/centos"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        GitHub</a>
+                       aria-label="2 篇文章">
+                        centos</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/NOSQL"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        NOSQL</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/html"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        html</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/dfs"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        dfs</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       href="https://rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         硬件</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       href="https://rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         数据库</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/bfs"
+                       href="https://rainsheep.github.io/tags/bfs"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         bfs</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        资源搜索</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        图床</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/GitHub"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        GitHub</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
             </main>
         </div>
 
     <div class="module item">
         <div class="module__header">
             <div class="fn__flex">
-                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
-                    211
+                <a href="https://rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    227
                     文章
                 </a>
             </div>
             <br/>
             <div class="fn__flex">
                 <div class="fn__flex-1 ft__center">
-                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                    <span data-uvstaturl="https://rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
                 </div>
             </div>
         </div>
@@ -599,47 +601,43 @@
 <div class="icon__up" onclick="Util.goTop()"></div>
 <footer class="footer">
     &copy; 2020
-    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="https://rainsheep.github.io">雨羊的个人博客</a>
     <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
     <div class="fn__none"></div>
-    <br/>
-
-    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
-    <div class="fn__none"></div>
-    &nbsp; &heartsuit;  &nbsp;
-    Theme nijigen
-    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
-    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
 </footer>
 <div class="icon-up" onclick="Util.goTop()"></div>
 
 <script>
   var Label = {
-    servePath: "https://Rainsheep.github.io",
-    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    speech: false,
+    servePath: "https://rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources",
     luteAvailable: true,
     hljsStyle: 'github',
     langLabel: "zh_CN",
-    version: "3.9.0",
+    version: "4.3.0",
     staticSite: true,
-    showCodeBlockLn: false,
+    showCodeBlockLn: true,
+    articleId: "1575439705569",
   }
 </script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources/skins/nijigen/js/common.min.js?1595344563647" charset="utf-8"></script>
 
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources/js/page.min.js?1595344563647', 'soloPageScript')
     var page = new Page({
-        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "commentContentCannotEmptyLabel": "评论不能为空",
         "oId": "1575439705569",
-        "blogHost": "https://Rainsheep.github.io",
+        "blogHost": "https://rainsheep.github.io",
         "randomArticles1Label": "随机阅读：",
         "externalRelevantArticles1Label": "站外相关阅读："
     });
     $(document).ready(function () {
         page.load();
     page.tips.externalRelevantArticlesDisplayCount = "0";
+    page.loadRandomArticles('<header class="module__header">随机阅读</header>');
+    page.loadRelevantArticles('1575439705569', '<header class="module__header">相关阅读</header>');
     Skin.initArticle()
     });
 </script>
@@ -647,4 +645,4 @@
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 136ms, 2020/03/18 19:04:16 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 65ms, 2020/07/29 21:44:13 -->

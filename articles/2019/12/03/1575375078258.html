@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>STL中常用的vector，map，set，sort 用法 转 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="STL中常用的vector，map，set，sort 用法 转 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2019/12/03/1575375078258.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="STL中常用的vector，map，set，sort 用法 转 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2019/12/03/1575375078258.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
-            <link rel="prev" title="hdu-2546 饭卡" href="https://Rainsheep.github.io/articles/2019/12/03/1575374076393.html">
-            <link rel="next" title=" map的详细用法: 转" href="https://Rainsheep.github.io/articles/2019/12/03/1575375496539.html">
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>STL中常用的vector，map，set，sort 用法 转 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="STL中常用的vector，map，set，sort 用法 转 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://rainsheep.github.io/articles/2019/12/03/1575375078258.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="STL中常用的vector，map，set，sort 用法 转 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://rainsheep.github.io/articles/2019/12/03/1575375078258.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources/skins/nijigen/css/base.css?1595344563647"/>
+            <link rel="prev" title="hdu-2546 饭卡" href="https://rainsheep.github.io/articles/2019/12/03/1575374076393.html">
+            <link rel="next" title=" map的详细用法: 转" href="https://rainsheep.github.io/articles/2019/12/03/1575375496539.html">
     </head>
 <body>
 <div class="bg"></div>
@@ -15,7 +15,7 @@
 <div class="bg bg--5"></div>
 <header class="header">
     <div class="header__wrap">
-        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+        <a href="https://rainsheep.github.io" rel="start" class="header__logo">
             <i class="icon__home"></i> 雨羊的个人博客
         </a>
 
@@ -23,16 +23,16 @@
                 <a href="/my-github-repos" target="_self" rel="section">
                     <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
                 </a>
-            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+            <a href="https://rainsheep.github.io/tags.html" rel="section">
                 <i class="icon__tags"></i> 标签墙
             </a>
-            <a href="https://Rainsheep.github.io/archives.html">
+            <a href="https://rainsheep.github.io/archives.html">
                 <i class="icon__inbox"></i> 存档
             </a>
-            <a rel="archive" href="https://Rainsheep.github.io/links.html">
-                <i class="icon__link"></i> 友情链接
+            <a rel="archive" href="https://rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友链
             </a>
-            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+            <a rel="alternate" href="https://rainsheep.github.io/rss.xml" rel="section">
                 <i class="icon__rss"></i> RSS
             </a>
         </nav>
@@ -51,22 +51,22 @@
                     </a>
                 </li>
             <li>
-                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <a href="https://rainsheep.github.io/tags.html" rel="section">
                     <i class="icon__tags"></i> 标签墙
                 </a>
             </li>
             <li>
-                <a href="https://Rainsheep.github.io/archives.html">
+                <a href="https://rainsheep.github.io/archives.html">
                     <i class="icon__inbox"></i> 存档
                 </a>
             </li>
             <li>
-                <a rel="archive" href="https://Rainsheep.github.io/links.html">
-                    <i class="icon__link"></i> 友情链接
+                <a rel="archive" href="https://rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友链
                 </a>
             </li>
             <li>
-                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <a rel="alternate" href="https://rainsheep.github.io/rss.xml" rel="section">
                     <i class="icon__rss"></i> RSS
                 </a>
             </li>
@@ -86,7 +86,7 @@
                     </time>
 
                     <h2 class="item__title">
-                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2019/12/03/1575375078258.html">
+                        <a rel="bookmark" href="https://rainsheep.github.io/articles/2019/12/03/1575375078258.html">
                             STL中常用的vector，map，set，sort 用法 转
                         </a>
                     </h2>
@@ -99,17 +99,17 @@
                     <div class="ft__center">
                         <span class="tag">
                             <i class="icon__tags"></i>
-                            <a rel="tag" href="https://Rainsheep.github.io/tags/STL">
+                            <a rel="tag" href="https://rainsheep.github.io/tags/STL">
                                 STL</a>,
-                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93">
+                            <a rel="tag" href="https://rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93">
                                 知识点总结</a>
                         </span>
-                            <a class="tag" href="https://Rainsheep.github.io/articles/2019/12/03/1575375078258.html#b3logsolocomments">
+                            <a class="tag" href="https://rainsheep.github.io/articles/2019/12/03/1575375078258.html#b3logsolocomments">
                                 <i class="icon__comments"></i> <span data-uvstatcmt="1575375078258">0</span> 评论
                             </a>
                         <span class="tag">
                             <i class="icon__views"></i>
-                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2019/12/03/1575375078258.html">6</span> 浏览
+                        <span data-uvstaturl="https://rainsheep.github.io/articles/2019/12/03/1575375078258.html">0</span> 浏览
                         </span>
                     </div>
 
@@ -141,26 +141,26 @@ cout&lt;&lt;*it&lt;&lt;endl;<br>
 (2). for(int i = 0; i &lt; a.size(); i++)<br>
 cout&lt;&lt;a[i]&lt;&lt;endl;</datatype></p>
 <p>1.vector 的数据的存入和输出：</p>
-<pre><code class="language-cpp highlight-chroma"><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;cstdio&gt;</span><span class="highlight-cp">
-</span><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;vector&gt;</span><span class="highlight-cp">
-</span><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;iostream&gt;</span><span class="highlight-cp">
-</span><span class="highlight-cp"></span><span class="highlight-k">using</span> <span class="highlight-k">namespace</span> <span class="highlight-n">std</span><span class="highlight-p">;</span>
-<span class="highlight-kt">int</span> <span class="highlight-nf">main</span><span class="highlight-p">()</span>
-<span class="highlight-p">{</span>
-	<span class="highlight-kt">int</span> <span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span>
-    <span class="highlight-n">vector</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;</span> <span class="highlight-n">v</span><span class="highlight-p">;</span>
-    <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-n">i</span> <span class="highlight-o">&lt;</span> <span class="highlight-mi">10</span><span class="highlight-p">;</span> <span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
-	<span class="highlight-p">{</span>
-		<span class="highlight-n">v</span><span class="highlight-p">.</span><span class="highlight-n">push_back</span><span class="highlight-p">(</span> <span class="highlight-n">i</span> <span class="highlight-p">);</span>       <span class="highlight-c1">//把元素一个一个存入到vector中
-</span><span class="highlight-c1"></span>	<span class="highlight-p">}</span>
-    <span class="highlight-cm">/* v.clear()*/</span> <span class="highlight-c1">//对存入的数据清空
-</span><span class="highlight-c1"></span>	<span class="highlight-k">for</span><span class="highlight-p">(</span> <span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-n">i</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">v</span><span class="highlight-p">.</span><span class="highlight-n">size</span><span class="highlight-p">();</span> <span class="highlight-n">i</span><span class="highlight-o">++</span> <span class="highlight-p">)</span> <span class="highlight-c1">//v.size() 表示vector存入元素的个数
-</span><span class="highlight-c1"></span>	<span class="highlight-p">{</span>
-		<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">v</span><span class="highlight-p">[</span> <span class="highlight-n">i</span> <span class="highlight-p">]</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-s">"  "</span><span class="highlight-p">;</span> <span class="highlight-c1">//把每个元素显示出来
-</span><span class="highlight-c1"></span>	<span class="highlight-p">}</span>
-	<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">endl</span><span class="highlight-p">;</span>
-<span class="highlight-p">}</span>
-
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;cstdio&gt;</span><span class="highlight-cp">
+</span><span class="highlight-ln"> 2</span><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;vector&gt;</span><span class="highlight-cp">
+</span><span class="highlight-ln"> 3</span><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;iostream&gt;</span><span class="highlight-cp">
+</span><span class="highlight-ln"> 4</span><span class="highlight-cp"></span><span class="highlight-k">using</span> <span class="highlight-k">namespace</span> <span class="highlight-n">std</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 5</span><span class="highlight-kt">int</span> <span class="highlight-nf">main</span><span class="highlight-p">()</span>
+<span class="highlight-ln"> 6</span><span class="highlight-p">{</span>
+<span class="highlight-ln"> 7</span>	<span class="highlight-kt">int</span> <span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 8</span>    <span class="highlight-n">vector</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;</span> <span class="highlight-n">v</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 9</span>    <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-n">i</span> <span class="highlight-o">&lt;</span> <span class="highlight-mi">10</span><span class="highlight-p">;</span> <span class="highlight-n">i</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+<span class="highlight-ln">10</span>	<span class="highlight-p">{</span>
+<span class="highlight-ln">11</span>		<span class="highlight-n">v</span><span class="highlight-p">.</span><span class="highlight-n">push_back</span><span class="highlight-p">(</span> <span class="highlight-n">i</span> <span class="highlight-p">);</span>       <span class="highlight-c1">//把元素一个一个存入到vector中
+</span><span class="highlight-ln">12</span><span class="highlight-c1"></span>	<span class="highlight-p">}</span>
+<span class="highlight-ln">13</span>    <span class="highlight-cm">/* v.clear()*/</span> <span class="highlight-c1">//对存入的数据清空
+</span><span class="highlight-ln">14</span><span class="highlight-c1"></span>	<span class="highlight-k">for</span><span class="highlight-p">(</span> <span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-n">i</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">v</span><span class="highlight-p">.</span><span class="highlight-n">size</span><span class="highlight-p">();</span> <span class="highlight-n">i</span><span class="highlight-o">++</span> <span class="highlight-p">)</span> <span class="highlight-c1">//v.size() 表示vector存入元素的个数
+</span><span class="highlight-ln">15</span><span class="highlight-c1"></span>	<span class="highlight-p">{</span>
+<span class="highlight-ln">16</span>		<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">v</span><span class="highlight-p">[</span> <span class="highlight-n">i</span> <span class="highlight-p">]</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-s">"  "</span><span class="highlight-p">;</span> <span class="highlight-c1">//把每个元素显示出来
+</span><span class="highlight-ln">17</span><span class="highlight-c1"></span>	<span class="highlight-p">}</span>
+<span class="highlight-ln">18</span>	<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">endl</span><span class="highlight-p">;</span>
+<span class="highlight-ln">19</span><span class="highlight-p">}</span>
+<span class="highlight-ln">20</span>
 </code></pre>
 <ol>
 <li>push_back()        在数组的最后添加一个数据</li>
@@ -218,66 +218,66 @@ string s;<br>
 int nSize = mapStudent.size();</p>
 <p>4.数据的遍历<br>
 第一种：应用前向迭代器</p>
-<pre><code class="language-cpp highlight-chroma"><span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;::</span><span class="highlight-n">iterator</span> <span class="highlight-n">iter</span><span class="highlight-p">;</span>
-<span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">iter</span> <span class="highlight-o">=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">begin</span><span class="highlight-p">();</span> <span class="highlight-n">iter</span> <span class="highlight-o">!=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">end</span><span class="highlight-p">();</span> <span class="highlight-n">iter</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
-    <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">iter</span><span class="highlight-o">-&gt;</span><span class="highlight-n">first</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"  "</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">iter</span><span class="highlight-o">-&gt;</span><span class="highlight-n">second</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">end</span><span class="highlight-p">;</span>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;::</span><span class="highlight-n">iterator</span> <span class="highlight-n">iter</span><span class="highlight-p">;</span>
+<span class="highlight-ln">2</span><span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">iter</span> <span class="highlight-o">=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">begin</span><span class="highlight-p">();</span> <span class="highlight-n">iter</span> <span class="highlight-o">!=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">end</span><span class="highlight-p">();</span> <span class="highlight-n">iter</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+<span class="highlight-ln">3</span>    <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">iter</span><span class="highlight-o">-&gt;</span><span class="highlight-n">first</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"  "</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">iter</span><span class="highlight-o">-&gt;</span><span class="highlight-n">second</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">end</span><span class="highlight-p">;</span>
 </code></pre>
 <p>第二种：应用反向迭代器</p>
-<pre><code class="language-cpp highlight-chroma"><span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;::</span><span class="highlight-n">reverse_iterator</span> <span class="highlight-n">iter</span><span class="highlight-p">;</span>
-<span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">iter</span> <span class="highlight-o">=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">rbegin</span><span class="highlight-p">();</span> <span class="highlight-n">iter</span> <span class="highlight-o">!=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">rend</span><span class="highlight-p">();</span> <span class="highlight-n">iter</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
-    <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">iter</span><span class="highlight-o">-&gt;</span><span class="highlight-n">first</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"  "</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">iter</span><span class="highlight-o">-&gt;</span><span class="highlight-n">second</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">end</span><span class="highlight-p">;</span>
-
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;::</span><span class="highlight-n">reverse_iterator</span> <span class="highlight-n">iter</span><span class="highlight-p">;</span>
+<span class="highlight-ln">2</span><span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">iter</span> <span class="highlight-o">=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">rbegin</span><span class="highlight-p">();</span> <span class="highlight-n">iter</span> <span class="highlight-o">!=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">rend</span><span class="highlight-p">();</span> <span class="highlight-n">iter</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+<span class="highlight-ln">3</span>    <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">iter</span><span class="highlight-o">-&gt;</span><span class="highlight-n">first</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"  "</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">iter</span><span class="highlight-o">-&gt;</span><span class="highlight-n">second</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">end</span><span class="highlight-p">;</span>
+<span class="highlight-ln">4</span>
 </code></pre>
 <p>第三种：用数组方式</p>
-<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">int</span> <span class="highlight-n">nsize</span> <span class="highlight-o">=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">size</span><span class="highlight-p">()</span>
-<span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">nIndex</span> <span class="highlight-o">=</span> <span class="highlight-mi">1</span><span class="highlight-p">;</span> <span class="highlight-n">nIndex</span> <span class="highlight-o">&lt;=</span> <span class="highlight-n">nSize</span><span class="highlight-p">;</span> <span class="highlight-n">nIndex</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
-     <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">mapStudent</span><span class="highlight-p">[</span><span class="highlight-n">nIndex</span><span class="highlight-p">]</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">end</span><span class="highlight-p">;</span>
-
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-kt">int</span> <span class="highlight-n">nsize</span> <span class="highlight-o">=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">size</span><span class="highlight-p">()</span>
+<span class="highlight-ln">2</span><span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">nIndex</span> <span class="highlight-o">=</span> <span class="highlight-mi">1</span><span class="highlight-p">;</span> <span class="highlight-n">nIndex</span> <span class="highlight-o">&lt;=</span> <span class="highlight-n">nSize</span><span class="highlight-p">;</span> <span class="highlight-n">nIndex</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+<span class="highlight-ln">3</span>     <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">mapStudent</span><span class="highlight-p">[</span><span class="highlight-n">nIndex</span><span class="highlight-p">]</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">end</span><span class="highlight-p">;</span>
+<span class="highlight-ln">4</span>
 </code></pre>
 <p>例如：</p>
-<pre><code class="language-cpp highlight-chroma"><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;map&gt;</span><span class="highlight-cp">
-</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;string&gt;</span><span class="highlight-cp">
-</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;iostream&gt;</span><span class="highlight-cp">
-</span><span class="highlight-cp"></span><span class="highlight-k">using</span> <span class="highlight-k">namespace</span> <span class="highlight-n">std</span><span class="highlight-p">;</span>
- 
-<span class="highlight-kt">int</span> <span class="highlight-nf">main</span><span class="highlight-p">()</span>
-<span class="highlight-p">{</span>
-    <span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-n">string</span><span class="highlight-p">,</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;</span>  <span class="highlight-n">m</span><span class="highlight-p">;</span>
-    <span class="highlight-n">m</span><span class="highlight-p">[</span><span class="highlight-s">"a"</span><span class="highlight-p">]</span><span class="highlight-o">=</span><span class="highlight-mi">1</span><span class="highlight-p">;</span>
-    <span class="highlight-n">m</span><span class="highlight-p">[</span><span class="highlight-s">"b"</span><span class="highlight-p">]</span><span class="highlight-o">=</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
-    <span class="highlight-n">m</span><span class="highlight-p">[</span><span class="highlight-s">"c"</span><span class="highlight-p">]</span><span class="highlight-o">=</span><span class="highlight-mi">3</span><span class="highlight-p">;</span>
-    <span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-n">string</span><span class="highlight-p">,</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;::</span><span class="highlight-n">iterator</span> <span class="highlight-n">it</span><span class="highlight-p">;</span>
-    <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">it</span><span class="highlight-o">=</span><span class="highlight-n">m</span><span class="highlight-p">.</span><span class="highlight-n">begin</span><span class="highlight-p">();</span><span class="highlight-n">it</span><span class="highlight-o">!=</span><span class="highlight-n">m</span><span class="highlight-p">.</span><span class="highlight-n">end</span><span class="highlight-p">();</span><span class="highlight-o">++</span><span class="highlight-n">it</span><span class="highlight-p">)</span>
-        <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"key: "</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">it</span><span class="highlight-o">-&gt;</span><span class="highlight-n">first</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">" value: "</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">it</span><span class="highlight-o">-&gt;</span><span class="highlight-n">second</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">endl</span><span class="highlight-p">;</span>
-    <span class="highlight-k">return</span>   <span class="highlight-mi">0</span><span class="highlight-p">;</span>
-<span class="highlight-p">}</span>
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;map&gt;</span><span class="highlight-cp">
+</span><span class="highlight-ln"> 2</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;string&gt;</span><span class="highlight-cp">
+</span><span class="highlight-ln"> 3</span><span class="highlight-cp">#include</span><span class="highlight-cpf">&lt;iostream&gt;</span><span class="highlight-cp">
+</span><span class="highlight-ln"> 4</span><span class="highlight-cp"></span><span class="highlight-k">using</span> <span class="highlight-k">namespace</span> <span class="highlight-n">std</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 5</span> 
+<span class="highlight-ln"> 6</span><span class="highlight-kt">int</span> <span class="highlight-nf">main</span><span class="highlight-p">()</span>
+<span class="highlight-ln"> 7</span><span class="highlight-p">{</span>
+<span class="highlight-ln"> 8</span>    <span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-n">string</span><span class="highlight-p">,</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;</span>  <span class="highlight-n">m</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 9</span>    <span class="highlight-n">m</span><span class="highlight-p">[</span><span class="highlight-s">"a"</span><span class="highlight-p">]</span><span class="highlight-o">=</span><span class="highlight-mi">1</span><span class="highlight-p">;</span>
+<span class="highlight-ln">10</span>    <span class="highlight-n">m</span><span class="highlight-p">[</span><span class="highlight-s">"b"</span><span class="highlight-p">]</span><span class="highlight-o">=</span><span class="highlight-mi">2</span><span class="highlight-p">;</span>
+<span class="highlight-ln">11</span>    <span class="highlight-n">m</span><span class="highlight-p">[</span><span class="highlight-s">"c"</span><span class="highlight-p">]</span><span class="highlight-o">=</span><span class="highlight-mi">3</span><span class="highlight-p">;</span>
+<span class="highlight-ln">12</span>    <span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-n">string</span><span class="highlight-p">,</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;::</span><span class="highlight-n">iterator</span> <span class="highlight-n">it</span><span class="highlight-p">;</span>
+<span class="highlight-ln">13</span>    <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">it</span><span class="highlight-o">=</span><span class="highlight-n">m</span><span class="highlight-p">.</span><span class="highlight-n">begin</span><span class="highlight-p">();</span><span class="highlight-n">it</span><span class="highlight-o">!=</span><span class="highlight-n">m</span><span class="highlight-p">.</span><span class="highlight-n">end</span><span class="highlight-p">();</span><span class="highlight-o">++</span><span class="highlight-n">it</span><span class="highlight-p">)</span>
+<span class="highlight-ln">14</span>        <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"key: "</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">it</span><span class="highlight-o">-&gt;</span><span class="highlight-n">first</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">" value: "</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">it</span><span class="highlight-o">-&gt;</span><span class="highlight-n">second</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">endl</span><span class="highlight-p">;</span>
+<span class="highlight-ln">15</span>    <span class="highlight-k">return</span>   <span class="highlight-mi">0</span><span class="highlight-p">;</span>
+<span class="highlight-ln">16</span><span class="highlight-p">}</span>
 </code></pre>
 <p>map&lt;string,int&gt;::iterator it;   定义一个迭代指针 it。<br>
 it-&gt;first 为索引键值，it-&gt;second 为值。</p>
 <p>5.数据的查找（包括判定这个关键字是否在 map 中出现）<br>
-这里给出三种数据查找方法:<br>
+这里给出三种数据查找方法：<br>
 第一种：用 count 函数来判定关键字是否出现，但是无法定位数据出现位置<br>
 第二种：用 find 函数来定位数据出现位置它返回的一个迭代器，<br>
 当数据出现时，它返回数据所在位置的迭代器，如果 map 中没有要查找的数据，它返回的迭代器等于 end 函数返回的迭代器。</p>
 <p>例如：</p>
-<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">int</span> <span class="highlight-nf">main</span><span class="highlight-p">()</span>
-<span class="highlight-p">{</span>
-            <span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">;</span>
-            <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">insert</span><span class="highlight-p">(</span><span class="highlight-n">pair</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">,</span> <span class="highlight-err">“</span><span class="highlight-n">student_one</span><span class="highlight-err">”</span><span class="highlight-p">));</span>
-            <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">insert</span><span class="highlight-p">(</span><span class="highlight-n">pair</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;</span><span class="highlight-p">(</span><span class="highlight-mi">2</span><span class="highlight-p">,</span> <span class="highlight-err">“</span><span class="highlight-n">student_two</span><span class="highlight-err">”</span><span class="highlight-p">));</span>
-            <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">insert</span><span class="highlight-p">(</span><span class="highlight-n">pair</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;</span><span class="highlight-p">(</span><span class="highlight-mi">3</span><span class="highlight-p">,</span> <span class="highlight-err">“</span><span class="highlight-n">student_three</span><span class="highlight-err">”</span><span class="highlight-p">));</span>
-            <span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;::</span><span class="highlight-n">iterator</span> <span class="highlight-n">iter</span><span class="highlight-p">;</span>
-            <span class="highlight-n">iter</span> <span class="highlight-o">=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">find</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
-            <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">iter</span> <span class="highlight-o">!=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">end</span><span class="highlight-p">())</span>
-            <span class="highlight-p">{</span>
-                   <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-err">”</span><span class="highlight-n">Find</span><span class="highlight-p">,</span> <span class="highlight-n">the</span> <span class="highlight-n">value</span> <span class="highlight-n">is</span> <span class="highlight-err">”</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">iter</span><span class="highlight-o">-&gt;</span><span class="highlight-n">second</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">endl</span><span class="highlight-p">;</span>
-            <span class="highlight-p">}</span>
-            <span class="highlight-k">else</span>
-            <span class="highlight-p">{</span>
-               <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-err">”</span><span class="highlight-n">Do</span> <span class="highlight-n">not</span> <span class="highlight-n">Find</span><span class="highlight-err">”</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">endl</span><span class="highlight-p">;</span>
-            <span class="highlight-p">}</span>
-<span class="highlight-p">}</span>
-
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-kt">int</span> <span class="highlight-nf">main</span><span class="highlight-p">()</span>
+<span class="highlight-ln"> 2</span><span class="highlight-p">{</span>
+<span class="highlight-ln"> 3</span>            <span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 4</span>            <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">insert</span><span class="highlight-p">(</span><span class="highlight-n">pair</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">,</span> <span class="highlight-err">“</span><span class="highlight-n">student_one</span><span class="highlight-err">”</span><span class="highlight-p">));</span>
+<span class="highlight-ln"> 5</span>            <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">insert</span><span class="highlight-p">(</span><span class="highlight-n">pair</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;</span><span class="highlight-p">(</span><span class="highlight-mi">2</span><span class="highlight-p">,</span> <span class="highlight-err">“</span><span class="highlight-n">student_two</span><span class="highlight-err">”</span><span class="highlight-p">));</span>
+<span class="highlight-ln"> 6</span>            <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">insert</span><span class="highlight-p">(</span><span class="highlight-n">pair</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;</span><span class="highlight-p">(</span><span class="highlight-mi">3</span><span class="highlight-p">,</span> <span class="highlight-err">“</span><span class="highlight-n">student_three</span><span class="highlight-err">”</span><span class="highlight-p">));</span>
+<span class="highlight-ln"> 7</span>            <span class="highlight-n">map</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-p">,</span> <span class="highlight-n">string</span><span class="highlight-o">&gt;::</span><span class="highlight-n">iterator</span> <span class="highlight-n">iter</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 8</span>            <span class="highlight-n">iter</span> <span class="highlight-o">=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">find</span><span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">);</span>
+<span class="highlight-ln"> 9</span>            <span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">iter</span> <span class="highlight-o">!=</span> <span class="highlight-n">mapStudent</span><span class="highlight-p">.</span><span class="highlight-n">end</span><span class="highlight-p">())</span>
+<span class="highlight-ln">10</span>            <span class="highlight-p">{</span>
+<span class="highlight-ln">11</span>                   <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-err">”</span><span class="highlight-n">Find</span><span class="highlight-p">,</span> <span class="highlight-n">the</span> <span class="highlight-n">value</span> <span class="highlight-n">is</span> <span class="highlight-err">”</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">iter</span><span class="highlight-o">-&gt;</span><span class="highlight-n">second</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">endl</span><span class="highlight-p">;</span>
+<span class="highlight-ln">12</span>            <span class="highlight-p">}</span>
+<span class="highlight-ln">13</span>            <span class="highlight-k">else</span>
+<span class="highlight-ln">14</span>            <span class="highlight-p">{</span>
+<span class="highlight-ln">15</span>               <span class="highlight-n">cout</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-err">”</span><span class="highlight-n">Do</span> <span class="highlight-n">not</span> <span class="highlight-n">Find</span><span class="highlight-err">”</span><span class="highlight-o">&lt;&lt;</span><span class="highlight-n">endl</span><span class="highlight-p">;</span>
+<span class="highlight-ln">16</span>            <span class="highlight-p">}</span>
+<span class="highlight-ln">17</span><span class="highlight-p">}</span>
+<span class="highlight-ln">18</span>
 </code></pre>
 <p>第三种：这个方法用来判定数据是否出现<br>
 lower_bound 函数用法，这个函数用来返回要查找关键字的下界(是一个迭代器)<br>
@@ -340,17 +340,17 @@ iter = lower_bound(mm[tt].begin(), mm[tt].end(), l);<br>
 </ol>
 <p>set 的遍历<br>
 代码如下：</p>
-<pre><code class="language-cpp highlight-chroma"><span class="highlight-n">set</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;</span><span class="highlight-n">ss</span><span class="highlight-p">;</span>
-        <span class="highlight-n">set</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;::</span><span class="highlight-n">iterator</span> <span class="highlight-n">it</span><span class="highlight-p">;</span>
-        <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">it</span> <span class="highlight-o">=</span> <span class="highlight-n">ss</span><span class="highlight-p">.</span><span class="highlight-n">begin</span><span class="highlight-p">();</span> <span class="highlight-n">it</span> <span class="highlight-o">!=</span> <span class="highlight-n">ss</span><span class="highlight-p">.</span><span class="highlight-n">end</span><span class="highlight-p">();</span> <span class="highlight-n">it</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
-        <span class="highlight-p">{</span>
-            <span class="highlight-n">printf</span><span class="highlight-p">(</span><span class="highlight-s">"%d "</span><span class="highlight-p">,</span><span class="highlight-o">*</span><span class="highlight-n">it</span><span class="highlight-p">);</span>
-        <span class="highlight-p">}</span>
-
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">set</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;</span><span class="highlight-n">ss</span><span class="highlight-p">;</span>
+<span class="highlight-ln">2</span>        <span class="highlight-n">set</span><span class="highlight-o">&lt;</span><span class="highlight-kt">int</span><span class="highlight-o">&gt;::</span><span class="highlight-n">iterator</span> <span class="highlight-n">it</span><span class="highlight-p">;</span>
+<span class="highlight-ln">3</span>        <span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-n">it</span> <span class="highlight-o">=</span> <span class="highlight-n">ss</span><span class="highlight-p">.</span><span class="highlight-n">begin</span><span class="highlight-p">();</span> <span class="highlight-n">it</span> <span class="highlight-o">!=</span> <span class="highlight-n">ss</span><span class="highlight-p">.</span><span class="highlight-n">end</span><span class="highlight-p">();</span> <span class="highlight-n">it</span><span class="highlight-o">++</span><span class="highlight-p">)</span>
+<span class="highlight-ln">4</span>        <span class="highlight-p">{</span>
+<span class="highlight-ln">5</span>            <span class="highlight-n">printf</span><span class="highlight-p">(</span><span class="highlight-s">"%d "</span><span class="highlight-p">,</span><span class="highlight-o">*</span><span class="highlight-n">it</span><span class="highlight-p">);</span>
+<span class="highlight-ln">6</span>        <span class="highlight-p">}</span>
+<span class="highlight-ln">7</span>
 </code></pre>
 <p>lower_bound()返回一个 iterator 它指向在[first,last)标记的有序序列中可以插入 value，而不会破坏容器顺序的第一个位置，而这个位置标记了一个大于等于 value 的值。　　<br>
 例如，有如下序列：　　ia[]={12,15,17,19,20,22,23,26,29,35,40,51};<br>
-用值 21 调用 lower_bound(),返回一个指向 22 的 iterator。用值 22 调用 lower_bound(),也返回一个指向 22 的 iterator。<br>
+用值 21 调用 lower_bound()，返回一个指向 22 的 iterator。用值 22 调用 lower_bound()，也返回一个指向 22 的 iterator。<br>
 iterator upper_bound( const key_type &amp;key ):返回一个迭代器，指向键值 &gt; key 的第一个元素</p>
 <hr>
 <p>函数 lower_bound()在 first 和 last 中的前闭后开区间进行二分查找，返回大于或等于 val 的第一个元素位置。如果所有元素都小于 val，则返回 last 的位置</p>
@@ -391,27 +391,27 @@ sort(a,a+n); //n=a.size()       将 a 中元素按递增排序。<br>
 我们也可以利用类 pair<br>
 vector&lt; pair&lt;int,int&gt; &gt; a; // 注意这里两个 &gt; &gt; 中间必须有一个空格，否则编译器会当是运算符 &gt;&gt;<br>
 例如：</p>
-<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">int</span> <span class="highlight-n">N</span><span class="highlight-p">,</span><span class="highlight-n">x</span><span class="highlight-p">,</span><span class="highlight-n">y</span><span class="highlight-p">;</span>
-<span class="highlight-n">cin</span> <span class="highlight-o">&gt;&gt;</span> <span class="highlight-n">N</span><span class="highlight-p">;</span>
-<span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-n">i</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">N</span><span class="highlight-p">;</span> <span class="highlight-o">++</span><span class="highlight-n">i</span><span class="highlight-p">)</span> 
-<span class="highlight-p">{</span>
-	<span class="highlight-n">cin</span> <span class="highlight-o">&gt;&gt;</span> <span class="highlight-n">x</span> <span class="highlight-o">&gt;&gt;</span> <span class="highlight-n">y</span><span class="highlight-p">;</span>
-	<span class="highlight-n">a</span><span class="highlight-p">.</span><span class="highlight-n">push_back</span><span class="highlight-p">(</span><span class="highlight-n">make_pair</span><span class="highlight-p">(</span><span class="highlight-n">x</span><span class="highlight-p">,</span><span class="highlight-n">y</span><span class="highlight-p">));</span> <span class="highlight-c1">// make_pair用于创建pair对象
-</span><span class="highlight-c1"></span><span class="highlight-p">}</span>
-<span class="highlight-n">sort</span><span class="highlight-p">(</span><span class="highlight-o">&amp;</span><span class="highlight-n">a</span><span class="highlight-p">[</span><span class="highlight-mi">0</span><span class="highlight-p">],</span> <span class="highlight-o">&amp;</span><span class="highlight-n">a</span><span class="highlight-p">[</span><span class="highlight-n">N</span><span class="highlight-p">]);</span><span class="highlight-o">&lt;/</span><span class="highlight-n">span</span><span class="highlight-o">&gt;</span>
-
-
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-kt">int</span> <span class="highlight-n">N</span><span class="highlight-p">,</span><span class="highlight-n">x</span><span class="highlight-p">,</span><span class="highlight-n">y</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 2</span><span class="highlight-n">cin</span> <span class="highlight-o">&gt;&gt;</span> <span class="highlight-n">N</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 3</span><span class="highlight-k">for</span><span class="highlight-p">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span> <span class="highlight-o">=</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span> <span class="highlight-n">i</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">N</span><span class="highlight-p">;</span> <span class="highlight-o">++</span><span class="highlight-n">i</span><span class="highlight-p">)</span> 
+<span class="highlight-ln"> 4</span><span class="highlight-p">{</span>
+<span class="highlight-ln"> 5</span>	<span class="highlight-n">cin</span> <span class="highlight-o">&gt;&gt;</span> <span class="highlight-n">x</span> <span class="highlight-o">&gt;&gt;</span> <span class="highlight-n">y</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 6</span>	<span class="highlight-n">a</span><span class="highlight-p">.</span><span class="highlight-n">push_back</span><span class="highlight-p">(</span><span class="highlight-n">make_pair</span><span class="highlight-p">(</span><span class="highlight-n">x</span><span class="highlight-p">,</span><span class="highlight-n">y</span><span class="highlight-p">));</span> <span class="highlight-c1">// make_pair用于创建pair对象
+</span><span class="highlight-ln"> 7</span><span class="highlight-c1"></span><span class="highlight-p">}</span>
+<span class="highlight-ln"> 8</span><span class="highlight-n">sort</span><span class="highlight-p">(</span><span class="highlight-o">&amp;</span><span class="highlight-n">a</span><span class="highlight-p">[</span><span class="highlight-mi">0</span><span class="highlight-p">],</span> <span class="highlight-o">&amp;</span><span class="highlight-n">a</span><span class="highlight-p">[</span><span class="highlight-n">N</span><span class="highlight-p">]);</span><span class="highlight-o">&lt;/</span><span class="highlight-n">span</span><span class="highlight-o">&gt;</span>
+<span class="highlight-ln"> 9</span>
+<span class="highlight-ln">10</span>
 </code></pre>
 <p>注意：<br>
 对于我们自己定义的类或结构，系统一般不能做比较运算，需要我们自己定义相应的运算符</p>
-<pre><code class="language-cpp highlight-chroma"><span class="highlight-kt">bool</span> <span class="highlight-nf">cmp</span><span class="highlight-p">(</span><span class="highlight-n">MyType</span> <span class="highlight-n">x</span><span class="highlight-p">,</span> <span class="highlight-n">MyType</span> <span class="highlight-n">y</span><span class="highlight-p">)</span>
-<span class="highlight-p">{</span>
-	<span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">y</span><span class="highlight-p">)</span>
-		<span class="highlight-k">return</span> <span class="highlight-nb">true</span><span class="highlight-p">;</span>
-	<span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span> <span class="highlight-o">&gt;=</span> <span class="highlight-n">y</span><span class="highlight-p">)</span>
-		<span class="highlight-k">return</span> <span class="highlight-nb">false</span><span class="highlight-p">;</span>
-<span class="highlight-p">}</span>
-
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-kt">bool</span> <span class="highlight-nf">cmp</span><span class="highlight-p">(</span><span class="highlight-n">MyType</span> <span class="highlight-n">x</span><span class="highlight-p">,</span> <span class="highlight-n">MyType</span> <span class="highlight-n">y</span><span class="highlight-p">)</span>
+<span class="highlight-ln">2</span><span class="highlight-p">{</span>
+<span class="highlight-ln">3</span>	<span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">y</span><span class="highlight-p">)</span>
+<span class="highlight-ln">4</span>		<span class="highlight-k">return</span> <span class="highlight-nb">true</span><span class="highlight-p">;</span>
+<span class="highlight-ln">5</span>	<span class="highlight-k">if</span><span class="highlight-p">(</span><span class="highlight-n">x</span> <span class="highlight-o">&gt;=</span> <span class="highlight-n">y</span><span class="highlight-p">)</span>
+<span class="highlight-ln">6</span>		<span class="highlight-k">return</span> <span class="highlight-nb">false</span><span class="highlight-p">;</span>
+<span class="highlight-ln">7</span><span class="highlight-p">}</span>
+<span class="highlight-ln">8</span>
 </code></pre>
 <h1 id="Pair">Pair</h1>
 <p>（转自：<a href="http://blog.csdn.net/spaceyqy/article/details/38384501" target="_blank">http://blog.csdn.net/spaceyqy/article/details/38384501</a>）</p>
@@ -427,7 +427,7 @@ return ( pair&lt;T1,T2&gt;(x,y) );<br>
 <p>pair&lt;double,int&gt; p;</p>
 <p>都可以。。。</p>
 <p>std::pair 主要的作用是将两个数据组合成一个数据，两个数据可以是同一类型或者不同类型。例如 std::pair&lt;int,float&gt; 或者 std：：pair&lt;double,double&gt; 等。pair 实质上是一个结构体，其主要的两个成员变量是 first 和 second，这两个变量可以直接使用。初始化一个 pair 可以使用构造函数，也可以使用 std::make_pair 函数。</p>
-<p>应用：如果一个函数有两个返回值 的话，如果是相同类型，就可以用数组返回，如果是不同类型，就可以自己写个 struct ，但为了方便就可以使用 c++ 自带的 pair ，返回一个 pair,其中带有两个值。除了返回值的应用，在一个对象有多个属性的时候 ，一般自己写一个 struct ，如果就是两个属性的话，就可以用 pair 进行操作。。。<br>
+<p>应用：如果一个函数有两个返回值 的话，如果是相同类型，就可以用数组返回，如果是不同类型，就可以自己写个 struct ，但为了方便就可以使用 c++ 自带的 pair ，返回一个 pair，其中带有两个值。除了返回值的应用，在一个对象有多个属性的时候 ，一般自己写一个 struct ，如果就是两个属性的话，就可以用 pair 进行操作。。。<br>
 应用 pair 可以省的自己写一个 struct 。。。如果有三个属性的话，其实也是可以用的 pair 的 ，极端的写法 pair &lt;int ,pair&lt;int ,int &gt; &gt; 写法极端。（后边的两个 &gt; &gt; 要有空格，否则就会是 &gt;&gt; 位移运算符）</p>
 <p>pair&lt;int ,int &gt;p (5,6);<br>
 pair&lt;int ,int &gt; p1= make_pair(5,6);<br>
@@ -437,33 +437,33 @@ pair &lt;string ,double&gt; p3 = make_pair("aa",5.0);<br>
 如何取得 pair 的值呢。。<br>
 每个 pair 都有两个属性值 first 和 second    cout&lt;&lt;p1.first&lt;&lt;p1.second; 注意是属性值而不是方法。</p>
 <p>一般 make_pair 都使用在需要 pair 做参数的位置，可以直接调用 make_pair 生成 pair 对象。make_pair 是根据 2 个参数类型推导出 pair 的 2 个模板参数类型的。另一个使用的方面就是 pair 可以接受隐式的类型转换，这样可以获得更高的灵活度。但是这样会出现如下问题：例如有如下两个定义：</p>
-<pre><code class="highlight-chroma">&lt;span style="font-size:18px;"&gt;std::pair&lt;int, float&gt;(1, 1.1);
-std::make_pair(1, 1.1);
-&lt;/span&gt;
-
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>&lt;span style="font-size:18px;"&gt;std::pair&lt;int, float&gt;(1, 1.1);
+<span class="highlight-ln">2</span>std::make_pair(1, 1.1);
+<span class="highlight-ln">3</span>&lt;/span&gt;
+<span class="highlight-ln">4</span>
 </code></pre>
 <p>其中第一个的 second 变量是 float 类型，而 make_pair 函数会将 second 变量都转换成 double 类型。这个问题在编程是需要引起注意。下面是一段 pair 与 make_pair 的例子程序：</p>
-<pre><code class="language-cpp highlight-chroma"><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;iostream&gt;</span><span class="highlight-cp">
-</span><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;utility&gt;</span><span class="highlight-cp">
-</span><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;string&gt;</span><span class="highlight-cp">
-</span><span class="highlight-cp"></span><span class="highlight-k">using</span> <span class="highlight-k">namespace</span> <span class="highlight-n">std</span><span class="highlight-p">;</span>
-<span class="highlight-kt">int</span> <span class="highlight-nf">main</span> <span class="highlight-p">()</span>
-<span class="highlight-p">{</span>
-        <span class="highlight-n">pair</span> <span class="highlight-o">&lt;</span><span class="highlight-n">string</span><span class="highlight-p">,</span><span class="highlight-kt">double</span><span class="highlight-o">&gt;</span> <span class="highlight-n">product1</span> <span class="highlight-p">(</span><span class="highlight-s">"tomatoes"</span><span class="highlight-p">,</span><span class="highlight-mf">3.25</span><span class="highlight-p">);</span>
-	<span class="highlight-n">pair</span> <span class="highlight-o">&lt;</span><span class="highlight-n">string</span><span class="highlight-p">,</span><span class="highlight-kt">double</span><span class="highlight-o">&gt;</span> <span class="highlight-n">product2</span><span class="highlight-p">;</span>
-	<span class="highlight-n">pair</span> <span class="highlight-o">&lt;</span><span class="highlight-n">string</span><span class="highlight-p">,</span><span class="highlight-kt">double</span><span class="highlight-o">&gt;</span> <span class="highlight-n">product3</span><span class="highlight-p">;</span>
- 
-	<span class="highlight-n">product2</span><span class="highlight-p">.</span><span class="highlight-n">first</span> <span class="highlight-o">=</span><span class="highlight-s">"lightbulbs"</span><span class="highlight-p">;</span> <span class="highlight-c1">// type of first is string
-</span><span class="highlight-c1"></span>	<span class="highlight-n">product2</span><span class="highlight-p">.</span><span class="highlight-n">second</span> <span class="highlight-o">=</span><span class="highlight-mf">0.99</span><span class="highlight-p">;</span> <span class="highlight-c1">// type of second is double
-</span><span class="highlight-c1"></span>	
-	<span class="highlight-n">product3</span> <span class="highlight-o">=</span> <span class="highlight-n">make_pair</span> <span class="highlight-p">(</span><span class="highlight-s">"shoes"</span><span class="highlight-p">,</span><span class="highlight-mf">20.0</span><span class="highlight-p">);</span>
-		
-	<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"The price of "</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product1</span><span class="highlight-p">.</span><span class="highlight-n">first</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">" is $"</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product1</span><span class="highlight-p">.</span><span class="highlight-n">second</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"</span><span class="highlight-se">\n</span><span class="highlight-s">"</span><span class="highlight-p">;</span>
-	<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"The price of "</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product2</span><span class="highlight-p">.</span><span class="highlight-n">first</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">" is $"</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product2</span><span class="highlight-p">.</span><span class="highlight-n">second</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"</span><span class="highlight-se">\n</span><span class="highlight-s">"</span><span class="highlight-p">;</span>
-	<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"The price of "</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product3</span><span class="highlight-p">.</span><span class="highlight-n">first</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">" is $"</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product3</span><span class="highlight-p">.</span><span class="highlight-n">second</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"</span><span class="highlight-se">\n</span><span class="highlight-s">"</span><span class="highlight-p">;</span>
-	<span class="highlight-k">return</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span>
-<span class="highlight-p">}</span>
-
+<pre><code class="language-cpp highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;iostream&gt;</span><span class="highlight-cp">
+</span><span class="highlight-ln"> 2</span><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;utility&gt;</span><span class="highlight-cp">
+</span><span class="highlight-ln"> 3</span><span class="highlight-cp">#include</span> <span class="highlight-cpf">&lt;string&gt;</span><span class="highlight-cp">
+</span><span class="highlight-ln"> 4</span><span class="highlight-cp"></span><span class="highlight-k">using</span> <span class="highlight-k">namespace</span> <span class="highlight-n">std</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 5</span><span class="highlight-kt">int</span> <span class="highlight-nf">main</span> <span class="highlight-p">()</span>
+<span class="highlight-ln"> 6</span><span class="highlight-p">{</span>
+<span class="highlight-ln"> 7</span>        <span class="highlight-n">pair</span> <span class="highlight-o">&lt;</span><span class="highlight-n">string</span><span class="highlight-p">,</span><span class="highlight-kt">double</span><span class="highlight-o">&gt;</span> <span class="highlight-n">product1</span> <span class="highlight-p">(</span><span class="highlight-s">"tomatoes"</span><span class="highlight-p">,</span><span class="highlight-mf">3.25</span><span class="highlight-p">);</span>
+<span class="highlight-ln"> 8</span>	<span class="highlight-n">pair</span> <span class="highlight-o">&lt;</span><span class="highlight-n">string</span><span class="highlight-p">,</span><span class="highlight-kt">double</span><span class="highlight-o">&gt;</span> <span class="highlight-n">product2</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 9</span>	<span class="highlight-n">pair</span> <span class="highlight-o">&lt;</span><span class="highlight-n">string</span><span class="highlight-p">,</span><span class="highlight-kt">double</span><span class="highlight-o">&gt;</span> <span class="highlight-n">product3</span><span class="highlight-p">;</span>
+<span class="highlight-ln">10</span> 
+<span class="highlight-ln">11</span>	<span class="highlight-n">product2</span><span class="highlight-p">.</span><span class="highlight-n">first</span> <span class="highlight-o">=</span><span class="highlight-s">"lightbulbs"</span><span class="highlight-p">;</span> <span class="highlight-c1">// type of first is string
+</span><span class="highlight-ln">12</span><span class="highlight-c1"></span>	<span class="highlight-n">product2</span><span class="highlight-p">.</span><span class="highlight-n">second</span> <span class="highlight-o">=</span><span class="highlight-mf">0.99</span><span class="highlight-p">;</span> <span class="highlight-c1">// type of second is double
+</span><span class="highlight-ln">13</span><span class="highlight-c1"></span>	
+<span class="highlight-ln">14</span>	<span class="highlight-n">product3</span> <span class="highlight-o">=</span> <span class="highlight-n">make_pair</span> <span class="highlight-p">(</span><span class="highlight-s">"shoes"</span><span class="highlight-p">,</span><span class="highlight-mf">20.0</span><span class="highlight-p">);</span>
+<span class="highlight-ln">15</span>		
+<span class="highlight-ln">16</span>	<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"The price of "</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product1</span><span class="highlight-p">.</span><span class="highlight-n">first</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">" is $"</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product1</span><span class="highlight-p">.</span><span class="highlight-n">second</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"</span><span class="highlight-se">\n</span><span class="highlight-s">"</span><span class="highlight-p">;</span>
+<span class="highlight-ln">17</span>	<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"The price of "</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product2</span><span class="highlight-p">.</span><span class="highlight-n">first</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">" is $"</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product2</span><span class="highlight-p">.</span><span class="highlight-n">second</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"</span><span class="highlight-se">\n</span><span class="highlight-s">"</span><span class="highlight-p">;</span>
+<span class="highlight-ln">18</span>	<span class="highlight-n">cout</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"The price of "</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product3</span><span class="highlight-p">.</span><span class="highlight-n">first</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">" is $"</span><span class="highlight-o">&lt;&lt;</span> <span class="highlight-n">product3</span><span class="highlight-p">.</span><span class="highlight-n">second</span> <span class="highlight-o">&lt;&lt;</span><span class="highlight-s">"</span><span class="highlight-se">\n</span><span class="highlight-s">"</span><span class="highlight-p">;</span>
+<span class="highlight-ln">19</span>	<span class="highlight-k">return</span> <span class="highlight-mi">0</span><span class="highlight-p">;</span>
+<span class="highlight-ln">20</span><span class="highlight-p">}</span>
+<span class="highlight-ln">21</span>
 </code></pre>
 <p>map 是一个关联容器，里面存放的是键值对，容器中每一元素都是 pair 类型，通过 map 的 insert()方法来插入元素(pair 类型)。</p>
 <p>mapStudent.insert(map&lt;int, string&gt;::value_type (1,"student_one"));</p>
@@ -472,8 +472,8 @@ std::make_pair(1, 1.1);
                                 <hr>
 
 标题：STL中常用的vector，map，set，sort 用法 转<br>
-作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
-地址：<a href="https://Rainsheep.github.io/articles/2019/12/03/1575375078258.html" target="_blank">https://Rainsheep.github.io/articles/2019/12/03/1575375078258.html</a><br>
+作者：<a href="https://rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://rainsheep.github.io/articles/2019/12/03/1575375078258.html" target="_blank">https://rainsheep.github.io/articles/2019/12/03/1575375078258.html</a><br>
 
 <!-- 签名档内可使用 HTML、JavaScript -->
 <br>
@@ -484,10 +484,10 @@ std::make_pair(1, 1.1);
 
                 <div class="module mobile__hidden">
                     <div class="module__content fn__clear">
-                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575374076393.html" rel="prev" class="fn__left breadcrumb">
+                            <a href="https://rainsheep.github.io/articles/2019/12/03/1575374076393.html" rel="prev" class="fn__left breadcrumb">
                                 旧一篇: hdu-2546 饭卡
                             </a>
-                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575375496539.html" rel="next"
+                            <a href="https://rainsheep.github.io/articles/2019/12/03/1575375496539.html" rel="next"
                                class="fn__right breadcrumb">
                                  map的详细用法: 转: 新一篇
                             </a>
@@ -496,7 +496,7 @@ std::make_pair(1, 1.1);
 
                 <div class="module mobile__hidden fn__none">
                     <div class="module__content">
-                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575374076393.html" rel="prev" class="breadcrumb">
+                        <a href="https://rainsheep.github.io/articles/2019/12/03/1575374076393.html" rel="prev" class="breadcrumb">
                             旧一篇: hdu-2546 饭卡
                         </a>
                     </div>
@@ -504,12 +504,14 @@ std::make_pair(1, 1.1);
 
                 <div class="module mobile__hidden fn__none">
                     <div class="module__content">
-                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575375496539.html" rel="next"
+                        <a href="https://rainsheep.github.io/articles/2019/12/03/1575375496539.html" rel="next"
                            class="breadcrumb">
                             新一篇:  map的详细用法: 转
                         </a>
                     </div>
                 </div>
+                <div id="gitalk-container" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"></div>
                 <div id="b3logsolocomments"></div>
                 <div id="vcomment" class="module__content"
                      style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
@@ -571,7 +573,7 @@ std::make_pair(1, 1.1);
             Rainsheep
         </header>
         <main class="module__content ft__center">
-            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            <img class="side__avatar" src="https://b3logfile.com/avatar/1573792699119_1591777626791.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
             咸鱼不配拥有梦想 <br> <br>
     <a href="https://hacpai.com/member/Rainsheep"
        title="https://hacpai.com/member/Rainsheep"
@@ -609,185 +611,185 @@ std::make_pair(1, 1.1);
             <header class="module__header">标签</header>
             <main class="module__content--three module__content fn__clear">
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/acm"
+                       href="https://rainsheep.github.io/tags/acm"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="76 篇文章">
                         acm</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       href="https://rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="59 篇文章">
                         知识点总结</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/Java"
+                       href="https://rainsheep.github.io/tags/Java"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="29 篇文章">
+                       aria-label="31 篇文章">
                         Java</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       href="https://rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="24 篇文章">
-                        学习笔记</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="23 篇文章">
+                       aria-label="26 篇文章">
                         软件教程</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/STL"
+                       href="https://rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="25 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/STL"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="20 篇文章">
                         STL</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/DP"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="15 篇文章">
-                        DP</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/windows"
+                       href="https://rainsheep.github.io/tags/windows"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="15 篇文章">
                         windows</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       href="https://rainsheep.github.io/tags/Linux"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="13 篇文章">
-                        Shadowsocks</a>
+                       aria-label="15 篇文章">
+                        Linux</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/ss"
+                       href="https://rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/ss"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="13 篇文章">
                         ss</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       href="https://rainsheep.github.io/tags/Shadowsocks"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="9 篇文章">
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="11 篇文章">
                         前端</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/Linux"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="7 篇文章">
-                        Linux</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       href="https://rainsheep.github.io/tags/%E6%A0%91"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="6 篇文章">
                         树</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       href="https://rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="5 篇文章">
-                        数学问题</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="5 篇文章">
+                       aria-label="6 篇文章">
                         生活轨迹</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       href="https://rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="5 篇文章">
                         模拟</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       href="https://rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/%E5%9B%BE"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         图</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       href="https://rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         字符串</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       href="https://rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         递归</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/python"
+                       href="https://rainsheep.github.io/tags/python"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         python</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/centos"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="2 篇文章">
-                        centos</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       href="https://rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="2 篇文章">
                         递推</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       href="https://rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="2 篇文章">
                         开源</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       href="https://rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="2 篇文章">
                         水题</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       href="https://rainsheep.github.io/tags/centos"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        NOSQL</a>
+                       aria-label="2 篇文章">
+                        centos</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/html"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        html</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/dfs"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        dfs</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       href="https://rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         硬件</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       href="https://rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         数据库</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/bfs"
+                       href="https://rainsheep.github.io/tags/bfs"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         bfs</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       href="https://rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         资源搜索</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       href="https://rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         图床</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/GitHub"
+                       href="https://rainsheep.github.io/tags/GitHub"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         GitHub</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
             </main>
         </div>
 
     <div class="module item">
         <div class="module__header">
             <div class="fn__flex">
-                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
-                    211
+                <a href="https://rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    227
                     文章
                 </a>
             </div>
             <br/>
             <div class="fn__flex">
                 <div class="fn__flex-1 ft__center">
-                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                    <span data-uvstaturl="https://rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
                 </div>
             </div>
         </div>
@@ -799,47 +801,43 @@ std::make_pair(1, 1.1);
 <div class="icon__up" onclick="Util.goTop()"></div>
 <footer class="footer">
     &copy; 2020
-    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="https://rainsheep.github.io">雨羊的个人博客</a>
     <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
     <div class="fn__none"></div>
-    <br/>
-
-    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
-    <div class="fn__none"></div>
-    &nbsp; &heartsuit;  &nbsp;
-    Theme nijigen
-    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
-    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
 </footer>
 <div class="icon-up" onclick="Util.goTop()"></div>
 
 <script>
   var Label = {
-    servePath: "https://Rainsheep.github.io",
-    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    speech: false,
+    servePath: "https://rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources",
     luteAvailable: true,
     hljsStyle: 'github',
     langLabel: "zh_CN",
-    version: "3.9.0",
+    version: "4.3.0",
     staticSite: true,
-    showCodeBlockLn: false,
+    showCodeBlockLn: true,
+    articleId: "1575375078258",
   }
 </script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources/skins/nijigen/js/common.min.js?1595344563647" charset="utf-8"></script>
 
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources/js/page.min.js?1595344563647', 'soloPageScript')
     var page = new Page({
-        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "commentContentCannotEmptyLabel": "评论不能为空",
         "oId": "1575375078258",
-        "blogHost": "https://Rainsheep.github.io",
+        "blogHost": "https://rainsheep.github.io",
         "randomArticles1Label": "随机阅读：",
         "externalRelevantArticles1Label": "站外相关阅读："
     });
     $(document).ready(function () {
         page.load();
     page.tips.externalRelevantArticlesDisplayCount = "0";
+    page.loadRandomArticles('<header class="module__header">随机阅读</header>');
+    page.loadRelevantArticles('1575375078258', '<header class="module__header">相关阅读</header>');
     Skin.initArticle()
     });
 </script>
@@ -847,4 +845,4 @@ std::make_pair(1, 1.1);
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 93ms, 2020/03/18 19:04:22 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 68ms, 2020/07/29 21:44:16 -->

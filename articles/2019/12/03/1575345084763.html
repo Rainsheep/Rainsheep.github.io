@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>this()与super()使用详解 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="this()与super()使用详解 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2019/12/03/1575345084763.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="this()与super()使用详解 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2019/12/03/1575345084763.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
-            <link rel="prev" title="GitHub使用教程详解——官网操作指南" href="https://Rainsheep.github.io/articles/2019/12/03/1575344137526.html">
-            <link rel="next" title="zzulioj 2127 tmk射气球" href="https://Rainsheep.github.io/articles/2019/12/03/1575345658197.html">
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>this()与super()使用详解 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="this()与super()使用详解 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://rainsheep.github.io/articles/2019/12/03/1575345084763.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="this()与super()使用详解 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://rainsheep.github.io/articles/2019/12/03/1575345084763.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources/skins/nijigen/css/base.css?1595344563647"/>
+            <link rel="prev" title="GitHub使用教程详解——官网操作指南" href="https://rainsheep.github.io/articles/2019/12/03/1575344137526.html">
+            <link rel="next" title="zzulioj 2127 tmk射气球" href="https://rainsheep.github.io/articles/2019/12/03/1575345658197.html">
     </head>
 <body>
 <div class="bg"></div>
@@ -15,7 +15,7 @@
 <div class="bg bg--5"></div>
 <header class="header">
     <div class="header__wrap">
-        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+        <a href="https://rainsheep.github.io" rel="start" class="header__logo">
             <i class="icon__home"></i> 雨羊的个人博客
         </a>
 
@@ -23,16 +23,16 @@
                 <a href="/my-github-repos" target="_self" rel="section">
                     <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
                 </a>
-            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+            <a href="https://rainsheep.github.io/tags.html" rel="section">
                 <i class="icon__tags"></i> 标签墙
             </a>
-            <a href="https://Rainsheep.github.io/archives.html">
+            <a href="https://rainsheep.github.io/archives.html">
                 <i class="icon__inbox"></i> 存档
             </a>
-            <a rel="archive" href="https://Rainsheep.github.io/links.html">
-                <i class="icon__link"></i> 友情链接
+            <a rel="archive" href="https://rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友链
             </a>
-            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+            <a rel="alternate" href="https://rainsheep.github.io/rss.xml" rel="section">
                 <i class="icon__rss"></i> RSS
             </a>
         </nav>
@@ -51,22 +51,22 @@
                     </a>
                 </li>
             <li>
-                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <a href="https://rainsheep.github.io/tags.html" rel="section">
                     <i class="icon__tags"></i> 标签墙
                 </a>
             </li>
             <li>
-                <a href="https://Rainsheep.github.io/archives.html">
+                <a href="https://rainsheep.github.io/archives.html">
                     <i class="icon__inbox"></i> 存档
                 </a>
             </li>
             <li>
-                <a rel="archive" href="https://Rainsheep.github.io/links.html">
-                    <i class="icon__link"></i> 友情链接
+                <a rel="archive" href="https://rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友链
                 </a>
             </li>
             <li>
-                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <a rel="alternate" href="https://rainsheep.github.io/rss.xml" rel="section">
                     <i class="icon__rss"></i> RSS
                 </a>
             </li>
@@ -86,7 +86,7 @@
                     </time>
 
                     <h2 class="item__title">
-                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2019/12/03/1575345084763.html">
+                        <a rel="bookmark" href="https://rainsheep.github.io/articles/2019/12/03/1575345084763.html">
                             this()与super()使用详解
                         </a>
                     </h2>
@@ -99,150 +99,150 @@
                     <div class="ft__center">
                         <span class="tag">
                             <i class="icon__tags"></i>
-                            <a rel="tag" href="https://Rainsheep.github.io/tags/java">
+                            <a rel="tag" href="https://rainsheep.github.io/tags/java">
                                 java</a>
                         </span>
-                            <a class="tag" href="https://Rainsheep.github.io/articles/2019/12/03/1575345084763.html#b3logsolocomments">
+                            <a class="tag" href="https://rainsheep.github.io/articles/2019/12/03/1575345084763.html#b3logsolocomments">
                                 <i class="icon__comments"></i> <span data-uvstatcmt="1575345084763">0</span> 评论
                             </a>
                         <span class="tag">
                             <i class="icon__views"></i>
-                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2019/12/03/1575345084763.html">9</span> 浏览
+                        <span data-uvstaturl="https://rainsheep.github.io/articles/2019/12/03/1575345084763.html">0</span> 浏览
                         </span>
                     </div>
 
                     <div class="vditor-reset">
-                        <p>this三大作用：<br>
-this调用属性、调用方法、利用this表示当前对象。</p>
+                        <p>this 三大作用：<br>
+this 调用属性、调用方法、利用 this 表示当前对象。</p>
 <h1 id="this">this</h1>
-<p>this是自身的一个对象，代表对象本身，可以理解为：指向对象本身的一个指针。<br>
-this的用法在java中大体可以分为3种：</p>
+<p>this 是自身的一个对象，代表对象本身，可以理解为：指向对象本身的一个指针。<br>
+this 的用法在 Java 中大体可以分为 3 种：</p>
 <ol>
 <li>
 <p>普通的直接引用<br>
-这种就不用讲了，this相当于是指向当前对象本身。</p>
+这种就不用讲了，this 相当于是指向当前对象本身。</p>
 </li>
 <li>
-<p>形参与成员名字重名，用this来区分：</p>
+<p>形参与成员名字重名，用 this 来区分：</p>
 </li>
 </ol>
-<pre><code class="language-java highlight-chroma"><span class="highlight-kd">class</span> <span class="highlight-nc">Person</span> <span class="highlight-o">{</span>
-    <span class="highlight-kd">private</span> <span class="highlight-kt">int</span> <span class="highlight-n">age</span> <span class="highlight-o">=</span> <span class="highlight-n">10</span><span class="highlight-o">;</span>
-    <span class="highlight-kd">public</span> <span class="highlight-nf">Person</span><span class="highlight-o">(){</span>
-    <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"初始化年龄："</span><span class="highlight-o">+</span><span class="highlight-n">age</span><span class="highlight-o">);</span>
-<span class="highlight-o">}</span>
-
-    <span class="highlight-kd">public</span> <span class="highlight-kt">int</span> <span class="highlight-nf">GetAge</span><span class="highlight-o">(</span><span class="highlight-kt">int</span> <span class="highlight-n">age</span><span class="highlight-o">){</span>
-        <span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">age</span> <span class="highlight-o">=</span> <span class="highlight-n">age</span><span class="highlight-o">;</span>
-        <span class="highlight-k">return</span> <span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">age</span><span class="highlight-o">;</span>
-    <span class="highlight-o">}</span>
-<span class="highlight-o">}</span>
-
-<span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">test1</span> <span class="highlight-o">{</span>
-    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
-        <span class="highlight-n">Person</span> <span class="highlight-n">Harry</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">Person</span><span class="highlight-o">();</span>
-        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"Harry's age is "</span><span class="highlight-o">+</span><span class="highlight-n">Harry</span><span class="highlight-o">.</span><span class="highlight-na">GetAge</span><span class="highlight-o">(</span><span class="highlight-n">12</span><span class="highlight-o">));</span>
-    <span class="highlight-o">}</span>
-<span class="highlight-o">}</span>       
+<pre><code class="language-java highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-kd">class</span> <span class="highlight-nc">Person</span> <span class="highlight-o">{</span>
+<span class="highlight-ln"> 2</span>    <span class="highlight-kd">private</span> <span class="highlight-kt">int</span> <span class="highlight-n">age</span> <span class="highlight-o">=</span> <span class="highlight-n">10</span><span class="highlight-o">;</span>
+<span class="highlight-ln"> 3</span>    <span class="highlight-kd">public</span> <span class="highlight-nf">Person</span><span class="highlight-o">(){</span>
+<span class="highlight-ln"> 4</span>    <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"初始化年龄："</span><span class="highlight-o">+</span><span class="highlight-n">age</span><span class="highlight-o">);</span>
+<span class="highlight-ln"> 5</span><span class="highlight-o">}</span>
+<span class="highlight-ln"> 6</span>
+<span class="highlight-ln"> 7</span>    <span class="highlight-kd">public</span> <span class="highlight-kt">int</span> <span class="highlight-nf">GetAge</span><span class="highlight-o">(</span><span class="highlight-kt">int</span> <span class="highlight-n">age</span><span class="highlight-o">){</span>
+<span class="highlight-ln"> 8</span>        <span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">age</span> <span class="highlight-o">=</span> <span class="highlight-n">age</span><span class="highlight-o">;</span>
+<span class="highlight-ln"> 9</span>        <span class="highlight-k">return</span> <span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">age</span><span class="highlight-o">;</span>
+<span class="highlight-ln">10</span>    <span class="highlight-o">}</span>
+<span class="highlight-ln">11</span><span class="highlight-o">}</span>
+<span class="highlight-ln">12</span>
+<span class="highlight-ln">13</span><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">test1</span> <span class="highlight-o">{</span>
+<span class="highlight-ln">14</span>    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+<span class="highlight-ln">15</span>        <span class="highlight-n">Person</span> <span class="highlight-n">Harry</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">Person</span><span class="highlight-o">();</span>
+<span class="highlight-ln">16</span>        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"Harry's age is "</span><span class="highlight-o">+</span><span class="highlight-n">Harry</span><span class="highlight-o">.</span><span class="highlight-na">GetAge</span><span class="highlight-o">(</span><span class="highlight-n">12</span><span class="highlight-o">));</span>
+<span class="highlight-ln">17</span>    <span class="highlight-o">}</span>
+<span class="highlight-ln">18</span><span class="highlight-o">}</span>       
 </code></pre>
 <p>运行结果：</p>
 <blockquote>
 <p>初始化年龄：10<br>
 Harry's age is 12</p>
 </blockquote>
-<p>可以看到，这里age是GetAge成员方法的形参，this.age是Person类的成员变量。</p>
+<p>可以看到，这里 age 是 GetAge 成员方法的形参，this.age 是 Person 类的成员变量。</p>
 <ol start="3">
 <li>引用构造函数<br>
-这个和super放在一起讲，见下面。</li>
+这个和 super 放在一起讲，见下面。</li>
 </ol>
 <p>super</p>
-<p>super可以理解为是指向自己超（父）类对象的一个指针，而这个超类指的是离自己最近的一个父类。</p>
-<p>super也有三种用法：</p>
+<p>super 可以理解为是指向自己超（父）类对象的一个指针，而这个超类指的是离自己最近的一个父类。</p>
+<p>super 也有三种用法：</p>
 <p>1.普通的直接引用</p>
-<p>与this类似，super相当于是指向当前对象的父类，这样就可以用super.xxx来引用父类的成员。</p>
+<p>与 this 类似，super 相当于是指向当前对象的父类，这样就可以用 super.xxx 来引用父类的成员。</p>
 <p>2.子类中的成员变量或方法与父类中的成员变量或方法同名</p>
 <h1 id="super">super</h1>
-<p>super可以理解为是指向自己超（父）类对象的一个指针，而这个超类指的是离自己最近的一个父类。<br>
-super也有三种用法：</p>
+<p>super 可以理解为是指向自己超（父）类对象的一个指针，而这个超类指的是离自己最近的一个父类。<br>
+super 也有三种用法：</p>
 <ol>
 <li>
 <p>普通的直接引用<br>
-与this类似，super相当于是指向当前对象的父类，这样就可以用super.xxx来引用父类的成员。</p>
+与 this 类似，super 相当于是指向当前对象的父类，这样就可以用 super.xxx 来引用父类的成员。</p>
 </li>
 <li>
 <p>子类中的成员变量或方法与父类中的成员变量或方法同名</p>
 </li>
 </ol>
-<pre><code class="language-java highlight-chroma"><span class="highlight-kd">class</span> <span class="highlight-nc">Country</span> <span class="highlight-o">{</span>
-    <span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">;</span>
-    <span class="highlight-kt">void</span> <span class="highlight-nf">value</span><span class="highlight-o">()</span> <span class="highlight-o">{</span>
-       <span class="highlight-n">name</span> <span class="highlight-o">=</span> <span class="highlight-s">"China"</span><span class="highlight-o">;</span>
-    <span class="highlight-o">}</span>
-<span class="highlight-o">}</span>
-  
-<span class="highlight-kd">class</span> <span class="highlight-nc">City</span> <span class="highlight-kd">extends</span> <span class="highlight-n">Country</span> <span class="highlight-o">{</span>
-    <span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">;</span>
-    <span class="highlight-kt">void</span> <span class="highlight-nf">value</span><span class="highlight-o">()</span> <span class="highlight-o">{</span>
-    <span class="highlight-n">name</span> <span class="highlight-o">=</span> <span class="highlight-s">"Shanghai"</span><span class="highlight-o">;</span>
-    <span class="highlight-kd">super</span><span class="highlight-o">.</span><span class="highlight-na">value</span><span class="highlight-o">();</span>      <span class="highlight-c1">//调用父类的方法
-</span><span class="highlight-c1"></span>    <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">name</span><span class="highlight-o">);</span>
-    <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-kd">super</span><span class="highlight-o">.</span><span class="highlight-na">name</span><span class="highlight-o">);</span>
-    <span class="highlight-o">}</span>
-  
-    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
-       <span class="highlight-n">City</span> <span class="highlight-n">c</span><span class="highlight-o">=</span><span class="highlight-k">new</span> <span class="highlight-n">City</span><span class="highlight-o">();</span>
-       <span class="highlight-n">c</span><span class="highlight-o">.</span><span class="highlight-na">value</span><span class="highlight-o">();</span>
-       <span class="highlight-o">}</span>
-<span class="highlight-o">}</span>
+<pre><code class="language-java highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-kd">class</span> <span class="highlight-nc">Country</span> <span class="highlight-o">{</span>
+<span class="highlight-ln"> 2</span>    <span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">;</span>
+<span class="highlight-ln"> 3</span>    <span class="highlight-kt">void</span> <span class="highlight-nf">value</span><span class="highlight-o">()</span> <span class="highlight-o">{</span>
+<span class="highlight-ln"> 4</span>       <span class="highlight-n">name</span> <span class="highlight-o">=</span> <span class="highlight-s">"China"</span><span class="highlight-o">;</span>
+<span class="highlight-ln"> 5</span>    <span class="highlight-o">}</span>
+<span class="highlight-ln"> 6</span><span class="highlight-o">}</span>
+<span class="highlight-ln"> 7</span>  
+<span class="highlight-ln"> 8</span><span class="highlight-kd">class</span> <span class="highlight-nc">City</span> <span class="highlight-kd">extends</span> <span class="highlight-n">Country</span> <span class="highlight-o">{</span>
+<span class="highlight-ln"> 9</span>    <span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">;</span>
+<span class="highlight-ln">10</span>    <span class="highlight-kt">void</span> <span class="highlight-nf">value</span><span class="highlight-o">()</span> <span class="highlight-o">{</span>
+<span class="highlight-ln">11</span>    <span class="highlight-n">name</span> <span class="highlight-o">=</span> <span class="highlight-s">"Shanghai"</span><span class="highlight-o">;</span>
+<span class="highlight-ln">12</span>    <span class="highlight-kd">super</span><span class="highlight-o">.</span><span class="highlight-na">value</span><span class="highlight-o">();</span>      <span class="highlight-c1">//调用父类的方法
+</span><span class="highlight-ln">13</span><span class="highlight-c1"></span>    <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">name</span><span class="highlight-o">);</span>
+<span class="highlight-ln">14</span>    <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-kd">super</span><span class="highlight-o">.</span><span class="highlight-na">name</span><span class="highlight-o">);</span>
+<span class="highlight-ln">15</span>    <span class="highlight-o">}</span>
+<span class="highlight-ln">16</span>  
+<span class="highlight-ln">17</span>    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+<span class="highlight-ln">18</span>       <span class="highlight-n">City</span> <span class="highlight-n">c</span><span class="highlight-o">=</span><span class="highlight-k">new</span> <span class="highlight-n">City</span><span class="highlight-o">();</span>
+<span class="highlight-ln">19</span>       <span class="highlight-n">c</span><span class="highlight-o">.</span><span class="highlight-na">value</span><span class="highlight-o">();</span>
+<span class="highlight-ln">20</span>       <span class="highlight-o">}</span>
+<span class="highlight-ln">21</span><span class="highlight-o">}</span>
 </code></pre>
 <p>运行结果：</p>
 <blockquote>
 <p>Shanghai<br>
 China</p>
 </blockquote>
-<p>可以看到，这里既调用了父类的方法，也调用了父类的变量。若不调用父类方法value()，只调用父类变量name的话，则父类name值为默认值null。</p>
+<p>可以看到，这里既调用了父类的方法，也调用了父类的变量。若不调用父类方法 value()，只调用父类变量 name 的话，则父类 name 值为默认值 null。</p>
 <ol start="3">
 <li>引用构造函数<br>
 super（参数）：调用父类中的某一个构造函数（应该为构造函数中的第一条语句）。<br>
 this（参数）：调用本类中另一种形式的构造函数（应该为构造函数中的第一条语句）。</li>
 </ol>
-<pre><code class="language-java highlight-chroma"><span class="highlight-kd">class</span> <span class="highlight-nc">Person</span> <span class="highlight-o">{</span> 
-    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">prt</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">s</span><span class="highlight-o">)</span> <span class="highlight-o">{</span> 
-       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">s</span><span class="highlight-o">);</span> 
-    <span class="highlight-o">}</span> 
-   
-    <span class="highlight-n">Person</span><span class="highlight-o">()</span> <span class="highlight-o">{</span> 
-       <span class="highlight-n">prt</span><span class="highlight-o">(</span><span class="highlight-s">"父类·无参数构造方法： "</span><span class="highlight-o">+</span><span class="highlight-s">"A Person."</span><span class="highlight-o">);</span> 
-    <span class="highlight-o">}</span><span class="highlight-c1">//构造方法(1) 
-</span><span class="highlight-c1"></span>    
-    <span class="highlight-n">Person</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">)</span> <span class="highlight-o">{</span> 
-       <span class="highlight-n">prt</span><span class="highlight-o">(</span><span class="highlight-s">"父类·含一个参数的构造方法： "</span><span class="highlight-o">+</span><span class="highlight-s">"A person's name is "</span> <span class="highlight-o">+</span> <span class="highlight-n">name</span><span class="highlight-o">);</span> 
-    <span class="highlight-o">}</span><span class="highlight-c1">//构造方法(2) 
-</span><span class="highlight-c1"></span><span class="highlight-o">}</span> 
-    
-<span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">Chinese</span> <span class="highlight-kd">extends</span> <span class="highlight-n">Person</span> <span class="highlight-o">{</span> 
-    <span class="highlight-n">Chinese</span><span class="highlight-o">()</span> <span class="highlight-o">{</span> 
-       <span class="highlight-kd">super</span><span class="highlight-o">();</span> <span class="highlight-c1">// 调用父类构造方法（1） 
-</span><span class="highlight-c1"></span>       <span class="highlight-n">prt</span><span class="highlight-o">(</span><span class="highlight-s">"子类·调用父类”无参数构造方法“： "</span><span class="highlight-o">+</span><span class="highlight-s">"A chinese coder."</span><span class="highlight-o">);</span> 
-    <span class="highlight-o">}</span> 
-    
-    <span class="highlight-n">Chinese</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">)</span> <span class="highlight-o">{</span> 
-       <span class="highlight-kd">super</span><span class="highlight-o">(</span><span class="highlight-n">name</span><span class="highlight-o">);</span><span class="highlight-c1">// 调用父类具有相同形参的构造方法（2） 
-</span><span class="highlight-c1"></span>       <span class="highlight-n">prt</span><span class="highlight-o">(</span><span class="highlight-s">"子类·调用父类”含一个参数的构造方法“： "</span><span class="highlight-o">+</span><span class="highlight-s">"his name is "</span> <span class="highlight-o">+</span> <span class="highlight-n">name</span><span class="highlight-o">);</span> 
-    <span class="highlight-o">}</span> 
-    
-    <span class="highlight-n">Chinese</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">,</span> <span class="highlight-kt">int</span> <span class="highlight-n">age</span><span class="highlight-o">)</span> <span class="highlight-o">{</span> 
-       <span class="highlight-k">this</span><span class="highlight-o">(</span><span class="highlight-n">name</span><span class="highlight-o">);</span><span class="highlight-c1">// 调用具有相同形参的构造方法（3） 
-</span><span class="highlight-c1"></span>       <span class="highlight-n">prt</span><span class="highlight-o">(</span><span class="highlight-s">"子类：调用子类具有相同形参的构造方法：his age is "</span> <span class="highlight-o">+</span> <span class="highlight-n">age</span><span class="highlight-o">);</span> 
-    <span class="highlight-o">}</span> 
-    
-    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-o">{</span> 
-       <span class="highlight-n">Chinese</span> <span class="highlight-n">cn</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">Chinese</span><span class="highlight-o">();</span> 
-       <span class="highlight-n">cn</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">Chinese</span><span class="highlight-o">(</span><span class="highlight-s">"codersai"</span><span class="highlight-o">);</span> 
-       <span class="highlight-n">cn</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">Chinese</span><span class="highlight-o">(</span><span class="highlight-s">"codersai"</span><span class="highlight-o">,</span> <span class="highlight-n">18</span><span class="highlight-o">);</span> 
-    <span class="highlight-o">}</span> 
-<span class="highlight-o">}</span>
-
+<pre><code class="language-java highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-kd">class</span> <span class="highlight-nc">Person</span> <span class="highlight-o">{</span> 
+<span class="highlight-ln"> 2</span>    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">prt</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">s</span><span class="highlight-o">)</span> <span class="highlight-o">{</span> 
+<span class="highlight-ln"> 3</span>       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">s</span><span class="highlight-o">);</span> 
+<span class="highlight-ln"> 4</span>    <span class="highlight-o">}</span> 
+<span class="highlight-ln"> 5</span>   
+<span class="highlight-ln"> 6</span>    <span class="highlight-n">Person</span><span class="highlight-o">()</span> <span class="highlight-o">{</span> 
+<span class="highlight-ln"> 7</span>       <span class="highlight-n">prt</span><span class="highlight-o">(</span><span class="highlight-s">"父类·无参数构造方法： "</span><span class="highlight-o">+</span><span class="highlight-s">"A Person."</span><span class="highlight-o">);</span> 
+<span class="highlight-ln"> 8</span>    <span class="highlight-o">}</span><span class="highlight-c1">//构造方法(1) 
+</span><span class="highlight-ln"> 9</span><span class="highlight-c1"></span>    
+<span class="highlight-ln">10</span>    <span class="highlight-n">Person</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">)</span> <span class="highlight-o">{</span> 
+<span class="highlight-ln">11</span>       <span class="highlight-n">prt</span><span class="highlight-o">(</span><span class="highlight-s">"父类·含一个参数的构造方法： "</span><span class="highlight-o">+</span><span class="highlight-s">"A person's name is "</span> <span class="highlight-o">+</span> <span class="highlight-n">name</span><span class="highlight-o">);</span> 
+<span class="highlight-ln">12</span>    <span class="highlight-o">}</span><span class="highlight-c1">//构造方法(2) 
+</span><span class="highlight-ln">13</span><span class="highlight-c1"></span><span class="highlight-o">}</span> 
+<span class="highlight-ln">14</span>    
+<span class="highlight-ln">15</span><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">Chinese</span> <span class="highlight-kd">extends</span> <span class="highlight-n">Person</span> <span class="highlight-o">{</span> 
+<span class="highlight-ln">16</span>    <span class="highlight-n">Chinese</span><span class="highlight-o">()</span> <span class="highlight-o">{</span> 
+<span class="highlight-ln">17</span>       <span class="highlight-kd">super</span><span class="highlight-o">();</span> <span class="highlight-c1">// 调用父类构造方法（1） 
+</span><span class="highlight-ln">18</span><span class="highlight-c1"></span>       <span class="highlight-n">prt</span><span class="highlight-o">(</span><span class="highlight-s">"子类·调用父类”无参数构造方法“： "</span><span class="highlight-o">+</span><span class="highlight-s">"A chinese coder."</span><span class="highlight-o">);</span> 
+<span class="highlight-ln">19</span>    <span class="highlight-o">}</span> 
+<span class="highlight-ln">20</span>    
+<span class="highlight-ln">21</span>    <span class="highlight-n">Chinese</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">)</span> <span class="highlight-o">{</span> 
+<span class="highlight-ln">22</span>       <span class="highlight-kd">super</span><span class="highlight-o">(</span><span class="highlight-n">name</span><span class="highlight-o">);</span><span class="highlight-c1">// 调用父类具有相同形参的构造方法（2） 
+</span><span class="highlight-ln">23</span><span class="highlight-c1"></span>       <span class="highlight-n">prt</span><span class="highlight-o">(</span><span class="highlight-s">"子类·调用父类”含一个参数的构造方法“： "</span><span class="highlight-o">+</span><span class="highlight-s">"his name is "</span> <span class="highlight-o">+</span> <span class="highlight-n">name</span><span class="highlight-o">);</span> 
+<span class="highlight-ln">24</span>    <span class="highlight-o">}</span> 
+<span class="highlight-ln">25</span>    
+<span class="highlight-ln">26</span>    <span class="highlight-n">Chinese</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">,</span> <span class="highlight-kt">int</span> <span class="highlight-n">age</span><span class="highlight-o">)</span> <span class="highlight-o">{</span> 
+<span class="highlight-ln">27</span>       <span class="highlight-k">this</span><span class="highlight-o">(</span><span class="highlight-n">name</span><span class="highlight-o">);</span><span class="highlight-c1">// 调用具有相同形参的构造方法（3） 
+</span><span class="highlight-ln">28</span><span class="highlight-c1"></span>       <span class="highlight-n">prt</span><span class="highlight-o">(</span><span class="highlight-s">"子类：调用子类具有相同形参的构造方法：his age is "</span> <span class="highlight-o">+</span> <span class="highlight-n">age</span><span class="highlight-o">);</span> 
+<span class="highlight-ln">29</span>    <span class="highlight-o">}</span> 
+<span class="highlight-ln">30</span>    
+<span class="highlight-ln">31</span>    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-o">{</span> 
+<span class="highlight-ln">32</span>       <span class="highlight-n">Chinese</span> <span class="highlight-n">cn</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">Chinese</span><span class="highlight-o">();</span> 
+<span class="highlight-ln">33</span>       <span class="highlight-n">cn</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">Chinese</span><span class="highlight-o">(</span><span class="highlight-s">"codersai"</span><span class="highlight-o">);</span> 
+<span class="highlight-ln">34</span>       <span class="highlight-n">cn</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">Chinese</span><span class="highlight-o">(</span><span class="highlight-s">"codersai"</span><span class="highlight-o">,</span> <span class="highlight-n">18</span><span class="highlight-o">);</span> 
+<span class="highlight-ln">35</span>    <span class="highlight-o">}</span> 
+<span class="highlight-ln">36</span><span class="highlight-o">}</span>
+<span class="highlight-ln">37</span>
 </code></pre>
 <p>运行结果：</p>
 <blockquote>
@@ -254,239 +254,239 @@ this（参数）：调用本类中另一种形式的构造函数（应该为构�
 子类·调用父类”含一个参数的构造方法“： his name is codersai<br>
 子类：调用子类具有相同形参的构造方法：his age is 18</p>
 </blockquote>
-<p>从本例可以看到，可以用super和this分别调用父类的构造方法和本类中其他形式的构造方法。</p>
-<p>例子中Chinese类第三种构造方法调用的是本类中第二种构造方法，而第二种构造方法是调用父类的，因此也要先调用父类的构造方法，再调用本类中第二种，最后是重写第三种构造方法。</p>
-<h1 id="super和this的异同-">super和this的异同：</h1>
+<p>从本例可以看到，可以用 super 和 this 分别调用父类的构造方法和本类中其他形式的构造方法。</p>
+<p>例子中 Chinese 类第三种构造方法调用的是本类中第二种构造方法，而第二种构造方法是调用父类的，因此也要先调用父类的构造方法，再调用本类中第二种，最后是重写第三种构造方法。</p>
+<h1 id="super和this的异同-">super 和 this 的异同：</h1>
 <ul>
 <li>super（参数）：调用基类中的某一个构造函数（应该为构造函数中的第一条语句）</li>
 <li>this（参数）：调用本类中另一种形成的构造函数（应该为构造函数中的第一条语句）</li>
 <li>super:　它引用当前对象的直接父类中的成员（用来访问直接父类中被隐藏的父类中成员数据或函数，基类与派生类中有相同成员定义时如：super.变量名    super.成员函数据名（实参）</li>
-<li>this：它代表当前对象名（在程序中易产生二义性之处，应使用this来指明当前对象；如果函数的形参与类中的成员数据同名，这时需用this来指明成员变量名）</li>
-<li>调用super()必须写在子类构造方法的第一行，否则编译不通过。每个子类构造方法的第一条语句，都是隐含地调用super()，如果父类没有这种形式的构造函数，那么在编译的时候就会报错。</li>
-<li>super()和this()类似,区别是，super()从子类中调用父类的构造方法，this()在同一类内调用其它方法。</li>
-<li>super()和this()均需放在构造方法内第一行。</li>
-<li>尽管可以用this调用一个构造器，但却不能调用两个。</li>
-<li>this和super不能同时出现在一个构造函数里面，因为this必然会调用其它的构造函数，其它的构造函数必然也会有super语句的存在，所以在同一个构造函数里面有相同的语句，就失去了语句的意义，编译器也不会通过。</li>
-<li>this()和super()都指的是对象，所以，均不可以在static环境中使用。包括：static变量,static方法，static语句块。</li>
-<li>从本质上讲，this是一个指向本对象的指针, 然而super是一个Java关键字。</li>
+<li>this：它代表当前对象名（在程序中易产生二义性之处，应使用 this 来指明当前对象；如果函数的形参与类中的成员数据同名，这时需用 this 来指明成员变量名）</li>
+<li>调用 super()必须写在子类构造方法的第一行，否则编译不通过。每个子类构造方法的第一条语句，都是隐含地调用 super()，如果父类没有这种形式的构造函数，那么在编译的时候就会报错。</li>
+<li>super()和 this()类似，区别是，super()从子类中调用父类的构造方法，this()在同一类内调用其它方法。</li>
+<li>super()和 this()均需放在构造方法内第一行。</li>
+<li>尽管可以用 this 调用一个构造器，但却不能调用两个。</li>
+<li>this 和 super 不能同时出现在一个构造函数里面，因为 this 必然会调用其它的构造函数，其它的构造函数必然也会有 super 语句的存在，所以在同一个构造函数里面有相同的语句，就失去了语句的意义，编译器也不会通过。</li>
+<li>this()和 super()都指的是对象，所以，均不可以在 static 环境中使用。包括：static 变量，static 方法，static 语句块。</li>
+<li>从本质上讲，this 是一个指向本对象的指针， 然而 super 是一个 Java 关键字。</li>
 </ul>
-<h1 id="this关键字">this关键字</h1>
+<h1 id="this关键字">this 关键字</h1>
 <p><img src="https://img.hacpai.com/file/2019/12/20150830110029233-c50b987c.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20150830110029233.png"><br>
 <img src="https://img.hacpai.com/file/2019/12/20150830110114109-db2bd863.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20150830110114109.png"></p>
 <p>对于上述需要注意的地方：</p>
 <ol>
-<li>不是重载即在构造器中调用构造器可以直接调用其方法，无需this。在需要明确的地方使用即可</li>
+<li>不是重载即在构造器中调用构造器可以直接调用其方法，无需 this。在需要明确的地方使用即可</li>
 <li>疑惑点<br>
-this关键字对于将当前对象传递给其他的方法也很有用，这一点自己现在也不是很熟练</li>
+this 关键字对于将当前对象传递给其他的方法也很有用，这一点自己现在也不是很熟练</li>
 </ol>
 <p>2.在构造器中调用构造器<br>
 <img src="https://img.hacpai.com/file/2019/12/20150830090840517-0c04f05a.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20150830090840517.png"></p>
-<pre><code class="language-java highlight-chroma"><span class="highlight-kn">package</span> <span class="highlight-nn">test</span><span class="highlight-o">;</span>  
-  
-<span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">Test</span> <span class="highlight-o">{</span>  
-      <span class="highlight-kt">int</span> <span class="highlight-n">petalCount</span> <span class="highlight-o">=</span> <span class="highlight-n">0</span><span class="highlight-o">;</span>  
-      <span class="highlight-n">String</span> <span class="highlight-n">s</span> <span class="highlight-o">=</span> <span class="highlight-s">"initial value"</span><span class="highlight-o">;</span>  
-      <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-kt">int</span> <span class="highlight-n">petals</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>  
-        <span class="highlight-n">petalCount</span> <span class="highlight-o">=</span> <span class="highlight-n">petals</span><span class="highlight-o">;</span>  
-        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"Constructor w/ int arg only, petalCount= "</span>  
-          <span class="highlight-o">+</span> <span class="highlight-n">petalCount</span><span class="highlight-o">);</span>  
-      <span class="highlight-o">}</span>  
-      <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">ss</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>  
-          <span class="highlight-n">s</span> <span class="highlight-o">=</span> <span class="highlight-n">ss</span><span class="highlight-o">;</span>  
-        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"Constructor w/ String arg only, s = "</span> <span class="highlight-o">+</span> <span class="highlight-n">s</span><span class="highlight-o">);</span>  
-<span class="highlight-c1">//      s=ss;  要是将上面的语句放到下面，这输出s的值就是initial  value;  
-</span><span class="highlight-c1"></span>      <span class="highlight-o">}</span>  
-      <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">s</span><span class="highlight-o">,</span> <span class="highlight-kt">int</span> <span class="highlight-n">petals</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>  
-<span class="highlight-c1">//      this(petals);// Can't call two!  
-</span><span class="highlight-c1"></span>        <span class="highlight-k">this</span><span class="highlight-o">(</span><span class="highlight-n">s</span><span class="highlight-o">);</span>   
-<span class="highlight-c1">//      上面语句是调用另外一个构造器，下面是将由于参数s的名称和数据成员s的名字相同，所以会产生歧义  
-</span><span class="highlight-c1">//      因此使用this.s来代表数据成员就能解决这个问题  
-</span><span class="highlight-c1"></span>        <span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">s</span> <span class="highlight-o">=</span> <span class="highlight-n">s</span><span class="highlight-o">;</span> <span class="highlight-c1">// Another use of "this"  
-</span><span class="highlight-c1"></span>        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"String &amp; int args"</span><span class="highlight-o">);</span>  
-      <span class="highlight-o">}</span>  
-      <span class="highlight-n">Test</span><span class="highlight-o">()</span> <span class="highlight-o">{</span>  
-        <span class="highlight-k">this</span><span class="highlight-o">(</span><span class="highlight-s">"hi"</span><span class="highlight-o">,</span> <span class="highlight-n">47</span><span class="highlight-o">);</span>  
-        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"default constructor (no args)"</span><span class="highlight-o">);</span>  
-      <span class="highlight-o">}</span>  
-      <span class="highlight-kt">void</span> <span class="highlight-nf">printPetalCount</span><span class="highlight-o">()</span> <span class="highlight-o">{</span>  
-    <span class="highlight-c1">//! this(11); // Not inside non-constructor!  
-</span><span class="highlight-c1"></span>        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"petalCount = "</span> <span class="highlight-o">+</span> <span class="highlight-n">petalCount</span> <span class="highlight-o">+</span> <span class="highlight-s">" s = "</span><span class="highlight-o">+</span> <span class="highlight-n">s</span><span class="highlight-o">);</span>  
-      <span class="highlight-o">}</span>  
-      <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>  
-        <span class="highlight-n">Test</span> <span class="highlight-n">x</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">Test</span><span class="highlight-o">();</span>  
-        <span class="highlight-n">x</span><span class="highlight-o">.</span><span class="highlight-na">printPetalCount</span><span class="highlight-o">();</span>  
-      <span class="highlight-o">}</span>  
-    <span class="highlight-o">}</span>   
+<pre><code class="language-java highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-kn">package</span> <span class="highlight-nn">test</span><span class="highlight-o">;</span>  
+<span class="highlight-ln"> 2</span>  
+<span class="highlight-ln"> 3</span><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">Test</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln"> 4</span>      <span class="highlight-kt">int</span> <span class="highlight-n">petalCount</span> <span class="highlight-o">=</span> <span class="highlight-n">0</span><span class="highlight-o">;</span>  
+<span class="highlight-ln"> 5</span>      <span class="highlight-n">String</span> <span class="highlight-n">s</span> <span class="highlight-o">=</span> <span class="highlight-s">"initial value"</span><span class="highlight-o">;</span>  
+<span class="highlight-ln"> 6</span>      <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-kt">int</span> <span class="highlight-n">petals</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln"> 7</span>        <span class="highlight-n">petalCount</span> <span class="highlight-o">=</span> <span class="highlight-n">petals</span><span class="highlight-o">;</span>  
+<span class="highlight-ln"> 8</span>        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"Constructor w/ int arg only, petalCount= "</span>  
+<span class="highlight-ln"> 9</span>          <span class="highlight-o">+</span> <span class="highlight-n">petalCount</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">10</span>      <span class="highlight-o">}</span>  
+<span class="highlight-ln">11</span>      <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">ss</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln">12</span>          <span class="highlight-n">s</span> <span class="highlight-o">=</span> <span class="highlight-n">ss</span><span class="highlight-o">;</span>  
+<span class="highlight-ln">13</span>        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"Constructor w/ String arg only, s = "</span> <span class="highlight-o">+</span> <span class="highlight-n">s</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">14</span><span class="highlight-c1">//      s=ss;  要是将上面的语句放到下面，这输出s的值就是initial  value;  
+</span><span class="highlight-ln">15</span><span class="highlight-c1"></span>      <span class="highlight-o">}</span>  
+<span class="highlight-ln">16</span>      <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">s</span><span class="highlight-o">,</span> <span class="highlight-kt">int</span> <span class="highlight-n">petals</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln">17</span><span class="highlight-c1">//      this(petals);// Can't call two!  
+</span><span class="highlight-ln">18</span><span class="highlight-c1"></span>        <span class="highlight-k">this</span><span class="highlight-o">(</span><span class="highlight-n">s</span><span class="highlight-o">);</span>   
+<span class="highlight-ln">19</span><span class="highlight-c1">//      上面语句是调用另外一个构造器，下面是将由于参数s的名称和数据成员s的名字相同，所以会产生歧义  
+</span><span class="highlight-ln">20</span><span class="highlight-c1">//      因此使用this.s来代表数据成员就能解决这个问题  
+</span><span class="highlight-ln">21</span><span class="highlight-c1"></span>        <span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">s</span> <span class="highlight-o">=</span> <span class="highlight-n">s</span><span class="highlight-o">;</span> <span class="highlight-c1">// Another use of "this"  
+</span><span class="highlight-ln">22</span><span class="highlight-c1"></span>        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"String &amp; int args"</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">23</span>      <span class="highlight-o">}</span>  
+<span class="highlight-ln">24</span>      <span class="highlight-n">Test</span><span class="highlight-o">()</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln">25</span>        <span class="highlight-k">this</span><span class="highlight-o">(</span><span class="highlight-s">"hi"</span><span class="highlight-o">,</span> <span class="highlight-n">47</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">26</span>        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"default constructor (no args)"</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">27</span>      <span class="highlight-o">}</span>  
+<span class="highlight-ln">28</span>      <span class="highlight-kt">void</span> <span class="highlight-nf">printPetalCount</span><span class="highlight-o">()</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln">29</span>    <span class="highlight-c1">//! this(11); // Not inside non-constructor!  
+</span><span class="highlight-ln">30</span><span class="highlight-c1"></span>        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"petalCount = "</span> <span class="highlight-o">+</span> <span class="highlight-n">petalCount</span> <span class="highlight-o">+</span> <span class="highlight-s">" s = "</span><span class="highlight-o">+</span> <span class="highlight-n">s</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">31</span>      <span class="highlight-o">}</span>  
+<span class="highlight-ln">32</span>      <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln">33</span>        <span class="highlight-n">Test</span> <span class="highlight-n">x</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">Test</span><span class="highlight-o">();</span>  
+<span class="highlight-ln">34</span>        <span class="highlight-n">x</span><span class="highlight-o">.</span><span class="highlight-na">printPetalCount</span><span class="highlight-o">();</span>  
+<span class="highlight-ln">35</span>      <span class="highlight-o">}</span>  
+<span class="highlight-ln">36</span>    <span class="highlight-o">}</span>   
 </code></pre>
 <p><img src="https://img.hacpai.com/file/2019/12/20150830090859556-8edd8ad8.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="20150830090859556.png"></p>
-<pre><code class="language-java highlight-chroma"><span class="highlight-kn">package</span> <span class="highlight-nn">test</span><span class="highlight-o">;</span>  
-  
-<span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">Test</span> <span class="highlight-o">{</span>  
-  
-    <span class="highlight-kd">private</span> <span class="highlight-kt">int</span> <span class="highlight-n">i</span><span class="highlight-o">=</span><span class="highlight-n">0</span><span class="highlight-o">;</span>  
-  
-    <span class="highlight-c1">//第一个构造器：有一个int型形参  
-</span><span class="highlight-c1"></span>  
-    <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span><span class="highlight-o">){</span>  
-          
-       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"i:"</span><span class="highlight-o">+</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">);</span>  
-         
-       <span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">=</span><span class="highlight-n">i</span><span class="highlight-o">+</span><span class="highlight-n">1</span><span class="highlight-o">;</span><span class="highlight-c1">//此时this表示引用成员变量ｉ，而非函数参数ｉ  
-</span><span class="highlight-c1"></span>         
-       <span class="highlight-c1">//下面的i表示形参i，this.i表示数据成员  
-</span><span class="highlight-c1"></span>       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"Int constructor i——this.i:  "</span><span class="highlight-o">+</span><span class="highlight-n">i</span><span class="highlight-o">+</span><span class="highlight-s">"  ——  "</span><span class="highlight-o">+</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">);</span>  
-         
-       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"i:"</span><span class="highlight-o">+</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">);</span>  
-  
-       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"  i-1:  "</span><span class="highlight-o">+(</span><span class="highlight-n">i</span><span class="highlight-o">-</span><span class="highlight-n">1</span><span class="highlight-o">)+</span><span class="highlight-s">"  this.i+1:  "</span><span class="highlight-o">+(</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">+</span><span class="highlight-n">1</span><span class="highlight-o">));</span>  
-  
-       <span class="highlight-c1">//从两个输出结果充分证明了i和this.i是不一样的！  
-</span><span class="highlight-c1"></span>  
-    <span class="highlight-o">}</span>  
-  
-    <span class="highlight-c1">//  第二个构造器：有一个String型形参  
-</span><span class="highlight-c1"></span>  
-    <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">s</span><span class="highlight-o">){</span>  
-          
-<span class="highlight-c1">//      重新调用新的构造器之后，数据成员的值不再受到上一个的影响  
-</span><span class="highlight-c1">//      难道是因为每个构造器都有自己独立内存空间吗？  
-</span><span class="highlight-c1"></span>       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"2i:"</span><span class="highlight-o">+</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">);</span>  
-         
-       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"String constructor:  "</span><span class="highlight-o">+</span><span class="highlight-n">s</span><span class="highlight-o">);</span>  
-  
-    <span class="highlight-o">}</span>  
-  
-    <span class="highlight-c1">//  第三个构造器：有一个int型形参和一个String型形参  
-</span><span class="highlight-c1"></span>  
-    <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span><span class="highlight-o">,</span><span class="highlight-n">String</span> <span class="highlight-n">s</span><span class="highlight-o">){</span>  
-  
-       <span class="highlight-k">this</span><span class="highlight-o">(</span><span class="highlight-n">s</span><span class="highlight-o">);</span><span class="highlight-c1">//this调用第二个构造器  
-</span><span class="highlight-c1"></span>  
-       <span class="highlight-cm">/*this(i);*/</span>  
-  
-       <span class="highlight-cm">/*此处不能用，因为其他任何方法都不能调用构造器，只有构造方法能调用他。 
-</span><span class="highlight-cm"> 
-</span><span class="highlight-cm">       但是必须注意：就算是构造方法调用构造器，也必须为于其第一行，构造方法也只能调 
-</span><span class="highlight-cm"> 
-</span><span class="highlight-cm">       用一个且仅一次构造器！ 
-</span><span class="highlight-cm">       http://blog.sina.com.cn/s/blog_8612e75d0100ze1m.html 
-</span><span class="highlight-cm">       */</span>  
-         
-       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"3i:"</span><span class="highlight-o">+</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">);</span>  
-         
-       <span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">=</span><span class="highlight-n">i</span><span class="highlight-o">++;</span><span class="highlight-c1">//this以引用该类的成员变量  
-</span><span class="highlight-c1"></span>  
-       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"Int constructor:  "</span><span class="highlight-o">+</span><span class="highlight-n">i</span><span class="highlight-o">+</span><span class="highlight-s">"\n"</span><span class="highlight-o">+</span><span class="highlight-s">"String constructor:  "</span><span class="highlight-o">+</span><span class="highlight-n">s</span><span class="highlight-o">);</span>  
-  
-    <span class="highlight-o">}</span>  
-  
-<span class="highlight-cm">/*    Test(int i ,String s,double a){ 
-</span><span class="highlight-cm">         
-</span><span class="highlight-cm">        this(i); 
-</span><span class="highlight-cm">         System.out.println("5i:"+this.i); 
-</span><span class="highlight-cm">    }*/</span>  
-      
-    <span class="highlight-kd">public</span> <span class="highlight-n">Test</span> <span class="highlight-nf">increment</span><span class="highlight-o">(){</span>  
-  
-        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"4i:"</span><span class="highlight-o">+</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">);</span>  
-        <span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">++;</span>  
-       <span class="highlight-k">return</span> <span class="highlight-k">this</span><span class="highlight-o">;</span><span class="highlight-c1">//返回的是当前的对象，该对象属于（Test）  
-</span><span class="highlight-c1"></span>  
-    <span class="highlight-o">}</span>  
-  
-    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">){</span>  
-  
-       <span class="highlight-n">Test</span> <span class="highlight-n">tt0</span><span class="highlight-o">=</span><span class="highlight-k">new</span> <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-n">10</span><span class="highlight-o">);</span>  
-  
-       <span class="highlight-n">Test</span> <span class="highlight-n">tt1</span><span class="highlight-o">=</span><span class="highlight-k">new</span> <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-s">"ok"</span><span class="highlight-o">);</span>  
-  
-       <span class="highlight-n">Test</span> <span class="highlight-n">tt2</span><span class="highlight-o">=</span><span class="highlight-k">new</span> <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-n">20</span><span class="highlight-o">,</span><span class="highlight-s">"ok again!"</span><span class="highlight-o">);</span>  
-         
-      <span class="highlight-cm">/* Test tt3=new Test(15, "okhushid", 0.12345);*/</span>  
-  
-     <span class="highlight-c1">//由于increment()通过this关键字返回了当前对象的引用，所以很容易在一条语句里面对同一个对象执行多次操作  
-</span><span class="highlight-c1"></span>       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">tt0</span><span class="highlight-o">.</span><span class="highlight-na">increment</span><span class="highlight-o">().</span><span class="highlight-na">increment</span><span class="highlight-o">().</span><span class="highlight-na">increment</span><span class="highlight-o">().</span><span class="highlight-na">i</span><span class="highlight-o">);</span>  
-<span class="highlight-c1">//       输出的是this.i，就相当于输出其数据成员  
-</span><span class="highlight-c1"></span>       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">tt0</span><span class="highlight-o">.</span><span class="highlight-na">increment</span><span class="highlight-o">().</span><span class="highlight-na">increment</span><span class="highlight-o">().</span><span class="highlight-na">increment</span><span class="highlight-o">());</span>  
-<span class="highlight-c1">//       输出的是test.Test@2b0a141e，这是什么？这是java中的内存地址吗？  
-</span><span class="highlight-c1"></span>         
-         
-       <span class="highlight-c1">//http://www.cnblogs.com/java-class/archive/2012/12/19/2825463.html  
-</span><span class="highlight-c1"></span>  
-    <span class="highlight-o">}</span>  
-  
-<span class="highlight-o">}</span>  
-
+<pre><code class="language-java highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-kn">package</span> <span class="highlight-nn">test</span><span class="highlight-o">;</span>  
+<span class="highlight-ln"> 2</span>  
+<span class="highlight-ln"> 3</span><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">Test</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln"> 4</span>  
+<span class="highlight-ln"> 5</span>    <span class="highlight-kd">private</span> <span class="highlight-kt">int</span> <span class="highlight-n">i</span><span class="highlight-o">=</span><span class="highlight-n">0</span><span class="highlight-o">;</span>  
+<span class="highlight-ln"> 6</span>  
+<span class="highlight-ln"> 7</span>    <span class="highlight-c1">//第一个构造器：有一个int型形参  
+</span><span class="highlight-ln"> 8</span><span class="highlight-c1"></span>  
+<span class="highlight-ln"> 9</span>    <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span><span class="highlight-o">){</span>  
+<span class="highlight-ln">10</span>          
+<span class="highlight-ln">11</span>       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"i:"</span><span class="highlight-o">+</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">12</span>         
+<span class="highlight-ln">13</span>       <span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">=</span><span class="highlight-n">i</span><span class="highlight-o">+</span><span class="highlight-n">1</span><span class="highlight-o">;</span><span class="highlight-c1">//此时this表示引用成员变量ｉ，而非函数参数ｉ  
+</span><span class="highlight-ln">14</span><span class="highlight-c1"></span>         
+<span class="highlight-ln">15</span>       <span class="highlight-c1">//下面的i表示形参i，this.i表示数据成员  
+</span><span class="highlight-ln">16</span><span class="highlight-c1"></span>       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"Int constructor i——this.i:  "</span><span class="highlight-o">+</span><span class="highlight-n">i</span><span class="highlight-o">+</span><span class="highlight-s">"  ——  "</span><span class="highlight-o">+</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">17</span>         
+<span class="highlight-ln">18</span>       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"i:"</span><span class="highlight-o">+</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">19</span>  
+<span class="highlight-ln">20</span>       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"  i-1:  "</span><span class="highlight-o">+(</span><span class="highlight-n">i</span><span class="highlight-o">-</span><span class="highlight-n">1</span><span class="highlight-o">)+</span><span class="highlight-s">"  this.i+1:  "</span><span class="highlight-o">+(</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">+</span><span class="highlight-n">1</span><span class="highlight-o">));</span>  
+<span class="highlight-ln">21</span>  
+<span class="highlight-ln">22</span>       <span class="highlight-c1">//从两个输出结果充分证明了i和this.i是不一样的！  
+</span><span class="highlight-ln">23</span><span class="highlight-c1"></span>  
+<span class="highlight-ln">24</span>    <span class="highlight-o">}</span>  
+<span class="highlight-ln">25</span>  
+<span class="highlight-ln">26</span>    <span class="highlight-c1">//  第二个构造器：有一个String型形参  
+</span><span class="highlight-ln">27</span><span class="highlight-c1"></span>  
+<span class="highlight-ln">28</span>    <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">s</span><span class="highlight-o">){</span>  
+<span class="highlight-ln">29</span>          
+<span class="highlight-ln">30</span><span class="highlight-c1">//      重新调用新的构造器之后，数据成员的值不再受到上一个的影响  
+</span><span class="highlight-ln">31</span><span class="highlight-c1">//      难道是因为每个构造器都有自己独立内存空间吗？  
+</span><span class="highlight-ln">32</span><span class="highlight-c1"></span>       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"2i:"</span><span class="highlight-o">+</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">33</span>         
+<span class="highlight-ln">34</span>       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"String constructor:  "</span><span class="highlight-o">+</span><span class="highlight-n">s</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">35</span>  
+<span class="highlight-ln">36</span>    <span class="highlight-o">}</span>  
+<span class="highlight-ln">37</span>  
+<span class="highlight-ln">38</span>    <span class="highlight-c1">//  第三个构造器：有一个int型形参和一个String型形参  
+</span><span class="highlight-ln">39</span><span class="highlight-c1"></span>  
+<span class="highlight-ln">40</span>    <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span><span class="highlight-o">,</span><span class="highlight-n">String</span> <span class="highlight-n">s</span><span class="highlight-o">){</span>  
+<span class="highlight-ln">41</span>  
+<span class="highlight-ln">42</span>       <span class="highlight-k">this</span><span class="highlight-o">(</span><span class="highlight-n">s</span><span class="highlight-o">);</span><span class="highlight-c1">//this调用第二个构造器  
+</span><span class="highlight-ln">43</span><span class="highlight-c1"></span>  
+<span class="highlight-ln">44</span>       <span class="highlight-cm">/*this(i);*/</span>  
+<span class="highlight-ln">45</span>  
+<span class="highlight-ln">46</span>       <span class="highlight-cm">/*此处不能用，因为其他任何方法都不能调用构造器，只有构造方法能调用他。 
+</span><span class="highlight-ln">47</span><span class="highlight-cm"> 
+</span><span class="highlight-ln">48</span><span class="highlight-cm">       但是必须注意：就算是构造方法调用构造器，也必须为于其第一行，构造方法也只能调 
+</span><span class="highlight-ln">49</span><span class="highlight-cm"> 
+</span><span class="highlight-ln">50</span><span class="highlight-cm">       用一个且仅一次构造器！ 
+</span><span class="highlight-ln">51</span><span class="highlight-cm">       http://blog.sina.com.cn/s/blog_8612e75d0100ze1m.html 
+</span><span class="highlight-ln">52</span><span class="highlight-cm">       */</span>  
+<span class="highlight-ln">53</span>         
+<span class="highlight-ln">54</span>       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"3i:"</span><span class="highlight-o">+</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">55</span>         
+<span class="highlight-ln">56</span>       <span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">=</span><span class="highlight-n">i</span><span class="highlight-o">++;</span><span class="highlight-c1">//this以引用该类的成员变量  
+</span><span class="highlight-ln">57</span><span class="highlight-c1"></span>  
+<span class="highlight-ln">58</span>       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"Int constructor:  "</span><span class="highlight-o">+</span><span class="highlight-n">i</span><span class="highlight-o">+</span><span class="highlight-s">"\n"</span><span class="highlight-o">+</span><span class="highlight-s">"String constructor:  "</span><span class="highlight-o">+</span><span class="highlight-n">s</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">59</span>  
+<span class="highlight-ln">60</span>    <span class="highlight-o">}</span>  
+<span class="highlight-ln">61</span>  
+<span class="highlight-ln">62</span><span class="highlight-cm">/*    Test(int i ,String s,double a){ 
+</span><span class="highlight-ln">63</span><span class="highlight-cm">         
+</span><span class="highlight-ln">64</span><span class="highlight-cm">        this(i); 
+</span><span class="highlight-ln">65</span><span class="highlight-cm">         System.out.println("5i:"+this.i); 
+</span><span class="highlight-ln">66</span><span class="highlight-cm">    }*/</span>  
+<span class="highlight-ln">67</span>      
+<span class="highlight-ln">68</span>    <span class="highlight-kd">public</span> <span class="highlight-n">Test</span> <span class="highlight-nf">increment</span><span class="highlight-o">(){</span>  
+<span class="highlight-ln">69</span>  
+<span class="highlight-ln">70</span>        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"4i:"</span><span class="highlight-o">+</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">71</span>        <span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">i</span><span class="highlight-o">++;</span>  
+<span class="highlight-ln">72</span>       <span class="highlight-k">return</span> <span class="highlight-k">this</span><span class="highlight-o">;</span><span class="highlight-c1">//返回的是当前的对象，该对象属于（Test）  
+</span><span class="highlight-ln">73</span><span class="highlight-c1"></span>  
+<span class="highlight-ln">74</span>    <span class="highlight-o">}</span>  
+<span class="highlight-ln">75</span>  
+<span class="highlight-ln">76</span>    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">){</span>  
+<span class="highlight-ln">77</span>  
+<span class="highlight-ln">78</span>       <span class="highlight-n">Test</span> <span class="highlight-n">tt0</span><span class="highlight-o">=</span><span class="highlight-k">new</span> <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-n">10</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">79</span>  
+<span class="highlight-ln">80</span>       <span class="highlight-n">Test</span> <span class="highlight-n">tt1</span><span class="highlight-o">=</span><span class="highlight-k">new</span> <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-s">"ok"</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">81</span>  
+<span class="highlight-ln">82</span>       <span class="highlight-n">Test</span> <span class="highlight-n">tt2</span><span class="highlight-o">=</span><span class="highlight-k">new</span> <span class="highlight-n">Test</span><span class="highlight-o">(</span><span class="highlight-n">20</span><span class="highlight-o">,</span><span class="highlight-s">"ok again!"</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">83</span>         
+<span class="highlight-ln">84</span>      <span class="highlight-cm">/* Test tt3=new Test(15, "okhushid", 0.12345);*/</span>  
+<span class="highlight-ln">85</span>  
+<span class="highlight-ln">86</span>     <span class="highlight-c1">//由于increment()通过this关键字返回了当前对象的引用，所以很容易在一条语句里面对同一个对象执行多次操作  
+</span><span class="highlight-ln">87</span><span class="highlight-c1"></span>       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">tt0</span><span class="highlight-o">.</span><span class="highlight-na">increment</span><span class="highlight-o">().</span><span class="highlight-na">increment</span><span class="highlight-o">().</span><span class="highlight-na">increment</span><span class="highlight-o">().</span><span class="highlight-na">i</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">88</span><span class="highlight-c1">//       输出的是this.i，就相当于输出其数据成员  
+</span><span class="highlight-ln">89</span><span class="highlight-c1"></span>       <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-n">tt0</span><span class="highlight-o">.</span><span class="highlight-na">increment</span><span class="highlight-o">().</span><span class="highlight-na">increment</span><span class="highlight-o">().</span><span class="highlight-na">increment</span><span class="highlight-o">());</span>  
+<span class="highlight-ln">90</span><span class="highlight-c1">//       输出的是test.Test@2b0a141e，这是什么？这是java中的内存地址吗？  
+</span><span class="highlight-ln">91</span><span class="highlight-c1"></span>         
+<span class="highlight-ln">92</span>         
+<span class="highlight-ln">93</span>       <span class="highlight-c1">//http://www.cnblogs.com/java-class/archive/2012/12/19/2825463.html  
+</span><span class="highlight-ln">94</span><span class="highlight-c1"></span>  
+<span class="highlight-ln">95</span>    <span class="highlight-o">}</span>  
+<span class="highlight-ln">96</span>  
+<span class="highlight-ln">97</span><span class="highlight-o">}</span>  
+<span class="highlight-ln">98</span>
 </code></pre>
-<p>关于this()与super()共用的问题：</p>
-<pre><code class="language-java highlight-chroma"><span class="highlight-kn">package</span> <span class="highlight-nn">test</span><span class="highlight-o">;</span>  
-  
-<span class="highlight-kd">class</span> <span class="highlight-nc">TestA</span> <span class="highlight-o">{</span>  
-      <span class="highlight-kd">public</span> <span class="highlight-nf">TestA</span><span class="highlight-o">()</span> <span class="highlight-o">{</span>  
-         <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"A"</span><span class="highlight-o">);</span>  
-      <span class="highlight-o">}</span>  
-<span class="highlight-o">}</span>  
-       
-<span class="highlight-kd">class</span> <span class="highlight-nc">TestB</span> <span class="highlight-kd">extends</span> <span class="highlight-n">TestA</span> <span class="highlight-o">{</span>  
-      <span class="highlight-kd">public</span> <span class="highlight-nf">TestB</span><span class="highlight-o">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>  
-      <span class="highlight-kd">super</span><span class="highlight-o">();</span>  
-      <span class="highlight-c1">// this();  
-</span><span class="highlight-c1"></span>   <span class="highlight-o">}</span>  
-   
-  <span class="highlight-kd">public</span> <span class="highlight-nf">TestB</span><span class="highlight-o">()</span> <span class="highlight-o">{</span>  
-      <span class="highlight-k">this</span><span class="highlight-o">(</span><span class="highlight-n">3</span><span class="highlight-o">);</span>  
-  <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"B"</span><span class="highlight-o">);</span>  
-  <span class="highlight-o">}</span>  
-<span class="highlight-o">}</span>  
-   
-<span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">Test</span> <span class="highlight-o">{</span>  
-  <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">ars</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>  
-     <span class="highlight-k">new</span> <span class="highlight-n">TestB</span><span class="highlight-o">(</span><span class="highlight-n">1</span><span class="highlight-o">);</span>  
-     <span class="highlight-k">new</span> <span class="highlight-n">TestB</span><span class="highlight-o">();</span>  
-  <span class="highlight-o">}</span>  
-<span class="highlight-o">}</span>  
+<p>关于 this()与 super()共用的问题：</p>
+<pre><code class="language-java highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-kn">package</span> <span class="highlight-nn">test</span><span class="highlight-o">;</span>  
+<span class="highlight-ln"> 2</span>  
+<span class="highlight-ln"> 3</span><span class="highlight-kd">class</span> <span class="highlight-nc">TestA</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln"> 4</span>      <span class="highlight-kd">public</span> <span class="highlight-nf">TestA</span><span class="highlight-o">()</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln"> 5</span>         <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"A"</span><span class="highlight-o">);</span>  
+<span class="highlight-ln"> 6</span>      <span class="highlight-o">}</span>  
+<span class="highlight-ln"> 7</span><span class="highlight-o">}</span>  
+<span class="highlight-ln"> 8</span>       
+<span class="highlight-ln"> 9</span><span class="highlight-kd">class</span> <span class="highlight-nc">TestB</span> <span class="highlight-kd">extends</span> <span class="highlight-n">TestA</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln">10</span>      <span class="highlight-kd">public</span> <span class="highlight-nf">TestB</span><span class="highlight-o">(</span><span class="highlight-kt">int</span> <span class="highlight-n">i</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln">11</span>      <span class="highlight-kd">super</span><span class="highlight-o">();</span>  
+<span class="highlight-ln">12</span>      <span class="highlight-c1">// this();  
+</span><span class="highlight-ln">13</span><span class="highlight-c1"></span>   <span class="highlight-o">}</span>  
+<span class="highlight-ln">14</span>   
+<span class="highlight-ln">15</span>  <span class="highlight-kd">public</span> <span class="highlight-nf">TestB</span><span class="highlight-o">()</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln">16</span>      <span class="highlight-k">this</span><span class="highlight-o">(</span><span class="highlight-n">3</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">17</span>  <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"B"</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">18</span>  <span class="highlight-o">}</span>  
+<span class="highlight-ln">19</span><span class="highlight-o">}</span>  
+<span class="highlight-ln">20</span>   
+<span class="highlight-ln">21</span><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">Test</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln">22</span>  <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">ars</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln">23</span>     <span class="highlight-k">new</span> <span class="highlight-n">TestB</span><span class="highlight-o">(</span><span class="highlight-n">1</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">24</span>     <span class="highlight-k">new</span> <span class="highlight-n">TestB</span><span class="highlight-o">();</span>  
+<span class="highlight-ln">25</span>  <span class="highlight-o">}</span>  
+<span class="highlight-ln">26</span><span class="highlight-o">}</span>  
 </code></pre>
-<p>super()和this ()不能共存，否则编译时会报异常。<br>
+<p>super()和 this ()不能共存，否则编译时会报异常。<br>
 Constructor call must be the first statement in a constructor<br>
-换句话说就是super()和this ()都必须在构造方法的第一行。<br>
+换句话说就是 super()和 this ()都必须在构造方法的第一行。<br>
 this(有参数/无参数) 用于调用本类相应的构造函数<br>
 super(有参数/无参数) 用于调用父类相应的构造函数<br>
-而且在构造函数中,调用必须写在构造函数定义的第一行,不能在构造函数的后面使用。<br>
-一个构造函数定义中不能同时包括this调用和super调用,如果想同时包括的话,可以在一每构造器中使用一个。</p>
+而且在构造函数中，调用必须写在构造函数定义的第一行，不能在构造函数的后面使用。<br>
+一个构造函数定义中不能同时包括 this 调用和 super 调用，如果想同时包括的话，可以在一每构造器中使用一个。</p>
 <p>补充：<br>
-用类名定义一个变量的时候，定义的应该只是一个引用，外面可以通过这个引用来访问这个类里面的属性和方法，那们类里面是够也应该有一个引用来访问自己的属性和方法纳？JAVA提供了一个很好的东西，就是 this 对象，它可以在类里面来引用这个类的属性和方法。</p>
-<pre><code class="language-java highlight-chroma"><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">ThisDemo</span> <span class="highlight-o">{</span>    
-    <span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">=</span><span class="highlight-s">"Mick"</span><span class="highlight-o">;</span>  
-    <span class="highlight-kd">public</span> <span class="highlight-kt">void</span> <span class="highlight-nf">print</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">){</span>  
-        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"类中的属性 name="</span><span class="highlight-o">+</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">name</span><span class="highlight-o">);</span>  
-        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"局部传参的属性="</span><span class="highlight-o">+</span><span class="highlight-n">name</span><span class="highlight-o">);</span>  
-    <span class="highlight-o">}</span>     
-    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>  
-        <span class="highlight-n">ThisDemo</span> <span class="highlight-n">tt</span><span class="highlight-o">=</span><span class="highlight-k">new</span> <span class="highlight-n">ThisDemo</span><span class="highlight-o">();</span>  
-        <span class="highlight-n">tt</span><span class="highlight-o">.</span><span class="highlight-na">print</span><span class="highlight-o">(</span><span class="highlight-s">"Orson"</span><span class="highlight-o">);</span>  
-    <span class="highlight-o">}</span>  
-<span class="highlight-o">}</span>  
-
+用类名定义一个变量的时候，定义的应该只是一个引用，外面可以通过这个引用来访问这个类里面的属性和方法，那们类里面是够也应该有一个引用来访问自己的属性和方法纳？Java 提供了一个很好的东西，就是 this 对象，它可以在类里面来引用这个类的属性和方法。</p>
+<pre><code class="language-java highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">ThisDemo</span> <span class="highlight-o">{</span>    
+<span class="highlight-ln"> 2</span>    <span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">=</span><span class="highlight-s">"Mick"</span><span class="highlight-o">;</span>  
+<span class="highlight-ln"> 3</span>    <span class="highlight-kd">public</span> <span class="highlight-kt">void</span> <span class="highlight-nf">print</span><span class="highlight-o">(</span><span class="highlight-n">String</span> <span class="highlight-n">name</span><span class="highlight-o">){</span>  
+<span class="highlight-ln"> 4</span>        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"类中的属性 name="</span><span class="highlight-o">+</span><span class="highlight-k">this</span><span class="highlight-o">.</span><span class="highlight-na">name</span><span class="highlight-o">);</span>  
+<span class="highlight-ln"> 5</span>        <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"局部传参的属性="</span><span class="highlight-o">+</span><span class="highlight-n">name</span><span class="highlight-o">);</span>  
+<span class="highlight-ln"> 6</span>    <span class="highlight-o">}</span>     
+<span class="highlight-ln"> 7</span>    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-kt">void</span> <span class="highlight-nf">main</span><span class="highlight-o">(</span><span class="highlight-n">String</span><span class="highlight-o">[]</span> <span class="highlight-n">args</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>  
+<span class="highlight-ln"> 8</span>        <span class="highlight-n">ThisDemo</span> <span class="highlight-n">tt</span><span class="highlight-o">=</span><span class="highlight-k">new</span> <span class="highlight-n">ThisDemo</span><span class="highlight-o">();</span>  
+<span class="highlight-ln"> 9</span>        <span class="highlight-n">tt</span><span class="highlight-o">.</span><span class="highlight-na">print</span><span class="highlight-o">(</span><span class="highlight-s">"Orson"</span><span class="highlight-o">);</span>  
+<span class="highlight-ln">10</span>    <span class="highlight-o">}</span>  
+<span class="highlight-ln">11</span><span class="highlight-o">}</span>  
+<span class="highlight-ln">12</span>
 </code></pre>
 <p>自我问题：</p>
 <p><a href="http://bbs.csdn.net/topics/391819324?page=1#post-400326846" target="_blank">http://bbs.csdn.net/topics/391819324?page=1#post-400326846</a></p>
-<p>第一个问题：每次重新调用一个新的构造器之后，this.i的数据都会恢复到原来了0；上一个构造器的this.i的结果没有保存，难道在java中每个构造器都有自己的内存空间地址吗？</p>
+<p>第一个问题：每次重新调用一个新的构造器之后，this.i 的数据都会恢复到原来了 0；上一个构造器的 this.i 的结果没有保存，难道在 Java 中每个构造器都有自己的内存空间地址吗？</p>
 <p>第二个问题：   System.out.println(tt0.increment().increment().increment());<br>
-//       输出的是test.Test@2b0a141e，这是什么？这是java中的内存地址吗？</p>
+//       输出的是 test.Test@2b0a141e，这是什么？这是 Java 中的内存地址吗？</p>
 <p>第一个问题：<br>
-构造器（构造函数，Constructor）是一种特殊的函数，它是用来初始化一个“刚刚建立”的对象的方法。不同的构造器重载用于以不同的方式初始化这个对象（其中的逻辑是由编程人员自由控制的）。对于同一个类内的构造器，对于每个对象只能被调用一次，且是由new方法发起调用，可以使用super（调用父类的构造方法）和this（调用本类的构造方法）在不同构造器方法之间跳转，但是每个构造方法最多被调用一遍，同一个类内的构造方法最多有一个是实质上执行的（如果递归，编译器会报错）。this是对当前对象的引用，每次构造器调用时都是作用于一个全新的对象，故每次调用时其类中数据成员的值（那个i是成员变量，在每个对象中有独立的存储空间）一定是未初始化的默认值。</p>
+构造器（构造函数，Constructor）是一种特殊的函数，它是用来初始化一个“刚刚建立”的对象的方法。不同的构造器重载用于以不同的方式初始化这个对象（其中的逻辑是由编程人员自由控制的）。对于同一个类内的构造器，对于每个对象只能被调用一次，且是由 new 方法发起调用，可以使用 super（调用父类的构造方法）和 this（调用本类的构造方法）在不同构造器方法之间跳转，但是每个构造方法最多被调用一遍，同一个类内的构造方法最多有一个是实质上执行的（如果递归，编译器会报错）。this 是对当前对象的引用，每次构造器调用时都是作用于一个全新的对象，故每次调用时其类中数据成员的值（那个 i 是成员变量，在每个对象中有独立的存储空间）一定是未初始化的默认值。</p>
 <p>static：只有静态成员变量才是整个类共用的。对于非静态成员变量每个对象保存一个独立的值（当然占用的就是对象的空间）。</p>
 <p>第二个问题：<br>
-当没有重写toString方法时，默认会使用Object类提供的toString方法，其规则是：类全名@类对象的hashcode方法返回值。当没有重写hashCode方法时，默认使用Object类的hashCode方法，它是java对一个对象的标识号，可能由不同机制生成，不一定是内存地址，但是可能与之相关（通常实现采用的是将地址转换为int值的方法）。</p>
+当没有重写 toString 方法时，默认会使用 Object 类提供的 toString 方法，其规则是：类全名@类对象的 hashcode 方法返回值。当没有重写 hashCode 方法时，默认使用 Object 类的 hashCode 方法，它是 Java 对一个对象的标识号，可能由不同机制生成，不一定是内存地址，但是可能与之相关（通常实现采用的是将地址转换为 int 值的方法）。</p>
 <p>要搞清楚成员变量和局部变量</p>
-<p>Test(int i){ }，这个构造器中形参 i 是一个局部变量，作用域是这个构造器的大括号，意思是 声明一个局部变量i，是这个构造器的形参，其值为传入的实参的值，在这个构造器中的i 是指的这个局部变量。</p>
-<p>在类中也声明了一个成员变量i，在构造器中也能调用这个变量，但是名字都一样，为了区分应this.i表示这个成员变量，这里的this是指本类的属性</p>
+<p>Test(int i){ }，这个构造器中形参 i 是一个局部变量，作用域是这个构造器的大括号，意思是 声明一个局部变量 i，是这个构造器的形参，其值为传入的实参的值，在这个构造器中的 i 是指的这个局部变量。</p>
+<p>在类中也声明了一个成员变量 i，在构造器中也能调用这个变量，但是名字都一样，为了区分应 this.i 表示这个成员变量，这里的 this 是指本类的属性</p>
                             <div>
                                 <hr>
 
 标题：this()与super()使用详解<br>
-作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
-地址：<a href="https://Rainsheep.github.io/articles/2019/12/03/1575345084763.html" target="_blank">https://Rainsheep.github.io/articles/2019/12/03/1575345084763.html</a><br>
+作者：<a href="https://rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://rainsheep.github.io/articles/2019/12/03/1575345084763.html" target="_blank">https://rainsheep.github.io/articles/2019/12/03/1575345084763.html</a><br>
 
 <!-- 签名档内可使用 HTML、JavaScript -->
 <br>
@@ -497,10 +497,10 @@ super(有参数/无参数) 用于调用父类相应的构造函数<br>
 
                 <div class="module mobile__hidden">
                     <div class="module__content fn__clear">
-                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575344137526.html" rel="prev" class="fn__left breadcrumb">
+                            <a href="https://rainsheep.github.io/articles/2019/12/03/1575344137526.html" rel="prev" class="fn__left breadcrumb">
                                 旧一篇: GitHub使用教程详解——官网操作指南
                             </a>
-                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575345658197.html" rel="next"
+                            <a href="https://rainsheep.github.io/articles/2019/12/03/1575345658197.html" rel="next"
                                class="fn__right breadcrumb">
                                 zzulioj 2127 tmk射气球: 新一篇
                             </a>
@@ -509,7 +509,7 @@ super(有参数/无参数) 用于调用父类相应的构造函数<br>
 
                 <div class="module mobile__hidden fn__none">
                     <div class="module__content">
-                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575344137526.html" rel="prev" class="breadcrumb">
+                        <a href="https://rainsheep.github.io/articles/2019/12/03/1575344137526.html" rel="prev" class="breadcrumb">
                             旧一篇: GitHub使用教程详解——官网操作指南
                         </a>
                     </div>
@@ -517,12 +517,14 @@ super(有参数/无参数) 用于调用父类相应的构造函数<br>
 
                 <div class="module mobile__hidden fn__none">
                     <div class="module__content">
-                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575345658197.html" rel="next"
+                        <a href="https://rainsheep.github.io/articles/2019/12/03/1575345658197.html" rel="next"
                            class="breadcrumb">
                             新一篇: zzulioj 2127 tmk射气球
                         </a>
                     </div>
                 </div>
+                <div id="gitalk-container" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"></div>
                 <div id="b3logsolocomments"></div>
                 <div id="vcomment" class="module__content"
                      style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
@@ -560,10 +562,10 @@ super(有参数/无参数) 用于调用父类相应的构造函数<br>
             <a href="#super">super</a>
         </li>
         <li class="toc__h1">
-            <a href="#super和this的异同-">super和this的异同：</a>
+            <a href="#super和this的异同-">super 和 this 的异同：</a>
         </li>
         <li class="toc__h1">
-            <a href="#this关键字">this关键字</a>
+            <a href="#this关键字">this 关键字</a>
         </li>
 </ul>            </div>
         </div>
@@ -581,7 +583,7 @@ super(有参数/无参数) 用于调用父类相应的构造函数<br>
             Rainsheep
         </header>
         <main class="module__content ft__center">
-            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            <img class="side__avatar" src="https://b3logfile.com/avatar/1573792699119_1591777626791.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
             咸鱼不配拥有梦想 <br> <br>
     <a href="https://hacpai.com/member/Rainsheep"
        title="https://hacpai.com/member/Rainsheep"
@@ -619,185 +621,185 @@ super(有参数/无参数) 用于调用父类相应的构造函数<br>
             <header class="module__header">标签</header>
             <main class="module__content--three module__content fn__clear">
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/acm"
+                       href="https://rainsheep.github.io/tags/acm"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="76 篇文章">
                         acm</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       href="https://rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="59 篇文章">
                         知识点总结</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/Java"
+                       href="https://rainsheep.github.io/tags/Java"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="29 篇文章">
+                       aria-label="31 篇文章">
                         Java</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       href="https://rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="24 篇文章">
-                        学习笔记</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="23 篇文章">
+                       aria-label="26 篇文章">
                         软件教程</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/STL"
+                       href="https://rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="25 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/STL"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="20 篇文章">
                         STL</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/DP"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="15 篇文章">
-                        DP</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/windows"
+                       href="https://rainsheep.github.io/tags/windows"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="15 篇文章">
                         windows</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       href="https://rainsheep.github.io/tags/Linux"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="13 篇文章">
-                        Shadowsocks</a>
+                       aria-label="15 篇文章">
+                        Linux</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/ss"
+                       href="https://rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/ss"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="13 篇文章">
                         ss</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       href="https://rainsheep.github.io/tags/Shadowsocks"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="9 篇文章">
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="11 篇文章">
                         前端</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/Linux"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="7 篇文章">
-                        Linux</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       href="https://rainsheep.github.io/tags/%E6%A0%91"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="6 篇文章">
                         树</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       href="https://rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="5 篇文章">
-                        数学问题</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="5 篇文章">
+                       aria-label="6 篇文章">
                         生活轨迹</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       href="https://rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="5 篇文章">
                         模拟</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       href="https://rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/%E5%9B%BE"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         图</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       href="https://rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         字符串</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       href="https://rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         递归</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/python"
+                       href="https://rainsheep.github.io/tags/python"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         python</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/centos"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="2 篇文章">
-                        centos</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       href="https://rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="2 篇文章">
                         递推</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       href="https://rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="2 篇文章">
                         开源</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       href="https://rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="2 篇文章">
                         水题</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       href="https://rainsheep.github.io/tags/centos"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        NOSQL</a>
+                       aria-label="2 篇文章">
+                        centos</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/html"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        html</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/dfs"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        dfs</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       href="https://rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         硬件</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       href="https://rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         数据库</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/bfs"
+                       href="https://rainsheep.github.io/tags/bfs"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         bfs</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       href="https://rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         资源搜索</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       href="https://rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         图床</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/GitHub"
+                       href="https://rainsheep.github.io/tags/GitHub"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         GitHub</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
             </main>
         </div>
 
     <div class="module item">
         <div class="module__header">
             <div class="fn__flex">
-                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
-                    211
+                <a href="https://rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    227
                     文章
                 </a>
             </div>
             <br/>
             <div class="fn__flex">
                 <div class="fn__flex-1 ft__center">
-                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                    <span data-uvstaturl="https://rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
                 </div>
             </div>
         </div>
@@ -809,47 +811,43 @@ super(有参数/无参数) 用于调用父类相应的构造函数<br>
 <div class="icon__up" onclick="Util.goTop()"></div>
 <footer class="footer">
     &copy; 2020
-    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="https://rainsheep.github.io">雨羊的个人博客</a>
     <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
     <div class="fn__none"></div>
-    <br/>
-
-    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
-    <div class="fn__none"></div>
-    &nbsp; &heartsuit;  &nbsp;
-    Theme nijigen
-    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
-    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
 </footer>
 <div class="icon-up" onclick="Util.goTop()"></div>
 
 <script>
   var Label = {
-    servePath: "https://Rainsheep.github.io",
-    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    speech: false,
+    servePath: "https://rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources",
     luteAvailable: true,
     hljsStyle: 'github',
     langLabel: "zh_CN",
-    version: "3.9.0",
+    version: "4.3.0",
     staticSite: true,
-    showCodeBlockLn: false,
+    showCodeBlockLn: true,
+    articleId: "1575345084763",
   }
 </script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources/skins/nijigen/js/common.min.js?1595344563647" charset="utf-8"></script>
 
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources/js/page.min.js?1595344563647', 'soloPageScript')
     var page = new Page({
-        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "commentContentCannotEmptyLabel": "评论不能为空",
         "oId": "1575345084763",
-        "blogHost": "https://Rainsheep.github.io",
+        "blogHost": "https://rainsheep.github.io",
         "randomArticles1Label": "随机阅读：",
         "externalRelevantArticles1Label": "站外相关阅读："
     });
     $(document).ready(function () {
         page.load();
     page.tips.externalRelevantArticlesDisplayCount = "0";
+    page.loadRandomArticles('<header class="module__header">随机阅读</header>');
+    page.loadRelevantArticles('1575345084763', '<header class="module__header">相关阅读</header>');
     Skin.initArticle()
     });
 </script>
@@ -857,4 +855,4 @@ super(有参数/无参数) 用于调用父类相应的构造函数<br>
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 117ms, 2020/03/18 19:04:24 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 66ms, 2020/07/29 21:44:18 -->

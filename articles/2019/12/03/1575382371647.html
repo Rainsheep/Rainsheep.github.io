@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>C++STL容器使用经验总结 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="C++STL容器使用经验总结 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2019/12/03/1575382371647.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="C++STL容器使用经验总结 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2019/12/03/1575382371647.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
-            <link rel="prev" title="阶乘末尾0的个数" href="https://Rainsheep.github.io/articles/2019/12/03/1575380460268.html">
-            <link rel="next" title="【C++】STL常用容器总结之一：容器与迭代器" href="https://Rainsheep.github.io/articles/2019/12/03/1575382496743.html">
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>C++STL容器使用经验总结 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="C++STL容器使用经验总结 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://rainsheep.github.io/articles/2019/12/03/1575382371647.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="C++STL容器使用经验总结 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://rainsheep.github.io/articles/2019/12/03/1575382371647.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources/skins/nijigen/css/base.css?1595344563647"/>
+            <link rel="prev" title="阶乘末尾0的个数" href="https://rainsheep.github.io/articles/2019/12/03/1575380460268.html">
+            <link rel="next" title="【C++】STL常用容器总结之一：容器与迭代器" href="https://rainsheep.github.io/articles/2019/12/03/1575382496743.html">
     </head>
 <body>
 <div class="bg"></div>
@@ -15,7 +15,7 @@
 <div class="bg bg--5"></div>
 <header class="header">
     <div class="header__wrap">
-        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+        <a href="https://rainsheep.github.io" rel="start" class="header__logo">
             <i class="icon__home"></i> 雨羊的个人博客
         </a>
 
@@ -23,16 +23,16 @@
                 <a href="/my-github-repos" target="_self" rel="section">
                     <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
                 </a>
-            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+            <a href="https://rainsheep.github.io/tags.html" rel="section">
                 <i class="icon__tags"></i> 标签墙
             </a>
-            <a href="https://Rainsheep.github.io/archives.html">
+            <a href="https://rainsheep.github.io/archives.html">
                 <i class="icon__inbox"></i> 存档
             </a>
-            <a rel="archive" href="https://Rainsheep.github.io/links.html">
-                <i class="icon__link"></i> 友情链接
+            <a rel="archive" href="https://rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友链
             </a>
-            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+            <a rel="alternate" href="https://rainsheep.github.io/rss.xml" rel="section">
                 <i class="icon__rss"></i> RSS
             </a>
         </nav>
@@ -51,22 +51,22 @@
                     </a>
                 </li>
             <li>
-                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <a href="https://rainsheep.github.io/tags.html" rel="section">
                     <i class="icon__tags"></i> 标签墙
                 </a>
             </li>
             <li>
-                <a href="https://Rainsheep.github.io/archives.html">
+                <a href="https://rainsheep.github.io/archives.html">
                     <i class="icon__inbox"></i> 存档
                 </a>
             </li>
             <li>
-                <a rel="archive" href="https://Rainsheep.github.io/links.html">
-                    <i class="icon__link"></i> 友情链接
+                <a rel="archive" href="https://rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友链
                 </a>
             </li>
             <li>
-                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <a rel="alternate" href="https://rainsheep.github.io/rss.xml" rel="section">
                     <i class="icon__rss"></i> RSS
                 </a>
             </li>
@@ -86,7 +86,7 @@
                     </time>
 
                     <h2 class="item__title">
-                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2019/12/03/1575382371647.html">
+                        <a rel="bookmark" href="https://rainsheep.github.io/articles/2019/12/03/1575382371647.html">
                             C++STL容器使用经验总结
                         </a>
                     </h2>
@@ -99,15 +99,15 @@
                     <div class="ft__center">
                         <span class="tag">
                             <i class="icon__tags"></i>
-                            <a rel="tag" href="https://Rainsheep.github.io/tags/STL">
+                            <a rel="tag" href="https://rainsheep.github.io/tags/STL">
                                 STL</a>
                         </span>
-                            <a class="tag" href="https://Rainsheep.github.io/articles/2019/12/03/1575382371647.html#b3logsolocomments">
+                            <a class="tag" href="https://rainsheep.github.io/articles/2019/12/03/1575382371647.html#b3logsolocomments">
                                 <i class="icon__comments"></i> <span data-uvstatcmt="1575382371647">0</span> 评论
                             </a>
                         <span class="tag">
                             <i class="icon__views"></i>
-                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2019/12/03/1575382371647.html">5</span> 浏览
+                        <span data-uvstaturl="https://rainsheep.github.io/articles/2019/12/03/1575382371647.html">0</span> 浏览
                         </span>
                     </div>
 
@@ -121,7 +121,7 @@
 vector<char> 作为 string 的替代。(见第 13 条)<br>
 vector 作为标准关联容器的替代。(见第 23 条)<br>
 几种标准的非 STL 容器，包括数组、bitset、valarray、stack、queue 和 priority_queue。<br>
-你是否关心容器中的元素是如何排序的？如果不关心，选择哈希容器.<br>
+你是否关心容器中的元素是如何排序的？如果不关心，选择哈希容器。<br>
 容器中数据的布局是否需要和 C 兼容？如果需要兼容，就只能选择 vector。(见第 16 条)<br>
 元素的查找速度是否是关键的考虑因素？如果是，就要考虑哈希容器、排序的 vector 和标准关联容器－或许这就是优先顺序。<br>
 对插入和删除操作，你需要事务语义吗？如果是，只能选择 list。因为在标准容器中，只有 list 对多个元素的插入操作提供了事务语义。<br>
@@ -169,17 +169,17 @@ c.erase(remove(c.begin(),c.end(),1963),c.end());<br>
 如果容器是 list，则使用 list::remove_if。<br>
 如果容器是一个标准关联容器，则使用 remove_copy_if 和 swap，或者写一个循环遍历容器的元素，记住当把迭代器传给 erase 时，要对它进行后缀递增。</p>
 </blockquote>
-<pre><code class="highlight-chroma">AssocCOntainer&lt;int&gt; c;
-...
-AssocContainer&lt;int&gt; goodValues;
-remove_copy_if(c.begin(), c.end(), inserter(goodValues, goodValues.end()),badValue);
-c.swap(goodValues);
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>AssocCOntainer&lt;int&gt; c;
+<span class="highlight-ln">2</span>...
+<span class="highlight-ln">3</span>AssocContainer&lt;int&gt; goodValues;
+<span class="highlight-ln">4</span>remove_copy_if(c.begin(), c.end(), inserter(goodValues, goodValues.end()),badValue);
+<span class="highlight-ln">5</span>c.swap(goodValues);
 </code></pre>
 <p>或</p>
-<pre><code class="highlight-chroma">for(AssocContainer&lt;int&gt;::iterator i = c.begin();i !=c.end();/* do nothing */){
-if(badValue(*i)) c.erase(i++);
-else ++i;
-}
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>for(AssocContainer&lt;int&gt;::iterator i = c.begin();i !=c.end();/* do nothing */){
+<span class="highlight-ln">2</span>if(badValue(*i)) c.erase(i++);
+<span class="highlight-ln">3</span>else ++i;
+<span class="highlight-ln">4</span>}
 </code></pre>
 <blockquote>
 <p>要在循环内部做某些（除了删除对象之外的）操作：<br>
@@ -219,13 +219,13 @@ else ++i;
 表达式 vector<contestant>(contestants)创建一个临时的矢量，它是 contestants 的拷贝：这是由 vector 的拷贝构造函数来完成的。然而，vector 的拷贝构造函数只为所拷贝的元素分配所需要的的内存，所以这个临时矢量没有多余的容量。然后我们把临时矢量中的数据和 contestants 中的数据作 swap 操作，在这之后，contestants 具有了被去除之后的容量，即原先临时变量的容量，而临时变量的容量则变成了原先 contestants 臃肿的容量。到这时，临时矢量被析构，从而释放了先前为 contestants 所占据的内存。<br>
 同样的技巧对 string 也实用：</contestant></p>
 </blockquote>
-<pre><code class="highlight-chroma">string s；
-...
-string(s).swap(s);
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>string s；
+<span class="highlight-ln">2</span>...
+<span class="highlight-ln">3</span>string(s).swap(s);
 </code></pre>
 <p><strong>第 18 条：避免使用 vector<bool>。</bool></strong></p>
 <blockquote>
-<p>作为 STL 容器，vector&lt;bool&gt;只有两点不对。首先，它不是一个 STL 容器；其次，它并不存储 bool。除此以外，一切正常。因此最好不要使用它，你可以用 deque&lt;bool&gt;和 bitset 替代。vector&lt;bool&gt;来自一个雄心勃勃的试验，代理对象在 C＋ ＋软件开发中经常会很有用。C＋ ＋标准委员会的人很清楚这一点，所以他们决定开发 vector&lt;bool&gt;，以演示 STL 如果支持 “通过代理对象来存取其元素的的容器”。他们说，C＋ ＋标准中有了这个例子，于是，人们在实现自己的基于代理的容器时就有了一个参考。然而他们却发现，要创建一个基于代理的容器，同时又要求它满足 STL 容器的所有要求是不可能的。由于种种原因，他们失败了的尝试被遗留在标准中。</p>
+<p>作为 STL 容器，vector&lt;bool&gt; 只有两点不对。首先，它不是一个 STL 容器；其次，它并不存储 bool。除此以外，一切正常。因此最好不要使用它，你可以用 deque&lt;bool&gt; 和 bitset 替代。vector&lt;bool&gt; 来自一个雄心勃勃的试验，代理对象在 C＋ ＋软件开发中经常会很有用。C＋ ＋标准委员会的人很清楚这一点，所以他们决定开发 vector&lt;bool&gt;，以演示 STL 如果支持 “通过代理对象来存取其元素的的容器”。他们说，C＋ ＋标准中有了这个例子，于是，人们在实现自己的基于代理的容器时就有了一个参考。然而他们却发现，要创建一个基于代理的容器，同时又要求它满足 STL 容器的所有要求是不可能的。由于种种原因，他们失败了的尝试被遗留在标准中。</p>
 </blockquote>
 <p><strong>第 19 条：理解相等（equality）和等价（equivalence）的区别。</strong></p>
 <blockquote>
@@ -239,13 +239,13 @@ string(s).swap(s);
 <blockquote>
 <p>现在我给你演示一个很酷的现象。创建一个 set，用 less_equal 作为它的比较类型，然后把 10 插入到该集合中：</p>
 </blockquote>
-<pre><code class="highlight-chroma">set&lt;int, less_equal&lt;int&gt;&gt;  s; //s 用"&lt;=" 来排序
-s.insert(10);
-s.insert(10);
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>set&lt;int, less_equal&lt;int&gt;&gt;  s; //s 用"&lt;=" 来排序
+<span class="highlight-ln">2</span>s.insert(10);
+<span class="highlight-ln">3</span>s.insert(10);
 </code></pre>
 <blockquote>
 <p>对于第二个 insert，集合会检查下面的表达式是否为真：<br>
-!(10a &lt;= 10b) &amp;&amp; !(10b &lt;= 10a); //检查 10a 和 10b 是否等价，结果是!(true) &amp;&amp; !(true) 为 false<br>
+!(10a &lt;= 10b) &amp;&amp; !(10b &lt;= 10a); //检查 10a 和 10b 是否等价，结果是！(true) &amp;&amp; !(true) 为 false<br>
 结果集合中有两个 10！<br>
 从技术上讲，用于对关联容器排序的比较函数必须为他们所比较的对象定义个“严格的弱序化”（strict weak ordering）。</p>
 </blockquote>
@@ -284,13 +284,13 @@ s.insert(10);
 <blockquote>
 <p>假定我们有一个 Widget 类，它支持默认构造函数，并根据一个 double 值来构造和赋值：</p>
 </blockquote>
-<pre><code class="highlight-chroma">class Widget{
-public:
-Widget();
-Widget(double weight);
-Widget&amp;amp; operator=(double weight);
-...
-}
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>class Widget{
+<span class="highlight-ln">2</span>public:
+<span class="highlight-ln">3</span>Widget();
+<span class="highlight-ln">4</span>Widget(double weight);
+<span class="highlight-ln">5</span>Widget&amp;amp; operator=(double weight);
+<span class="highlight-ln">6</span>...
+<span class="highlight-ln">7</span>}
 </code></pre>
 <blockquote>
 <p>map 的 operator[]函数与众不同。它与 vector、deque 和 string 的 operator[]函数无关，与用于数组的内置 operator []也没有关系。相反，map::operator[]的实际目的是为了提供“添加和更新”(add or update)的功能。也就是说，对于下面的例子：</p>
@@ -328,26 +328,26 @@ m.insert(IntWidgetMap::value_type(k,v)).first-&gt;second = v; //使用 insert �
 </blockquote>
 <p><strong>第 27 条：使用 distance 和 advance 将容器的 const_iterator 转换成 iterator。</strong></p>
 <p>下面的代码试图把一个 const_iterator 强制转换为 iterator：</p>
-<pre><code class="highlight-chroma">typedef deque&lt;int&gt; IntDeque; //类型定义，简化代码
-typedef IntDeque::iterator Iter;
-typedeef IntDeque:;const_iterator ConstIter;
-ConstIter ci; //ci 是一个 const_iterator
-...
-Iter i(ci); //编译错误！从 const_iterator 到 iterator 没有隐式转换途径
-Iter i(const_cast&lt;Iter&gt;(ci)); //仍然是编译错误！不能将 const_iterator 强制转换为 iterator
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>typedef deque&lt;int&gt; IntDeque; //类型定义，简化代码
+<span class="highlight-ln">2</span>typedef IntDeque::iterator Iter;
+<span class="highlight-ln">3</span>typedeef IntDeque:;const_iterator ConstIter;
+<span class="highlight-ln">4</span>ConstIter ci; //ci 是一个 const_iterator
+<span class="highlight-ln">5</span>...
+<span class="highlight-ln">6</span>Iter i(ci); //编译错误！从 const_iterator 到 iterator 没有隐式转换途径
+<span class="highlight-ln">7</span>Iter i(const_cast&lt;Iter&gt;(ci)); //仍然是编译错误！不能将 const_iterator 强制转换为 iterator
 </code></pre>
 <blockquote>
 <p>包含显式类型转换的代码不能通过编译的原因在于，对于这些容器类型，iterator 和 const_iterator 是完全不同的类，他们之间的关系甚至比 string 和 complex<double>之间的关系还要远。<br>
 下面是这种方案的本质。</double></p>
 </blockquote>
-<pre><code class="highlight-chroma">typedef deque&lt;int&gt; IntDeque; //类型定义，简化代码
-typedef IntDeque::iterator Iter;
-typedeef IntDeque:;const_iterator ConstIter;
-IntDeque d;
-ConstIter ci; //ci 是一个 const_iterator
-... //使 ci 指向 d
-Iter i(d.begin());//使 i 指向 d 的起始位置
-advance(i,distance&lt;ConstIter&gt;(i,ci));//移动 i，使它指向 ci 所指的位置
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>typedef deque&lt;int&gt; IntDeque; //类型定义，简化代码
+<span class="highlight-ln">2</span>typedef IntDeque::iterator Iter;
+<span class="highlight-ln">3</span>typedeef IntDeque:;const_iterator ConstIter;
+<span class="highlight-ln">4</span>IntDeque d;
+<span class="highlight-ln">5</span>ConstIter ci; //ci 是一个 const_iterator
+<span class="highlight-ln">6</span>... //使 ci 指向 d
+<span class="highlight-ln">7</span>Iter i(d.begin());//使 i 指向 d 的起始位置
+<span class="highlight-ln">8</span>advance(i,distance&lt;ConstIter&gt;(i,ci));//移动 i，使它指向 ci 所指的位置
 </code></pre>
 <blockquote>
 <p>这中方法看上去非常简单和直接，也很令人吃惊。为了得到一个与 const_iterator 指向同一位置的 iterator，首先创建一个新的 iterator，将它指向容器的起始位置，然后取得 const_iterator 距离容器起始位置的偏移量，并将 iterator 向前移动相同的偏移量即可。这项技术的效率取决于你所使用的迭代起，对于随机迭代器，它是常数时间的操作；对于双向迭代器，以及某些哈希容器，它是线性时间的操作。</p>
@@ -362,10 +362,10 @@ advance(i,distance&lt;ConstIter&gt;(i,ci));//移动 i，使它指向 ci 所指�
 <blockquote>
 <p>我们还是有必要来看一看执行这样一个删除操作的实际代码，其中暗藏着惊奇之处：</p>
 </blockquote>
-<pre><code class="highlight-chroma">vector&lt;int&gt; v;
-... //同上，插入 1 到 5
-vector&lt;int&gt;::reverse_iterator ri = find(v.rbegin(),v.rend(),3);//使 ri 指向 3
-v.erase(--ri.base()); //试图删除 ri.base()前面的元素，对于 vector，往往编译通不过
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>vector&lt;int&gt; v;
+<span class="highlight-ln">2</span>... //同上，插入 1 到 5
+<span class="highlight-ln">3</span>vector&lt;int&gt;::reverse_iterator ri = find(v.rbegin(),v.rend(),3);//使 ri 指向 3
+<span class="highlight-ln">4</span>v.erase(--ri.base()); //试图删除 ri.base()前面的元素，对于 vector，往往编译通不过
 </code></pre>
 <blockquote>
 <p>对于 vector 和 string，这段代码也许能工作，但对于 vector 和 string 的许多实现，它无法通过编译。这是因为在这样的实现中， iterator(和 vconst_iterator)是以内置指针的方式实现的，所以 ri.base()的结果是一个指针。C 和 C＋ ＋都规定了从函数返回的指针不应该被修改，所以所以编译不能通过。<br>
@@ -386,7 +386,7 @@ string fileData((istream_iterator&lt;char&gt; (inputFIle)),istream_iterator&lt;c
 <p>然而，你可能会发现整个拷贝过程远不及你希望的那般快。istream_iterator 内部使用的 operator&gt;&gt; 实际上执行了格式化的输入，但如果你只是想从输入流中读出下一个字符的话，它就显得有点多余了。</p>
 </blockquote>
 <blockquote>
-<p>有一种更为有效的途径，那就是使用 STL 中最为神秘的法宝之一：istreambuf_iterator。 istreambuf_iterator&lt;char&gt;对象使用方法与 istream_iterator&lt;char&gt;大致相同，但是 istreambuf_iterator&lt;char&gt;直接从流的缓冲区读取下一个字符。（更为特殊的是， istreambuf_iterator&lt;char&gt;对象从一个输入流 istream s 中读取下一个字符的操作是通过 s.rdbuf()-&gt;sgetc()来完成的。）<br>
+<p>有一种更为有效的途径，那就是使用 STL 中最为神秘的法宝之一：istreambuf_iterator。 istreambuf_iterator&lt;char&gt; 对象使用方法与 istream_iterator&lt;char&gt; 大致相同，但是 istreambuf_iterator&lt;char&gt; 直接从流的缓冲区读取下一个字符。（更为特殊的是， istreambuf_iterator&lt;char&gt; 对象从一个输入流 istream s 中读取下一个字符的操作是通过 s.rdbuf()-&gt;sgetc()来完成的。）<br>
 ifstream inputFile("interestingData.txt");<br>
 string fileData((istreambuf_iterator&lt;char&gt;(inputFile)),istreambuf_iterator&lt;char&gt;());</p>
 </blockquote>
@@ -398,10 +398,10 @@ string fileData((istreambuf_iterator&lt;char&gt;(inputFile)),istreambuf_iterator
 <blockquote>
 <p>当程序员希望向容器中添加新的对象，这里有一个例子：</p>
 </blockquote>
-<pre><code class="highlight-chroma">int transmogrify(int x); //该函数根据 x 生成一个新的值
-vector&lt;int&gt; values;
-vector&lt;int&gt; results;
-transform(values.begin(),values.end(),back_inserter(results),transmogrify);
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>int transmogrify(int x); //该函数根据 x 生成一个新的值
+<span class="highlight-ln">2</span>vector&lt;int&gt; values;
+<span class="highlight-ln">3</span>vector&lt;int&gt; results;
+<span class="highlight-ln">4</span>transform(values.begin(),values.end(),back_inserter(results),transmogrify);
 </code></pre>
 <blockquote>
 <p>back_inserter 返回的迭代起将使得 push_back 被调用，所以 back_inserter 可适用于所有提供了 push_back 方法的容器。同理，front_inserter 仅适用于那些提供了 push_front 成员函数的容器（如 deque 和 list）。</p>
@@ -409,11 +409,11 @@ transform(values.begin(),values.end(),back_inserter(results),transmogrify);
 <blockquote>
 <p>当是使用 reserver 提高一个序列插入操作的效率的时候，切记 reserve 只是增加了容器的容量，而容器的大小并未改变。当一个算法需要向 vector 或者 string 中加入新的元素，即使已经调用了 reserve，你也必须使用插入型的迭代器。如下代码给出了一种错误的方式：</p>
 </blockquote>
-<pre><code class="highlight-chroma">vector&lt;int&gt; values;
-vector&lt;int&gt; results;
-...
-results.reserve(results.size() + values.size());
-transform(values.begin(), values.end(), results.end(), transmogrify);//变换的结果会写入到尚未初始化的内存，结果将是不确定的
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>vector&lt;int&gt; values;
+<span class="highlight-ln">2</span>vector&lt;int&gt; results;
+<span class="highlight-ln">3</span>...
+<span class="highlight-ln">4</span>results.reserve(results.size() + values.size());
+<span class="highlight-ln">5</span>transform(values.begin(), values.end(), results.end(), transmogrify);//变换的结果会写入到尚未初始化的内存，结果将是不确定的
 </code></pre>
 <blockquote>
 <p>在以上代码中 transform 欣然接受了在 results 尾部未初始化的内存中进行复制操作的任务。由于赋值操作重视在两个对象之间而不是在一个对象与一个未初始化的内存块之间进行，所以一般情况下，这段代码在运行时会失败。</p>
@@ -421,21 +421,21 @@ transform(values.begin(), values.end(), results.end(), transmogrify);//变换的
 <blockquote>
 <p>假设希望 transform 覆盖 results 容器中已有的元素，那么就需要确保 results 中已有的元素至少和 values 中的元素一样多。否则，就必须使用 resize 来保证这一点。</p>
 </blockquote>
-<pre><code class="highlight-chroma">vector&lt;int&gt; values;
-vector&lt;int&gt; results;
-...
-if(results.size() &lt;; values.size()){
-results.resize(values.size());
-}
-transform(values.begin(),values.end(),results.begin(),transmogrify);
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>vector&lt;int&gt; values;
+<span class="highlight-ln">2</span>vector&lt;int&gt; results;
+<span class="highlight-ln">3</span>...
+<span class="highlight-ln">4</span>if(results.size() &lt;; values.size()){
+<span class="highlight-ln">5</span>results.resize(values.size());
+<span class="highlight-ln">6</span>}
+<span class="highlight-ln">7</span>transform(values.begin(),values.end(),results.begin(),transmogrify);
 </code></pre>
 <blockquote>
 <p>或者，也可以先清空 results，然后按通常的方式使用一个插入型迭代起：</p>
 </blockquote>
-<pre><code class="highlight-chroma">...
-results.clear();
-results.reserve(values.size());
-transform(values.begin(),values.end(),back_inserter(results),transmogrify);
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>...
+<span class="highlight-ln">2</span>results.clear();
+<span class="highlight-ln">3</span>results.reserve(values.size());
+<span class="highlight-ln">4</span>transform(values.begin(),values.end(),back_inserter(results),transmogrify);
 </code></pre>
 <p><strong>第 31 条：了解各种与排序有关的选择。</strong></p>
 <blockquote>
@@ -455,78 +455,78 @@ transform(values.begin(),values.end(),back_inserter(results),transmogrify);
 <p>无论你如何处理那些存放动态分配的指针的容器，你总是可以这样来进行：或者调用 remove 类算法之前先手工删除指针并将它们置为空，或者通过引用计数的智能指针( 如 boost::shared_ptr)，或者你自己发明的其他某项技术。<br>
 下面的代码利用第一种方式：</p>
 </blockquote>
-<pre><code class="highlight-chroma">void delAndNullifyUncertified(Widget*&amp; pWidget)
-{
-if(!pWidget-&gt;isCertified())
-{
-delete pWidget;
-pWidget = 0;
-}
-}
-for_each(v.begin(),v.end(),delAndNullifyUndertified);
-v.erase(vemove(v.begin(),v.end(),static_cast&lt;Widget*&gt;(0)),v.end());
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>void delAndNullifyUncertified(Widget*&amp; pWidget)
+<span class="highlight-ln"> 2</span>{
+<span class="highlight-ln"> 3</span>if(!pWidget-&gt;isCertified())
+<span class="highlight-ln"> 4</span>{
+<span class="highlight-ln"> 5</span>delete pWidget;
+<span class="highlight-ln"> 6</span>pWidget = 0;
+<span class="highlight-ln"> 7</span>}
+<span class="highlight-ln"> 8</span>}
+<span class="highlight-ln"> 9</span>for_each(v.begin(),v.end(),delAndNullifyUndertified);
+<span class="highlight-ln">10</span>v.erase(vemove(v.begin(),v.end(),static_cast&lt;Widget*&gt;(0)),v.end());
 </code></pre>
 <p>下面的的代码使用第二中方式：</p>
-<pre><code class="highlight-chroma">template&lt;typename T&gt; //RSCP = "Reference Counting Smart Pointer"
-class RCSP{...};
-tpedef RCSP&lt;Widget&gt; RCSPW;
-vector&lt;RCSPW&gt; v;
-...
-v.push_back(RCSPW(new Widget));
-...
-v.erase(remove_if(v.begin(),v.end(),not1(mem_fun(&amp;amp;Widget::isCertified))),v.end());
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>template&lt;typename T&gt; //RSCP = "Reference Counting Smart Pointer"
+<span class="highlight-ln">2</span>class RCSP{...};
+<span class="highlight-ln">3</span>tpedef RCSP&lt;Widget&gt; RCSPW;
+<span class="highlight-ln">4</span>vector&lt;RCSPW&gt; v;
+<span class="highlight-ln">5</span>...
+<span class="highlight-ln">6</span>v.push_back(RCSPW(new Widget));
+<span class="highlight-ln">7</span>...
+<span class="highlight-ln">8</span>v.erase(remove_if(v.begin(),v.end(),not1(mem_fun(&amp;amp;Widget::isCertified))),v.end());
 </code></pre>
 <p><strong>第 34 条：了解哪些算法要求使用排序的区间作为参数。</strong></p>
 <p>下面的代码要求排序的区间：</p>
-<pre><code class="highlight-chroma">binary_search lower_bound
-upper_bound equal_range
-set_union set_intersection
-set_difference set_symmetric_difference
-merge inplace_merge
-includes
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>binary_search lower_bound
+<span class="highlight-ln">2</span>upper_bound equal_range
+<span class="highlight-ln">3</span>set_union set_intersection
+<span class="highlight-ln">4</span>set_difference set_symmetric_difference
+<span class="highlight-ln">5</span>merge inplace_merge
+<span class="highlight-ln">6</span>includes
 </code></pre>
 <p>下面的算法并不一定需要排序的区间：<br>
 <code>unique unique_copy</code></p>
 <p><strong>第 35 条：通过 mismatch 或 lexicographical_compare 实现简单的忽略大小写的字符串比较。</strong></p>
-<pre><code class="highlight-chroma">用mistatch实现：
-
-//此函数判断两个字母是否相同，而忽略它们的大小写
-int ciCharCompare(char c1, char c2)
-{
-int lc1 = tolower(static_cast&lt;unsigned_char&gt;(c1));
-int lc2 = tolower(static_cast&lt;unsigned_char&gt;(c2));
-if(lc1 &lt; lc2) return -1;
-if(lc1 &gt; lc2) return 1;
-return 0;
-}
-/* 此函数保证传递给ciStringCompareImpl的s1比s2短，如果s1和s2相同，返回0；如果s1比s2短，返回-1；如果s1比s2长，返回1。*/
-int ciStringCompare(const string&amp; s1, const string&amp; s2)
-{
-if(s1.size() &lt;= s2.size()) return ciStringCompareImpl(s1, s2);
-else return – ciStringCompareImpl(s2, s1); 
-}
-
-//如果s1和s2相同，返回0；如果s1比s2短，返回-1；如果s1和s2都是在非结尾处发生不匹配，有开始不匹配的那个字符决定。
-int ciStringCompareImpl(const string &amp;s1, const string &amp;c2)
-{
-typedef pair&lt;string::const_iterator,string::const_iterator&gt; PSCI;
-PSCI p = mismatch(s1.begin(),s1.end(),s2.begin(),not2(ptr_fun(ciCharCompare)));
-if(p.first == s1.end()){
-if(p.second == s2.end()) return 0;
-else return -1;
-}
-return ciCharCompair(*p.first, *p.second);
-}
-
-用lexicographical_compare实现：
-bool ciCharLess(char c1, char c2)
-{
-return tolower(static_cast&lt;unsigned char&gt;(c1)) &lt; tolower(static_cast&lt;unsigned char&gt;(c2));
-}
-bool ciStringCompare(const string &amp;s1,const string &amp;s2)
-{
-return lexicographical_compare(s1.begin(), s1.end(), s2.begin(), s2.end(), ciCharLess);
-}
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>用mistatch实现：
+<span class="highlight-ln"> 2</span>
+<span class="highlight-ln"> 3</span>//此函数判断两个字母是否相同，而忽略它们的大小写
+<span class="highlight-ln"> 4</span>int ciCharCompare(char c1, char c2)
+<span class="highlight-ln"> 5</span>{
+<span class="highlight-ln"> 6</span>int lc1 = tolower(static_cast&lt;unsigned_char&gt;(c1));
+<span class="highlight-ln"> 7</span>int lc2 = tolower(static_cast&lt;unsigned_char&gt;(c2));
+<span class="highlight-ln"> 8</span>if(lc1 &lt; lc2) return -1;
+<span class="highlight-ln"> 9</span>if(lc1 &gt; lc2) return 1;
+<span class="highlight-ln">10</span>return 0;
+<span class="highlight-ln">11</span>}
+<span class="highlight-ln">12</span>/* 此函数保证传递给ciStringCompareImpl的s1比s2短，如果s1和s2相同，返回0；如果s1比s2短，返回-1；如果s1比s2长，返回1。*/
+<span class="highlight-ln">13</span>int ciStringCompare(const string&amp; s1, const string&amp; s2)
+<span class="highlight-ln">14</span>{
+<span class="highlight-ln">15</span>if(s1.size() &lt;= s2.size()) return ciStringCompareImpl(s1, s2);
+<span class="highlight-ln">16</span>else return – ciStringCompareImpl(s2, s1); 
+<span class="highlight-ln">17</span>}
+<span class="highlight-ln">18</span>
+<span class="highlight-ln">19</span>//如果s1和s2相同，返回0；如果s1比s2短，返回-1；如果s1和s2都是在非结尾处发生不匹配，有开始不匹配的那个字符决定。
+<span class="highlight-ln">20</span>int ciStringCompareImpl(const string &amp;s1, const string &amp;c2)
+<span class="highlight-ln">21</span>{
+<span class="highlight-ln">22</span>typedef pair&lt;string::const_iterator,string::const_iterator&gt; PSCI;
+<span class="highlight-ln">23</span>PSCI p = mismatch(s1.begin(),s1.end(),s2.begin(),not2(ptr_fun(ciCharCompare)));
+<span class="highlight-ln">24</span>if(p.first == s1.end()){
+<span class="highlight-ln">25</span>if(p.second == s2.end()) return 0;
+<span class="highlight-ln">26</span>else return -1;
+<span class="highlight-ln">27</span>}
+<span class="highlight-ln">28</span>return ciCharCompair(*p.first, *p.second);
+<span class="highlight-ln">29</span>}
+<span class="highlight-ln">30</span>
+<span class="highlight-ln">31</span>用lexicographical_compare实现：
+<span class="highlight-ln">32</span>bool ciCharLess(char c1, char c2)
+<span class="highlight-ln">33</span>{
+<span class="highlight-ln">34</span>return tolower(static_cast&lt;unsigned char&gt;(c1)) &lt; tolower(static_cast&lt;unsigned char&gt;(c2));
+<span class="highlight-ln">35</span>}
+<span class="highlight-ln">36</span>bool ciStringCompare(const string &amp;s1,const string &amp;s2)
+<span class="highlight-ln">37</span>{
+<span class="highlight-ln">38</span>return lexicographical_compare(s1.begin(), s1.end(), s2.begin(), s2.end(), ciCharLess);
+<span class="highlight-ln">39</span>}
 </code></pre>
 <p><strong>第 36 条：理解 copy_if 算法的正确实现。</strong></p>
 <blockquote>
@@ -613,7 +613,7 @@ bool operator() (const Widget&amp; lhs, const Widget&amp; rhs) const;<br>
 <p>虽然 operator()的参数类型都是 const Widget&amp;，但我们传递给 binary_function 的类型却是 Widget。一般情况下，传递给 unary_function 或 binary_function 的非指针类型需要去掉 const 和引用（&amp;）部分（不要问其中的原因，如果你有兴趣，可以访问 boost.org，卡可能看他们在调用特性(traits)和函数对象配接器方面的工作）。</p>
 </blockquote>
 <blockquote>
-<p>如果 operator()带有指针参数，规则又有不同了。下面是 WidgetNameCOmpare 函数子的另一个版本，所不同的是，这次以 Widget<em>指针作为参数：<br>
+<p>如果 operator()带有指针参数，规则又有不同了。下面是 WidgetNameCOmpare 函数子的另一个版本，所不同的是，这次以 Widget <em>指针作为参数：<br>
 struct PtrWidgetNameCompare:<br>
 public std::binary_function&lt;const Widget</em>, const Widget*, bool&gt; {<br>
 bool operator() (const Widget* lhs, const Widget* rhs) const;<br>
@@ -622,15 +622,15 @@ bool operator() (const Widget* lhs, const Widget* rhs) const;<br>
 <p><strong>第 41 条：理解 ptr_fun、mem_fun 和 mem_fun_ref 的来由。</strong></p>
 <blockquote>
 <p>如果有一个函数 f 和一个对象 x，现在希望在 x 上调用 f，而我们在 x 的成员函数之外，那么为了执行这个调用，C＋ ＋提供了三种不同的语法：<br>
-f(x); //语法#1：f 是一个非成员函数<br>
-x.f(); //语法#2：f 是一个成员函数，并且 x 是一个对象或一个对象引用<br>
-p-&gt;f(); //语法#3：f 是成员函数，并且 p 是一个指向对象 x 的指针<br>
+f(x); //语法 #1：f 是一个非成员函数<br>
+x.f(); //语法 #2：f 是一个成员函数，并且 x 是一个对象或一个对象引用<br>
+p-&gt;f(); //语法 #3：f 是成员函数，并且 p 是一个指向对象 x 的指针<br>
 现在假设有个可用于测试 Widget 对象的函数：<br>
 void test(Widget&amp; w);<br>
 另有一个存放 Widget 对象的容器：<br>
 vector<widget> vw;<br>
 为了测试 vw 中的每一个 Widget 对象，自然可以用如下的方式来调用 for_each：<br>
-for_each(vw.begin(), vw.end(), test); //调用#1 (可以通过编译)<br>
+for_each(vw.begin(), vw.end(), test); //调用 #1 (可以通过编译)<br>
 但是，加入 test 是 Widget 的成员函数，即 Widget 支持自测：<br>
 class Widget{<br>
 public:<br>
@@ -639,12 +639,12 @@ void test();<br>
 ....<br>
 };<br>
 那么在理想情况下，应该也可以用 for_each 在 vw 中的每个对象上调用 Widget::test 成员函数：<br>
-for_each(vw.begin(), vw.end(), &amp;Widget::test);//调用#2（不能通过编译）<br>
+for_each(vw.begin(), vw.end(), &amp;Widget::test);//调用 #2（不能通过编译）<br>
 实际上，如果真的很理想的话，那么对于一个存放 Widget* 指针的容器，应该也可以通过 for_each 来调用 Widget::test：<br>
 list&lt;Widget*&gt; lpw;<br>
-for_each(lpw.begin(), lpw.end(), &amp;Widget::test);//调用#3（也不能通过编译）<br>
-这是因为 STL 中一种和普遍的惯例：函数或函数对象在被调用的时候，总是使用非成员函数的语法形式（即#1）。<br>
-现在 mem_fun 和 mem_fun_ref 之所以必须存在已经很清楚了－－它们被用来调整（一般是#2 和#3）成员函数，使之能够通过语法#1 被调用。 mem_fun、mem_fun_ref 的做法其实很简单，只要看一看其中任意一个函数的声明就清楚了。它们是真正的函数模板，针对它们所配接的成员函数的圆形的不同，有几种变化形式。我们来看其中一个声明，以便了解它是如何工作的：<br>
+for_each(lpw.begin(), lpw.end(), &amp;Widget::test);//调用 #3（也不能通过编译）<br>
+这是因为 STL 中一种和普遍的惯例：函数或函数对象在被调用的时候，总是使用非成员函数的语法形式（即 #1）。<br>
+现在 mem_fun 和 mem_fun_ref 之所以必须存在已经很清楚了－－它们被用来调整（一般是 #2 和 #3）成员函数，使之能够通过语法 #1 被调用。 mem_fun、mem_fun_ref 的做法其实很简单，只要看一看其中任意一个函数的声明就清楚了。它们是真正的函数模板，针对它们所配接的成员函数的圆形的不同，有几种变化形式。我们来看其中一个声明，以便了解它是如何工作的：<br>
 template&lt;typename R, typename C&gt; //该 mem_fun 声明针对不带参数的非 const 成员函数，C 是类，R 是所指向的成员函数的返回类型<br>
 mem_fun_t&lt;R,C&gt;<br>
 mem_fun(R(C::<em>pmf) ());<br>
@@ -652,7 +652,7 @@ mem_fun 带一个指向某个成员函数的指针参数 pmf，并且返回一�
 list&lt;Widget</em>&gt; lpw;<br>
 ...<br>
 for_each(lpw.begin(),lpw.end(),mem_fun(&amp;Widget::test));//现在可以通过编译了<br>
-for_each 接受到一个类型为 mem_fun_t 的对象，该对象中保存了一个指向 Widget::test 的指针。对于 lpw 中的每一个 Widget<em>指针，for_each 将会使用语法#1 来调用 mem_fun_t 对象，然后，该对象立即用语法#3 调用 Widget</em>指针的 Widget::test()。<br>
+for_each 接受到一个类型为 mem_fun_t 的对象，该对象中保存了一个指向 Widget::test 的指针。对于 lpw 中的每一个 Widget <em>指针，for_each 将会使用语法 #1 来调用 mem_fun_t 对象，然后，该对象立即用语法 #3 调用 Widget</em> 指针的 Widget::test()。<br>
 （ptr_fun 是多余的吗？）mem_fun 是针对成员函数的配接器，mem_fun_ref 是针对对象容器的配接器。</widget></p>
 </blockquote>
 <p><strong>第 42 条：确保 less<t>与 operator&lt; 具有相同的含义。</t></strong></p>
@@ -742,9 +742,9 @@ average&lt;typename iterator_traits<inputiterl>::value_type&gt;　//错误？<br
 <p><strong>第 48 条：总是包含（#include）正确的头文件。</strong></p>
 <blockquote>
 <p>几乎所有的标准 STL 容器都被声明在与之同名的头文件中。<br>
-除了 ４ 个 STL 算法外，其他所有的算法都被声明在&lt;algorithm&gt;中，这 4 个算法是 accumulate、 inner_product、adjacent_difference 和 partial_sum，它们都被声明在头文件&lt;numeric&gt; 中。<br>
-特殊类型的迭代器，包括 istream_iterator 和 istreambuf_iterator（见第 29 条），被声明在&lt;iterator&gt;中。<br>
-标准的函数子（比如 less&lt;T&gt;）和函数子配接器（比如 not1、bind2nd）被声明在头文件&lt;functional&gt;中。</p>
+除了 ４ 个 STL 算法外，其他所有的算法都被声明在&lt;algorithm&gt; 中，这 4 个算法是 accumulate、 inner_product、adjacent_difference 和 partial_sum，它们都被声明在头文件&lt;numeric&gt; 中。<br>
+特殊类型的迭代器，包括 istream_iterator 和 istreambuf_iterator（见第 29 条），被声明在&lt;iterator&gt; 中。<br>
+标准的函数子（比如 less&lt;T&gt;）和函数子配接器（比如 not1、bind2nd）被声明在头文件&lt;functional&gt; 中。</p>
 </blockquote>
 <p><strong>第 49 条：学会分析与 STL 相关的编译器诊断信息。</strong></p>
 <blockquote>
@@ -758,8 +758,8 @@ BOost 站点：<a href="http://boost.org" target="_blank">http://boost.org</a></
                                 <hr>
 
 标题：C++STL容器使用经验总结<br>
-作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
-地址：<a href="https://Rainsheep.github.io/articles/2019/12/03/1575382371647.html" target="_blank">https://Rainsheep.github.io/articles/2019/12/03/1575382371647.html</a><br>
+作者：<a href="https://rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://rainsheep.github.io/articles/2019/12/03/1575382371647.html" target="_blank">https://rainsheep.github.io/articles/2019/12/03/1575382371647.html</a><br>
 
 <!-- 签名档内可使用 HTML、JavaScript -->
 <br>
@@ -770,10 +770,10 @@ BOost 站点：<a href="http://boost.org" target="_blank">http://boost.org</a></
 
                 <div class="module mobile__hidden">
                     <div class="module__content fn__clear">
-                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575380460268.html" rel="prev" class="fn__left breadcrumb">
+                            <a href="https://rainsheep.github.io/articles/2019/12/03/1575380460268.html" rel="prev" class="fn__left breadcrumb">
                                 旧一篇: 阶乘末尾0的个数
                             </a>
-                            <a href="https://Rainsheep.github.io/articles/2019/12/03/1575382496743.html" rel="next"
+                            <a href="https://rainsheep.github.io/articles/2019/12/03/1575382496743.html" rel="next"
                                class="fn__right breadcrumb">
                                 【C++】STL常用容器总结之一：容器与迭代器: 新一篇
                             </a>
@@ -782,7 +782,7 @@ BOost 站点：<a href="http://boost.org" target="_blank">http://boost.org</a></
 
                 <div class="module mobile__hidden fn__none">
                     <div class="module__content">
-                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575380460268.html" rel="prev" class="breadcrumb">
+                        <a href="https://rainsheep.github.io/articles/2019/12/03/1575380460268.html" rel="prev" class="breadcrumb">
                             旧一篇: 阶乘末尾0的个数
                         </a>
                     </div>
@@ -790,12 +790,14 @@ BOost 站点：<a href="http://boost.org" target="_blank">http://boost.org</a></
 
                 <div class="module mobile__hidden fn__none">
                     <div class="module__content">
-                        <a href="https://Rainsheep.github.io/articles/2019/12/03/1575382496743.html" rel="next"
+                        <a href="https://rainsheep.github.io/articles/2019/12/03/1575382496743.html" rel="next"
                            class="breadcrumb">
                             新一篇: 【C++】STL常用容器总结之一：容器与迭代器
                         </a>
                     </div>
                 </div>
+                <div id="gitalk-container" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"></div>
                 <div id="b3logsolocomments"></div>
                 <div id="vcomment" class="module__content"
                      style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
@@ -837,7 +839,7 @@ BOost 站点：<a href="http://boost.org" target="_blank">http://boost.org</a></
             Rainsheep
         </header>
         <main class="module__content ft__center">
-            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            <img class="side__avatar" src="https://b3logfile.com/avatar/1573792699119_1591777626791.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
             咸鱼不配拥有梦想 <br> <br>
     <a href="https://hacpai.com/member/Rainsheep"
        title="https://hacpai.com/member/Rainsheep"
@@ -875,185 +877,185 @@ BOost 站点：<a href="http://boost.org" target="_blank">http://boost.org</a></
             <header class="module__header">标签</header>
             <main class="module__content--three module__content fn__clear">
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/acm"
+                       href="https://rainsheep.github.io/tags/acm"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="76 篇文章">
                         acm</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       href="https://rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="59 篇文章">
                         知识点总结</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/Java"
+                       href="https://rainsheep.github.io/tags/Java"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="29 篇文章">
+                       aria-label="31 篇文章">
                         Java</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       href="https://rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="24 篇文章">
-                        学习笔记</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="23 篇文章">
+                       aria-label="26 篇文章">
                         软件教程</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/STL"
+                       href="https://rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="25 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/STL"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="20 篇文章">
                         STL</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/DP"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="15 篇文章">
-                        DP</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/windows"
+                       href="https://rainsheep.github.io/tags/windows"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="15 篇文章">
                         windows</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       href="https://rainsheep.github.io/tags/Linux"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="13 篇文章">
-                        Shadowsocks</a>
+                       aria-label="15 篇文章">
+                        Linux</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/ss"
+                       href="https://rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/ss"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="13 篇文章">
                         ss</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       href="https://rainsheep.github.io/tags/Shadowsocks"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="9 篇文章">
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="11 篇文章">
                         前端</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/Linux"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="7 篇文章">
-                        Linux</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       href="https://rainsheep.github.io/tags/%E6%A0%91"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="6 篇文章">
                         树</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       href="https://rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="5 篇文章">
-                        数学问题</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="5 篇文章">
+                       aria-label="6 篇文章">
                         生活轨迹</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       href="https://rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="5 篇文章">
                         模拟</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       href="https://rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/%E5%9B%BE"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         图</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       href="https://rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         字符串</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       href="https://rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         递归</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/python"
+                       href="https://rainsheep.github.io/tags/python"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         python</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/centos"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="2 篇文章">
-                        centos</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       href="https://rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="2 篇文章">
                         递推</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       href="https://rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="2 篇文章">
                         开源</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       href="https://rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="2 篇文章">
                         水题</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       href="https://rainsheep.github.io/tags/centos"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        NOSQL</a>
+                       aria-label="2 篇文章">
+                        centos</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/html"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        html</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/dfs"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        dfs</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       href="https://rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         硬件</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       href="https://rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         数据库</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/bfs"
+                       href="https://rainsheep.github.io/tags/bfs"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         bfs</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       href="https://rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         资源搜索</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       href="https://rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         图床</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/GitHub"
+                       href="https://rainsheep.github.io/tags/GitHub"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         GitHub</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
             </main>
         </div>
 
     <div class="module item">
         <div class="module__header">
             <div class="fn__flex">
-                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
-                    211
+                <a href="https://rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    227
                     文章
                 </a>
             </div>
             <br/>
             <div class="fn__flex">
                 <div class="fn__flex-1 ft__center">
-                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                    <span data-uvstaturl="https://rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
                 </div>
             </div>
         </div>
@@ -1065,47 +1067,43 @@ BOost 站点：<a href="http://boost.org" target="_blank">http://boost.org</a></
 <div class="icon__up" onclick="Util.goTop()"></div>
 <footer class="footer">
     &copy; 2020
-    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="https://rainsheep.github.io">雨羊的个人博客</a>
     <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
     <div class="fn__none"></div>
-    <br/>
-
-    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
-    <div class="fn__none"></div>
-    &nbsp; &heartsuit;  &nbsp;
-    Theme nijigen
-    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
-    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
 </footer>
 <div class="icon-up" onclick="Util.goTop()"></div>
 
 <script>
   var Label = {
-    servePath: "https://Rainsheep.github.io",
-    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    speech: false,
+    servePath: "https://rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources",
     luteAvailable: true,
     hljsStyle: 'github',
     langLabel: "zh_CN",
-    version: "3.9.0",
+    version: "4.3.0",
     staticSite: true,
-    showCodeBlockLn: false,
+    showCodeBlockLn: true,
+    articleId: "1575382371647",
   }
 </script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources/skins/nijigen/js/common.min.js?1595344563647" charset="utf-8"></script>
 
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources/js/page.min.js?1595344563647', 'soloPageScript')
     var page = new Page({
-        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "commentContentCannotEmptyLabel": "评论不能为空",
         "oId": "1575382371647",
-        "blogHost": "https://Rainsheep.github.io",
+        "blogHost": "https://rainsheep.github.io",
         "randomArticles1Label": "随机阅读：",
         "externalRelevantArticles1Label": "站外相关阅读："
     });
     $(document).ready(function () {
         page.load();
     page.tips.externalRelevantArticlesDisplayCount = "0";
+    page.loadRandomArticles('<header class="module__header">随机阅读</header>');
+    page.loadRelevantArticles('1575382371647', '<header class="module__header">相关阅读</header>');
     Skin.initArticle()
     });
 </script>
@@ -1113,4 +1111,4 @@ BOost 站点：<a href="http://boost.org" target="_blank">http://boost.org</a></
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 220ms, 2020/03/18 19:04:16 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 59ms, 2020/07/29 21:44:14 -->

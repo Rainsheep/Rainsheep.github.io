@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>redis 学习笔记 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="redis 学习笔记 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://Rainsheep.github.io/articles/2020/03/01/1582997924952.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="redis 学习笔记 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://Rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://Rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://Rainsheep.github.io/articles/2020/03/01/1582997924952.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/css/base.css?1584471619574"/>
-            <link rel="prev" title="JSON 学习笔记" href="https://Rainsheep.github.io/articles/2020/02/29/1582959918244.html">
-            <link rel="next" title="Maven 学习笔记" href="https://Rainsheep.github.io/articles/2020/03/01/1583043885121.html">
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>redis 学习笔记 - 雨羊的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="雨羊,yuyang,Rainsheep,rainsheep,杨珑奇,yanglongqi"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="redis 学习笔记 - 雨羊的个人博客"/><meta property="og:site_name" content="雨羊的个人博客"/><meta property="og:url"      content="https://rainsheep.github.io/articles/2020/03/01/1582997924952.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="redis 学习笔记 - 雨羊的个人博客" href="/opensearch.xml"><link href="https://rainsheep.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://rainsheep.github.io/manifest.json">        <link rel="canonical" href="https://rainsheep.github.io/articles/2020/03/01/1582997924952.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources/skins/nijigen/css/base.css?1595344563647"/>
+            <link rel="prev" title="JSON 学习笔记" href="https://rainsheep.github.io/articles/2020/02/29/1582959918244.html">
+            <link rel="next" title="Maven 学习笔记" href="https://rainsheep.github.io/articles/2020/03/01/1583043885121.html">
     </head>
 <body>
 <div class="bg"></div>
@@ -15,7 +15,7 @@
 <div class="bg bg--5"></div>
 <header class="header">
     <div class="header__wrap">
-        <a href="https://Rainsheep.github.io" rel="start" class="header__logo">
+        <a href="https://rainsheep.github.io" rel="start" class="header__logo">
             <i class="icon__home"></i> 雨羊的个人博客
         </a>
 
@@ -23,16 +23,16 @@
                 <a href="/my-github-repos" target="_self" rel="section">
                     <img class="page-icon" src="/images/github-icon.png" alt="我的开源">我的开源
                 </a>
-            <a href="https://Rainsheep.github.io/tags.html" rel="section">
+            <a href="https://rainsheep.github.io/tags.html" rel="section">
                 <i class="icon__tags"></i> 标签墙
             </a>
-            <a href="https://Rainsheep.github.io/archives.html">
+            <a href="https://rainsheep.github.io/archives.html">
                 <i class="icon__inbox"></i> 存档
             </a>
-            <a rel="archive" href="https://Rainsheep.github.io/links.html">
-                <i class="icon__link"></i> 友情链接
+            <a rel="archive" href="https://rainsheep.github.io/links.html">
+                <i class="icon__link"></i> 友链
             </a>
-            <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+            <a rel="alternate" href="https://rainsheep.github.io/rss.xml" rel="section">
                 <i class="icon__rss"></i> RSS
             </a>
         </nav>
@@ -51,22 +51,22 @@
                     </a>
                 </li>
             <li>
-                <a href="https://Rainsheep.github.io/tags.html" rel="section">
+                <a href="https://rainsheep.github.io/tags.html" rel="section">
                     <i class="icon__tags"></i> 标签墙
                 </a>
             </li>
             <li>
-                <a href="https://Rainsheep.github.io/archives.html">
+                <a href="https://rainsheep.github.io/archives.html">
                     <i class="icon__inbox"></i> 存档
                 </a>
             </li>
             <li>
-                <a rel="archive" href="https://Rainsheep.github.io/links.html">
-                    <i class="icon__link"></i> 友情链接
+                <a rel="archive" href="https://rainsheep.github.io/links.html">
+                    <i class="icon__link"></i> 友链
                 </a>
             </li>
             <li>
-                <a rel="alternate" href="https://Rainsheep.github.io/rss.xml" rel="section">
+                <a rel="alternate" href="https://rainsheep.github.io/rss.xml" rel="section">
                     <i class="icon__rss"></i> RSS
                 </a>
             </li>
@@ -86,7 +86,7 @@
                     </time>
 
                     <h2 class="item__title">
-                        <a rel="bookmark" href="https://Rainsheep.github.io/articles/2020/03/01/1582997924952.html">
+                        <a rel="bookmark" href="https://rainsheep.github.io/articles/2020/03/01/1582997924952.html">
                             redis 学习笔记
                         </a>
                     </h2>
@@ -99,19 +99,19 @@
                     <div class="ft__center">
                         <span class="tag">
                             <i class="icon__tags"></i>
-                            <a rel="tag" href="https://Rainsheep.github.io/tags/Java">
+                            <a rel="tag" href="https://rainsheep.github.io/tags/Java">
                                 Java</a>,
-                            <a rel="tag" href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">
+                            <a rel="tag" href="https://rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">
                                 学习笔记</a>,
-                            <a rel="tag" href="https://Rainsheep.github.io/tags/NOSQL">
+                            <a rel="tag" href="https://rainsheep.github.io/tags/NOSQL">
                                 NOSQL</a>
                         </span>
-                            <a class="tag" href="https://Rainsheep.github.io/articles/2020/03/01/1582997924952.html#b3logsolocomments">
+                            <a class="tag" href="https://rainsheep.github.io/articles/2020/03/01/1582997924952.html#b3logsolocomments">
                                 <i class="icon__comments"></i> <span data-uvstatcmt="1582997924952">0</span> 评论
                             </a>
                         <span class="tag">
                             <i class="icon__views"></i>
-                        <span data-uvstaturl="https://Rainsheep.github.io/articles/2020/03/01/1582997924952.html">0</span> 浏览
+                        <span data-uvstaturl="https://rainsheep.github.io/articles/2020/03/01/1582997924952.html">0</span> 浏览
                         </span>
                     </div>
 
@@ -149,7 +149,7 @@
 </ul>
 </li>
 <li>总结：关系型数据库与 NoSQL 数据库并非对立而是<strong>互补</strong>的关系，即通常情况下使用关系型数据库，在适合使用 NoSQL 的时候使用 NoSQL 数据库，让 NoSQL 数据库对关系型数据库的不足进行弥补。一般会将数据存储在关系型数据库中，在 NoSQL 数据库中备份存储关系型数据库的数据。</li>
-<li>Redis 是用 C 语言开发的一个开源的高性能键值对（key-value）数据库，官方提供测试数据，50 个并发执行 100000 个请求，读的速度是 110000 次/s,写的速度是 81000 次/s ，且 Redis 通过提供多种键值数据类型来适应不同场景下的存储需求，目前为止 Redis 支持的键值数据类型如下：
+<li>Redis 是用 C 语言开发的一个开源的高性能键值对（key-value）数据库，官方提供测试数据，50 个并发执行 100000 个请求，读的速度是 110000 次/s，写的速度是 81000 次/s ，且 Redis 通过提供多种键值数据类型来适应不同场景下的存储需求，目前为止 Redis 支持的键值数据类型如下：
 <ul>
 <li>字符串类型 string</li>
 <li>哈希类型 hash</li>
@@ -344,12 +344,12 @@
 <li>在一定的间隔时间中，检测 key 的变化情况，然后持久化数据</li>
 <li>在 redis.windwos.conf 文件中进行配置</li>
 <li>
-<pre><code class="highlight-chroma">#  900秒内，如果至少1个keys发生改变，则持久化一次
-save 900 1
-#  300秒内，如果至少10个keys发生改变，则持久化一次
-save 300 10
-#  60秒内，如果至少10000个keys发生改变，则持久化一次
-save 60 10000
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>#  900秒内，如果至少1个keys发生改变，则持久化一次
+<span class="highlight-ln">2</span>save 900 1
+<span class="highlight-ln">3</span>#  300秒内，如果至少10个keys发生改变，则持久化一次
+<span class="highlight-ln">4</span>save 300 10
+<span class="highlight-ln">5</span>#  60秒内，如果至少10000个keys发生改变，则持久化一次
+<span class="highlight-ln">6</span>save 60 10000
 </code></pre>
 </li>
 <li>修改完配置以后，重启服务器。<code>redis-server.exe redis.windows.conf</code> 表示有某个配置文件启动服务器。</li>
@@ -358,10 +358,10 @@ save 60 10000
 <li>AOF：日志记录的方式，可以记录每一条命令的操作。可以每一次命令操作后，持久化数据，效率低。
 <ul>
 <li>配置文件 redis.windwos.conf
-<pre><code class="highlight-chroma">appendonly no（关闭aof） --&gt; appendonly yes （开启aof）
-# appendfsync always ： 每一次操作都进行持久化
-appendfsync everysec ： 每隔一秒进行一次持久化
-# appendfsync no	 ： 不进行持久化
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>appendonly no（关闭aof） --&gt; appendonly yes （开启aof）
+<span class="highlight-ln">2</span># appendfsync always ： 每一次操作都进行持久化
+<span class="highlight-ln">3</span>appendfsync everysec ： 每隔一秒进行一次持久化
+<span class="highlight-ln">4</span># appendfsync no	 ： 不进行持久化
 </code></pre>
 </li>
 </ul>
@@ -371,13 +371,13 @@ appendfsync everysec ： 每隔一秒进行一次持久化
 <ul>
 <li>Jedis: 一款 Java 操作 Redis 数据库的工具。</li>
 <li>使用步骤：
-<pre><code class="language-java highlight-chroma"><span class="highlight-c1">//1. 获取连接
-</span><span class="highlight-c1">//如果不传参数，默认为localhost和6379端口
-</span><span class="highlight-c1"></span><span class="highlight-n">Jedis</span> <span class="highlight-n">jedis</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">Jedis</span><span class="highlight-o">(</span><span class="highlight-s">"localhost"</span><span class="highlight-o">,</span><span class="highlight-n">6379</span><span class="highlight-o">);</span>
-<span class="highlight-c1">//2. 操作
-</span><span class="highlight-c1"></span><span class="highlight-n">jedis</span><span class="highlight-o">.</span><span class="highlight-na">set</span><span class="highlight-o">(</span><span class="highlight-s">"username"</span><span class="highlight-o">,</span><span class="highlight-s">"zhangsan"</span><span class="highlight-o">);</span>
-<span class="highlight-c1">//3. 关闭连接
-</span><span class="highlight-c1"></span><span class="highlight-n">jedis</span><span class="highlight-o">.</span><span class="highlight-na">close</span><span class="highlight-o">();</span>
+<pre><code class="language-java highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-c1">//1. 获取连接
+</span><span class="highlight-ln">2</span><span class="highlight-c1">//如果不传参数，默认为localhost和6379端口
+</span><span class="highlight-ln">3</span><span class="highlight-c1"></span><span class="highlight-n">Jedis</span> <span class="highlight-n">jedis</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">Jedis</span><span class="highlight-o">(</span><span class="highlight-s">"localhost"</span><span class="highlight-o">,</span><span class="highlight-n">6379</span><span class="highlight-o">);</span>
+<span class="highlight-ln">4</span><span class="highlight-c1">//2. 操作
+</span><span class="highlight-ln">5</span><span class="highlight-c1"></span><span class="highlight-n">jedis</span><span class="highlight-o">.</span><span class="highlight-na">set</span><span class="highlight-o">(</span><span class="highlight-s">"username"</span><span class="highlight-o">,</span><span class="highlight-s">"zhangsan"</span><span class="highlight-o">);</span>
+<span class="highlight-ln">6</span><span class="highlight-c1">//3. 关闭连接
+</span><span class="highlight-ln">7</span><span class="highlight-c1"></span><span class="highlight-n">jedis</span><span class="highlight-o">.</span><span class="highlight-na">close</span><span class="highlight-o">();</span>
 </code></pre>
 </li>
 <li>操作 string 类型
@@ -419,68 +419,68 @@ appendfsync everysec ： 每隔一秒进行一次持久化
 <li>Jedis 连接池：JedisPool
 <ul>
 <li>
-<pre><code class="language-java highlight-chroma"><span class="highlight-c1">//0.创建一个配置对象(可省略)
-</span><span class="highlight-c1"></span><span class="highlight-n">JedisPoolConfig</span> <span class="highlight-n">config</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">JedisPoolConfig</span><span class="highlight-o">();</span>
-<span class="highlight-n">config</span><span class="highlight-o">.</span><span class="highlight-na">setMaxTotal</span><span class="highlight-o">(</span><span class="highlight-n">50</span><span class="highlight-o">);</span>
-<span class="highlight-n">config</span><span class="highlight-o">.</span><span class="highlight-na">setMaxIdle</span><span class="highlight-o">(</span><span class="highlight-n">10</span><span class="highlight-o">);</span>
-
-<span class="highlight-c1">//1.创建Jedis连接池对象
-</span><span class="highlight-c1"></span><span class="highlight-n">JedisPool</span> <span class="highlight-n">jedisPool</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">JedisPool</span><span class="highlight-o">(</span><span class="highlight-n">config</span><span class="highlight-o">,</span><span class="highlight-s">"localhost"</span><span class="highlight-o">,</span><span class="highlight-n">6379</span><span class="highlight-o">);</span>
-<span class="highlight-c1">//2.获取连接
-</span><span class="highlight-c1"></span><span class="highlight-n">Jedis</span> <span class="highlight-n">jedis</span> <span class="highlight-o">=</span> <span class="highlight-n">jedisPool</span><span class="highlight-o">.</span><span class="highlight-na">getResource</span><span class="highlight-o">();</span>
-<span class="highlight-c1">//3. 使用
-</span><span class="highlight-c1"></span><span class="highlight-n">jedis</span><span class="highlight-o">.</span><span class="highlight-na">set</span><span class="highlight-o">(</span><span class="highlight-s">"hehe"</span><span class="highlight-o">,</span><span class="highlight-s">"heihei"</span><span class="highlight-o">);</span>
-<span class="highlight-c1">//4. 关闭 归还到连接池中
-</span><span class="highlight-c1"></span><span class="highlight-n">jedis</span><span class="highlight-o">.</span><span class="highlight-na">close</span><span class="highlight-o">();</span>
+<pre><code class="language-java highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-c1">//0.创建一个配置对象(可省略)
+</span><span class="highlight-ln"> 2</span><span class="highlight-c1"></span><span class="highlight-n">JedisPoolConfig</span> <span class="highlight-n">config</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">JedisPoolConfig</span><span class="highlight-o">();</span>
+<span class="highlight-ln"> 3</span><span class="highlight-n">config</span><span class="highlight-o">.</span><span class="highlight-na">setMaxTotal</span><span class="highlight-o">(</span><span class="highlight-n">50</span><span class="highlight-o">);</span>
+<span class="highlight-ln"> 4</span><span class="highlight-n">config</span><span class="highlight-o">.</span><span class="highlight-na">setMaxIdle</span><span class="highlight-o">(</span><span class="highlight-n">10</span><span class="highlight-o">);</span>
+<span class="highlight-ln"> 5</span>
+<span class="highlight-ln"> 6</span><span class="highlight-c1">//1.创建Jedis连接池对象
+</span><span class="highlight-ln"> 7</span><span class="highlight-c1"></span><span class="highlight-n">JedisPool</span> <span class="highlight-n">jedisPool</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">JedisPool</span><span class="highlight-o">(</span><span class="highlight-n">config</span><span class="highlight-o">,</span><span class="highlight-s">"localhost"</span><span class="highlight-o">,</span><span class="highlight-n">6379</span><span class="highlight-o">);</span>
+<span class="highlight-ln"> 8</span><span class="highlight-c1">//2.获取连接
+</span><span class="highlight-ln"> 9</span><span class="highlight-c1"></span><span class="highlight-n">Jedis</span> <span class="highlight-n">jedis</span> <span class="highlight-o">=</span> <span class="highlight-n">jedisPool</span><span class="highlight-o">.</span><span class="highlight-na">getResource</span><span class="highlight-o">();</span>
+<span class="highlight-ln">10</span><span class="highlight-c1">//3. 使用
+</span><span class="highlight-ln">11</span><span class="highlight-c1"></span><span class="highlight-n">jedis</span><span class="highlight-o">.</span><span class="highlight-na">set</span><span class="highlight-o">(</span><span class="highlight-s">"hehe"</span><span class="highlight-o">,</span><span class="highlight-s">"heihei"</span><span class="highlight-o">);</span>
+<span class="highlight-ln">12</span><span class="highlight-c1">//4. 关闭 归还到连接池中
+</span><span class="highlight-ln">13</span><span class="highlight-c1"></span><span class="highlight-n">jedis</span><span class="highlight-o">.</span><span class="highlight-na">close</span><span class="highlight-o">();</span>
 </code></pre>
 </li>
 <li>JedisPoolUtils
-<pre><code class="language-java highlight-chroma"><span class="highlight-kn">package</span> <span class="highlight-nn">pers.ylq.util</span><span class="highlight-o">;</span>
-
-<span class="highlight-kn">import</span> <span class="highlight-nn">redis.clients.jedis.Jedis</span><span class="highlight-o">;</span>
-<span class="highlight-kn">import</span> <span class="highlight-nn">redis.clients.jedis.JedisPool</span><span class="highlight-o">;</span>
-<span class="highlight-kn">import</span> <span class="highlight-nn">redis.clients.jedis.JedisPoolConfig</span><span class="highlight-o">;</span>
-
-<span class="highlight-kn">import</span> <span class="highlight-nn">java.io.IOException</span><span class="highlight-o">;</span>
-<span class="highlight-kn">import</span> <span class="highlight-nn">java.io.InputStream</span><span class="highlight-o">;</span>
-<span class="highlight-kn">import</span> <span class="highlight-nn">java.util.Properties</span><span class="highlight-o">;</span>
-
-<span class="highlight-cm">/**
-</span><span class="highlight-cm"> JedisPool工具类
-</span><span class="highlight-cm">    加载配置文件，配置连接池的参数
-</span><span class="highlight-cm">    提供获取连接的方法
-</span><span class="highlight-cm"> */</span>
-<span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">JedisPoolUtils</span> <span class="highlight-o">{</span>
-
-    <span class="highlight-kd">private</span> <span class="highlight-kd">static</span> <span class="highlight-n">JedisPool</span> <span class="highlight-n">jedisPool</span><span class="highlight-o">;</span>
-
-    <span class="highlight-kd">static</span><span class="highlight-o">{</span>
-        <span class="highlight-c1">//读取配置文件
-</span><span class="highlight-c1"></span>        <span class="highlight-n">InputStream</span> <span class="highlight-n">is</span> <span class="highlight-o">=</span> <span class="highlight-n">JedisPoolUtils</span><span class="highlight-o">.</span><span class="highlight-na">class</span><span class="highlight-o">.</span><span class="highlight-na">getClassLoader</span><span class="highlight-o">().</span><span class="highlight-na">getResourceAsStream</span><span class="highlight-o">(</span><span class="highlight-s">"jedis.properties"</span><span class="highlight-o">);</span>
-        <span class="highlight-c1">//创建Properties对象
-</span><span class="highlight-c1"></span>        <span class="highlight-n">Properties</span> <span class="highlight-n">pro</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">Properties</span><span class="highlight-o">();</span>
-        <span class="highlight-c1">//关联文件
-</span><span class="highlight-c1"></span>        <span class="highlight-k">try</span> <span class="highlight-o">{</span>
-            <span class="highlight-n">pro</span><span class="highlight-o">.</span><span class="highlight-na">load</span><span class="highlight-o">(</span><span class="highlight-n">is</span><span class="highlight-o">);</span>
-        <span class="highlight-o">}</span> <span class="highlight-k">catch</span> <span class="highlight-o">(</span><span class="highlight-n">IOException</span> <span class="highlight-n">e</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
-            <span class="highlight-n">e</span><span class="highlight-o">.</span><span class="highlight-na">printStackTrace</span><span class="highlight-o">();</span>
-        <span class="highlight-o">}</span>
-        <span class="highlight-c1">//获取数据，设置到JedisPoolConfig中
-</span><span class="highlight-c1"></span>        <span class="highlight-n">JedisPoolConfig</span> <span class="highlight-n">config</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">JedisPoolConfig</span><span class="highlight-o">();</span>
-        <span class="highlight-n">config</span><span class="highlight-o">.</span><span class="highlight-na">setMaxTotal</span><span class="highlight-o">(</span><span class="highlight-n">Integer</span><span class="highlight-o">.</span><span class="highlight-na">parseInt</span><span class="highlight-o">(</span><span class="highlight-n">pro</span><span class="highlight-o">.</span><span class="highlight-na">getProperty</span><span class="highlight-o">(</span><span class="highlight-s">"maxTotal"</span><span class="highlight-o">)));</span>
-        <span class="highlight-n">config</span><span class="highlight-o">.</span><span class="highlight-na">setMaxIdle</span><span class="highlight-o">(</span><span class="highlight-n">Integer</span><span class="highlight-o">.</span><span class="highlight-na">parseInt</span><span class="highlight-o">(</span><span class="highlight-n">pro</span><span class="highlight-o">.</span><span class="highlight-na">getProperty</span><span class="highlight-o">(</span><span class="highlight-s">"maxIdle"</span><span class="highlight-o">)));</span>
-
-        <span class="highlight-c1">//初始化JedisPool
-</span><span class="highlight-c1"></span>        <span class="highlight-n">jedisPool</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">JedisPool</span><span class="highlight-o">(</span><span class="highlight-n">config</span><span class="highlight-o">,</span><span class="highlight-n">pro</span><span class="highlight-o">.</span><span class="highlight-na">getProperty</span><span class="highlight-o">(</span><span class="highlight-s">"host"</span><span class="highlight-o">),</span><span class="highlight-n">Integer</span><span class="highlight-o">.</span><span class="highlight-na">parseInt</span><span class="highlight-o">(</span><span class="highlight-n">pro</span><span class="highlight-o">.</span><span class="highlight-na">getProperty</span><span class="highlight-o">(</span><span class="highlight-s">"port"</span><span class="highlight-o">)));</span>
-    <span class="highlight-o">}</span>
-
-    <span class="highlight-cm">/**
-</span><span class="highlight-cm">     * 获取连接方法
-</span><span class="highlight-cm">     */</span>
-    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-n">Jedis</span> <span class="highlight-nf">getJedis</span><span class="highlight-o">(){</span>
-        <span class="highlight-k">return</span> <span class="highlight-n">jedisPool</span><span class="highlight-o">.</span><span class="highlight-na">getResource</span><span class="highlight-o">();</span>
-    <span class="highlight-o">}</span>
-<span class="highlight-o">}</span>
+<pre><code class="language-java highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-kn">package</span> <span class="highlight-nn">pers.ylq.util</span><span class="highlight-o">;</span>
+<span class="highlight-ln"> 2</span>
+<span class="highlight-ln"> 3</span><span class="highlight-kn">import</span> <span class="highlight-nn">redis.clients.jedis.Jedis</span><span class="highlight-o">;</span>
+<span class="highlight-ln"> 4</span><span class="highlight-kn">import</span> <span class="highlight-nn">redis.clients.jedis.JedisPool</span><span class="highlight-o">;</span>
+<span class="highlight-ln"> 5</span><span class="highlight-kn">import</span> <span class="highlight-nn">redis.clients.jedis.JedisPoolConfig</span><span class="highlight-o">;</span>
+<span class="highlight-ln"> 6</span>
+<span class="highlight-ln"> 7</span><span class="highlight-kn">import</span> <span class="highlight-nn">java.io.IOException</span><span class="highlight-o">;</span>
+<span class="highlight-ln"> 8</span><span class="highlight-kn">import</span> <span class="highlight-nn">java.io.InputStream</span><span class="highlight-o">;</span>
+<span class="highlight-ln"> 9</span><span class="highlight-kn">import</span> <span class="highlight-nn">java.util.Properties</span><span class="highlight-o">;</span>
+<span class="highlight-ln">10</span>
+<span class="highlight-ln">11</span><span class="highlight-cm">/**
+</span><span class="highlight-ln">12</span><span class="highlight-cm"> JedisPool工具类
+</span><span class="highlight-ln">13</span><span class="highlight-cm">    加载配置文件，配置连接池的参数
+</span><span class="highlight-ln">14</span><span class="highlight-cm">    提供获取连接的方法
+</span><span class="highlight-ln">15</span><span class="highlight-cm"> */</span>
+<span class="highlight-ln">16</span><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">JedisPoolUtils</span> <span class="highlight-o">{</span>
+<span class="highlight-ln">17</span>
+<span class="highlight-ln">18</span>    <span class="highlight-kd">private</span> <span class="highlight-kd">static</span> <span class="highlight-n">JedisPool</span> <span class="highlight-n">jedisPool</span><span class="highlight-o">;</span>
+<span class="highlight-ln">19</span>
+<span class="highlight-ln">20</span>    <span class="highlight-kd">static</span><span class="highlight-o">{</span>
+<span class="highlight-ln">21</span>        <span class="highlight-c1">//读取配置文件
+</span><span class="highlight-ln">22</span><span class="highlight-c1"></span>        <span class="highlight-n">InputStream</span> <span class="highlight-n">is</span> <span class="highlight-o">=</span> <span class="highlight-n">JedisPoolUtils</span><span class="highlight-o">.</span><span class="highlight-na">class</span><span class="highlight-o">.</span><span class="highlight-na">getClassLoader</span><span class="highlight-o">().</span><span class="highlight-na">getResourceAsStream</span><span class="highlight-o">(</span><span class="highlight-s">"jedis.properties"</span><span class="highlight-o">);</span>
+<span class="highlight-ln">23</span>        <span class="highlight-c1">//创建Properties对象
+</span><span class="highlight-ln">24</span><span class="highlight-c1"></span>        <span class="highlight-n">Properties</span> <span class="highlight-n">pro</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">Properties</span><span class="highlight-o">();</span>
+<span class="highlight-ln">25</span>        <span class="highlight-c1">//关联文件
+</span><span class="highlight-ln">26</span><span class="highlight-c1"></span>        <span class="highlight-k">try</span> <span class="highlight-o">{</span>
+<span class="highlight-ln">27</span>            <span class="highlight-n">pro</span><span class="highlight-o">.</span><span class="highlight-na">load</span><span class="highlight-o">(</span><span class="highlight-n">is</span><span class="highlight-o">);</span>
+<span class="highlight-ln">28</span>        <span class="highlight-o">}</span> <span class="highlight-k">catch</span> <span class="highlight-o">(</span><span class="highlight-n">IOException</span> <span class="highlight-n">e</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+<span class="highlight-ln">29</span>            <span class="highlight-n">e</span><span class="highlight-o">.</span><span class="highlight-na">printStackTrace</span><span class="highlight-o">();</span>
+<span class="highlight-ln">30</span>        <span class="highlight-o">}</span>
+<span class="highlight-ln">31</span>        <span class="highlight-c1">//获取数据，设置到JedisPoolConfig中
+</span><span class="highlight-ln">32</span><span class="highlight-c1"></span>        <span class="highlight-n">JedisPoolConfig</span> <span class="highlight-n">config</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">JedisPoolConfig</span><span class="highlight-o">();</span>
+<span class="highlight-ln">33</span>        <span class="highlight-n">config</span><span class="highlight-o">.</span><span class="highlight-na">setMaxTotal</span><span class="highlight-o">(</span><span class="highlight-n">Integer</span><span class="highlight-o">.</span><span class="highlight-na">parseInt</span><span class="highlight-o">(</span><span class="highlight-n">pro</span><span class="highlight-o">.</span><span class="highlight-na">getProperty</span><span class="highlight-o">(</span><span class="highlight-s">"maxTotal"</span><span class="highlight-o">)));</span>
+<span class="highlight-ln">34</span>        <span class="highlight-n">config</span><span class="highlight-o">.</span><span class="highlight-na">setMaxIdle</span><span class="highlight-o">(</span><span class="highlight-n">Integer</span><span class="highlight-o">.</span><span class="highlight-na">parseInt</span><span class="highlight-o">(</span><span class="highlight-n">pro</span><span class="highlight-o">.</span><span class="highlight-na">getProperty</span><span class="highlight-o">(</span><span class="highlight-s">"maxIdle"</span><span class="highlight-o">)));</span>
+<span class="highlight-ln">35</span>
+<span class="highlight-ln">36</span>        <span class="highlight-c1">//初始化JedisPool
+</span><span class="highlight-ln">37</span><span class="highlight-c1"></span>        <span class="highlight-n">jedisPool</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">JedisPool</span><span class="highlight-o">(</span><span class="highlight-n">config</span><span class="highlight-o">,</span><span class="highlight-n">pro</span><span class="highlight-o">.</span><span class="highlight-na">getProperty</span><span class="highlight-o">(</span><span class="highlight-s">"host"</span><span class="highlight-o">),</span><span class="highlight-n">Integer</span><span class="highlight-o">.</span><span class="highlight-na">parseInt</span><span class="highlight-o">(</span><span class="highlight-n">pro</span><span class="highlight-o">.</span><span class="highlight-na">getProperty</span><span class="highlight-o">(</span><span class="highlight-s">"port"</span><span class="highlight-o">)));</span>
+<span class="highlight-ln">38</span>    <span class="highlight-o">}</span>
+<span class="highlight-ln">39</span>
+<span class="highlight-ln">40</span>    <span class="highlight-cm">/**
+</span><span class="highlight-ln">41</span><span class="highlight-cm">     * 获取连接方法
+</span><span class="highlight-ln">42</span><span class="highlight-cm">     */</span>
+<span class="highlight-ln">43</span>    <span class="highlight-kd">public</span> <span class="highlight-kd">static</span> <span class="highlight-n">Jedis</span> <span class="highlight-nf">getJedis</span><span class="highlight-o">(){</span>
+<span class="highlight-ln">44</span>        <span class="highlight-k">return</span> <span class="highlight-n">jedisPool</span><span class="highlight-o">.</span><span class="highlight-na">getResource</span><span class="highlight-o">();</span>
+<span class="highlight-ln">45</span>    <span class="highlight-o">}</span>
+<span class="highlight-ln">46</span><span class="highlight-o">}</span>
 </code></pre>
 </li>
 </ul>
@@ -489,41 +489,41 @@ appendfsync everysec ： 每隔一秒进行一次持久化
 <h3 id="6--Redis-使用样例">6. Redis 使用样例</h3>
 <ul>
 <li>
-<pre><code class="language-java highlight-chroma"><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">ProvinceServiceImpl</span> <span class="highlight-kd">implements</span> <span class="highlight-n">ProvinceService</span> <span class="highlight-o">{</span>
-    <span class="highlight-c1">//声明dao
-</span><span class="highlight-c1"></span>    <span class="highlight-kd">private</span> <span class="highlight-n">ProvinceDao</span> <span class="highlight-n">dao</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">ProvinceDaoImpl</span><span class="highlight-o">();</span>
-    <span class="highlight-cm">/**
-</span><span class="highlight-cm">        使用redis缓存
-</span><span class="highlight-cm">     */</span>
-    <span class="highlight-nd">@Override</span>
-    <span class="highlight-kd">public</span> <span class="highlight-n">String</span> <span class="highlight-nf">findAllJson</span><span class="highlight-o">()</span> <span class="highlight-o">{</span>
-        <span class="highlight-c1">//1.先从redis中查询数据
-</span><span class="highlight-c1"></span>        <span class="highlight-c1">//1.1获取redis客户端连接
-</span><span class="highlight-c1"></span>        <span class="highlight-n">Jedis</span> <span class="highlight-n">jedis</span> <span class="highlight-o">=</span> <span class="highlight-n">JedisPoolUtils</span><span class="highlight-o">.</span><span class="highlight-na">getJedis</span><span class="highlight-o">();</span>
-        <span class="highlight-n">String</span> <span class="highlight-n">province_json</span> <span class="highlight-o">=</span> <span class="highlight-n">jedis</span><span class="highlight-o">.</span><span class="highlight-na">get</span><span class="highlight-o">(</span><span class="highlight-s">"province"</span><span class="highlight-o">);</span>
-        <span class="highlight-c1">//2判断 province_json 数据是否为null
-</span><span class="highlight-c1"></span>        <span class="highlight-k">if</span><span class="highlight-o">(</span><span class="highlight-n">province_json</span> <span class="highlight-o">==</span> <span class="highlight-kc">null</span> <span class="highlight-o">||</span> <span class="highlight-n">province_json</span><span class="highlight-o">.</span><span class="highlight-na">length</span><span class="highlight-o">()</span> <span class="highlight-o">==</span> <span class="highlight-n">0</span><span class="highlight-o">){</span>
-            <span class="highlight-c1">//redis中没有数据
-</span><span class="highlight-c1"></span>            <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"redis中没数据，查询数据库..."</span><span class="highlight-o">);</span>
-            <span class="highlight-c1">//2.1从数据中查询
-</span><span class="highlight-c1"></span>            <span class="highlight-n">List</span><span class="highlight-o">&lt;</span><span class="highlight-n">Province</span><span class="highlight-o">&gt;</span> <span class="highlight-n">ps</span> <span class="highlight-o">=</span> <span class="highlight-n">dao</span><span class="highlight-o">.</span><span class="highlight-na">findAll</span><span class="highlight-o">();</span>
-            <span class="highlight-c1">//2.2将list序列化为json
-</span><span class="highlight-c1"></span>            <span class="highlight-n">ObjectMapper</span> <span class="highlight-n">mapper</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">ObjectMapper</span><span class="highlight-o">();</span>
-            <span class="highlight-k">try</span> <span class="highlight-o">{</span>
-                <span class="highlight-n">province_json</span> <span class="highlight-o">=</span> <span class="highlight-n">mapper</span><span class="highlight-o">.</span><span class="highlight-na">writeValueAsString</span><span class="highlight-o">(</span><span class="highlight-n">ps</span><span class="highlight-o">);</span>
-            <span class="highlight-o">}</span> <span class="highlight-k">catch</span> <span class="highlight-o">(</span><span class="highlight-n">JsonProcessingException</span> <span class="highlight-n">e</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
-                <span class="highlight-n">e</span><span class="highlight-o">.</span><span class="highlight-na">printStackTrace</span><span class="highlight-o">();</span>
-            <span class="highlight-o">}</span>
-            <span class="highlight-c1">//2.3 将json数据存入redis
-</span><span class="highlight-c1"></span>            <span class="highlight-n">jedis</span><span class="highlight-o">.</span><span class="highlight-na">set</span><span class="highlight-o">(</span><span class="highlight-s">"province"</span><span class="highlight-o">,</span><span class="highlight-n">province_json</span><span class="highlight-o">);</span>
-            <span class="highlight-c1">//归还连接
-</span><span class="highlight-c1"></span>            <span class="highlight-n">jedis</span><span class="highlight-o">.</span><span class="highlight-na">close</span><span class="highlight-o">();</span>
-        <span class="highlight-o">}</span><span class="highlight-k">else</span><span class="highlight-o">{</span>
-            <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"redis中有数据，查询缓存..."</span><span class="highlight-o">);</span>
-        <span class="highlight-o">}</span>
-        <span class="highlight-k">return</span> <span class="highlight-n">province_json</span><span class="highlight-o">;</span>
-    <span class="highlight-o">}</span>
-<span class="highlight-o">}</span>
+<pre><code class="language-java highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-kd">public</span> <span class="highlight-kd">class</span> <span class="highlight-nc">ProvinceServiceImpl</span> <span class="highlight-kd">implements</span> <span class="highlight-n">ProvinceService</span> <span class="highlight-o">{</span>
+<span class="highlight-ln"> 2</span>    <span class="highlight-c1">//声明dao
+</span><span class="highlight-ln"> 3</span><span class="highlight-c1"></span>    <span class="highlight-kd">private</span> <span class="highlight-n">ProvinceDao</span> <span class="highlight-n">dao</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">ProvinceDaoImpl</span><span class="highlight-o">();</span>
+<span class="highlight-ln"> 4</span>    <span class="highlight-cm">/**
+</span><span class="highlight-ln"> 5</span><span class="highlight-cm">        使用redis缓存
+</span><span class="highlight-ln"> 6</span><span class="highlight-cm">     */</span>
+<span class="highlight-ln"> 7</span>    <span class="highlight-nd">@Override</span>
+<span class="highlight-ln"> 8</span>    <span class="highlight-kd">public</span> <span class="highlight-n">String</span> <span class="highlight-nf">findAllJson</span><span class="highlight-o">()</span> <span class="highlight-o">{</span>
+<span class="highlight-ln"> 9</span>        <span class="highlight-c1">//1.先从redis中查询数据
+</span><span class="highlight-ln">10</span><span class="highlight-c1"></span>        <span class="highlight-c1">//1.1获取redis客户端连接
+</span><span class="highlight-ln">11</span><span class="highlight-c1"></span>        <span class="highlight-n">Jedis</span> <span class="highlight-n">jedis</span> <span class="highlight-o">=</span> <span class="highlight-n">JedisPoolUtils</span><span class="highlight-o">.</span><span class="highlight-na">getJedis</span><span class="highlight-o">();</span>
+<span class="highlight-ln">12</span>        <span class="highlight-n">String</span> <span class="highlight-n">province_json</span> <span class="highlight-o">=</span> <span class="highlight-n">jedis</span><span class="highlight-o">.</span><span class="highlight-na">get</span><span class="highlight-o">(</span><span class="highlight-s">"province"</span><span class="highlight-o">);</span>
+<span class="highlight-ln">13</span>        <span class="highlight-c1">//2判断 province_json 数据是否为null
+</span><span class="highlight-ln">14</span><span class="highlight-c1"></span>        <span class="highlight-k">if</span><span class="highlight-o">(</span><span class="highlight-n">province_json</span> <span class="highlight-o">==</span> <span class="highlight-kc">null</span> <span class="highlight-o">||</span> <span class="highlight-n">province_json</span><span class="highlight-o">.</span><span class="highlight-na">length</span><span class="highlight-o">()</span> <span class="highlight-o">==</span> <span class="highlight-n">0</span><span class="highlight-o">){</span>
+<span class="highlight-ln">15</span>            <span class="highlight-c1">//redis中没有数据
+</span><span class="highlight-ln">16</span><span class="highlight-c1"></span>            <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"redis中没数据，查询数据库..."</span><span class="highlight-o">);</span>
+<span class="highlight-ln">17</span>            <span class="highlight-c1">//2.1从数据中查询
+</span><span class="highlight-ln">18</span><span class="highlight-c1"></span>            <span class="highlight-n">List</span><span class="highlight-o">&lt;</span><span class="highlight-n">Province</span><span class="highlight-o">&gt;</span> <span class="highlight-n">ps</span> <span class="highlight-o">=</span> <span class="highlight-n">dao</span><span class="highlight-o">.</span><span class="highlight-na">findAll</span><span class="highlight-o">();</span>
+<span class="highlight-ln">19</span>            <span class="highlight-c1">//2.2将list序列化为json
+</span><span class="highlight-ln">20</span><span class="highlight-c1"></span>            <span class="highlight-n">ObjectMapper</span> <span class="highlight-n">mapper</span> <span class="highlight-o">=</span> <span class="highlight-k">new</span> <span class="highlight-n">ObjectMapper</span><span class="highlight-o">();</span>
+<span class="highlight-ln">21</span>            <span class="highlight-k">try</span> <span class="highlight-o">{</span>
+<span class="highlight-ln">22</span>                <span class="highlight-n">province_json</span> <span class="highlight-o">=</span> <span class="highlight-n">mapper</span><span class="highlight-o">.</span><span class="highlight-na">writeValueAsString</span><span class="highlight-o">(</span><span class="highlight-n">ps</span><span class="highlight-o">);</span>
+<span class="highlight-ln">23</span>            <span class="highlight-o">}</span> <span class="highlight-k">catch</span> <span class="highlight-o">(</span><span class="highlight-n">JsonProcessingException</span> <span class="highlight-n">e</span><span class="highlight-o">)</span> <span class="highlight-o">{</span>
+<span class="highlight-ln">24</span>                <span class="highlight-n">e</span><span class="highlight-o">.</span><span class="highlight-na">printStackTrace</span><span class="highlight-o">();</span>
+<span class="highlight-ln">25</span>            <span class="highlight-o">}</span>
+<span class="highlight-ln">26</span>            <span class="highlight-c1">//2.3 将json数据存入redis
+</span><span class="highlight-ln">27</span><span class="highlight-c1"></span>            <span class="highlight-n">jedis</span><span class="highlight-o">.</span><span class="highlight-na">set</span><span class="highlight-o">(</span><span class="highlight-s">"province"</span><span class="highlight-o">,</span><span class="highlight-n">province_json</span><span class="highlight-o">);</span>
+<span class="highlight-ln">28</span>            <span class="highlight-c1">//归还连接
+</span><span class="highlight-ln">29</span><span class="highlight-c1"></span>            <span class="highlight-n">jedis</span><span class="highlight-o">.</span><span class="highlight-na">close</span><span class="highlight-o">();</span>
+<span class="highlight-ln">30</span>        <span class="highlight-o">}</span><span class="highlight-k">else</span><span class="highlight-o">{</span>
+<span class="highlight-ln">31</span>            <span class="highlight-n">System</span><span class="highlight-o">.</span><span class="highlight-na">out</span><span class="highlight-o">.</span><span class="highlight-na">println</span><span class="highlight-o">(</span><span class="highlight-s">"redis中有数据，查询缓存..."</span><span class="highlight-o">);</span>
+<span class="highlight-ln">32</span>        <span class="highlight-o">}</span>
+<span class="highlight-ln">33</span>        <span class="highlight-k">return</span> <span class="highlight-n">province_json</span><span class="highlight-o">;</span>
+<span class="highlight-ln">34</span>    <span class="highlight-o">}</span>
+<span class="highlight-ln">35</span><span class="highlight-o">}</span>
 </code></pre>
 </li>
 </ul>
@@ -531,8 +531,8 @@ appendfsync everysec ： 每隔一秒进行一次持久化
                                 <hr>
 
 标题：redis 学习笔记<br>
-作者：<a href="https://Rainsheep.github.io" target="_blank">Rainsheep</a><br>
-地址：<a href="https://Rainsheep.github.io/articles/2020/03/01/1582997924952.html" target="_blank">https://Rainsheep.github.io/articles/2020/03/01/1582997924952.html</a><br>
+作者：<a href="https://rainsheep.github.io" target="_blank">Rainsheep</a><br>
+地址：<a href="https://rainsheep.github.io/articles/2020/03/01/1582997924952.html" target="_blank">https://rainsheep.github.io/articles/2020/03/01/1582997924952.html</a><br>
 
 <!-- 签名档内可使用 HTML、JavaScript -->
 <br>
@@ -543,10 +543,10 @@ appendfsync everysec ： 每隔一秒进行一次持久化
 
                 <div class="module mobile__hidden">
                     <div class="module__content fn__clear">
-                            <a href="https://Rainsheep.github.io/articles/2020/02/29/1582959918244.html" rel="prev" class="fn__left breadcrumb">
+                            <a href="https://rainsheep.github.io/articles/2020/02/29/1582959918244.html" rel="prev" class="fn__left breadcrumb">
                                 旧一篇: JSON 学习笔记
                             </a>
-                            <a href="https://Rainsheep.github.io/articles/2020/03/01/1583043885121.html" rel="next"
+                            <a href="https://rainsheep.github.io/articles/2020/03/01/1583043885121.html" rel="next"
                                class="fn__right breadcrumb">
                                 Maven 学习笔记: 新一篇
                             </a>
@@ -555,7 +555,7 @@ appendfsync everysec ： 每隔一秒进行一次持久化
 
                 <div class="module mobile__hidden fn__none">
                     <div class="module__content">
-                        <a href="https://Rainsheep.github.io/articles/2020/02/29/1582959918244.html" rel="prev" class="breadcrumb">
+                        <a href="https://rainsheep.github.io/articles/2020/02/29/1582959918244.html" rel="prev" class="breadcrumb">
                             旧一篇: JSON 学习笔记
                         </a>
                     </div>
@@ -563,12 +563,14 @@ appendfsync everysec ： 每隔一秒进行一次持久化
 
                 <div class="module mobile__hidden fn__none">
                     <div class="module__content">
-                        <a href="https://Rainsheep.github.io/articles/2020/03/01/1583043885121.html" rel="next"
+                        <a href="https://rainsheep.github.io/articles/2020/03/01/1583043885121.html" rel="next"
                            class="breadcrumb">
                             新一篇: Maven 学习笔记
                         </a>
                     </div>
                 </div>
+                <div id="gitalk-container" class="module__content"
+                     style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"></div>
                 <div id="b3logsolocomments"></div>
                 <div id="vcomment" class="module__content"
                      style="border-radius: 5px;margin-bottom: 30px;box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);transition: all .3s;"
@@ -633,7 +635,7 @@ appendfsync everysec ： 每隔一秒进行一次持久化
             Rainsheep
         </header>
         <main class="module__content ft__center">
-            <img class="side__avatar" src="https://img.hacpai.com/avatar/1573792699119_1577275046042.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
+            <img class="side__avatar" src="https://b3logfile.com/avatar/1573792699119_1591777626791.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="Rainsheep"/>
             咸鱼不配拥有梦想 <br> <br>
     <a href="https://hacpai.com/member/Rainsheep"
        title="https://hacpai.com/member/Rainsheep"
@@ -671,185 +673,185 @@ appendfsync everysec ： 每隔一秒进行一次持久化
             <header class="module__header">标签</header>
             <main class="module__content--three module__content fn__clear">
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/acm"
+                       href="https://rainsheep.github.io/tags/acm"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="76 篇文章">
                         acm</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
+                       href="https://rainsheep.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="59 篇文章">
                         知识点总结</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/Java"
+                       href="https://rainsheep.github.io/tags/Java"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="29 篇文章">
+                       aria-label="31 篇文章">
                         Java</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       href="https://rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="24 篇文章">
-                        学习笔记</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%95%99%E7%A8%8B"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="23 篇文章">
+                       aria-label="26 篇文章">
                         软件教程</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/STL"
+                       href="https://rainsheep.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="25 篇文章">
+                        学习笔记</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/STL"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="20 篇文章">
                         STL</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/DP"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="15 篇文章">
-                        DP</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/windows"
+                       href="https://rainsheep.github.io/tags/windows"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="15 篇文章">
                         windows</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/Shadowsocks"
+                       href="https://rainsheep.github.io/tags/Linux"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="13 篇文章">
-                        Shadowsocks</a>
+                       aria-label="15 篇文章">
+                        Linux</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/ss"
+                       href="https://rainsheep.github.io/tags/DP"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="15 篇文章">
+                        DP</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/ss"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="13 篇文章">
                         ss</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       href="https://rainsheep.github.io/tags/Shadowsocks"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="9 篇文章">
+                       aria-label="13 篇文章">
+                        Shadowsocks</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/%E5%89%8D%E7%AB%AF"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="11 篇文章">
                         前端</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/Linux"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="7 篇文章">
-                        Linux</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%A0%91"
+                       href="https://rainsheep.github.io/tags/%E6%A0%91"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="6 篇文章">
                         树</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       href="https://rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="5 篇文章">
-                        数学问题</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E7%94%9F%E6%B4%BB%E8%BD%A8%E8%BF%B9"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="5 篇文章">
+                       aria-label="6 篇文章">
                         生活轨迹</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
+                       href="https://rainsheep.github.io/tags/%E6%A8%A1%E6%8B%9F"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="5 篇文章">
                         模拟</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%9B%BE"
+                       href="https://rainsheep.github.io/tags/%E6%95%B0%E5%AD%A6%E9%97%AE%E9%A2%98"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="5 篇文章">
+                        数学问题</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/%E5%9B%BE"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         图</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                       href="https://rainsheep.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         字符串</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
+                       href="https://rainsheep.github.io/tags/%E9%80%92%E5%BD%92"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         递归</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/python"
+                       href="https://rainsheep.github.io/tags/python"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="3 篇文章">
                         python</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/centos"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="2 篇文章">
-                        centos</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
+                       href="https://rainsheep.github.io/tags/%E9%80%92%E6%8E%A8"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="2 篇文章">
                         递推</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
+                       href="https://rainsheep.github.io/tags/%E5%BC%80%E6%BA%90"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="2 篇文章">
                         开源</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
+                       href="https://rainsheep.github.io/tags/%E6%B0%B4%E9%A2%98"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="2 篇文章">
                         水题</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/NOSQL"
+                       href="https://rainsheep.github.io/tags/centos"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        NOSQL</a>
+                       aria-label="2 篇文章">
+                        centos</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/html"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        html</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/dfs"
-                       class="tag vditor-tooltipped vditor-tooltipped__n"
-                       aria-label="1 篇文章">
-                        dfs</a>
-                    <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
+                       href="https://rainsheep.github.io/tags/%E7%A1%AC%E4%BB%B6"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         硬件</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                       href="https://rainsheep.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         数据库</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/bfs"
+                       href="https://rainsheep.github.io/tags/bfs"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         bfs</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
+                       href="https://rainsheep.github.io/tags/%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         资源搜索</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
+                       href="https://rainsheep.github.io/tags/%E5%9B%BE%E5%BA%8A"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         图床</a>
                     <a rel="tag"
-                       href="https://Rainsheep.github.io/tags/GitHub"
+                       href="https://rainsheep.github.io/tags/GitHub"
                        class="tag vditor-tooltipped vditor-tooltipped__n"
                        aria-label="1 篇文章">
                         GitHub</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/NOSQL"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        NOSQL</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/html"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        html</a>
+                    <a rel="tag"
+                       href="https://rainsheep.github.io/tags/dfs"
+                       class="tag vditor-tooltipped vditor-tooltipped__n"
+                       aria-label="1 篇文章">
+                        dfs</a>
             </main>
         </div>
 
     <div class="module item">
         <div class="module__header">
             <div class="fn__flex">
-                <a href="https://Rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
-                    211
+                <a href="https://rainsheep.github.io/archives.html" class="fn__flex-1 ft__center">
+                    227
                     文章
                 </a>
             </div>
             <br/>
             <div class="fn__flex">
                 <div class="fn__flex-1 ft__center">
-                    <span data-uvstaturl="https://Rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
+                    <span data-uvstaturl="https://rainsheep.github.io">3369</span> <span class="ft-gray">浏览</span>
                 </div>
             </div>
         </div>
@@ -861,47 +863,43 @@ appendfsync everysec ： 每隔一秒进行一次持久化
 <div class="icon__up" onclick="Util.goTop()"></div>
 <footer class="footer">
     &copy; 2020
-    <a href="https://Rainsheep.github.io">雨羊的个人博客</a>
+    <a href="https://rainsheep.github.io">雨羊的个人博客</a>
     <a href="http://www.beian.miit.gov.cn/" rel="noopener nofollow" target="_blank">豫ICP备19042440号</a>
     <div class="fn__none"></div>
-    <br/>
-
-    Powered by <a href="https://solo.b3log.org" target="_blank">Solo</a>
-    <div class="fn__none"></div>
-    &nbsp; &heartsuit;  &nbsp;
-    Theme nijigen
-    <sup>[<a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank">ref</a>]</sup>
-    by <a href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
 </footer>
 <div class="icon-up" onclick="Util.goTop()"></div>
 
 <script>
   var Label = {
-    servePath: "https://Rainsheep.github.io",
-    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources",
+    speech: false,
+    servePath: "https://rainsheep.github.io",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources",
     luteAvailable: true,
     hljsStyle: 'github',
     langLabel: "zh_CN",
-    version: "3.9.0",
+    version: "4.3.0",
     staticSite: true,
-    showCodeBlockLn: false,
+    showCodeBlockLn: true,
+    articleId: "1582997924952",
   }
 </script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/skins/nijigen/js/common.min.js?1584471619574" charset="utf-8"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources/skins/nijigen/js/common.min.js?1595344563647" charset="utf-8"></script>
 
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo/src/main/resources/js/page.min.js?1584471619574', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@fa541a0/src/main/resources/js/page.min.js?1595344563647', 'soloPageScript')
     var page = new Page({
-        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "commentContentCannotEmptyLabel": "评论不能为空",
         "oId": "1582997924952",
-        "blogHost": "https://Rainsheep.github.io",
+        "blogHost": "https://rainsheep.github.io",
         "randomArticles1Label": "随机阅读：",
         "externalRelevantArticles1Label": "站外相关阅读："
     });
     $(document).ready(function () {
         page.load();
     page.tips.externalRelevantArticlesDisplayCount = "0";
+    page.loadRandomArticles('<header class="module__header">随机阅读</header>');
+    page.loadRelevantArticles('1582997924952', '<header class="module__header">相关阅读</header>');
     Skin.initArticle()
     });
 </script>
@@ -909,4 +907,4 @@ appendfsync everysec ： 每隔一秒进行一次持久化
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 363ms, 2020/03/18 19:04:10 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 227ms, 2020/07/29 21:44:10 -->

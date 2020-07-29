@@ -2,108 +2,102 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>雨羊的个人博客</title>
-    <link>https://Rainsheep.github.io</link>
-    <atom:link href="https://Rainsheep.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    <link>https://rainsheep.github.io</link>
+    <atom:link href="https://rainsheep.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     <description>咸鱼不配拥有梦想</description>
-    <generator>Solo, v3.9.0, https://solo.b3log.org</generator>
-    <lastBuildDate>Wed, 18 Mar 2020 19:04:09 +0800</lastBuildDate>
+    <generator>Solo, v4.3.0, https://solo.b3log.org</generator>
+    <lastBuildDate>Wed, 29 Jul 2020 21:44:08 +0800</lastBuildDate>
     <language>zh-cn</language>
     <item>
-      <title>Vue 学习笔记</title>
-      <link>https://Rainsheep.github.io/articles/2020/03/18/1584528972534.html</link>
+      <title>毕业论文</title>
+      <link>https://rainsheep.github.io/articles/2020/07/29/1596030101076.html</link>
       <description/>
       <author>Rainsheep</author>
-      <guid>https://Rainsheep.github.io/articles/2020/03/18/1584528972534.html</guid>
+      <guid>https://rainsheep.github.io/articles/2020/07/29/1596030101076.html</guid>
+      <category>生活轨迹</category>
+      <pubDate>Wed, 29 Jul 2020 21:41:41 +0800</pubDate>
+    </item>
+    <item>
+      <title>github加速教程</title>
+      <link>https://rainsheep.github.io/articles/2020/07/29/1596029533938.html</link>
+      <description/>
+      <author>Rainsheep</author>
+      <guid>https://rainsheep.github.io/articles/2020/07/29/1596029533938.html</guid>
+      <category>软件教程</category>
+      <pubDate>Wed, 29 Jul 2020 21:32:13 +0800</pubDate>
+    </item>
+    <item>
+      <title>flex布局</title>
+      <link>https://rainsheep.github.io/articles/2020/07/26/1595731170747.html</link>
+      <description/>
+      <author>Rainsheep</author>
+      <guid>https://rainsheep.github.io/articles/2020/07/26/1595731170747.html</guid>
+      <category>前端</category>
+      <pubDate>Wed, 29 Jul 2020 10:13:27 +0800</pubDate>
+    </item>
+    <item>
+      <title>CSS 学习笔记</title>
+      <link>https://rainsheep.github.io/articles/2020/02/22/1582386564521.html</link>
+      <description/>
+      <author>Rainsheep</author>
+      <guid>https://rainsheep.github.io/articles/2020/02/22/1582386564521.html</guid>
       <category>学习笔记</category>
       <category>前端</category>
-      <pubDate>Wed, 18 Mar 2020 18:56:12 +0800</pubDate>
+      <pubDate>Tue, 21 Jul 2020 22:34:59 +0800</pubDate>
     </item>
     <item>
-      <title>SpringMVC 学习笔记</title>
-      <link>https://Rainsheep.github.io/articles/2020/03/10/1583771477763.html</link>
+      <title>个人vscode设置以及指令</title>
+      <link>https://rainsheep.github.io/articles/2019/12/04/1575442896111.html</link>
       <description/>
       <author>Rainsheep</author>
-      <guid>https://Rainsheep.github.io/articles/2020/03/10/1583771477763.html</guid>
-      <category>学习笔记</category>
-      <category>Java</category>
-      <pubDate>Wed, 18 Mar 2020 16:18:47 +0800</pubDate>
-    </item>
-    <item>
-      <title>Git 学习笔记</title>
-      <link>https://Rainsheep.github.io/articles/2020/03/13/1584091376522.html</link>
-      <description/>
-      <author>Rainsheep</author>
-      <guid>https://Rainsheep.github.io/articles/2020/03/13/1584091376522.html</guid>
-      <category>学习笔记</category>
-      <pubDate>Fri, 13 Mar 2020 17:22:56 +0800</pubDate>
-    </item>
-    <item>
-      <title>利用solo搭建个人博客</title>
-      <link>https://Rainsheep.github.io/articles/2019/11/26/1574768448759.html</link>
-      <description/>
-      <author>Rainsheep</author>
-      <guid>https://Rainsheep.github.io/articles/2019/11/26/1574768448759.html</guid>
-      <category>开源</category>
-      <pubDate>Thu, 12 Mar 2020 15:35:34 +0800</pubDate>
-    </item>
-    <item>
-      <title>Java学习笔记-基础篇(1)</title>
-      <link>https://Rainsheep.github.io/articles/2020/02/19/1582051510367.html</link>
-      <description/>
-      <author>Rainsheep</author>
-      <guid>https://Rainsheep.github.io/articles/2020/02/19/1582051510367.html</guid>
-      <category>Java</category>
-      <category>学习笔记</category>
-      <pubDate>Thu, 12 Mar 2020 00:43:58 +0800</pubDate>
-    </item>
-    <item>
-      <title>V2Ray+WebSocket+TLS+Nginx</title>
-      <link>https://Rainsheep.github.io/articles/2020/03/11/1583901747768.html</link>
-      <description/>
-      <author>Rainsheep</author>
-      <guid>https://Rainsheep.github.io/articles/2020/03/11/1583901747768.html</guid>
-      <category>Shadowsocks</category>
-      <category>ss</category>
-      <pubDate>Wed, 11 Mar 2020 12:46:37 +0800</pubDate>
-    </item>
-    <item>
-      <title>ssm 整合</title>
-      <link>https://Rainsheep.github.io/articles/2020/03/11/1583867371280.html</link>
-      <description/>
-      <author>Rainsheep</author>
-      <guid>https://Rainsheep.github.io/articles/2020/03/11/1583867371280.html</guid>
-      <category>学习笔记</category>
-      <category>Java</category>
-      <pubDate>Wed, 11 Mar 2020 03:09:31 +0800</pubDate>
-    </item>
-    <item>
-      <title>IDAE记录</title>
-      <link>https://Rainsheep.github.io/articles/2020/01/07/1578385176961.html</link>
-      <description/>
-      <author>Rainsheep</author>
-      <guid>https://Rainsheep.github.io/articles/2020/01/07/1578385176961.html</guid>
+      <guid>https://rainsheep.github.io/articles/2019/12/04/1575442896111.html</guid>
       <category>软件教程</category>
-      <category>知识点总结</category>
-      <pubDate>Mon, 09 Mar 2020 23:55:55 +0800</pubDate>
+      <pubDate>Mon, 20 Jul 2020 22:36:45 +0800</pubDate>
     </item>
     <item>
-      <title>Linux 学习笔记</title>
-      <link>https://Rainsheep.github.io/articles/2020/03/09/1583763466425.html</link>
+      <title>Ubuntu16.04安装微信</title>
+      <link>https://rainsheep.github.io/articles/2020/07/17/1594953338426.html</link>
       <description/>
       <author>Rainsheep</author>
-      <guid>https://Rainsheep.github.io/articles/2020/03/09/1583763466425.html</guid>
-      <category>学习笔记</category>
+      <guid>https://rainsheep.github.io/articles/2020/07/17/1594953338426.html</guid>
       <category>Linux</category>
-      <pubDate>Mon, 09 Mar 2020 22:17:46 +0800</pubDate>
+      <pubDate>Mon, 20 Jul 2020 21:04:33 +0800</pubDate>
     </item>
     <item>
-      <title>JSON 学习笔记</title>
-      <link>https://Rainsheep.github.io/articles/2020/02/29/1582959918244.html</link>
+      <title>添加普通用户到 sudo 组</title>
+      <link>https://rainsheep.github.io/articles/2020/07/20/1595241149790.html</link>
       <description/>
       <author>Rainsheep</author>
-      <guid>https://Rainsheep.github.io/articles/2020/02/29/1582959918244.html</guid>
-      <category>学习笔记</category>
-      <pubDate>Mon, 09 Mar 2020 18:30:05 +0800</pubDate>
+      <guid>https://rainsheep.github.io/articles/2020/07/20/1595241149790.html</guid>
+      <category>Linux</category>
+      <pubDate>Mon, 20 Jul 2020 18:32:29 +0800</pubDate>
+    </item>
+    <item>
+      <title>Ubuntu中sudo和su免密码设置</title>
+      <link>https://rainsheep.github.io/articles/2020/07/20/1595228564416.html</link>
+      <description/>
+      <author>Rainsheep</author>
+      <guid>https://rainsheep.github.io/articles/2020/07/20/1595228564416.html</guid>
+      <category>Linux</category>
+      <pubDate>Mon, 20 Jul 2020 15:28:35 +0800</pubDate>
+    </item>
+    <item>
+      <title>Ubuntu安装Chrome教程</title>
+      <link>https://rainsheep.github.io/articles/2020/07/20/1595228124635.html</link>
+      <description/>
+      <author>Rainsheep</author>
+      <guid>https://rainsheep.github.io/articles/2020/07/20/1595228124635.html</guid>
+      <category>Linux</category>
+      <pubDate>Mon, 20 Jul 2020 14:55:24 +0800</pubDate>
+    </item>
+    <item>
+      <title>Ubuntu最小化所有窗口</title>
+      <link>https://rainsheep.github.io/articles/2020/07/17/1594959812671.html</link>
+      <description/>
+      <author>Rainsheep</author>
+      <guid>https://rainsheep.github.io/articles/2020/07/17/1594959812671.html</guid>
+      <category>Linux</category>
+      <pubDate>Fri, 17 Jul 2020 12:23:32 +0800</pubDate>
     </item>
   </channel>
 </rss>
