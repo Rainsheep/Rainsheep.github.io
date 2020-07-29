@@ -6,8 +6,17 @@
     <atom:link href="https://rainsheep.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     <description>咸鱼不配拥有梦想</description>
     <generator>Solo, v4.3.0, https://solo.b3log.org</generator>
-    <lastBuildDate>Wed, 29 Jul 2020 21:44:08 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 22:22:30 +0800</lastBuildDate>
     <language>zh-cn</language>
+    <item>
+      <title>solo导出静态站点</title>
+      <link>https://rainsheep.github.io/articles/2020/07/29/1596030733146.html</link>
+      <description/>
+      <author>Rainsheep</author>
+      <guid>https://rainsheep.github.io/articles/2020/07/29/1596030733146.html</guid>
+      <category>solo</category>
+      <pubDate>Wed, 29 Jul 2020 21:52:13 +0800</pubDate>
+    </item>
     <item>
       <title>毕业论文</title>
       <link>https://rainsheep.github.io/articles/2020/07/29/1596030101076.html</link>
@@ -89,15 +98,6 @@
       <guid>https://rainsheep.github.io/articles/2020/07/20/1595228124635.html</guid>
       <category>Linux</category>
       <pubDate>Mon, 20 Jul 2020 14:55:24 +0800</pubDate>
-    </item>
-    <item>
-      <title>Ubuntu最小化所有窗口</title>
-      <link>https://rainsheep.github.io/articles/2020/07/17/1594959812671.html</link>
-      <description/>
-      <author>Rainsheep</author>
-      <guid>https://rainsheep.github.io/articles/2020/07/17/1594959812671.html</guid>
-      <category>Linux</category>
-      <pubDate>Fri, 17 Jul 2020 12:23:32 +0800</pubDate>
     </item>
   </channel>
 </rss>
